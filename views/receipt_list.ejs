@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %> this page is for displaying receipts</p>
+    <h2>Receipts</h2>
+    <ol>
+      <% for(let i = 0; i < receipt_list.length; i++) { %>
+      <li>
+        <strong>Description: </strong>
+        <%= receipt_list[i].description %>
+        <strong> Total:</strong>
+        <%= "$" +receipt_list[i].total %>
+        <strong> Date:</strong>
+        <%= receipt_list[i].date %>
+      </li>
+      <% } %>
+    </ol>
+  </body>
+</html>
