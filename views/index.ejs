@@ -4,12 +4,24 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
+
+  <%- include('header'); -%>
   <body>
     <h1><%= title %></h1>
     <p>
-      Welcome to <%= title %> this website is to help catalog and track
+      Welcome to <%= title %>. This website is to help catalog and track
       spendings, savings, and finances. To better help you organize your
       finances.
     </p>
+    <h2>To get started you must first login or create a login</h2>
+    <form>
+      <input type="text" placeholder="Username" name="userName" />
+    </br>
+      <input type="password" placeholder="******" name="passCode" />
+  </br>
+      <button type="submit">Submit</button>
+    </form>
+    <p>Don't have a login? Create One...</p>
+    <button>Sign Up</button>
   </body>
 </html>

@@ -4,6 +4,7 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
+  <%- include('header'); -%>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %> this page is for displaying receipts</p>
@@ -14,11 +15,21 @@
         <strong>Description: </strong>
         <%= receipt_list[i].description %>
         <strong> Total:</strong>
-        <%= "$" +receipt_list[i].total %>
-        <strong> Date:</strong>
-        <%= receipt_list[i].date %>
+        <%= "$" + receipt_list[i].total %>
+        <a id="receipt_det" href="/catalog/receipt/<%= receipt_list[i]._id %>">Details</a>
       </li>
       <% } %>
     </ol>
+    
+    <% let total = 0; %>
+    <% for(let i = 0; i < receipt_list.length; i++) { %> 
+     <% total += receipt_list[i].total; %> 
+    <% } %>
+    <% function round(value, decimals) { %>
+      <% return Number(Math.round(value +'e'+ decimals) +'e-'+ decimals).toFixed(decimals); %>
+    <% } %>
+
+    <h2>Receipt Totals: $<%=round(total, 2);%></h2>
+    <a href="receipt/create">Add New Receipt</a>
   </body>
 </html>

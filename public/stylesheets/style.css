@@ -8,3 +8,36 @@ h1 {
 a {
   color: #00b7ff;
 }
+/*NAVBAR STYLING*/
+.navbar {
+  display: grid;
+  grid-template-rows: [row1] 100%;
+  grid-template-columns: [navtitle] 50% [link1] 25% [link2] 25%;
+  grid-template-areas: "navtitle link1 link2";
+  margin: 20px 0px 50px 0px;
+}
+.navbar a {
+  text-decoration: none;
+  padding: 15px;
+  margin: 5px;
+}
+.navbar a:hover {
+  color: blue;
+}
+.navTitle {
+  grid-area: navtitle;
+  margin: 0px 0px 0px 80px;
+  color: blue;
+}
+.links {
+  font-size: 20px;
+  align-self: center;
+  margin-left: 30px;
+  width: 120%;
+}
+.linkHome {
+  grid-area: link1;
+}
+.linkReceipt {
+  grid-area: link2;
+}
