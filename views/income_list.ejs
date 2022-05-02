@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <%- include("header") %>
+
+  <h1><%= title %></h1>
+  <body>
+    <% let total = 0; %>
+    <ol>
+      <% for(let i = 0; i < results.length; i++){ %>
+      <li>
+        <strong>Description: </strong>
+        <%= results[i].description %>
+        <strong>Received From: </strong>
+        <%= results[i].from %>
+        <strong>Date: </strong>
+        <%= results[i].date_formatted %>
+        <strong>Amount: </strong>
+        <%= results[i].amount %>
+      </li>
+      <% total += results[i].amount %> <% } %>
+      <h1>Total:</h1>
+      <%= total %>
+    </ol>
+  </body>
+</html>

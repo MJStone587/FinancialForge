@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Receipt Update</title>
+  </head>
+  <body>
+    <%- include("header") %>
+    <h1><%= title %></h1>
+
+    <form action="" method="POST">
+      <input type="text" name="name" value="<%= results.name %>" />
+      </br>
+      <input type="text" value="<%= results.description%>" name="description" />
+      </br>
+      <input type="radio" id="debit" name="paymentType" value=" Debit"/>
+      <label for="debit">Debit</label>
+      <input type="radio" id="credit" name="paymentType" value="Credit"/>
+      <label for="credit">Credit</label>
+      <input type="radio" id="cash" name="paymentType" value=" Cash" />
+      <label for="cash">Cash</label>
+      <input type="radio" id="check" name="paymentType" value=" Check"/>
+      <label for="check">Check</label>
+      <input type="radio" id="giftcard" name="paymentType" value="Gift Card"/>
+      <label for="giftCard">Gift Card</label>
+      <input type="radio" id="banktransfer" name="paymentType" Value="Bank Transfer" />
+      <label for="banktransfer">Bank Transfer</label>
+    </br>
+      <input type="text" name="ccName" value="<%= results.ccName %>"/></br>
+      <input type="date" name="date" value="<%= results.date_adjusted %>"/>
+  </br>
+  <input type="number" value="<%= results.total %>" name="total" step="0.01" required="true"/></br>
+      <input type="submit" value="Update"/>
+    </form>
+  </body>
+</html>

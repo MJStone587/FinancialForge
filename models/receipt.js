@@ -23,7 +23,11 @@ ReceiptSchema.virtual("url").get(function () {
 });
 
 ReceiptSchema.virtual("date_formatted").get(function () {
-  return DateTime.fromJSDate(this.date).toLocaleString(DateTime.DATE_MED);
+  return DateTime.fromJSDate(this.date).toLocaleString(DateTime.DATE_SHORT);
+});
+
+ReceiptSchema.virtual("date_adjusted").get(function () {
+  return this.date.toLocaleDateString("en-CA");
 });
 
 module.exports = mongoose.model("Receipt", ReceiptSchema);

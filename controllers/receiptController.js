@@ -1,7 +1,5 @@
 const Receipt = require("../models/receipt");
 const { body, validationResult } = require("express-validator");
-const receipt = require("../models/receipt");
-const { redirect } = require("express/lib/response");
 
 exports.index = function (req, res) {
   res.render("index", { title: "Financial Organizer" });
@@ -115,12 +113,35 @@ exports.receipt_delete_post = function (req, res) {
     res.redirect("/catalog/receipts");
   });
 };
+
 exports.receipt_update_get = function (req, res, next) {
   Receipt.findById(req.params.id, function (err, results) {
     if (err) {
       return next(err);
     } else {
-      res.render("receipt_update");
+      res.render("receipt_update", {
+        title: "Receipt Update",
+        results: results,
+      });
+    }
+  });
+};
+
+exports.receipt_update_post = function (req, res, next) {
+  var receipt = new Receipt({
+    name: req.body.name,
+    description: req.body.description,
+    paymentType: req.body.paymentType,
+    ccName: req.body.ccName,
+    date: req.body.date,
+    total: req.body.total,
+    _id: req.params.id, //This is required, or a new ID will be assigned!
+  });
+  Receipt.findByIdAndUpdate(req.params.id, receipt, function (err) {
+    if (err) {
+      return next(err);
+    } else {
+      res.redirect("/catalog/receipts");
     }
   });
 };

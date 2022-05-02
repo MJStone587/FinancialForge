@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const receipt_controller = require("../controllers/receiptController");
+const income_controller = require("../controllers/incomeController");
 
 // GET Catalog Homepage
 router.get("/", receipt_controller.index);
@@ -21,5 +22,36 @@ router.get("/receipt/:id/delete", receipt_controller.receipt_delete_get);
 //POST request for deleting a receipt
 router.post("/receipt/:id/delete", receipt_controller.receipt_delete_post);
 
+router.get("/receipt/:id/update", receipt_controller.receipt_update_get);
+
+router.post("/receipt/:id/update", receipt_controller.receipt_update_post);
+
 router.get("/receipt/:id", receipt_controller.receipt_detail);
+
+router.get("/receipts", receipt_controller.receipt_list);
+
+// GET request for creating new income THIS MUST BE BEFORE ANY REQUEST USING ID param
+router.get("/income/create", income_controller.income_create_get);
+
+// POST request for new income
+router.post("/income/create", income_controller.income_create_post);
+
+// GET request for deleting an income
+router.get("/income/:id/delete", income_controller.income_delete_get);
+
+//POST request for deleting an income
+router.post("/income/:id/delete", income_controller.income_delete_post);
+
+//GET request for updating an income
+router.get("/income/:id/update", income_controller.income_update_get);
+
+//POST request for updating an income
+router.post("/income/:id/update", income_controller.income_update_post);
+
+//GET request for detail of income
+router.get("/income/:id", income_controller.income_detail);
+
+//GET request for list of all incomes
+router.get("/incomes", income_controller.income_list);
+
 module.exports = router;
