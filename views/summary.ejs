@@ -7,7 +7,53 @@
     <title>Document</title>
   </head>
   <%- include("header") %>
+  <h1><%= title %></h1>
   <body>
-    <h1>Summary</h1>
+    <h2>Incomes</h2>
+    <% let total = 0; %> <% let balance = 0 %>
+    <ol class="income_list">
+      <% for(let i = 0; i < incomes.length; i++){ %>
+      <li>
+        <strong>Name: </strong>
+        <%= incomes[i].name %>
+        <strong>Description: </strong>
+        <%= incomes[i].description %>
+        <strong>Received From: </strong>
+        <%= incomes[i].from %>
+        <strong>Date: </strong>
+        <%= incomes[i].date_formatted %>
+        <strong>Amount: </strong>
+        <%= incomes[i].amount %>
+        <a href="/catalog/income/<%= incomes[i]._id %>">Details</a>
+      </li>
+      </li>
+      <% total += incomes[i].amount %> <% } %> <% function round(value,
+      decimals) { %> <% return Number(Math.round(value +'e'+ decimals) +'e-'+
+      decimals).toFixed(decimals); %> <% } %>
+
+      <h2>Income Total: $<%= round(total,2) %></h2>
+    </ol>
+    <h2>Receipts</h2>
+    <ol class="receipt_list">
+      <% for(let i = 0; i < receipts.length; i++) { %>
+      <li>
+        <strong>Description: </strong>
+        <%= receipts[i].description %>
+        <strong>Total: </strong>
+        <%= "$" + receipts[i].total %>
+        <a href="/catalog/receipt/<%= receipts[i]._id %>">Details</a>
+      </li>
+      <% } %>
+    </ol>
+
+    <% let total_amt = 0; %> <% for(let i = 0; i < receipts.length; i++) { %> <%
+    total_amt += receipts[i].total; %> <% } %> <% function round(value,
+    decimals) { %> <% return Number(Math.round(value +'e'+ decimals) +'e-'+
+    decimals).toFixed(decimals); %> <% } %>
+
+    <h2>Receipt Totals: $<%=round(total_amt, 2);%></h2>
+    
+    <% balance = total -total_amt %>
+    <h1>Balance = $<%= round(balance, 2); %></h1>
   </body>
 </html>
