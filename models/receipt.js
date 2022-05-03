@@ -14,6 +14,7 @@ let ReceiptSchema = new Schema({
     type: String,
     required: false,
   },
+  author: { type: Schema.Types.ObjectId, ref: "User" },
   date: { type: Date, required: false },
   total: { type: Number },
 });

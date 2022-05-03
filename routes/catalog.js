@@ -3,6 +3,7 @@ const router = express.Router();
 
 const receipt_controller = require("../controllers/receiptController");
 const income_controller = require("../controllers/incomeController");
+const summary_controller = require("../controllers/summaryController");
 
 // GET Catalog Homepage
 router.get("/", receipt_controller.index);
@@ -53,5 +54,7 @@ router.get("/income/:id", income_controller.income_detail);
 
 //GET request for list of all incomes
 router.get("/incomes", income_controller.income_list);
+
+router.get("/summary", summary_controller.summary_full);
 
 module.exports = router;

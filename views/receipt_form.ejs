@@ -6,31 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Receipt Form</title>
   </head>
+  <%- include("header") %>
   <h1><%= title %></h1>
   <body>
     <form action="" method="POST">
       <input type="text" placeholder="Name" name="name" />
-      </br>
       <input type="text" placeholder="Description" name="description" />
-      </br>
-      <input type="radio" id="debit" name="paymentType" value=" Debit"/>
+      <input type="radio" id="debit" name="paymentType" value=" Debit" />
       <label for="debit">Debit</label>
-      <input type="radio" id="credit" name="paymentType" value="Credit"/>
+      <input type="radio" id="credit" name="paymentType" value="Credit" />
       <label for="credit">Credit</label>
       <input type="radio" id="cash" name="paymentType" value=" Cash" />
       <label for="cash">Cash</label>
-      <input type="radio" id="check" name="paymentType" value=" Check"/>
+      <input type="radio" id="check" name="paymentType" value=" Check" />
       <label for="check">Check</label>
-      <input type="radio" id="giftcard" name="paymentType" value="Gift Card"/>
+      <input type="radio" id="giftcard" name="paymentType" value="Gift Card" />
       <label for="giftCard">Gift Card</label>
-      <input type="radio" id="banktransfer" name="paymentType" Value="Bank Transfer" />
+      <input
+        type="radio"
+        id="banktransfer"
+        name="paymentType"
+        Value="Bank Transfer"
+      />
       <label for="banktransfer">Bank Transfer</label>
-    </br>
-      <input type="text" placeholder="Card Name" name="ccName" /></br>
-      <input type="date" name="date"/>
-  </br>
-  <input type="number" name="total" step="0.01" required="true"/></br>
-      <input type="submit" value="Submit"/>
+      <input type="text" placeholder="Card Name" name="ccName" />
+      <input type="date" name="date" />
+      <label>Total:</label>
+      <input type="number" name="total" step="0.01" required="true" />
+      <input type="submit" value="Submit" />
     </form>
   </body>
 </html>

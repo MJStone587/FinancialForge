@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <%- include("header") %>
+  <body>
+    <h1><%= title %></h1>
+    <form action="" method="POST">
+      <input type="text" name="name" value="<%= results.name %>" />
+      <input
+        type="text"
+        value="<%= results.description %>"
+        name="description"
+      />
+      <input type="text" name="from" value="<%= results.from %>" />
+      <input type="date" name="date" />
+      <input
+        type="number"
+        name="amount"
+        step="0.01"
+        required="true"
+        value="<%= results.amount %>"
+      />
+      <input type="hidden" value="<%= results._id %>" />
+      <input type="submit" value="Update Income" />
+    </form>
+  </body>
+</html>

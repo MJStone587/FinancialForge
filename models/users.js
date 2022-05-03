@@ -9,5 +9,6 @@ let UserSchema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   birthDay: { type: Date, required: true },
-  receipts: [{ type: Schema.Types.ObjectId, ref: "Receipt" }],
 });
+
+module.exports = mongoose.model("User", UserSchema);

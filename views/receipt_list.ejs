@@ -12,10 +12,8 @@
     <ol>
       <% for(let i = 0; i < receipt_list.length; i++) { %>
       <li>
-        <strong>Description: </strong>
-        <%= receipt_list[i].description %>
-        <strong> Total:</strong>
-        <%= "$" + receipt_list[i].total %>
+        <h3>Description: <em><%= receipt_list[i].description %></em> </h3>
+        <h3> Total: <em><%= "$" + receipt_list[i].total %></em></h3>
         <a id="receipt_det" href="/catalog/receipt/<%= receipt_list[i]._id %>">Details</a>
       </li>
       <% } %>

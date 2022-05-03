@@ -14,6 +14,8 @@
     <ol>
       <% for(let i = 0; i < results.length; i++){ %>
       <li>
+        <strong>Name: </strong>
+        <%= results[i].name %>
         <strong>Description: </strong>
         <%= results[i].description %>
         <strong>Received From: </strong>
@@ -22,10 +24,16 @@
         <%= results[i].date_formatted %>
         <strong>Amount: </strong>
         <%= results[i].amount %>
+        <a id="income_det" href="/catalog/income/<%= results[i]._id %>"
+          >Details</a
+        >
       </li>
-      <% total += results[i].amount %> <% } %>
-      <h1>Total:</h1>
-      <%= total %>
+      <% total += results[i].amount %> <% } %> <% function round(value,
+      decimals) { %> <% return Number(Math.round(value +'e'+ decimals) +'e-'+
+      decimals).toFixed(decimals); %> <% } %>
+
+      <h1>Total: $<%= round(total,2) %></h1>
     </ol>
+    <a href="/catalog/income/create">Create New Income</a>
   </body>
 </html>
