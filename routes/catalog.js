@@ -3,7 +3,8 @@ const router = express.Router();
 
 const receipt_controller = require("../controllers/receiptController");
 const income_controller = require("../controllers/incomeController");
-const summary_controller = require("../controllers/summaryController");
+const summary_controller = require("../controllers/summaryController.js");
+const user_controller = require("../controllers/userController");
 
 // GET Catalog Homepage
 router.get("/", receipt_controller.index);
@@ -55,6 +56,15 @@ router.get("/income/:id", income_controller.income_detail);
 //GET request for list of all incomes
 router.get("/incomes", income_controller.income_list);
 
+//GET request for sumamry page
 router.get("/summary", summary_controller.summary_full);
+
+//GET request for user creation page
+router.get("/user/create", user_controller.user_create_get);
+
+//POST request for creating new user
+router.post("/user/create", user_controller.user_create_post);
+
+router.get("/user/:id", user_controller.user_detail_get);
 
 module.exports = router;
