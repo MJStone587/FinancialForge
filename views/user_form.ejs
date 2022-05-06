@@ -35,5 +35,8 @@
       <input type="date" id="bDay" name="birthDay" />
       <input type="submit" value="Submit" />
     </form>
+    <% if(typeof errors !== "undefined") { %>
+    <h1 class="error_report">ERROR: <%= errors %></h1>
+    <% }%>
   </body>
 </html>

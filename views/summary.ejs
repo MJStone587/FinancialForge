@@ -8,21 +8,17 @@
     <title>Document</title>
   </head>
   <%- include("header") %>
-  <h1><%= title %></h1>
+  <h1 class="summary_title"><%= title %></h1>
   <body>
-    <h2>Incomes</h2>
+    <h2>Incomes:</h2>
     <% let total = 0; %> <% let balance = 0 %>
-    <ol class="income_list">
+    <ol class="summary_income">
       <% for(let i = 0; i < incomes.length; i++){ %>
       <li>
         <strong>Name: </strong>
         <%= incomes[i].name %>
         <strong>Description: </strong>
         <%= incomes[i].description %>
-        <strong>Received From: </strong>
-        <%= incomes[i].from %>
-        <strong>Date: </strong>
-        <%= incomes[i].date_formatted %>
         <strong>Amount: </strong>
         <%= incomes[i].amount %>
         <a href="/catalog/income/<%= incomes[i]._id %>">Details</a>
@@ -31,13 +27,16 @@
       <% total += incomes[i].amount %> <% } %> <% function round(value,
       decimals) { %> <% return Number(Math.round(value +'e'+ decimals) +'e-'+
       decimals).toFixed(decimals); %> <% } %>
-
-      <h2>Income Total: $<%= round(total,2) %></h2>
     </ol>
-    <h2>Receipts</h2>
-    <ol class="receipt_list">
+    <h2>Income Total: $<%= round(total,2) %></h2>
+
+
+    <h2>Receipts:</h2>
+    <ol class="summary_receipt">
       <% for(let i = 0; i < receipts.length; i++) { %>
       <li>
+        <strong>Name: </strong>
+        <%= receipts[i].name %>
         <strong>Description: </strong>
         <%= receipts[i].description %>
         <strong>Total: </strong>

@@ -48,3 +48,18 @@ a {
   border-radius: 5px;
   margin-bottom: 20px;
 }
+.summary_title {
+  border-bottom: 1px solid black;
+}
+.summary_income {
+  overflow: scroll;
+  box-shadow: 1px 1px 1px 1px black;
+  padding: 20px;
+  max-height: 40vh;
+}
+.summary_receipt {
+  overflow: scroll;
+  box-shadow: 1px 1px 1px 1px black;
+  padding: 20px;
+  max-height: 40vh;
+}
