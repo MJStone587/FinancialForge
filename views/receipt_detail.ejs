@@ -4,30 +4,28 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
-  <%- include('header'); -%>
+  <%- include("navbar"); -%>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %> this page is for displaying receipts</p>
     <h2><%= results.name %></h2>
-    <ol>
-      <li>
-        <strong> Description:</strong>
-        <%= results.description %>
-        <strong> Credit Card:</strong>
-        <%= results.ccName %>
-        <strong> Payment Type:</strong>
-        <%= results.paymentType %>
-        <strong> Total:</strong>
-        <%= "$" + results.total %>
-        <strong>Date: </strong>
-        <%= results.date_formatted %>
-        <a id="receipt_del" href="/catalog/receipt/<%= results._id %>/delete"
-          >Delete</a
-        >
-        <a id="receipt_upd" href="/catalog/receipt/<%= results._id %>/update"
-          >Update</a
-        >
-      </li>
-    </ol>
+    <strong> Description:</strong>
+    <%= results.description %>
+    <strong> Credit Card:</strong>
+    <%= results.ccName %>
+    <strong> Payment Type:</strong>
+    <%= results.paymentType %>
+    <strong> Total:</strong>
+    <%= "$" + results.total %>
+    <strong>Date:</strong>
+    <%= results.date_month %>
+    
+  </br>
+    <a id="receipt_del" href="/catalog/receipt/<%= results._id %>/delete"
+      >Delete</a
+    >
+    <a id="receipt_upd" href="/catalog/receipt/<%= results._id %>/update"
+      >Update</a
+    >
   </body>
 </html>

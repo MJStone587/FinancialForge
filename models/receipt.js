@@ -31,4 +31,8 @@ ReceiptSchema.virtual("date_adjusted").get(function () {
   return this.date.toLocaleDateString("en-CA");
 });
 
+ReceiptSchema.virtual("date_month").get(function () {
+  return DateTime.fromJSDate(this.date).monthLong;
+});
+
 module.exports = mongoose.model("Receipt", ReceiptSchema);

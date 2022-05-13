@@ -88,12 +88,10 @@ exports.user_create_post = [
                 return next(err);
               }
               // Receipt saved. Redirect to genre detail page.
-              res.render("user_success", {
-                title: req.body.userName,
+              res.render("index", {
+                title:
+                  "Success " + req.body.userName + " Successfully registered",
               });
-              setTimeout(function () {
-                console.log("Redirect To New Page");
-              }, 3000);
             });
           }
         });

@@ -1,45 +1,179 @@
+html {
+  margin: 0;
+  width: 100vw;
+  background-color: #f9feff;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-h1 {
-  color: red;
-}
-a {
-  color: #00b7ff;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 /*NAVBAR STYLING*/
 .navbar {
   display: grid;
   grid-template-rows: [row1] 100%;
-  grid-template-columns: [navtitle] 50% [link1] 25% [link2] 25%;
-  grid-template-areas: "navtitle link1 link2";
-  margin: 20px 0px 50px 0px;
+  grid-template-columns: [navtitle] 64% [link1] 6% [link2] 6% [link3] 6% [link4] 6% [link5] 6% [link6] 6%;
+  grid-template-areas: "navtitle link1 link2 link3 link4 link5 link6";
+  margin: 20px 75px 0px 75px;
+  height: 50px;
+  place-items: center;
 }
 .navbar a {
   text-decoration: none;
-  padding: 15px;
-  margin: 5px;
+  font-size: 16px;
 }
 .navbar a:hover {
-  color: blue;
+  color: #355ec4;
 }
 .navTitle {
-  grid-area: navtitle;
-  margin: 0px 0px 0px 80px;
-  color: blue;
-}
-.links {
-  font-size: 20px;
   align-self: center;
-  margin-left: 30px;
-  width: 120%;
+  font-size: 30px;
+  grid-area: navtitle;
+  margin: 0px 0px 0px 75px;
+  color: #4edff9;
+  -webkit-text-stroke: 1px #355ec4;
+  justify-self: start;
 }
 .linkHome {
   grid-area: link1;
+  justify-self: start;
+  color: #16253d;
 }
 .linkReceipt {
   grid-area: link2;
+  justify-self: start;
+  color: #16253d;
+}
+.linkIncome {
+  grid-area: link3;
+  justify-self: start;
+}
+.linkSummary {
+  grid-area: link4;
+  justify-self: start;
+  color: #16253d;
+}
+.signIn {
+  grid-area: link5;
+  justify-self: center;
+  color: #16253d;
+}
+.signUp {
+  grid-area: link6;
+  color: #4edff9;
+  border: 1px solid #4edff9;
+  border-radius: 20px;
+  padding: 20px;
+  justify-self: start;
+}
+.signUp:hover {
+  border: 1px solid #355ec4;
+}
+.index_body i {
+  font-size: 25px;
+  background-color: #4edff9;
+  color: #355ec4;
+  padding: 15px;
+  border-radius: 25px;
+}
+.index_header {
+  display: grid;
+  grid-template-rows: [row1] 60% [row2] 30% [row3] 10%;
+  grid-template-columns: [col1] 50% [col2] 50%;
+  grid-template-areas:
+    "headerTitle  headerImg"
+    "headerSignup headerImg"
+    ".  headerCapt";
+  background-color: white;
+  margin: 20px 75px 0px 75px;
+}
+.index_header #headerImg {
+  grid-area: headerImg;
+  max-width: 50vw;
+  max-height: 70vh;
+  justify-self: center;
+}
+.index_header #headerTitle {
+  grid-area: headerTitle;
+  align-self: end;
+  padding-left: 75px;
+}
+.index_header #index_signupBar {
+  border: 1px solid black;
+}
+.index_header #index_imgCaption {
+  grid-area: headerCapt;
+  place-self: center;
+}
+.index_header #headerText {
+  grid-area: headerSignup;
+  font-size: 18px;
+  justify-self: center;
+  align-self: start;
+  padding-right: 75px;
+}
+.index_header #header_signupBtn {
+  grid-area: headerSignup;
+  color: white;
+  border: 1px solid #ffec03;
+  text-decoration: none;
+  background-color: #ffa603;
+  padding: 14px;
+  border-radius: 25px;
+  justify-self: center;
+  align-self: start;
+  margin-left: 275px;
+}
+.index_header #header_signupBtn:hover {
+  background-color: #ffec03;
+  color: black;
+  border: 1px solid #ffa603;
+}
+.index_body {
+  display: grid;
+  grid-template-rows: [row1] 100%;
+  grid-template-columns: [col1] 33.34% [col2] 33.34% [col3] 33.34%;
+  grid-template-areas: "bodyBox1 bodyBox2 bodyBox3";
+  margin: 30px 75px 0px 75px;
+}
+.index_bodyBox {
+  display: grid;
+  grid-template-rows: [row1] 70% [row2] 30%;
+  grid-template-columns: [col1] 30% [col2] 70%;
+  grid-template-areas:
+    "elemI bodyBoxH1"
+    "elemI bodyBoxP";
+  row-gap: 0px;
+}
+.bodyBox_h1 {
+  grid-area: bodyBoxH1;
+  justify-self: start;
+  font-size: 25px;
+  align-self: end;
+}
+.index_body p {
+  grid-area: bodyBoxP;
+  padding: 0px 0px 40px 0px;
+  margin: 0px 0px 40px 0px;
+  justify-self: start;
+  align-self: start;
+  font-size: 14px;
+}
+.elem_i {
+  grid-area: elemI;
+  place-self: center;
+}
+.box1 {
+  grid-area: bodyBox1;
+  background-color: white;
+  border-right: 2px solid rgba(128, 128, 128, 0.479);
+}
+.box2 {
+  grid-area: bodyBox2;
+  background-color: white;
+  border-right: 2px solid rgba(128, 128, 128, 0.479);
+}
+.box3 {
+  grid-area: bodyBox3;
+  background-color: white;
 }
 .display_card {
   display: grid;
@@ -53,13 +187,17 @@ a {
 }
 .summary_income {
   overflow: scroll;
-  box-shadow: 1px 1px 1px 1px black;
-  padding: 20px;
-  max-height: 40vh;
+  padding: 10px 0px 100px 100px;
+  height: 35vh;
 }
 .summary_receipt {
   overflow: scroll;
-  box-shadow: 1px 1px 1px 1px black;
-  padding: 20px;
+  padding: 10px 0px 100px 100px;
   max-height: 40vh;
+}
+.summary_incomeTotal {
+  border-bottom: 1px solid black;
+}
+.summary_receiptTotal {
+  border-bottom: 1px solid black;
 }
