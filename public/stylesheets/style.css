@@ -28,9 +28,9 @@ body {
   font-size: 30px;
   grid-area: navtitle;
   margin: 0px 0px 0px 75px;
-  color: #4edff9;
-  -webkit-text-stroke: 1px #355ec4;
+  -webkit-text-stroke: 1px #4edff9;
   justify-self: start;
+  color: #355ec4;
 }
 .linkHome {
   grid-area: link1;
