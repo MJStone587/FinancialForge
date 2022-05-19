@@ -13,7 +13,7 @@ exports.receipt_list = function (req, res) {
         return next(err);
       } else {
         res.render("receipt_list", {
-          title: "Receipt List",
+          title: "Expenses",
           receipt_list: list_receipt,
         });
       }

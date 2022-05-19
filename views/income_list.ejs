@@ -9,8 +9,14 @@
   </head>
   <%- include("navbar") %>
 
-  <h1><%= title %></h1>
   <body>
+    <div class="incomeHeader">
+      <h1 class="incomeHeader_h1">Income</h1>
+      <p class="incomeHeader_p">
+        Here you can review, edit, delete, and add income
+      </p>
+      <img class="incomeHeader_img" src="/images/incomePage.png" />
+    </div>
     <% let total = 0; %>
     <ol>
       <% for(let i = 0; i < results.length; i++){ %>
@@ -33,4 +39,5 @@
     </ol>
     <a href="/catalog/income/create">Create New Income</a>
   </body>
+  <%- include("footer"); %>
 </html>

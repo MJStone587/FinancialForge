@@ -1,6 +1,6 @@
 html {
   margin: 0;
-  width: 100vw;
+  width: 100%;
   background-color: #f9feff;
 }
 body {
@@ -16,6 +16,15 @@ body {
   height: 50px;
   place-items: center;
 }
+.navLogo {
+  grid-area: navtitle;
+  height: 50px;
+  width: 50px;
+  justify-self: start;
+  align-self: center;
+  margin-left: 75px;
+  border-radius: 25px;
+}
 .navbar a {
   text-decoration: none;
   font-size: 16px;
@@ -27,10 +36,13 @@ body {
   align-self: center;
   font-size: 30px;
   grid-area: navtitle;
-  margin: 0px 0px 0px 75px;
-  -webkit-text-stroke: 1px #4edff9;
+  margin: 0px 0px 0px 125px;
   justify-self: start;
   color: #355ec4;
+  -webkit-text-stroke: 1px #4edff9;
+}
+.navTitle span {
+  color: #4edff9;
 }
 .linkHome {
   grid-area: link1;
@@ -66,6 +78,32 @@ body {
 }
 .signUp:hover {
   border: 1px solid #355ec4;
+}
+.site_footer {
+  display: grid;
+  grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
+  grid-template-rows: [row1] 100%;
+  grid-template-areas: "fLogo fCol1 fCol2 fCol3";
+  margin-top: 100px;
+  border-top: 1px solid #4edff94f;
+  width: 100%;
+}
+.footer_logo {
+  grid-area: fLogo;
+  place-self: center;
+}
+.footer_logo img {
+  height: 200px;
+  width: 245px;
+}
+.footer_col1 {
+  grid-area: fCol1;
+}
+.footer_col2 {
+  grid-area: fCol2;
+}
+.footer_col3 {
+  grid-area: fCol3;
 }
 .index_body i {
   font-size: 25px;
@@ -174,6 +212,118 @@ body {
 .box3 {
   grid-area: bodyBox3;
   background-color: white;
+}
+/*Receipt Page*/
+.receiptHeader {
+  display: grid;
+  grid-template-rows: [row1] 50% [row2] 50%;
+  grid-template-columns: [col1] 50% [col2] 50%;
+  grid-template-areas:
+    "rHeaderH1 rHeaderImg"
+    "rHeaderP rHeaderImg";
+  margin: 20px 100px 0px 100px;
+}
+
+.receiptHeader_img {
+  grid-area: rHeaderImg;
+  height: 60vh;
+  width: 40vw;
+}
+.receiptHeader_p {
+  grid-area: rHeaderP;
+  justify-self: center;
+  align-self: start;
+  font-size: 17px;
+}
+.receiptHeader_h1 {
+  grid-area: rHeaderH1;
+  align-self: end;
+  justify-self: center;
+  font-size: 35px;
+}
+.receiptBody {
+  display: grid;
+  grid-template-columns: [col1] 33% [col2] 33% [col3] 33%;
+  margin: 50px 100px 0px 100px;
+}
+.receiptBody_list {
+  display: grid;
+  grid-template-columns: [col1] 35% [col2] 65%;
+  grid-template-rows: [row1] 33% [row2] 33% [row3] 33%;
+  grid-template-areas:
+    "rBodyImg rBodyTitle"
+    "rBodyImg rBodyAmt"
+    "rBodyImg .";
+  margin: 0px 5px 5px 0px;
+  max-height: 175px;
+  box-shadow: 1px 1px 1px 1px rgba(80, 80, 80, 0.404);
+}
+.fa-receipt {
+  grid-area: rBodyImg;
+  place-self: center;
+  font-size: 30px;
+  background-color: #4edff9;
+  color: #355ec4;
+  padding: 15px;
+  border-radius: 25px;
+}
+.receiptBody_title {
+  grid-area: rBodyTitle;
+  font-size: 20px;
+}
+.receiptBody_amt {
+  grid-area: rBodyAmt;
+  font-size: 15px;
+}
+.receiptBody_date {
+  grid-area: rBodyAmt;
+  font-size: 15px;
+  justify-self: center;
+}
+.receiptBody #receipt_det {
+  place-self: center;
+  grid-area: rBodyAmt;
+  text-decoration: none;
+  border: 1px solid #ffec03;
+  color: white;
+  padding: 7px;
+  border-radius: 10px;
+  background-color: #ffa603;
+  justify-self: end;
+  margin-right: 10px;
+  font-size: 12px;
+}
+.receiptBody #receipt_det:hover {
+  background-color: #ffec03;
+  color: black;
+  border: 1px solid #ffa603;
+}
+.incomeHeader {
+  display: grid;
+  grid-template-rows: [row1] 50% [row2] 50%;
+  grid-template-columns: [col1] 50% [col2] 50%;
+  grid-template-areas:
+    "rHeaderH1 rHeaderImg"
+    "rHeaderP rHeaderImg";
+  margin: 20px 100px 0px 100px;
+}
+
+.incomeHeader_img {
+  grid-area: rHeaderImg;
+  height: 60vh;
+  width: 40vw;
+}
+.incomeHeader_p {
+  grid-area: rHeaderP;
+  justify-self: center;
+  align-self: start;
+  font-size: 17px;
+}
+.incomeHeader_h1 {
+  grid-area: rHeaderH1;
+  align-self: end;
+  justify-self: center;
+  font-size: 35px;
 }
 .display_card {
   display: grid;
