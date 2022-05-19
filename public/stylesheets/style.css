@@ -122,6 +122,7 @@ body {
     ".  headerCapt";
   background-color: white;
   margin: 20px 75px 0px 75px;
+  max-height: 85vh;
 }
 .index_header #headerImg {
   grid-area: headerImg;
@@ -222,6 +223,7 @@ body {
     "rHeaderH1 rHeaderImg"
     "rHeaderP rHeaderImg";
   margin: 20px 100px 0px 100px;
+  max-height: 85vh;
 }
 
 .receiptHeader_img {
@@ -240,6 +242,8 @@ body {
   align-self: end;
   justify-self: center;
   font-size: 35px;
+  color: #355ec4;
+  -webkit-text-stroke: 1px #4edff9;
 }
 .receiptBody {
   display: grid;
@@ -306,11 +310,12 @@ body {
     "rHeaderH1 rHeaderImg"
     "rHeaderP rHeaderImg";
   margin: 20px 100px 0px 100px;
+  max-height: 85vh;
 }
 
 .incomeHeader_img {
   grid-area: rHeaderImg;
-  height: 60vh;
+  height: 70vh;
   width: 40vw;
 }
 .incomeHeader_p {
@@ -324,6 +329,8 @@ body {
   align-self: end;
   justify-self: center;
   font-size: 35px;
+  color: #ffec03;
+  -webkit-text-stroke: 1px #ffa603;
 }
 .display_card {
   display: grid;
