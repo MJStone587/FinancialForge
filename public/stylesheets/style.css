@@ -84,9 +84,7 @@ body {
   grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
   grid-template-rows: [row1] 100%;
   grid-template-areas: "fLogo fCol1 fCol2 fCol3";
-  margin-top: 100px;
-  border-top: 1px solid #4edff94f;
-  width: 100%;
+  margin: 60px 75px 0px 75px;
 }
 .footer_logo {
   grid-area: fLogo;
@@ -222,10 +220,25 @@ body {
   grid-template-areas:
     "rHeaderH1 rHeaderImg"
     "rHeaderP rHeaderImg";
-  margin: 20px 100px 0px 100px;
+  margin: 20px 75px 0px 75px;
   max-height: 85vh;
 }
-
+.receiptBody_total {
+  margin: 20px 75px 20px 75px;
+}
+.receiptBody_create {
+  margin: 50px 75px 0px 75px;
+  padding: 10px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  background-color: #ffa603;
+  color: white;
+  border-radius: 20px;
+}
+.receiptBody_create:hover {
+  color: black;
+  background-color: #4edff9;
+}
 .receiptHeader_img {
   grid-area: rHeaderImg;
   height: 60vh;
@@ -248,7 +261,10 @@ body {
 .receiptBody {
   display: grid;
   grid-template-columns: [col1] 33% [col2] 33% [col3] 33%;
-  margin: 50px 100px 0px 100px;
+  margin: 50px 75px 0px 75px;
+}
+.receiptBody a {
+  text-decoration: none;
 }
 .receiptBody_list {
   display: grid;
@@ -260,7 +276,11 @@ body {
     "rBodyImg .";
   margin: 0px 5px 5px 0px;
   max-height: 175px;
-  box-shadow: 1px 1px 1px 1px rgba(80, 80, 80, 0.404);
+  box-shadow: 1px 1px 1px 1px #355ec462;
+}
+.receiptBody_list:hover {
+  background-color: #4edff910;
+  box-shadow: 1px 1px 1px 1px #355ec485;
 }
 .fa-receipt {
   grid-area: rBodyImg;
@@ -274,33 +294,18 @@ body {
 .receiptBody_title {
   grid-area: rBodyTitle;
   font-size: 20px;
+  color: #ffa603;
 }
 .receiptBody_amt {
   grid-area: rBodyAmt;
   font-size: 15px;
+  color: black;
 }
 .receiptBody_date {
   grid-area: rBodyAmt;
   font-size: 15px;
-  justify-self: center;
-}
-.receiptBody #receipt_det {
-  place-self: center;
-  grid-area: rBodyAmt;
-  text-decoration: none;
-  border: 1px solid #ffec03;
-  color: white;
-  padding: 7px;
-  border-radius: 10px;
-  background-color: #ffa603;
-  justify-self: end;
-  margin-right: 10px;
-  font-size: 12px;
-}
-.receiptBody #receipt_det:hover {
-  background-color: #ffec03;
   color: black;
-  border: 1px solid #ffa603;
+  justify-self: center;
 }
 .incomeHeader {
   display: grid;
@@ -309,10 +314,9 @@ body {
   grid-template-areas:
     "rHeaderH1 rHeaderImg"
     "rHeaderP rHeaderImg";
-  margin: 20px 100px 0px 100px;
+  margin: 20px 75px 0px 75px;
   max-height: 85vh;
 }
-
 .incomeHeader_img {
   grid-area: rHeaderImg;
   height: 70vh;
@@ -329,8 +333,66 @@ body {
   align-self: end;
   justify-self: center;
   font-size: 35px;
-  color: #ffec03;
-  -webkit-text-stroke: 1px #ffa603;
+  color: #355ec4;
+  -webkit-text-stroke: 1px #4edff9;
+}
+.income_body {
+  display: grid;
+  grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
+  margin: 20px 75px 0px 75px;
+}
+.income_body a {
+  text-decoration: none;
+}
+.incomeDisplay {
+  display: grid;
+  grid-template-columns: [col1] 25% [col2] 75%;
+  grid-template-rows: [row1] 50% [row2] 50;
+  grid-template-areas:
+    "incomeImg incomeDesc"
+    "incomeImg incomeAmt";
+  border: 1px solid rgba(128, 128, 128, 0.548);
+  margin: 2px;
+}
+.incomeDisplay:hover {
+  border: 1px solid #ffa603;
+  background-color: #ffea0327;
+}
+.fa-money-bill {
+  grid-area: incomeImg;
+  font-size: 40px;
+  place-self: center;
+  color: #ffa603;
+  background-color: #4edff9;
+  padding: 10px;
+  border-radius: 20px;
+}
+.incomeDisp_desc {
+  grid-area: incomeDesc;
+  color: black;
+  justify-self: center;
+  align-self: center;
+}
+.incomeDisp_amt {
+  grid-area: incomeAmt;
+  color: black;
+  place-self: center;
+}
+.incomeBody_total {
+  margin: 20px 75px 10px 75px;
+}
+.incomeBody_create {
+  margin: 50px 75px 0px 75px;
+  padding: 10px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  background-color: #ffa603;
+  color: white;
+  border-radius: 20px;
+}
+.incomeBody_create:hover {
+  color: black;
+  background-color: #4edff9;
 }
 .display_card {
   display: grid;
