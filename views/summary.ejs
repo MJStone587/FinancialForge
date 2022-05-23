@@ -10,31 +10,32 @@
   </head>
   <%- include("navbar") %>
   <h1 class="summary_title"><%= title %></h1>
-  <body>
-    <h2>Incomes:</h2>
+  <div class="summary_body">
+    
     <% let total_income = 0; %> 
     <% let balance = 0 %>
-    <ol class="summary_income">
+    <div class="summary_income">
+      <h2>Incomes:</h2>
+    <ul class="summary_ol">
       <% for(let i = 0; i < incomes.length; i++){ %>
       <li>
-        <strong>Name: </strong>
-        <%= incomes[i].name %>
-        <strong>Description: </strong>
-        <%= incomes[i].description %>
-        <strong>Amount: </strong>
-        <%= incomes[i].amount %>
+        <h2><%= incomes[i].name %> </h2>
+        <p><%= incomes[i].description %> </p>
+        <p><%= incomes[i].amount %></p>
         <a href="/catalog/income/<%= incomes[i]._id %>">Details</a>
       </li>
-      </li>
+      
+
       <% total_income += incomes[i].amount %> <% } %> <% function round(value,
       decimals) { %> <% return Number(Math.round(value +'e'+ decimals) +'e-'+
       decimals).toFixed(decimals); %> <% } %>
-    </ol>
+    </ul>
+  </div>
     <h2 class="summary_incomeTotal">Income Total: $<%= round(total_income,2) %></h2>
 
-
+<div class="summary_receipt">
     <h2>Receipts:</h2>
-    <ol class="summary_receipt">
+    <ol>
       <% for(let i = 0; i < receipts.length; i++) { %>
       <li>
         <strong>Name: </strong>
@@ -47,7 +48,7 @@
       </li>
       <% } %>
     </ol>
-
+</div>
     <% let total_receipt = 0; %> <% for(let i = 0; i < receipts.length; i++) { %> <%
     total_receipt += receipts[i].total; %> <% } %> <% function round(value,
     decimals) { %> <% return Number(Math.round(value +'e'+ decimals) +'e-'+
@@ -56,10 +57,9 @@
     <h2 class="summary_receiptTotal">Receipt Totals: $<%=round(total_receipt, 2);%></h2>
     
     <% balance = total_income - total_receipt %>
-    <h1>Balance = $<%= round(balance, 2); %></h1>
+    <h1 class="summary_balance">Balance = $<%= round(balance, 2); %></h1>
     <div class="chart_div">
       <svg id="chart_div" style="width:100%;max-width:600px">
       </svg>
         </div>
-  </body>
 </html>

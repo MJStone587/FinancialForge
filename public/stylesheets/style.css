@@ -6,7 +6,7 @@ html {
 body {
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-/*NAVBAR STYLING*/
+/*NAVBAR Global STYLING*/
 .navbar {
   display: grid;
   grid-template-rows: [row1] 100%;
@@ -79,6 +79,7 @@ body {
 .signUp:hover {
   border: 1px solid #355ec4;
 }
+/* Footer Global*/
 .site_footer {
   display: grid;
   grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
@@ -103,6 +104,8 @@ body {
 .footer_col3 {
   grid-area: fCol3;
 }
+
+/* Index Page*/
 .index_body i {
   font-size: 25px;
   background-color: #4edff9;
@@ -307,6 +310,8 @@ body {
   color: black;
   justify-self: center;
 }
+
+/*Income Page*/
 .incomeHeader {
   display: grid;
   grid-template-rows: [row1] 50% [row2] 50%;
@@ -403,25 +408,49 @@ body {
   border-radius: 5px;
   margin-bottom: 20px;
 }
+/*Summary Page*/
 .summary_title {
   border-bottom: 1px solid black;
+  margin: 50px 75px 10px 75px;
+}
+.summary_body {
+  display: grid;
+  grid-template-rows: [row1] 40% [row2] 5% [row3] 40% [row4] 5% [row5] 10%;
+  grid-template-areas:
+    "summInc"
+    "summIncTotal"
+    "summRec"
+    "summRecTotal"
+    "summBal";
 }
 .summary_income {
+  grid-area: summInc;
   overflow: scroll;
-  padding: 10px 0px 100px 100px;
   height: 35vh;
+  margin: 50px 75px 10px 75px;
 }
 .summary_receipt {
+  grid-area: summRec;
   overflow: scroll;
-  padding: 10px 0px 100px 100px;
+  margin: 50px 75px 10px 75px;
   max-height: 40vh;
 }
 .summary_incomeTotal {
+  grid-area: summIncTotal;
   border-bottom: 1px solid black;
+  margin: 50px 75px 10px 75px;
 }
 .summary_receiptTotal {
+  grid-area: summRecTotal;
   border-bottom: 1px solid black;
+  margin: 50px 75px 10px 75px;
 }
+.summary_balance {
+  grid-area: summBal;
+  margin: 50px 75px 10px 75px;
+}
+
+/*Global Details Page*/
 .det_body {
   margin: 50px 75px 10px 75px;
 }
@@ -444,4 +473,105 @@ body {
 .det_body a:hover {
   color: white;
   background-color: #355ec4;
+}
+/*Signup Page*/
+.signup_body {
+  display: grid;
+  padding: 20px;
+  grid-template-rows: [row1] 10% [row2] 80%;
+  grid-template-columns: [col1] 100%;
+  margin: 50px 75px 10px 75px;
+  height: 80vh;
+  box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
+  grid-template-areas:
+    "signupTitle"
+    "signupForm";
+}
+.signup_title {
+  grid-area: signupTitle;
+  margin: 50px 0px 0px 50px;
+}
+.signup_form {
+  grid-area: signupForm;
+  display: grid;
+  grid-template-rows: [row1] 3% [row2] 8% [row3] 3% [row4] 8% [row5] 3% [row6] 8% [row7] 5%;
+  grid-template-columns: [col1] 40% [col2] 40%;
+  grid-row-gap: 10px;
+  grid-column-gap: 20px;
+  grid-template-areas:
+    "signupUserNameLabel signupPassLabel"
+    "signupUserName signupPass"
+    "signupfNameLabel signuplNameLabel"
+    "signupfName signuplName"
+    "signupEmailLabel signupbDayLabel"
+    "signupEmail signupbDay"
+    " signupSubmit .";
+  justify-content: center;
+  align-content: center;
+}
+.signup_form #userName {
+  grid-area: signupUserName;
+  margin: 5px;
+}
+.signup_form #userNameLabel {
+  grid-area: signupUserNameLabel;
+  justify-self: start;
+}
+.signup_form #pass {
+  grid-area: signupPass;
+  margin: 5px;
+}
+}
+.signup_form #passLabel {
+  grid-area: signupPassLabel;
+  justify-self: start;
+}
+.signup_form #fName {
+  grid-area: signupfName;
+  margin: 5px;
+}
+.signup_form #fNameLabel {
+  grid-area: signupfNameLabel;
+  justify-self: start;
+}
+.signup_form #lName {
+  grid-area: signuplName;
+  margin: 5px;
+}
+.signup_form #lNameLabel {
+  grid-area: signuplNameLabel;
+  justify-self: start;
+}
+.signup_form #email {
+  grid-area: signupEmail;
+  margin: 5px;
+}
+.signup_form #emailLabel {
+  grid-area: signupEmailLabel;
+  justify-self: start;
+}
+.signup_form #bDay {
+  grid-area: signupbDay;
+  margin: 5px;
+}
+.signup_form #bDayLabel {
+  grid-area: signupbDayLabel;
+  justify-self: start;
+}
+.signup_form #signupSubmit {
+  grid-area: signupSubmit;
+  background-color: #355ec4;
+  border: 1px solid #355ec4;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 5px;
+  justify-self: start;
+}
+.signup_form #signupSubmit:hover {
+  grid-area: signupSubmit;
+  background-color: #4edff9;
+  border: 1px solid #4edff9;
+  color: black;
 }

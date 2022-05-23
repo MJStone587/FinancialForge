@@ -8,35 +8,35 @@
     <title>Document</title>
   </head>
   <%- include("navbar") %>
-  <body>
-    <h1>Create Login</h1>
-    <form action="" method="POST">
-      <label for="userName">User Name: </label>
+  <div class="signup_body">
+    <h1 class="signup_title">Create Login</h1>
+    <form class="signup_form" action="" method="POST">
+      <label id="userNameLabel"for="userName">User Name: </label>
       <input
         type="text"
         name="userName"
         id="userName"
         placeholder="User Name"
       />
-      <label for="pass">Password: </label>
+      <label id="passLabel" for="pass">Password: </label>
       <input type="password" id="pass" name="userPass" placeholder="*******" />
-      <label for="fName">First Name</label>
+      <label id="fNameLabel" for="fName">First Name</label>
       <input type="text" id="fName" name="firstName" placeholder="Jacob" />
-      <label for="lName">Last Name: </label>
+      <label id="lNameLabel" for="lName">Last Name: </label>
       <input type="text" name="lastName" id="lName" placeholder="Smith" />
-      <label for="email">Email: </label>
+      <label id="emailLabel" for="email">Email: </label>
       <input
         type="email"
         id="email"
         name="email"
         placeholder="JacobSmith21@email.com"
       />
-      <label for="bDay">Birthday: </label>
+      <label id="bDayLabel" for="bDay">Birthday: </label>
       <input type="date" id="bDay" name="birthDay" />
-      <input type="submit" value="Submit" />
+      <input id="signupSubmit" type="submit" value="Submit" />
     </form>
     <% if(typeof errors !== "undefined") { %>
-    <h1 class="error_report">ERROR: <%= errors %></h1>
+    <h1 class="error_report">ERROR: <%= errors %> </h1>
     <% }%>
-  </body>
+</div>
 </html>
