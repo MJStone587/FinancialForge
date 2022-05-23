@@ -28,7 +28,7 @@ let ReceiptSchema = new Schema({
     ],
   },
   author: { type: Schema.Types.ObjectId, ref: "User" },
-  date: { type: Date, required: false },
+  date: { type: Date, required: true },
   total: { type: Number },
 });
 
@@ -37,7 +37,7 @@ ReceiptSchema.virtual("url").get(function () {
 });
 
 ReceiptSchema.virtual("date_formatted").get(function () {
-  return DateTime.fromJSDate(this.date).toLocaleString(DateTime.DATE_SHORT);
+  return DateTime.fromJSDate(this.date).toLocaleString(DateTime.DATE_MED);
 });
 
 ReceiptSchema.virtual("date_adjusted").get(function () {

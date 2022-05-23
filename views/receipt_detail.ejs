@@ -5,20 +5,18 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <%- include("navbar"); -%>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %> this page is for displaying receipts</p>
-    <h2><%= results.name %></h2>
-    <strong> Description:</strong>
+  <div class="det_body">
+    <h1 class="det_title"><%= title %></h1>
+    <h2 class="det_name"><%= results.name %></h2>
+    <h3> Description:</h3>
     <%= results.description %>
-    <strong> Credit Card:</strong>
+    <h3> Credit Card:</h3>
     <%= results.ccName %>
-    <strong> Payment Type:</strong>
+    <h3> Payment Type:</h3>
     <%= results.paymentType %>
-    <strong> Total:</strong>
+    <h3> Total:</h3>
     <%= "$" + results.total %>
-    <strong>Date:</strong>
-    <%= results.date_month %>
+    <h3><%= results.date_formatted%></h3>
     
   </br>
     <a id="receipt_del" href="/catalog/receipt/<%= results._id %>/delete"
@@ -27,5 +25,5 @@
     <a id="receipt_upd" href="/catalog/receipt/<%= results._id %>/update"
       >Update</a
     >
-  </body>
+    </div>
 </html>
