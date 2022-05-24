@@ -18,7 +18,7 @@
       <% for(let i = 0; i < receipt_list.length; i++) { %>
       <a href="/catalog/receipt/<%= receipt_list[i]._id %>"><div class="receiptBody_list">
         <i class="fa-solid fa-receipt"></i>
-        <h2 class="receiptBody_title"><%= receipt_list[i].description %></h2>
+        <h3 class="receiptBody_title"><%= receipt_list[i].description %></h3>
         <p class="receiptBody_amt"><%= "$" + receipt_list[i].total %> </p>
         <p class="receiptBody_date"><%= receipt_list[i].date_formatted %></p>
         

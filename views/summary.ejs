@@ -9,57 +9,68 @@
     <title>Document</title>
   </head>
   <%- include("navbar") %>
-  <h1 class="summary_title"><%= title %></h1>
-  <div class="summary_body">
-    
-    <% let total_income = 0; %> 
-    <% let balance = 0 %>
-    <div class="summary_income">
-      <h2>Incomes:</h2>
-    <ul class="summary_ol">
-      <% for(let i = 0; i < incomes.length; i++){ %>
-      <li>
-        <h2><%= incomes[i].name %> </h2>
-        <p><%= incomes[i].description %> </p>
-        <p><%= incomes[i].amount %></p>
-        <a href="/catalog/income/<%= incomes[i]._id %>">Details</a>
-      </li>
-      
 
-      <% total_income += incomes[i].amount %> <% } %> <% function round(value,
-      decimals) { %> <% return Number(Math.round(value +'e'+ decimals) +'e-'+
-      decimals).toFixed(decimals); %> <% } %>
-    </ul>
+  <!-- Summary Header -->
+  <div class="summary_header">
+    <h1 class="summary_title"><%= title %></h1>
+    <img src="/images/summary.png" alt="Summary Image" />
   </div>
-    <h2 class="summary_incomeTotal">Income Total: $<%= round(total_income,2) %></h2>
 
-<div class="summary_receipt">
-    <h2>Receipts:</h2>
-    <ol>
+  <div class="summary_body">
+    <!-- Summary Income List-->
+    <% let total_income = 0; %> <% let balance = 0 %>
+    <h1 class="summary_incomeTitle">Incomes</h1>
+    <div class="summary_incomeList">
+      <h3>Name</h3>
+      <h3>Description</h3>
+      <h3>Total</h3>
+      <h3>Date</h3>
+      <h3>Details</h3>
+      <% for(let i = 0; i < incomes.length; i++){ %>
+      <h2 id="summary_iName"><%= incomes[i].name %></h2>
+      <p id="summary_iDesc"><%= incomes[i].description %></p>
+      <p id="summary_iAmt">$<%= incomes[i].amount %></p>
+      <p id="summary_iDate"><%= incomes[i].date_formatted %></p>
+      <a id="summary_iDet" href="/catalog/income/<%= incomes[i]._id %>">More</a>
+      <% total_income += incomes[i].amount %> <% } %> <% function
+      round(value,decimals) { %> <% return Number(Math.round(value +'e'+
+      decimals) +'e-'+ decimals).toFixed(decimals); %> <% } %>
+    </div>
+    <h2 class="summary_incomeTotal">
+      Income Total: $<%= round(total_income,2) %>
+    </h2>
+
+    <!--       Summary Receipts                  -->
+    <h1 class="summary_receiptTitle">Receipts</h1>
+    <div class="summary_receiptList">
+      <h3>Name</h3>
+      <h3>Description</h3>
+      <h3>Total</h3>
+      <h3>Date</h3>
+      <h3>Details</h3>
       <% for(let i = 0; i < receipts.length; i++) { %>
-      <li>
-        <strong>Name: </strong>
-        <%= receipts[i].name %>
-        <strong>Description: </strong>
-        <%= receipts[i].description %>
-        <strong>Total: </strong>
-        <%= "$" + receipts[i].total %>
-        <a href="/catalog/receipt/<%= receipts[i]._id %>">Details</a>
-      </li>
+      <h2><%= receipts[i].name %></h2>
+      <p><%= receipts[i].description %></p>
+      <p>Total: <%= "$" + receipts[i].total %></p>
+      <p><%= receipts[i].date_formatted %></p>
+      <a href="/catalog/receipt/<%= receipts[i]._id %>">More</a>
       <% } %>
-    </ol>
-</div>
-    <% let total_receipt = 0; %> <% for(let i = 0; i < receipts.length; i++) { %> <%
-    total_receipt += receipts[i].total; %> <% } %> <% function round(value,
-    decimals) { %> <% return Number(Math.round(value +'e'+ decimals) +'e-'+
-    decimals).toFixed(decimals); %> <% } %>
+    </div>
 
-    <h2 class="summary_receiptTotal">Receipt Totals: $<%=round(total_receipt, 2);%></h2>
-    
-    <% balance = total_income - total_receipt %>
-    <h1 class="summary_balance">Balance = $<%= round(balance, 2); %></h1>
-    <div class="chart_div">
-      <svg id="chart_div" style="width:100%;max-width:600px">
-      </svg>
-        </div>
+    <% let total_receipt = 0; %> <% for(let i = 0; i < receipts.length; i++) {
+    %> <% total_receipt += receipts[i].total; %> <% } %> <% function
+    round(value, decimals) { %> <% return Number(Math.round(value +'e'+
+    decimals) +'e-'+ decimals).toFixed(decimals); %> <% } %>
+
+    <h2 class="summary_receiptTotal">
+      Receipt Totals: $<%=round(total_receipt, 2);%>
+    </h2>
+  </div>
+  <!--  Balance and Charts -->
+  <% balance = total_income - total_receipt %>
+  <h1 class="summary_balance">Balance = $<%= round(balance, 2); %></h1>
+  <div class="chart_div">
+    <svg id="chart_div" style="width: 100%; max-width: 600px"></svg>
+  </div>
+  <%- include('footer') %>
 </html>
