@@ -453,9 +453,11 @@ body {
   color: #ffa603;
   -webkit-text-stroke: 1px #ffec03;
   justify-self: start;
-  text-decoration: underline;
+  padding: 3px;
   grid-area: incomeTitle;
   margin: 50px 75px 0px 5px;
+  box-shadow: 1px 1px 10px black;
+  border-radius: 5px 5px 0px 0px;
 }
 .summary_incomeList {
   grid-area: summInc;
@@ -466,7 +468,7 @@ body {
   max-height: 50vh;
   max-width: 43vw;
   overflow: scroll;
-  box-shadow: 1px 1px 3px black;
+  box-shadow: 0.5px 0.5px 10px black;
   border-radius: 10px;
   background-color: white;
 }
@@ -501,10 +503,14 @@ body {
 .summary_receiptTitle {
   grid-area: recTitle;
   align-self: start;
+  justify-self: start;
   color: #355ec4;
+  padding: 3px;
+  border-radius: 5px 5px 0px 0px;
   -webkit-text-stroke: 1px #4edff9;
-  text-decoration: underline;
+  box-shadow: 1px 1px 10px black;
   margin: 50px 75px 0px 5px;
+  background-color: white;
 }
 .summary_receiptList {
   grid-area: summRec;
@@ -516,7 +522,7 @@ body {
   max-height: 50vh;
   width: 43vw;
   overflow: scroll;
-  box-shadow: 1px 1px 4px black;
+  box-shadow: 0.5px 0.5px 10px black;
   border-radius: 5px;
   background-color: white;
 }
@@ -525,11 +531,11 @@ body {
 }
 .summary_incomeTotal {
   grid-area: summIncTotal;
-  margin: 5px 0px 50px 5px;
+  margin: 12px 0px 50px 5px;
 }
 .summary_receiptTotal {
   grid-area: summRecTotal;
-  margin: 5px 150px 50px 5px;
+  margin: 12px 150px 50px 5px;
 }
 .summary_balance {
   grid-area: summBal;
