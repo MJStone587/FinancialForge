@@ -1,7 +1,6 @@
 const User = require("../models/users");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
-const { isEmail } = require("validator");
 const saltRounds = 10;
 
 exports.user_create_get = function (req, res) {
@@ -100,8 +99,8 @@ exports.user_create_post = [
   },
 ];
 
-exports.user_detail_get = function (req, res) {
-  User.findById(req.params.id, function (err, results, next) {
+exports.user_detail_get = function (req, res, next) {
+  User.findById(req.params.id, function (err, results) {
     if (err) {
       return next(err);
     } else {
@@ -111,4 +110,8 @@ exports.user_detail_get = function (req, res) {
       });
     }
   });
+};
+
+exports.user_login_get = function (req, res) {
+  res.render("user_login");
 };

@@ -1,7 +1,7 @@
 html {
   margin: 0;
   width: 100%;
-  background-color: #f9feff;
+  background-color: #f6feff;
 }
 body {
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -283,6 +283,7 @@ body {
   max-height: 60vh;
   border: 1px solid gray;
   overflow: scroll;
+  background-color: white;
 }
 .receiptBody_list:hover {
   background-color: #4edff910;
@@ -365,6 +366,7 @@ body {
     "incomeImg incomeAmt";
   border: 1px solid rgba(128, 128, 128, 0.548);
   margin: 2px;
+  background-color: white;
 }
 .incomeDisplay:hover {
   border: 1px solid #ffa603;
@@ -420,11 +422,11 @@ body {
 
 /*Summary Page*/
 .summary_header {
-  display:grid;
+  display: grid;
   grid-template-columns: [col1] 50% [col2] 50%;
-  grid-template-areas:
-  "summHeaderTitle summHeaderImg";
+  grid-template-areas: "summHeaderTitle summHeaderImg";
   margin: 50px 75px 0px 75px;
+  background-color: white;
 }
 .summary_title {
   grid-area: summHeaderTitle;
@@ -453,17 +455,20 @@ body {
   justify-self: start;
   text-decoration: underline;
   grid-area: incomeTitle;
-  margin: 50px 75px 0px 75px;
+  margin: 50px 75px 0px 5px;
 }
 .summary_incomeList {
   grid-area: summInc;
   display: grid;
   grid-template-columns: [col1] 15% [col2] 15% [col3] 15% [col4] 15% [col5] 15%;
   justify-content: center;
+  align-content: start;
   max-height: 50vh;
+  max-width: 43vw;
   overflow: scroll;
   box-shadow: 1px 1px 3px black;
   border-radius: 10px;
+  background-color: white;
 }
 .summary_incomeList h3 {
   text-decoration: underline;
@@ -472,77 +477,63 @@ body {
 .summary_incomeList p {
   place-self: center;
 }
-.summary_incomeList #summary_iDet {
+.summary_body a {
   place-self: center;
-  font-size: 13px;
+  font-size: 12px;
   border: 1px solid #ffec03;
-  padding: 10px;
+  padding: 8px;
   border-radius: 5px;
   text-decoration: none;
   background-color: #ffa603;
   color: white;
 }
-.summary_incomeList #summary_iDet:hover {
-  font-size: 13px;
+.summary_body a:hover {
   border: 1px solid black;
-  padding: 10px;
-  border-radius: 5px;
-  text-decoration: none;
   background-color: #ffa603;
   color: black;
 }
+.summary_incomeList #summary_iName {
+  font-weight: bold;
+}
+.summary_receiptList #summary_recName {
+  font-weight: bold;
+}
 .summary_receiptTitle {
   grid-area: recTitle;
+  align-self: start;
   color: #355ec4;
   -webkit-text-stroke: 1px #4edff9;
   text-decoration: underline;
-  margin: 50px 75px 0px 75px;
+  margin: 50px 75px 0px 5px;
 }
 .summary_receiptList {
   grid-area: summRec;
+  align-self: start;
   display: grid;
   grid-template-columns: [col1] 15% [col2] 15% [col3] 15% [col4] 15% [col5] 15%;
-  place-items: center;
-  align-content: center;
   justify-content: center;
+  align-content: start;
   max-height: 50vh;
+  width: 43vw;
   overflow: scroll;
-  margin: 50px 75px 0px 75px;
-  box-shadow: 1px 1px 3px black;
+  box-shadow: 1px 1px 4px black;
+  border-radius: 5px;
+  background-color: white;
 }
 .summary_receiptList h3 {
   text-decoration: underline;
 }
-.summary_receiptList a {
-  font-size: 13px;
-  border: 1px solid #ffec03;
-  padding: 10px;
-  border-radius: 5px;
-  text-decoration: none;
-  background-color: #ffa603;
-  color: white;
-}
-.summary_receiptList a:hover {
-  font-size: 13px;
-  border: 1px solid black;
-  padding: 10px;
-  border-radius: 5px;
-  text-decoration: none;
-  background-color: #ffa603;
-  color: black;
-}
 .summary_incomeTotal {
   grid-area: summIncTotal;
-  padding-top: 10px;
-  margin: 0px 75px 50px 75px;
+  margin: 5px 0px 50px 5px;
 }
 .summary_receiptTotal {
   grid-area: summRecTotal;
-  padding-top: 10px;
-  margin: 0px 150px 50px 150px;
+  margin: 5px 150px 50px 5px;
 }
 .summary_balance {
   grid-area: summBal;
+  border-top: 1px solid black;
   margin: 50px 75px 10px 75px;
 }
 
@@ -570,6 +561,58 @@ body {
   color: white;
   background-color: #355ec4;
 }
+.login_body {
+  display: grid;
+  padding: 20px;
+  grid-template-rows: [row1] 10% [row2] 60% [row3] 10%;
+  grid-template-columns: [col1] 100%;
+  margin: 50px 75px 10px 75px;
+  height: 80vh;
+  box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
+  grid-template-areas:
+    "loginTitle"
+    "loginForm"
+    "loginSignUp";
+  background-color: white;
+}
+.login_title {
+  grid-area: loginTitle;
+  margin: 50px 0px 0px 50px;
+}
+.login_form {
+  grid-area: loginForm;
+  display: grid;
+  grid-template-rows: [row1] 5% [row2] 10% [row3] 7%;
+  grid-template-columns: [col1] 40% [col2] 40%;
+  grid-row-gap: 10px;
+  grid-template-areas:
+    "userLabel passLabel"
+    "loginName loginPass"
+    "loginSubmit .";
+  grid-column-gap: 20px;
+  justify-content: center;
+  align-content: center;
+}
+.login_form #login_userName {
+  grid-area: loginName;
+}
+.login_form #login_pass {
+  grid-area: loginPass;
+}
+.login_form #login_userLabel {
+  grid-area: userLabel;
+}
+.login_form #login_passLabel {
+  grid-area: passLabel;
+}
+.login_form #login_submit {
+  grid-area: loginSubmit;
+  justify-self: start;
+}
+.login_SignUp {
+  grid-area: loginSignUp;
+  margin: 0px 0px 20px 150px;
+}
 /*Signup Page*/
 .signup_body {
   display: grid;
@@ -582,6 +625,7 @@ body {
   grid-template-areas:
     "signupTitle"
     "signupForm";
+  background-color: white;
 }
 .signup_title {
   grid-area: signupTitle;
@@ -616,7 +660,6 @@ body {
 .signup_form #pass {
   grid-area: signupPass;
   margin: 5px;
-}
 }
 .signup_form #passLabel {
   grid-area: signupPassLabel;
