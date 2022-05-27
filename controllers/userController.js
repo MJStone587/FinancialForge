@@ -2,6 +2,7 @@ const User = require("../models/users");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
+var loggedIn = false;
 
 exports.user_create_get = function (req, res) {
   res.render("user_form");
@@ -113,5 +114,34 @@ exports.user_detail_get = function (req, res, next) {
 };
 
 exports.user_login_get = function (req, res) {
-  res.render("user_login");
+  res.render("user_login", { error: " ", loggedIn: loggedIn });
+};
+
+exports.user_login_post = function (req, res) {
+  let error = "No errors";
+  User.findOne({ userName: req.body.userName }).exec(function (
+    err,
+    found_user
+  ) {
+    if (err) {
+      return next(err);
+    }
+
+    if (found_user) {
+      // Receipt exists, redirect to its detail page.
+      const passMatch = bcrypt.compare(req.body.userPass, found_user.userPass);
+      if (passMatch == true) {
+        loggedIn = true;
+        error = "Success, you are now logged in";
+        res.render("user_login", { error: error });
+      } else {
+        loggedIn = false;
+        error = "Error: Incorrect Password";
+        res.render("user_login", { error: error });
+      }
+    } else {
+      error = "Error: No User Found";
+      res.render("user_login", { error: error });
+    }
+  });
 };

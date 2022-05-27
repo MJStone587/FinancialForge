@@ -89,7 +89,8 @@ body {
 }
 .footer_logo {
   grid-area: fLogo;
-  place-self: center;
+  align-self: center;
+  justify-self: start;
 }
 .footer_logo img {
   height: 200px;

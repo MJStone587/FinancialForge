@@ -64,6 +64,9 @@ router.get("/user/create", user_controller.user_create_get);
 
 //GET requeest for user Sign in page
 router.get("/user/login", user_controller.user_login_get);
+
+//Post request for user sign in
+router.post("/user/login", user_controller.user_login_post);
 //POST request for creating new user
 router.post("/user/create", user_controller.user_create_post);
 
