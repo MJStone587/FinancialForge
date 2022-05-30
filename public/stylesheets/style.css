@@ -425,13 +425,23 @@ body {
 .summary_header {
   display: grid;
   grid-template-columns: [col1] 50% [col2] 50%;
-  grid-template-areas: "summHeaderTitle summHeaderImg";
+  grid-template-rows: [row1] 50% [row2] 20%;
+  grid-template-areas:
+    "summHeaderTitle summHeaderImg"
+    "summHeaderP summHeaderImg";
   margin: 50px 75px 0px 75px;
-  background-color: white;
 }
-.summary_title {
+.summary_header h1 {
   grid-area: summHeaderTitle;
-  place-self: center;
+  justify-self: center;
+  align-self: end;
+  font-size: 35px;
+  color: #355ec4;
+  -webkit-text-stroke: 1px #4edff9;
+}
+.summary_header p {
+  grid-area: summHeaderP;
+  justify-self: center;
 }
 .summary_header img {
   grid-area: summHeaderImg;
@@ -454,7 +464,7 @@ body {
   color: #ffa603;
   -webkit-text-stroke: 1px #ffec03;
   justify-self: start;
-  padding: 3px;
+  padding: 5px;
   grid-area: incomeTitle;
   margin: 50px 75px 0px 5px;
   box-shadow: 1px 1px 10px black;
@@ -506,7 +516,7 @@ body {
   align-self: start;
   justify-self: start;
   color: #355ec4;
-  padding: 3px;
+  padding: 5px;
   border-radius: 5px 5px 0px 0px;
   -webkit-text-stroke: 1px #4edff9;
   box-shadow: 1px 1px 10px black;
@@ -555,7 +565,6 @@ body {
 }
 .det_name {
   color: #4edff9;
-  -webkit-text-stroke: 1px #355ec4;
 }
 .det_body a {
   padding: 10px;

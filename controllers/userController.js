@@ -2,7 +2,8 @@ const User = require("../models/users");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
-var loggedIn = false;
+const passport = require("passport");
+var error = "";
 
 exports.user_create_get = function (req, res) {
   res.render("user_form");
@@ -114,11 +115,10 @@ exports.user_detail_get = function (req, res, next) {
 };
 
 exports.user_login_get = function (req, res) {
-  res.render("user_login", { error: " ", loggedIn: loggedIn });
+  res.render("user_login", { error: error });
 };
 
 exports.user_login_post = function (req, res) {
-  let error = "No errors";
   User.findOne({ userName: req.body.userName }).exec(function (
     err,
     found_user
@@ -127,20 +127,14 @@ exports.user_login_post = function (req, res) {
       return next(err);
     }
 
-    if (found_user) {
-      // Receipt exists, redirect to its detail page.
-      const passMatch = bcrypt.compare(req.body.userPass, found_user.userPass);
-      if (passMatch == true) {
-        loggedIn = true;
-        error = "Success, you are now logged in";
-        res.render("user_login", { error: error });
-      } else {
-        loggedIn = false;
-        error = "Error: Incorrect Password";
-        res.render("user_login", { error: error });
+    const passAuth = bcrypt.compareSync(req.body.userPass, found_user.userPass);
+
+    try {
+      if (passAuth === true) {
+        res.render("success", { message: "Succesfully Logged In" });
       }
-    } else {
-      error = "Error: No User Found";
+    } catch (err) {
+      error = "Incorrect Password";
       res.render("user_login", { error: error });
     }
   });
