@@ -3,7 +3,6 @@ const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const passport = require("passport");
-var error = "";
 
 exports.user_create_get = function (req, res) {
   res.render("user_form");
@@ -115,10 +114,13 @@ exports.user_detail_get = function (req, res, next) {
 };
 
 exports.user_login_get = function (req, res) {
-  res.render("user_login", { error: error });
+  res.render("user_login", {
+    message: "To get started you must first create a login",
+    userNameDisp: "",
+  });
 };
 
-exports.user_login_post = function (req, res) {
+exports.user_login_post = function (req, res, next) {
   User.findOne({ userName: req.body.userName }).exec(function (
     err,
     found_user
@@ -126,16 +128,29 @@ exports.user_login_post = function (req, res) {
     if (err) {
       return next(err);
     }
+    // NEEDS IMPROVEMENT AND ALL ERRORS HANDLED
 
-    const passAuth = bcrypt.compareSync(req.body.userPass, found_user.userPass);
-
-    try {
+    if (!req.body.userName || !req.body.userPass) {
+      res.render("user_login", {
+        message: "Username or password missing, try again",
+        userNameDisp: "",
+      });
+    } else {
+      const passAuth = bcrypt.compareSync(
+        req.body.userPass,
+        found_user.userPass
+      );
       if (passAuth === true) {
-        res.render("success", { message: "Succesfully Logged In" });
+        res.render("user_login", {
+          message: "Succesfully Logged In",
+          userNameDisp: "",
+        });
+      } else {
+        res.render("user_login", {
+          message: "Incorrect Password",
+          userNameDisp: "",
+        });
       }
-    } catch (err) {
-      error = "Incorrect Password";
-      res.render("user_login", { error: error });
     }
   });
 };

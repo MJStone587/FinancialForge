@@ -556,16 +556,72 @@ body {
 
 /*Global Details Page*/
 .det_body {
+  display: grid;
+  grid-template-rows: [row1] 10% [row2] 10% [row3] 10% [row4] 10% [row5] 10% [row6] 10% [row7] 10%;
+  grid-template-columns: [col1] 10% [col2] 10%;
+  justify-content: center;
+  grid-template-areas:
+    "uniqTitle ."
+    "label1 data1"
+    "label2 data2"
+    "label3 data3"
+    "label4 data4"
+    "label5 data5"
+    "btn1 btn2";
   margin: 50px 75px 10px 75px;
 }
+
 .det_title {
   color: #355ec4;
   font-size: 30px;
   border-bottom: 1px solid #355ec4;
+  margin: 50px 75px 10px 75px;
 }
-.det_name {
-  color: #4edff9;
+.det_body #det_unique_title {
+  grid-area: uniqTitle;
+  justify-self: center;
+  text-decoration: underline;
 }
+.det_body #det_label_1 {
+  grid-area: label1;
+}
+.det_body #det_label_2 {
+  grid-area: label2;
+}
+.det_body #det_label_3 {
+  grid-area: label3;
+}
+.det_body #det_label_4 {
+  grid-area: label4;
+}
+.det_body #det_label_5 {
+  grid-area: label5;
+}
+.det_body #det_label_data_1 {
+  grid-area: data1;
+  justify-self: start;
+}
+.det_body #det_label_data_2 {
+  grid-area: data2;
+}
+.det_body #det_label_data_3 {
+  grid-area: data3;
+}
+.det_body #det_label_data_4 {
+  grid-area: data4;
+}
+.det_body #det_label_data_5 {
+  grid-area: data5;
+}
+.det_body #delete_btn {
+  grid-area: btn1;
+  margin: 10px;
+}
+.det_body #update_btn {
+  grid-area: btn2;
+  margin: 10px;
+}
+
 .det_body a {
   padding: 10px;
   background-color: #4edff9;

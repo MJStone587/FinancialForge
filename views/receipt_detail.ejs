@@ -5,24 +5,27 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <%- include("navbar"); -%>
+
+  <h1 class="det_title"><%= title %></h1>
   <div class="det_body">
-    <h1 class="det_title"><%= title %></h1>
-    <h2 class="det_name"><%= results.name %></h2>
-    <h3> Description:</h3>
-    <%= results.description %>
-    <h3> Credit Card:</h3>
-    <%= results.ccName %>
-    <h3> Payment Type:</h3>
-    <%= results.paymentType %>
-    <h3> Total:</h3>
-    <%= "$" + results.total %>
-    <h3><%= results.date_formatted%></h3>
+    <h2 id="det_unique_title"><%= results.name %></h2>
+    
+    <h3 id="det_label_1">Date:</h2>
+    <h3 id="det_label_2"> Description:</h3>
+    <h3 id="det_label_3"> Credit Card:</h3>
+    <h3 id="det_label_4"> Payment Type:</h3>
+    <h3 id="det_label_5"> Total:</h3>
+    <p id="det_label_data_1"><%= results.date_formatted%></p>
+    <p id="det_label_data_2"><%= results.description %></p>
+    <p id="det_label_data_3"><%= results.ccName %></p>
+    <p id="det_label_data_4"><%= results.paymentType %></p>
+    <p id="det_label_data_5"><%= "$" + results.total %> </p>
     
   </br>
-    <a id="receipt_del" href="/catalog/receipt/<%= results._id %>/delete"
+    <a id="delete_btn" href="/catalog/receipt/<%= results._id %>/delete"
       >Delete</a
     >
-    <a id="receipt_upd" href="/catalog/receipt/<%= results._id %>/update"
+    <a id="update_btn" href="/catalog/receipt/<%= results._id %>/update"
       >Update</a
     >
     </div>
