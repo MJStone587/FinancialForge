@@ -36,7 +36,7 @@ body {
   align-self: center;
   font-size: 30px;
   grid-area: navtitle;
-  margin: 0px 0px 0px 125px;
+  margin: 0px 0px 0px 60px;
   justify-self: start;
   color: #355ec4;
   -webkit-text-stroke: 1px #4edff9;
@@ -122,7 +122,6 @@ body {
     "headerTitle  headerImg"
     "headerSignup headerImg"
     ".  headerCapt";
-  background-color: white;
   margin: 20px 75px 0px 75px;
   max-height: 85vh;
 }
@@ -476,7 +475,7 @@ body {
   grid-template-columns: [col1] 15% [col2] 15% [col3] 15% [col4] 15% [col5] 15%;
   justify-content: center;
   align-content: start;
-  max-height: 50vh;
+  max-height: 80vh;
   max-width: 43vw;
   overflow: scroll;
   box-shadow: 0.5px 0.5px 10px black;
@@ -530,13 +529,14 @@ body {
   grid-template-columns: [col1] 15% [col2] 15% [col3] 15% [col4] 15% [col5] 15%;
   justify-content: center;
   align-content: start;
-  max-height: 50vh;
+  max-height: 80vh;
   width: 43vw;
   overflow: scroll;
   box-shadow: 0.5px 0.5px 10px black;
   border-radius: 5px;
   background-color: white;
 }
+
 .summary_receiptList h3 {
   text-decoration: underline;
 }
@@ -785,4 +785,7 @@ body {
   background-color: #4edff9;
   border: 1px solid #4edff9;
   color: black;
+}
+.signup_signin {
+  margin: 0px 75px 10px 75px;
 }

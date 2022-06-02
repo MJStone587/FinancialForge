@@ -115,8 +115,8 @@ exports.user_detail_get = function (req, res, next) {
 
 exports.user_login_get = function (req, res) {
   res.render("user_login", {
-    message: "To get started you must first create a login",
-    userNameDisp: "",
+    message: "Login with Username and Password",
+    userNameDisp: " ",
   });
 };
 
@@ -133,7 +133,7 @@ exports.user_login_post = function (req, res, next) {
     if (!req.body.userName || !req.body.userPass) {
       res.render("user_login", {
         message: "Username or password missing, try again",
-        userNameDisp: "",
+        userNameDisp: req.body.userName,
       });
     } else {
       const passAuth = bcrypt.compareSync(
@@ -148,7 +148,7 @@ exports.user_login_post = function (req, res, next) {
       } else {
         res.render("user_login", {
           message: "Incorrect Password",
-          userNameDisp: "",
+          userNameDisp: req.body.userName,
         });
       }
     }
