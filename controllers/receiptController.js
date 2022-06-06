@@ -3,6 +3,7 @@ const { body, validationResult } = require("express-validator");
 
 exports.index = function (req, res) {
   res.render("index", { title: "Financial Organizer" });
+  console.log(req.session.id);
 };
 
 exports.receipt_list = function (req, res) {

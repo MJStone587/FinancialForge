@@ -1,20 +1,29 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const flash = require("express-flash");
+const session = require("express-session");
+const passport = require("passport");
+var MongoDBStore = require("connect-mongodb-session")(session);
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var catalogRouter = require("./routes/catalog");
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
+const catalogRouter = require("./routes/catalog");
 
-var app = express();
+const app = express();
 
-var mongoose = require("mongoose");
-var mongoDB =
+var store = new MongoDBStore({
+  uri: "mongodb+srv://mjstone587:osL9nm3oduCGyhOU@cluster0.47kim.mongodb.net/financial_organizer?retryWrites=true&w=majority",
+  collection: "mySessions",
+});
+
+const mongoose = require("mongoose");
+const mongoDB =
   "mongodb+srv://mjstone587:osL9nm3oduCGyhOU@cluster0.47kim.mongodb.net/financial_organizer?retryWrites=true&w=majority";
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
-var db = mongoose.connection;
+
+const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 // view engine setup
@@ -26,6 +35,33 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(flash());
+
+app.use(
+  require("express-session")({
+    secret: "forgeSecret word is nada",
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
+    },
+    store: store,
+    // Boilerplate options, see:
+    // * https://www.npmjs.com/package/express-session#resave
+    // * https://www.npmjs.com/package/express-session#saveuninitialized
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+const isAuth = (req, res, next) => {
+  if (req.session.isAuth) {
+    next();
+  } else {
+    res.redirect("user_login");
+  }
+};
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);

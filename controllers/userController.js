@@ -2,7 +2,6 @@ const User = require("../models/users");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
-const passport = require("passport");
 
 exports.user_create_get = function (req, res) {
   res.render("user_form");
@@ -116,41 +115,23 @@ exports.user_detail_get = function (req, res, next) {
 exports.user_login_get = function (req, res) {
   res.render("user_login", {
     message: "Login with Username and Password",
-    userNameDisp: " ",
   });
 };
 
-exports.user_login_post = function (req, res, next) {
-  User.findOne({ userName: req.body.userName }).exec(function (
-    err,
-    found_user
-  ) {
-    if (err) {
-      return next(err);
-    }
-    // NEEDS IMPROVEMENT AND ALL ERRORS HANDLED
+exports.user_login_post = async function (req, res) {
+  const { userName, userPass } = req.body;
 
-    if (!req.body.userName || !req.body.userPass) {
-      res.render("user_login", {
-        message: "Username or password missing, try again",
-        userNameDisp: req.body.userName,
-      });
-    } else {
-      const passAuth = bcrypt.compareSync(
-        req.body.userPass,
-        found_user.userPass
-      );
-      if (passAuth === true) {
-        res.render("user_login", {
-          message: "Succesfully Logged In",
-          userNameDisp: "",
-        });
-      } else {
-        res.render("user_login", {
-          message: "Incorrect Password",
-          userNameDisp: req.body.userName,
-        });
-      }
-    }
-  });
+  const user = await User.findOne({ userName });
+
+  if (!user) {
+    return res.redirect("user_login", { message: "That user does not exist" });
+  }
+
+  const match = bcrypt.compareSync(userPass, user.userPass);
+
+  if (!match) {
+    return res.render("user_login", { message: "Incorrect Password" });
+  }
+  req.session.isAuth = true;
+  res.redirect("/");
 };
