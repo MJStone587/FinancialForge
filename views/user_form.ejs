@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Document</title>
   </head>
-  <%- include("navbar") %>
+  <% if(authCheck){ %> 
+    <%- include("navbarLI") %> 
+    <% } else { %> 
+    <%-include("navbar") %> 
+   <% } %>
   <div class="signup_body">
     <h1 class="signup_title">Create Login</h1>
     <form class="signup_form" action="" method="POST">

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Receipt Form</title>
   </head>
-  <%- include("navbar") %>
+  <%- include("navbarLI") %>
   <h1><%= title %></h1>
   <body>
     <form action="" method="POST">
@@ -34,6 +34,7 @@
       <input type="date" name="date" />
       <label>Total:</label>
       <input type="number" name="total" step="0.01" required="true" />
+      <input type="hidden" name="author" value="authorID" />
       <input type="submit" value="Submit" />
     </form>
   </body>

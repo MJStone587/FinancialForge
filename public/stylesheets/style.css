@@ -3,9 +3,7 @@ html {
   width: 100%;
   background-color: #f6feff;
 }
-body {
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+
 /*NAVBAR Global STYLING*/
 .navbar {
   display: grid;
@@ -28,6 +26,9 @@ body {
 .navbar a {
   text-decoration: none;
   font-size: 16px;
+}
+.navbarLI a {
+  font-size: 15px;
 }
 .navbar a:hover {
   color: #355ec4;
@@ -68,12 +69,29 @@ body {
   justify-self: center;
   color: #16253d;
 }
+.userIcon {
+  grid-area: link5;
+  font-size: 2px;
+  justify-self: center;
+  color: #16253d;
+}
+.logout {
+  grid-area: link6;
+  color: #4edff9;
+  border: 1px solid #4edff9;
+  border-radius: 20px;
+  padding: 15px;
+  justify-self: start;
+}
+.logout:hover {
+  border: 1px solid #355ec4;
+}
 .signUp {
   grid-area: link6;
   color: #4edff9;
   border: 1px solid #4edff9;
   border-radius: 20px;
-  padding: 20px;
+  padding: 15px;
   justify-self: start;
 }
 .signUp:hover {
@@ -113,6 +131,7 @@ body {
   color: #355ec4;
   padding: 15px;
   border-radius: 25px;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .index_header {
   display: grid;
@@ -173,6 +192,7 @@ body {
   grid-template-columns: [col1] 33.34% [col2] 33.34% [col3] 33.34%;
   grid-template-areas: "bodyBox1 bodyBox2 bodyBox3";
   margin: 30px 75px 0px 75px;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .index_bodyBox {
   display: grid;
@@ -225,6 +245,7 @@ body {
     "rHeaderP rHeaderImg";
   margin: 20px 75px 0px 75px;
   max-height: 85vh;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .receiptBody_total {
   margin: 20px 75px 20px 75px;
@@ -267,6 +288,7 @@ body {
   display: grid;
   grid-template-columns: [col1] 33% [col2] 33% [col3] 33%;
   margin: 50px 75px 0px 75px;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .receiptBody a {
   text-decoration: none;
@@ -329,6 +351,7 @@ body {
     "rHeaderP rHeaderImg";
   margin: 20px 75px 0px 75px;
   max-height: 85vh;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .incomeHeader_img {
   grid-area: rHeaderImg;
@@ -353,6 +376,7 @@ body {
   display: grid;
   grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
   margin: 20px 75px 0px 75px;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .income_body a {
   text-decoration: none;
@@ -412,7 +436,12 @@ body {
   color: black;
   background-color: #4edff9;
 }
-.display_card {
+
+/* User Details Page*/
+.details_body {
+  margin: 50px 75px 10px 75px;
+}
+.details_display_card {
   display: grid;
   background-color: rgb(195, 195, 216);
   box-shadow: 1px 1px 1px 1px black;

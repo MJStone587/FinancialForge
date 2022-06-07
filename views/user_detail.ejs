@@ -8,25 +8,24 @@
     <title>Document</title>
   </head>
 
-  <%- include("navbar") %>
+  <%- include("navbarLI") %>
 
-  <body>
+  <div class="details_body">
     <h1>Welcome <%= results.firstName %></h1>
-    <div class="display_card">
+    <div class="details_display_card">
       <h2>Security</h2>
       <a href="#">Update Password and More</a>
     </div>
-    <div class="display_card">
+    <div class="details_display_card">
       <h2>Details</h2>
       <p><%= results.firstName %></p>
       <p><%= results.lastName %></p>
       <p><%= results.email %></p>
       <p><%= results.birthDay %></p>
-      <a href="#">Update Password and More</a>
     </div>
     <div class="display_card">
       <h2>Security</h2>
       <a href="#">Update Password and More</a>
     </div>
-  </body>
+  </div>
 </html>

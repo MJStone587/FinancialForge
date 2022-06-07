@@ -7,14 +7,17 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <header>
-    <nav class="navbar">
-      <h1 class="navTitle">F<span>org</span>e</h1>
-      <img class="navLogo" src="/images/forge.png" alt="Logo" />
+    <nav class="navbar navbarLI">
+      <a class="navTitle" href="/"
+        ><h1 class="navTitle">F<span>org</span>e</h1></a
+      >
+      <img class="navLogo navLogoLI" src="/images/forge.png" alt="Logo" />
       <a class="linkHome" href="/"> Home </a>
       <a class="linkReceipt" href="/catalog/receipts"> Expenses </a>
       <a class="linkIncome" href="/catalog/incomes"> Income </a>
       <a class="linkSummary" href="/catalog/summary"> Summary </a>
-      <a class="userIcon" href="/catalog/user/:id"> Welcome </a>
+      <a class="userIcon" href="/catalog/user/<%= userID %>"><%= userName %></a>
+      <a class="logout" href="/catalog/user/logout">Logout</a>
     </nav>
   </header>
 </html>

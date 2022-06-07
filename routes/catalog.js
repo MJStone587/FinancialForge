@@ -61,15 +61,18 @@ router.get("/summary", summary_controller.summary_full);
 
 //GET request for user creation page
 router.get("/user/create", user_controller.user_create_get);
-
-//GET requeest for user Sign in page
-router.get("/user/login", user_controller.user_login_get);
-
-//Post request for user sign in
-router.post("/user/login", user_controller.user_login_post);
 //POST request for creating new user
 router.post("/user/create", user_controller.user_create_post);
 
+//GET requeest for user Sign in page
+router.get("/user/login", user_controller.user_login_get);
+//Post request for user sign in
+router.post("/user/login", user_controller.user_login_post);
+
 router.get("/user/:id", user_controller.user_detail_get);
+
+router.get("/user/logout", user_controller.user_logout_get);
+
+router.post("/user/logout", user_controller.user_logout_post);
 
 module.exports = router;

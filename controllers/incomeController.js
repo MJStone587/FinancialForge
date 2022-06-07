@@ -17,7 +17,17 @@ exports.income_list = function (req, res) {
 };
 
 exports.income_create_get = function (req, res) {
-  res.render("income_form", { title: "Income Form" });
+  if (req.session.isAuth) {
+    res.render("income_form", {
+      title: "Income Form",
+      userID: req.session.authUserID,
+      userName: req.session.authUser,
+    });
+  } else {
+    res.render("user_login", {
+      message: "You must login to create income additions",
+    });
+  }
 };
 
 // Handle Income create on POST.

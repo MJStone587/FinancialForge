@@ -1,3 +1,5 @@
 receipt_list.ejs
 user_form.ejs
 income_list.ejs
+index.ejs
+user_login.ejs

@@ -2,27 +2,61 @@ const Receipt = require("../models/receipt");
 const { body, validationResult } = require("express-validator");
 
 exports.index = function (req, res) {
-  res.render("index", { title: "Financial Organizer" });
-  console.log(req.session.id);
+  let authCheck = req.session.isAuth;
+  res.render("index", {
+    title: "Financial Organizer",
+    authCheck: authCheck,
+    userName: req.session.authUser,
+    userID: req.session.authUserID,
+  });
 };
 
-exports.receipt_list = function (req, res) {
-  Receipt.find()
-    .sort([["title", "descending"]])
-    .exec(function (err, list_receipt) {
-      if (err) {
-        return next(err);
-      } else {
-        res.render("receipt_list", {
-          title: "Expenses",
-          receipt_list: list_receipt,
-        });
-      }
-    });
+exports.receipt_list = function (req, res, next) {
+  let userName = req.session.authUserID;
+  if (req.session.isAuth) {
+    Receipt.find()
+      .populate(userName)
+      .sort([["title", "descending"]])
+      .exec(function (err, list_receipt) {
+        if (err) {
+          return next(err);
+        } else {
+          res.render("receipt_list", {
+            title: "Expenses",
+            receipt_list: list_receipt,
+            authorID: userName,
+          });
+        }
+      });
+  } else {
+    Receipt.find()
+      .sort([["title", "descending"]])
+      .exec(function (err, list_receipt) {
+        if (err) {
+          return next(err);
+        } else {
+          res.render("receipt_list", {
+            title: "Expenses",
+            receipt_list: list_receipt,
+          });
+        }
+      });
+  }
 };
 
 exports.receipt_create_get = function (req, res, next) {
-  res.render("receipt_form", { title: "Receipt Creation Form" });
+  console.log(req.session.isAuth);
+  if (req.session.isAuth) {
+    res.render("receipt_form", {
+      title: "Receipt Creation Form",
+      userID: req.session.authUserID,
+      userName: req.session.authUser,
+    });
+  } else {
+    res.render("user_login", {
+      message: "You must login to create additional expenses",
+    });
+  }
 };
 
 // Handle Receipt create on POST.
@@ -51,6 +85,8 @@ exports.receipt_create_post = [
         title: "New Receipt Form",
         receipt: receipt,
         errors: errors.array(),
+        userID: req.session.authUserID,
+        userName: req.session.authUser,
       });
       return;
     } else {
@@ -88,6 +124,8 @@ exports.receipt_detail = function (req, res) {
       res.render("receipt_detail", {
         title: "Receipt Details",
         results: results,
+        userID: req.session.authUserID,
+        userName: req.session.authUser,
       });
     }
   });

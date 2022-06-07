@@ -100,19 +100,32 @@ exports.user_create_post = [
 ];
 
 exports.user_detail_get = function (req, res, next) {
-  User.findById(req.params.id, function (err, results) {
-    if (err) {
-      return next(err);
-    } else {
-      res.render("user_detail", {
-        title: results.userName,
-        results: results,
-      });
-    }
-  });
+  console.log(req.session.authUserID);
+  if (req.session.isAuth == true) {
+    User.findById(req.session.authUserID, function (err, results) {
+      if (err) {
+        return next(err);
+      } else {
+        res.render("user_detail", {
+          title: results.userName,
+          results: results,
+          userID: req.session.authUserID,
+          userName: req.session.authUser,
+        });
+      }
+    });
+  } else {
+    return res.redirect("/catalog/user/login");
+  }
 };
 
 exports.user_login_get = function (req, res) {
+  if (req.session.isAuth) {
+    let userName = req.session.authUser;
+    res.render("user_login", {
+      message: `Welcome ${userName}! You are logged in.`,
+    });
+  }
   res.render("user_login", {
     message: "Login with Username and Password",
   });
@@ -121,17 +134,34 @@ exports.user_login_get = function (req, res) {
 exports.user_login_post = async function (req, res) {
   const { userName, userPass } = req.body;
 
-  const user = await User.findOne({ userName });
+  User.findOne({ userName }, function (err, results) {
+    if (err) {
+      return res.redirect("user_login", {
+        message: "That user does not exist",
+      });
+    } else {
+      const match = bcrypt.compareSync(userPass, results.userPass);
+      if (!match) {
+        return res.render("user_login", { message: "Incorrect Password" });
+      }
+      req.session.isAuth = true;
+      req.session.authUser = results.userName;
+      req.session.authUserID = results._id;
+      res.render("index", {
+        results: results,
+        title: "Home",
+        authCheck: req.session.isAuth,
+        userID: results._id,
+        userName: results.userName,
+      });
+    }
+  });
+};
+exports.user_logout_get = function (req, res) {
+  res.render("logout");
+};
 
-  if (!user) {
-    return res.redirect("user_login", { message: "That user does not exist" });
-  }
-
-  const match = bcrypt.compareSync(userPass, user.userPass);
-
-  if (!match) {
-    return res.render("user_login", { message: "Incorrect Password" });
-  }
-  req.session.isAuth = true;
-  res.redirect("/");
+exports.user_logout_post = function (req, res) {
+  req.session.isAuth = false;
+  res.render("index");
 };
