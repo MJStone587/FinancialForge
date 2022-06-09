@@ -160,8 +160,8 @@ exports.user_login_post = async function (req, res) {
         results: results,
         title: "Home",
         authCheck: req.session.isAuth,
-        userID: results._id,
-        userName: results.userName,
+        authUserID: results._id,
+        authUser: results.userName,
       });
     }
   });
