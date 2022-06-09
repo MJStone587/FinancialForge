@@ -157,10 +157,9 @@ exports.user_login_post = async function (req, res) {
       req.session.authUser = results.userName;
       req.session.authUserID = results._id;
       res.render("index", {
-        results: results,
         title: "Home",
         authCheck: req.session.isAuth,
-        authUserID: results._id,
+        authorID: results._id,
         authUser: results.userName,
       });
     }
