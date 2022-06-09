@@ -5,3 +5,4 @@ index.ejs
 user_login.ejs
 receipt_delete.ejs
 summary.ejs
+income_update.ejs

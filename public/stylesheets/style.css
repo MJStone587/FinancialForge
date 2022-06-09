@@ -167,7 +167,7 @@ html {
   font-size: 18px;
   justify-self: center;
   align-self: start;
-  padding-right: 75px;
+  padding-right: 125px;
 }
 .index_header #header_signupBtn {
   grid-area: headerSignup;

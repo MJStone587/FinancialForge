@@ -173,11 +173,17 @@ exports.user_login_post = async function (req, res) {
     }
   });
 };
+
 exports.user_logout_get = function (req, res) {
-  res.render("logout");
+  res.render("logout", { authCheck: req.session.isAuth });
 };
 
 exports.user_logout_post = function (req, res) {
   req.session.isAuth = false;
-  res.render("index");
+  res.render("index", {
+    title: "Home",
+    authCheck: req.session.isAuth,
+    authorID: "62a21b717001a8755da33cf7",
+    authUser: "Sample",
+  });
 };

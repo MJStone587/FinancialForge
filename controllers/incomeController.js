@@ -109,19 +109,33 @@ exports.income_create_post = [
 ];
 
 exports.income_detail = function (req, res) {
-  Income.findById(req.params.id, function (err, results) {
-    if (err) {
-      return next(err);
-    } else {
-      res.render("income_detail", {
-        title: "Income Details",
-        results: results,
-        authCheck: req.session.isAuth,
-        authorID: req.session.authUserID,
-        authUser: req.sesssion.authUser,
-      });
-    }
-  });
+  if (req.session.isAuth) {
+    Income.findById(req.params.id, function (err, results) {
+      if (err) {
+        return next(err);
+      } else {
+        res.render("income_detail", {
+          title: "Income Details",
+          results: results,
+          authCheck: req.session.isAuth,
+          authorID: req.session.authUserID,
+          authUser: req.session.authUser,
+        });
+      }
+    });
+  } else {
+    Income.findById(req.params.id, function (err, results) {
+      if (err) {
+        return next(err);
+      } else {
+        res.render("income_detail", {
+          title: "Income Details",
+          results: results,
+          authCheck: req.session.isAuth,
+        });
+      }
+    });
+  }
 };
 // Display Author delete form on GET.
 exports.income_delete_get = function (req, res, next) {
@@ -154,6 +168,9 @@ exports.income_update_get = function (req, res, next) {
       res.render("income_update", {
         title: "Income Update",
         results: results,
+        authCheck: req.session.isAuth,
+        authUserID: req.session.authUserID,
+        authUser: req.session.authUser,
       });
     }
   });
