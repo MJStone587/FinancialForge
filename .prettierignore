@@ -3,3 +3,5 @@ user_form.ejs
 income_list.ejs
 index.ejs
 user_login.ejs
+receipt_delete.ejs
+summary.ejs

@@ -10,10 +10,13 @@
     crossorigin="anonymous"></script>
     <title><%= title %></title>
   </head>
-  <%- include("navbar") %>
-
+  <% if(authCheck){ %> 
+    <%- include("navbarLI") %> 
+    <% } else { %> 
+    <%-include("navbar") %> 
+   <% } %>
   <div class="incomeHeader">
-    <h1 class="incomeHeader_h1">Income</h1>
+    <h1 class="incomeHeader_h1"><%= authUser %>'s <%= title %></h1>
     <p class="incomeHeader_p">
       Here you can review, edit, delete, and add income
     </p>

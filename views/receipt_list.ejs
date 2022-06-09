@@ -8,9 +8,13 @@
     crossorigin="anonymous"
   ></script>
   </head>
-  <%- include("navbar") -%>
+  <% if(authCheck){ %> 
+    <%- include("navbarLI") %> 
+    <% } else { %> 
+    <%-include("navbar") %> 
+   <% } %>
     <div class="receiptHeader">
-      <h1 class="receiptHeader_h1"><%= title %></h1>
+      <h1 class="receiptHeader_h1"><%= authUser %>'s <%= title %></h1>
       <p class="receiptHeader_p">Here you can review, edit, delete, and add receipts</p>
       <img class="receiptHeader_img" src="/images/receiptimage.png">
     </div>

@@ -8,11 +8,15 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <title>Summary</title>
   </head>
-  <%- include("navbar") %>
+  <% if(authCheck){ %> 
+    <%- include("navbarLI") %> 
+    <% } else { %> 
+    <%-include("navbar") %> 
+   <% } %>
 
   <!-- Summary Header -->
   <div class="summary_header">
-    <h1><%= title %></h1>
+    <h1><%= authUser %>'s <%= title %></h1>
     <p>View all income, expenses and spending habits</p>
     <img src="/images/summary.png" alt="Summary Image" />
   </div>
@@ -45,13 +49,11 @@
     <h1 class="summary_receiptTitle">Receipts</h1>
     <div class="summary_receiptList">
       <h3>Name</h3>
-      <h3>Description</h3>
       <h3>Total</h3>
       <h3>Date</h3>
       <h3>Details</h3>
       <% for(let i = 0; i < receipts.length; i++) { %>
       <p id="summary_recName"><%= receipts[i].name %></p>
-      <p><%= receipts[i].description %></p>
       <p>Total: <%= "$" + receipts[i].total %></p>
       <p><%= receipts[i].date_formatted %></p>
       <a href="/catalog/receipt/<%= receipts[i]._id %>">More</a>

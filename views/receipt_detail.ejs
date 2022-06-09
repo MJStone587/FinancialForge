@@ -4,7 +4,12 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
-  <%- include("navbar"); -%>
+  
+  <% if(authCheck){ %> 
+    <%- include("navbarLI") %> 
+    <% } else { %> 
+    <%-include("navbar") %> 
+   <% } %>
 
   <h1 class="det_title"><%= title %></h1>
   <div class="det_body">

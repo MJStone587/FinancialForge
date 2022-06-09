@@ -555,7 +555,7 @@ html {
   grid-area: summRec;
   align-self: start;
   display: grid;
-  grid-template-columns: [col1] 15% [col2] 15% [col3] 15% [col4] 15% [col5] 15%;
+  grid-template-columns: [col1] 20% [col2] 15% [col3] 15% [col4] 15%;
   justify-content: center;
   align-content: start;
   max-height: 80vh;

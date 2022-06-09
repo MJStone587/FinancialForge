@@ -4,7 +4,11 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 exports.user_create_get = function (req, res) {
-  res.render("user_form");
+  res.render("user_form", {
+    authCheck: req.session.isAuth,
+    authorID: req.session.authUserID,
+    authUser: req.session.authUser,
+  });
 };
 
 exports.user_create_post = [
@@ -100,7 +104,6 @@ exports.user_create_post = [
 ];
 
 exports.user_detail_get = function (req, res, next) {
-  console.log(req.session.authUserID);
   if (req.session.isAuth == true) {
     User.findById(req.session.authUserID, function (err, results) {
       if (err) {
@@ -109,8 +112,8 @@ exports.user_detail_get = function (req, res, next) {
         res.render("user_detail", {
           title: results.userName,
           results: results,
-          userID: req.session.authUserID,
-          userName: req.session.authUser,
+          authorID: req.session.authUserID,
+          authUser: req.session.authUser,
         });
       }
     });
@@ -123,11 +126,17 @@ exports.user_login_get = function (req, res) {
   if (req.session.isAuth) {
     let userName = req.session.authUser;
     res.render("user_login", {
-      message: `Welcome ${userName}! You are logged in.`,
+      message: `Welcome ${userName}! You are already logged in.`,
+      authCheck: req.session.isAuth,
+      authorID: req.session.authUserID,
+      authUser: req.session.authUser,
     });
   }
   res.render("user_login", {
     message: "Login with Username and Password",
+    authCheck: req.session.isAuth,
+    authorID: req.session.authUserID,
+    authUser: req.session.authUser,
   });
 };
 

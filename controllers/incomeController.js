@@ -2,26 +2,48 @@ const Income = require("../models/income");
 const { body, validationResult } = require("express-validator");
 
 exports.income_list = function (req, res) {
-  Income.find()
-    .sort([["date_formatted", "descending"]])
-    .exec(function (err, list_income) {
-      if (err) {
-        return next(err);
-      } else {
-        res.render("income_list", {
-          title: "Income List",
-          results: list_income,
-        });
-      }
-    });
+  if (req.session.isAuth) {
+    Income.find({ author: req.session.authUserID })
+      .sort([["title", "descending"]])
+      .exec(function (err, results) {
+        if (err) {
+          return next(err);
+        } else {
+          res.render("income_list", {
+            title: "Income",
+            results: results,
+            authorID: req.session.authUserID,
+            authUser: req.session.authUser,
+            authCheck: req.session.isAuth,
+          });
+        }
+      });
+  } else {
+    Income.find({ author: "62a21b717001a8755da33cf7" })
+      .sort([["title", "descending"]])
+      .exec(function (err, results) {
+        if (err) {
+          return next(err);
+        } else {
+          res.render("income_list", {
+            title: "Expenses",
+            results: results,
+            authorID: "62a21b717001a8755da33cf7",
+            authUser: "Sample",
+            authCheck: req.session.isAuth,
+          });
+        }
+      });
+  }
 };
 
 exports.income_create_get = function (req, res) {
   if (req.session.isAuth) {
     res.render("income_form", {
       title: "Income Form",
-      userID: req.session.authUserID,
-      userName: req.session.authUser,
+      authCheck: req.session.isAuth,
+      authorID: req.session.authUserID,
+      authUser: req.session.authUser,
     });
   } else {
     res.render("user_login", {
@@ -46,6 +68,7 @@ exports.income_create_post = [
       description: req.body.description,
       from: req.body.from,
       date: req.body.date,
+      author: req.body.author,
       amount: req.body.amount,
     });
 
@@ -93,6 +116,9 @@ exports.income_detail = function (req, res) {
       res.render("income_detail", {
         title: "Income Details",
         results: results,
+        authCheck: req.session.isAuth,
+        authorID: req.session.authUserID,
+        authUser: req.sesssion.authUser,
       });
     }
   });

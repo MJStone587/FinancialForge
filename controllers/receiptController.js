@@ -6,16 +6,14 @@ exports.index = function (req, res) {
   res.render("index", {
     title: "Financial Organizer",
     authCheck: authCheck,
-    userName: req.session.authUser,
-    userID: req.session.authUserID,
+    authUser: req.session.authUser,
+    authorID: req.session.authUserID,
   });
 };
 
 exports.receipt_list = function (req, res, next) {
-  let userName = req.session.authUserID;
   if (req.session.isAuth) {
-    Receipt.find()
-      .populate(userName)
+    Receipt.find({ author: req.session.authUserID })
       .sort([["title", "descending"]])
       .exec(function (err, list_receipt) {
         if (err) {
@@ -24,12 +22,14 @@ exports.receipt_list = function (req, res, next) {
           res.render("receipt_list", {
             title: "Expenses",
             receipt_list: list_receipt,
-            authorID: userName,
+            authorID: req.session.authUserID,
+            authUser: req.session.authUser,
+            authCheck: req.session.isAuth,
           });
         }
       });
   } else {
-    Receipt.find()
+    Receipt.find({ author: "62a21b717001a8755da33cf7" })
       .sort([["title", "descending"]])
       .exec(function (err, list_receipt) {
         if (err) {
@@ -38,6 +38,9 @@ exports.receipt_list = function (req, res, next) {
           res.render("receipt_list", {
             title: "Expenses",
             receipt_list: list_receipt,
+            authorID: "62a21b717001a8755da33cf7",
+            authUser: "Sample",
+            authCheck: req.session.isAuth,
           });
         }
       });
@@ -45,16 +48,19 @@ exports.receipt_list = function (req, res, next) {
 };
 
 exports.receipt_create_get = function (req, res, next) {
-  console.log(req.session.isAuth);
   if (req.session.isAuth) {
     res.render("receipt_form", {
       title: "Receipt Creation Form",
-      userID: req.session.authUserID,
-      userName: req.session.authUser,
+      authCheck: req.session.isAuth,
+      authUser: req.session.authUser,
+      authorID: req.session.authUserID,
     });
   } else {
     res.render("user_login", {
       message: "You must login to create additional expenses",
+      authCheck: req.session.isAuth,
+      authorID: req.session.authUserID,
+      authUser: req.session.authUser,
     });
   }
 };
@@ -75,6 +81,7 @@ exports.receipt_create_post = [
       description: req.body.description,
       paymentType: req.body.paymentType,
       ccName: req.body.ccName,
+      author: req.body.author,
       date: req.body.date,
       total: req.body.total,
     });
@@ -85,8 +92,9 @@ exports.receipt_create_post = [
         title: "New Receipt Form",
         receipt: receipt,
         errors: errors.array(),
-        userID: req.session.authUserID,
-        userName: req.session.authUser,
+        authorID: req.session.authUserID,
+        authUser: req.session.authUser,
+        authCheck: req.session.isAuth,
       });
       return;
     } else {
@@ -124,8 +132,9 @@ exports.receipt_detail = function (req, res) {
       res.render("receipt_detail", {
         title: "Receipt Details",
         results: results,
-        userID: req.session.authUserID,
-        userName: req.session.authUser,
+        authorID: req.session.authUserID,
+        authUser: req.session.authUser,
+        authCheck: req.session.isAuth,
       });
     }
   });
@@ -139,6 +148,9 @@ exports.receipt_delete_get = function (req, res, next) {
       res.render("receipt_delete", {
         title: "Receipt Deletion",
         results: results,
+        authCheck: req.session.isAuth,
+        authUser: req.session.authUser,
+        authorID: req.session.authUserID,
       });
     }
   });
@@ -161,6 +173,9 @@ exports.receipt_update_get = function (req, res, next) {
       res.render("receipt_update", {
         title: "Receipt Update",
         results: results,
+        authCheck: req.session.isAuth,
+        authUser: req.session.authUser,
+        authorID: req.session.authUserID,
       });
     }
   });

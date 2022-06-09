@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Receipt Deletion</title>
   </head>
+  <% if(authCheck){ %> 
+    <%- include("navbarLI") %> 
+    <% } else { %> 
+    <%-include("navbar") %> 
+   <% } %>
   <body>
     <h1>Confirm Receipt Deletion</h1>
     <form action="" method="POST">
