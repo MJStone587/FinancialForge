@@ -5,21 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script
+      src="https://kit.fontawesome.com/9b6b4f0fa1.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <header>
-    <nav class="navbar navbarLI">
-      <a class="navTitle" href="/"
-        ><h1 class="navTitle">F<span>org</span>e</h1></a
-      >
-      <img class="navLogo navLogoLI" src="/images/forge.png" alt="Logo" />
-      <a class="linkHome" href="/"> Home </a>
-      <a class="linkReceipt" href="/catalog/receipts"> Expenses </a>
-      <a class="linkIncome" href="/catalog/incomes"> Income </a>
-      <a class="linkSummary" href="/catalog/summary"> Summary </a>
-      <a class="userIcon" href="/catalog/user/<%= authorID %>"
-        ><%= authUser %></a
-      >
-      <a class="logout" href="/catalog/user/logout">Logout</a>
-    </nav>
-  </header>
+  <div class="navbar navbarLI">
+    <a href="#"><img id="navLogoLI" src="/images/forge.png" alt="Logo" /> </a>
+    <a class="navTitle" href="/"
+      ><h1 class="navTitle">F<span>org</span>e</h1></a
+    >
+
+    <div class="myLinks">
+      <a id="linkHome" href="/"> Home </a>
+      <a id="linkReceipt" href="/catalog/receipts"> Expenses </a>
+      <a id="linkIncome" href="/catalog/incomes"> Income </a>
+      <a id="linkSummary" href="/catalog/summary"> Summary </a>
+      <a id="userIcon" href="/catalog/user/<%= authorID %>"><%= authUser %></a>
+      <a id="logout" href="/catalog/user/logout">Logout</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa-solid fa-bars"></i>
+      </a>
+    </div>
+  </div>
+  <script>
+    function myFunction() {
+      var x = document.querySelector(".myLinks");
+      if (x.style.display === "grid") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "grid";
+      }
+    }
+  </script>
 </html>

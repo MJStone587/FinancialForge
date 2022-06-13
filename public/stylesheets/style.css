@@ -8,32 +8,46 @@ html {
 .navbar {
   display: grid;
   grid-template-rows: [row1] 100%;
-  grid-template-columns: [navtitle] 64% [link1] 6% [link2] 6% [link3] 6% [link4] 6% [link5] 6% [link6] 6%;
-  grid-template-areas: "navtitle link1 link2 link3 link4 link5 link6";
+  grid-template-columns: [navLogo] 5% [navtitle] 45% [link1] 50%;
+  grid-template-areas: "navLogo navtitle navLinks";
   margin: 20px 75px 0px 75px;
   height: 50px;
   place-items: center;
 }
-.navLogo {
-  grid-area: navtitle;
+.navbar #myLinks {
+  width: 875px;
+  grid-area: navLinks;
+  grid-template-rows: [row1] 100%;
+  grid-template-columns: [link1] 12% [link2] 12% [link3] 12% [link4] 12% [link5] 12% [link6] 12%;
+  grid-template-areas: "link1 link2 link3 link4 link5 link6";
+  place-items: center;
+  column-gap: 10px;
+  display: grid;
+  justify-content: center;
+}
+.navbar #navLogo {
+  grid-area: navLogo;
   height: 50px;
   width: 50px;
-  justify-self: start;
-  align-self: center;
-  margin-left: 75px;
+  margin-left: 5px;
   border-radius: 25px;
 }
-.navbar a {
+/*.navLogoLI {
+  grid-area: navLogo;
+  margin-left: 95px;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+} */
+
+.myLinks a {
   text-decoration: none;
   font-size: 16px;
 }
-.navbarLI a {
-  font-size: 15px;
-}
-.navbar a:hover {
+.myLinks a:hover {
   color: #355ec4;
 }
-.navTitle {
+.navbar #navTitle {
   align-self: center;
   font-size: 30px;
   grid-area: navtitle;
@@ -42,40 +56,40 @@ html {
   color: #355ec4;
   -webkit-text-stroke: 1px #4edff9;
 }
-.navTitle span {
+.navbar #navTitle span {
   color: #4edff9;
 }
-.linkHome {
+.myLinks #linkHome {
   grid-area: link1;
   justify-self: start;
   color: #16253d;
 }
-.linkReceipt {
+.myLinks #linkReceipt {
   grid-area: link2;
   justify-self: start;
   color: #16253d;
 }
-.linkIncome {
+.myLinks #linkIncome {
   grid-area: link3;
   justify-self: start;
 }
-.linkSummary {
+.myLinks #linkSummary {
   grid-area: link4;
   justify-self: start;
   color: #16253d;
 }
-.signIn {
+.myLinks #signIn {
   grid-area: link5;
   justify-self: center;
   color: #16253d;
 }
-.userIcon {
+.myLinks #userIcon {
   grid-area: link5;
   font-size: 2px;
   justify-self: center;
   color: #16253d;
 }
-.logout {
+.myLinks #logout {
   grid-area: link6;
   color: #4edff9;
   border: 1px solid #4edff9;
@@ -83,10 +97,10 @@ html {
   padding: 15px;
   justify-self: start;
 }
-.logout:hover {
+.myLinks #logout:hover {
   border: 1px solid #355ec4;
 }
-.signUp {
+.myLinks #signUp {
   grid-area: link6;
   color: #4edff9;
   border: 1px solid #4edff9;
@@ -94,8 +108,11 @@ html {
   padding: 15px;
   justify-self: start;
 }
-.signUp:hover {
+.myLinks #signUp:hover {
   border: 1px solid #355ec4;
+}
+.navbar a.icon {
+  display: none;
 }
 /* Footer Global*/
 .site_footer {
@@ -817,4 +834,100 @@ html {
 }
 .signup_signin {
   margin: 0px 75px 10px 75px;
+}
+
+/* Styling for  mobile 1*/
+@media screen and (max-width: 428px) {
+  html {
+    margin: 0;
+    width: 100%;
+    background-color: #f6feff;
+  }
+  .navbar {
+    display: grid;
+    grid-template-rows: [row1] 100%;
+    grid-template-columns: [col1] 10% [col2] 75% [col3] 10%;
+    grid-template-areas: "navLogo navTitle navLinks";
+    width: 100vw;
+    margin: 1px;
+    height: 75px;
+    border-radius: 10px;
+  }
+  .navbar img {
+    grid-area: navLogo;
+  }
+  .navbar #navLogo {
+    grid-area: navLogo;
+  }
+  .navbar a {
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+  }
+  .navbar #navTitle {
+    grid-area: navTitle;
+    justify-self: start;
+    margin: 0px;
+    padding: 0px;
+  }
+  .navbar a.icon {
+    display: grid;
+    grid-area: navLinks;
+    font-size: 17px;
+    color: black;
+  }
+  .myLinks {
+    display: none;
+    grid-template-columns: [col1] 100%;
+    grid-template-rows: [row1] 13% [row2] 13% [row3] 13% [row4] 13% [row5] 13% [row6] 13%;
+    grid-template-areas:
+      "link1"
+      "link2"
+      "link3"
+      "link4"
+      "link5"
+      "link6";
+    row-gap: 8px;
+    background-color: #8bf0ff;
+    height: 200px;
+    width: 75px;
+    margin-left: 650px;
+    padding: 20px;
+    z-index: 10;
+  }
+
+  .myLinks #linkHome {
+    grid-area: link1;
+  }
+  .myLinks #linkReceipt {
+    grid-area: link2;
+  }
+  .myLinks #linkIncome {
+    grid-area: link3;
+  }
+  .myLinks #linkSummary {
+    grid-area: link4;
+  }
+  .myLinks #login {
+    grid-area: link5;
+  }
+  .myLinks #signUp {
+    grid-area: link6;
+    border: none;
+    color: black;
+    padding: 0px;
+    margin: 0px;
+  }
+  .myLinks #signUp:hover {
+    border: none;
+  }
+  .myLinks a:hover {
+    color: #355ec4;
+  }
+  .index_header {
+    border: 1px solid black;
+    font-size: 10px;
+    width: 100vw;
+    margin: auto;
+  }
 }

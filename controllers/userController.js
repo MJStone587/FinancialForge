@@ -164,18 +164,13 @@ exports.user_login_post = async function (req, res) {
       req.session.isAuth = true;
       req.session.authUser = results.userName;
       req.session.authUserID = results._id;
-      res.render("index", {
-        title: "Home",
-        authCheck: req.session.isAuth,
-        authorID: results._id,
-        authUser: results.userName,
-      });
+      res.redirect("/catalog/user/:id");
     }
   });
 };
 
 exports.user_logout_get = function (req, res) {
-  res.render("logout", { authCheck: req.session.isAuth });
+  res.render("logout");
 };
 
 exports.user_logout_post = function (req, res) {
