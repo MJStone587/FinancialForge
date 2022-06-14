@@ -14,23 +14,22 @@ html {
   height: 50px;
   place-items: center;
 }
-.navbar #myLinks {
+.myLinks {
   width: 875px;
   grid-area: navLinks;
+  display: grid;
   grid-template-rows: [row1] 100%;
   grid-template-columns: [link1] 12% [link2] 12% [link3] 12% [link4] 12% [link5] 12% [link6] 12%;
   grid-template-areas: "link1 link2 link3 link4 link5 link6";
-  place-items: center;
   column-gap: 10px;
-  display: grid;
+  place-items: center;
   justify-content: center;
 }
 .navbar #navLogo {
   grid-area: navLogo;
   height: 50px;
   width: 50px;
-  margin-left: 5px;
-  border-radius: 25px;
+  margin-left: 45px;
 }
 /*.navLogoLI {
   grid-area: navLogo;
@@ -51,7 +50,7 @@ html {
   align-self: center;
   font-size: 30px;
   grid-area: navtitle;
-  margin: 0px 0px 0px 60px;
+  text-decoration: none;
   justify-self: start;
   color: #355ec4;
   -webkit-text-stroke: 1px #4edff9;
@@ -59,6 +58,28 @@ html {
 .navbar #navTitle span {
   color: #4edff9;
 }
+.allCharts {
+  display: grid;
+  grid-template-columns: [col1] 50% [col2] 50%;
+  grid-template-rows: [row1] 100%;
+  grid-template-areas: "chart1 chart2";
+  background-color: white;
+  box-shadow: 2px 2px 7px rgb(151, 151, 250);
+  margin: 50px 75px 0px 75px;
+  height: 600px;
+}
+.chartDisp1 {
+  grid-area: chart1;
+  margin: 50px 0px 0px 50px;
+}
+.chartDisp1 h1 {
+  margin-left: 250px;
+}
+.chartDisp2 {
+  grid-area: chart2;
+  place-self: center;
+}
+
 .myLinks #linkHome {
   grid-area: link1;
   justify-self: start;
@@ -873,7 +894,7 @@ html {
   .navbar a.icon {
     display: grid;
     grid-area: navLinks;
-    font-size: 17px;
+    font-size: 23px;
     color: black;
   }
   .myLinks {
@@ -892,7 +913,7 @@ html {
     height: 200px;
     width: 75px;
     margin-left: 650px;
-    padding: 20px;
+    padding: 25px;
     z-index: 10;
   }
 
@@ -925,9 +946,65 @@ html {
     color: #355ec4;
   }
   .index_header {
-    border: 1px solid black;
-    font-size: 10px;
-    width: 100vw;
+    display: grid;
+    grid-template-rows: [row1] 70% [row2] 30%;
+    grid-template-columns: [col1] 100%;
+    grid-template-areas:
+      "title"
+      "btn";
+    width: 99vw;
+    height: 250px;
     margin: auto;
+    justify-content: center;
+  }
+  .index_header #headerTitle {
+    grid-area: title;
+    align-self: end;
+    font-size: 24px;
+  }
+  .index_header #headerText {
+    grid-area: btn;
+    font-size: 13px;
+    align-self: center;
+    margin-left: 80px;
+  }
+  .index_header #header_signupBtn {
+    grid-area: btn;
+    font-size: 12px;
+    margin-right: 50px;
+    justify-self: end;
+    align-self: center;
+  }
+  .index_header #index_imgCaption {
+    display: none;
+    font-size: 7px;
+  }
+  .index_header #headerImg {
+    display: none;
+  }
+  .index_body {
+    display: grid;
+    grid-template-rows: [row1] 33% [row2] 33% [row3] 33%;
+    grid-template-columns: [col1] 100%;
+    grid-template-areas:
+      "box1"
+      "box2"
+      "box3";
+    align-content: start;
+  }
+  .box1 {
+    grid-area: box1;
+    border: none;
+    border-bottom: 1px solid gray;
+  }
+  .box2 {
+    grid-area: box2;
+    border: none;
+    border-bottom: 1px solid gray;
+  }
+  .box3 {
+    grid-area: box3;
+    border: none;
+    border-bottom: 1px solid gray;
   }
 }
