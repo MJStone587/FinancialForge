@@ -28,20 +28,33 @@
     <p>View all income, expenses and spending habits</p>
     <img src="/images/summary.png" alt="Summary Image" />
   </div>
-  <div class="allCharts">
-  <div class="chartDisp1">
-    <h1>Monthly Spending</h1>
-   <canvas id="monthlySpending"></canvas>
+
+  <div class="summary_charts">
+      <button id="exp_btn">Expenses</button>
+      <button id="inc_btn">Income</button>
+    <div class="chartDisp1">
+      <h1>Monthly Spending</h1>
+      <canvas id="monthlySpending"></canvas>
+    </div>
+    <div class="chartDisp2">
+      <h1>Major Expenses</h1>
+      <canvas id="majorExpenses"></canvas>
+    </div>
+    <div class="chartDisp3">
+      <h1>Monthly Income</h1>
+      <canvas id="monthlyIncome"></canvas>
+    </div>
+    <div class="chartDisp4">
+      <h1>Income Sources</h1>
+      <canvas id="incomeSources"></canvas>
+    </div>
   </div>
-  <div class="chartDisp2">
-    <h1>Major Expenses</h1>
-    <canvas id="majorExpenses"></canvas>
-  </div>
-</div>
+
   <div class="summary_body">
     <!-- Summary Income List-->
     <% let total_income = 0; %> <% let balance = 0 %>
-    <h1 class="summary_incomeTitle">Incomes</h1>
+    <h1 class="summary_incomeTitle">Income</h1>
+    <a href="/catalog/receipt/create"id="addIncome">+</a>
     <div class="summary_incomeList">
       <h3>Name</h3>
       <h3>Description</h3>
@@ -52,7 +65,7 @@
       <p id="summary_iName"><%= incomes[i].name %></p>
       <p id="summary_iDesc"><%= incomes[i].description %></p>
       <p id="summary_iAmt">$<%= incomes[i].amount %></p>
-      <p id="summary_iDate"><%= incomes[i].date_formatted %></p>
+      <p id="summary_iDate"><%= incomes[i].date_month %></p>
       <a id="summary_iDet" href="/catalog/income/<%= incomes[i]._id %>">More</a>
       <% total_income += incomes[i].amount %> <% } %> <% function
       round(value,decimals) { %> <% return Number(Math.round(value +'e'+
@@ -63,7 +76,8 @@
     </h2>
 
     <!--       Summary Receipts                -->
-    <h1 class="summary_receiptTitle">Receipts</h1>
+    <h1 class="summary_receiptTitle">Expenses</h1>
+    <a href="/catalog/income/create" id="addExpense">+</a>
     <div class="summary_receiptList">
       <h3>Name</h3>
       <h3>Total</h3>
@@ -71,17 +85,25 @@
       <h3>Details</h3>
       <% for(let i = 0; i < receipts.length; i++) { %>
       <p id="summary_recName"><%= receipts[i].name %></p>
-      <p>Total: <%= "$" + receipts[i].total %></p>
-      <p><%= receipts[i].date_formatted %></p>
+      <p><%= "$" + receipts[i].total %></p>
+      <p><%= receipts[i].date_month %></p>
       <a href="/catalog/receipt/<%= receipts[i]._id %>">More</a>
       <% } %>
     </div>
+    <% var jan_total = 0; %>
 
     <% let total_receipt = 0; %> <% for(let i = 0; i < receipts.length; i++) {
     %> <% total_receipt += receipts[i].total; %> <% } %> <% function
     round(value, decimals) { %> <% return Number(Math.round(value +'e'+
     decimals) +'e-'+ decimals).toFixed(decimals); %> <% } %>
 
+    <% for(let i=0; i< receipts.length; i++) { %>
+    <%    if(receipts[i].date_month == "June"){ %>
+    <%      jan_total += receipts[i].total; %>
+    <%    } %>
+    <% } %>
+
+    
     <h2 class="summary_receiptTotal">
       Receipt Totals: $<%=round(total_receipt, 2);%>
     </h2>
@@ -90,15 +112,43 @@
   <% balance = total_income - total_receipt %>
   <h1 class="summary_balance">Balance = $<%= round(balance, 2); %></h1>
   <script>
-    var ctx = document.getElementById("monthlySpending");
-    var gtx = document.getElementById("majorExpenses");
+    const ctx = document.getElementById("monthlySpending");
+    const gtx = document.getElementById("majorExpenses");
+    const mtx = document.getElementById("monthlyIncome");
+    const btx = document.getElementById("incomeSources");
+    const expBtn = document.getElementById("exp_btn");
+    const incBtn = document.getElementById("inc_btn");
+    const chart1 = document.querySelector(".chartDisp1");
+    const chart2 = document.querySelector(".chartDisp2");
+    const chart3 = document.querySelector(".chartDisp3");
+    const chart4 = document.querySelector(".chartDisp4");
+
+    expBtn.addEventListener("click", function() {
+      expBtn.style.backgroundColor = "white";
+      incBtn.style.backgroundColor = "rgb(125, 125, 125)";
+      chart1.style.display = "grid";
+      chart2.style.display = "grid";
+      chart3.style.display = "none";
+      chart4.style.display = "none";
+
+    })
+    incBtn.addEventListener("click", function() {
+      incBtn.style.backgroundColor = "white"
+      expBtn.style.backgroundColor = "rgb(125, 125, 125)";
+      chart1.style.display = "none";
+      chart2.style.display = "none";
+      chart3.style.display = "grid";
+      chart4.style.display = "grid";
+    })
+    
+
     var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ["Jan", "Feb", "March","Apr","May","June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
         datasets: [{
             label: "Spending in Dollars",
-            data: [900, 500, 300, 1000, 400, 100, 412, 321, 823, 304, 458, 499],
+            data: [900, 500, 300, 1000, 400, "<%=jan_total%>", 412, 321, 823, 304, 458, 499],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -126,6 +176,69 @@
     }
 });
 var newChart = new Chart(gtx, {
+    type: 'pie',
+    data: {
+        labels: ["Gas", "Food", "Entertainment"],
+        datasets: [{
+            label: "Major Expenses",
+            data: [6, 12, 23  ],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+      responsive: true,
+    }
+});
+var myChart = new Chart(mtx, {
+    type: 'bar',
+    data: {
+        labels: ["Jan", "Feb", "March","Apr","May","June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
+        datasets: [{
+            label: "Spending in Dollars",
+            data: [900, 500, 300, 1000, 400, "<%=jan_total%>", 412, 321, 823, 304, 458, 499],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        yAxes: {
+                  beginAtZero:true
+            }
+    }
+});
+var newChart = new Chart(btx, {
     type: 'pie',
     data: {
         labels: ["Gas", "Food", "Entertainment"],

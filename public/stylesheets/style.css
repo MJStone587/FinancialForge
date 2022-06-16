@@ -25,7 +25,8 @@ html {
   place-items: center;
   justify-content: center;
 }
-.navbar #navLogo {
+.navbar #navLogo,
+#navLogoLI {
   grid-area: navLogo;
   height: 50px;
   width: 50px;
@@ -42,6 +43,7 @@ html {
 .myLinks a {
   text-decoration: none;
   font-size: 16px;
+  color: #16253d;
 }
 .myLinks a:hover {
   color: #355ec4;
@@ -58,37 +60,14 @@ html {
 .navbar #navTitle span {
   color: #4edff9;
 }
-.allCharts {
-  display: grid;
-  grid-template-columns: [col1] 50% [col2] 50%;
-  grid-template-rows: [row1] 100%;
-  grid-template-areas: "chart1 chart2";
-  background-color: white;
-  box-shadow: 2px 2px 7px rgb(151, 151, 250);
-  margin: 50px 75px 0px 75px;
-  height: 600px;
-}
-.chartDisp1 {
-  grid-area: chart1;
-  margin: 50px 0px 0px 50px;
-}
-.chartDisp1 h1 {
-  margin-left: 250px;
-}
-.chartDisp2 {
-  grid-area: chart2;
-  place-self: center;
-}
 
 .myLinks #linkHome {
   grid-area: link1;
   justify-self: start;
-  color: #16253d;
 }
 .myLinks #linkReceipt {
   grid-area: link2;
   justify-self: start;
-  color: #16253d;
 }
 .myLinks #linkIncome {
   grid-area: link3;
@@ -97,18 +76,14 @@ html {
 .myLinks #linkSummary {
   grid-area: link4;
   justify-self: start;
-  color: #16253d;
 }
 .myLinks #signIn {
   grid-area: link5;
   justify-self: center;
-  color: #16253d;
 }
 .myLinks #userIcon {
   grid-area: link5;
-  font-size: 2px;
   justify-self: center;
-  color: #16253d;
 }
 .myLinks #logout {
   grid-area: link6;
@@ -135,6 +110,7 @@ html {
 .navbar a.icon {
   display: none;
 }
+
 /* Footer Global*/
 .site_footer {
   display: grid;
@@ -514,6 +490,67 @@ html {
   height: 60vh;
   width: 40vw;
 }
+.summary_charts {
+  display: grid;
+  grid-template-columns: [col1] 50% [col2] 50%;
+  grid-template-rows: [row1] 8% [row2] 90%;
+  grid-template-areas:
+    "btn1 btn2"
+    "chart1 chart2";
+  background-color: white;
+  box-shadow: 2px 2px 7px rgb(151, 151, 250);
+  margin: 50px 75px 0px 75px;
+  height: 700px;
+}
+.summary_charts #exp_btn {
+  grid-area: btn1;
+  background-color: white;
+  border: none;
+  font-size: 20px;
+}
+.summary_charts #inc_btn {
+  font-size: 20px;
+  grid-area: btn2;
+  background-color: rgb(160, 160, 160);
+  border: none;
+}
+.summary_charts #exp_btn:hover {
+  cursor: pointer;
+  color: #355ec4;
+  background-color: rgb(125, 125, 125);
+}
+.summary_charts #inc_btn:hover {
+  cursor: pointer;
+  color: #355ec4;
+  background-color: rgb(125, 125, 125);
+}
+.summary_charts #exp_btn:active {
+  background-color: white;
+}
+.chartDisp1 {
+  grid-area: chart1;
+  margin: 50px 0px 0px 50px;
+}
+.chartDisp1 h1 {
+  margin-left: 250px;
+}
+.chartDisp2 {
+  grid-area: chart2;
+  place-self: center;
+}
+.chartDisp3 {
+  grid-area: chart1;
+  margin: 50px 0px 0px 50px;
+  display: none;
+}
+.chartDisp3 h1 {
+  margin-left: 250px;
+}
+.chartDisp4 {
+  grid-area: chart2;
+  place-self: center;
+  display: none;
+}
 .summary_body {
   display: grid;
   grid-template-rows: [row1] 30% [row2] 25% [row3] 10% [row4] 10%;
@@ -533,8 +570,43 @@ html {
   padding: 5px;
   grid-area: incomeTitle;
   margin: 50px 75px 0px 5px;
-  box-shadow: 1px 1px 10px black;
+  box-shadow: 1px 1px 8px black;
+  background-color: white;
   border-radius: 5px 5px 0px 0px;
+}
+.summary_body #addIncome {
+  grid-area: incomeTitle;
+  margin: 45px 75px 0px 775px;
+  justify-self: start;
+  padding: 10px;
+  font-size: 25px;
+  color: white;
+  border: none;
+  background-color: #ffa603;
+  box-shadow: 1px 1px 5px rgb(70, 70, 70);
+  border-radius: 5px 5px 0px 0px;
+}
+.summary_body #addIncome:hover {
+  cursor: pointer;
+  color: black;
+}
+.summary_body #addExpense {
+  grid-area: recTitle;
+  margin: 45px 75px 0px 775px;
+  justify-self: start;
+  padding: 10px;
+  font-size: 25px;
+  color: white;
+  border: none;
+  color: white;
+  border: none;
+  background-color: #355ec4;
+  box-shadow: 1px 1px 5px rgb(70, 70, 70);
+  border-radius: 5px 5px 0px 0px;
+}
+.summary_body #addExpense:hover {
+  color: black;
+  cursor: pointer;
 }
 .summary_incomeList {
   grid-area: summInc;
@@ -545,7 +617,7 @@ html {
   max-height: 80vh;
   max-width: 43vw;
   overflow: scroll;
-  box-shadow: 0.5px 0.5px 10px black;
+  box-shadow: 0.5px 0.5px 7px black;
   border-radius: 10px;
   background-color: white;
 }
@@ -599,11 +671,10 @@ html {
   max-height: 80vh;
   width: 43vw;
   overflow: scroll;
-  box-shadow: 0.5px 0.5px 10px black;
+  box-shadow: 0.5px 0.5px 7px black;
   border-radius: 5px;
   background-color: white;
 }
-
 .summary_receiptList h3 {
   text-decoration: underline;
 }
@@ -880,18 +951,13 @@ html {
   .navbar #navLogo {
     grid-area: navLogo;
   }
-  .navbar a {
-    color: black;
-    text-decoration: none;
-    font-size: 15px;
-  }
   .navbar #navTitle {
     grid-area: navTitle;
     justify-self: start;
-    margin: 0px;
+    margin-left: 10px;
     padding: 0px;
   }
-  .navbar a.icon {
+  .myLinks i {
     display: grid;
     grid-area: navLinks;
     font-size: 23px;
@@ -916,7 +982,11 @@ html {
     padding: 25px;
     z-index: 10;
   }
-
+  .myLinks a {
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+  }
   .myLinks #linkHome {
     grid-area: link1;
   }

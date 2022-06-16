@@ -12,9 +12,7 @@
   </head>
   <div class="navbar navbarLI">
     <a href="#"><img id="navLogoLI" src="/images/forge.png" alt="Logo" /> </a>
-    <a class="navTitle" href="/"
-      ><h1 class="navTitle">F<span>org</span>e</h1></a
-    >
+    <a id="navTitle" href="/"><h1 id="navTitle">F<span>org</span>e</h1></a>
 
     <div class="myLinks">
       <a id="linkHome" href="/"> Home </a>
@@ -23,10 +21,10 @@
       <a id="linkSummary" href="/catalog/summary"> Summary </a>
       <a id="userIcon" href="/catalog/user/<%= authorID %>"><%= authUser %></a>
       <a id="logout" href="/catalog/user/logout">Logout</a>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa-solid fa-bars"></i>
-      </a>
     </div>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa-solid fa-bars"></i>
+    </a>
   </div>
   <script>
     function myFunction() {
