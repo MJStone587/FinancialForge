@@ -80,6 +80,7 @@ exports.receipt_create_post = [
       name: req.body.name,
       description: req.body.description,
       paymentType: req.body.paymentType,
+      category: req.body.category,
       ccName: req.body.ccName,
       author: req.body.author,
       date: req.body.date,

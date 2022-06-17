@@ -54,7 +54,7 @@
     <!-- Summary Income List-->
     <% let total_income = 0; %> <% let balance = 0 %>
     <h1 class="summary_incomeTitle">Income</h1>
-    <a href="/catalog/receipt/create"id="addIncome">+</a>
+    <a href="/catalog/income/create"id="addIncome">+</a>
     <div class="summary_incomeList">
       <h3>Name</h3>
       <h3>Description</h3>
@@ -67,9 +67,10 @@
       <p id="summary_iAmt">$<%= incomes[i].amount %></p>
       <p id="summary_iDate"><%= incomes[i].date_month %></p>
       <a id="summary_iDet" href="/catalog/income/<%= incomes[i]._id %>">More</a>
-      <% total_income += incomes[i].amount %> <% } %> <% function
-      round(value,decimals) { %> <% return Number(Math.round(value +'e'+
-      decimals) +'e-'+ decimals).toFixed(decimals); %> <% } %>
+      <% total_income += incomes[i].amount %> <% } %> 
+      <% function round(value,decimals) { %> 
+      <% return Number(Math.round(value +'e'+decimals) +'e-'+ decimals).toFixed(decimals); %> 
+      <% } %>
     </div>
     <h2 class="summary_incomeTotal">
       Income Total: $<%= round(total_income,2) %>
@@ -77,7 +78,7 @@
 
     <!--       Summary Receipts                -->
     <h1 class="summary_receiptTitle">Expenses</h1>
-    <a href="/catalog/income/create" id="addExpense">+</a>
+    <a href="/catalog/receipt/create" id="addExpense">+</a>
     <div class="summary_receiptList">
       <h3>Name</h3>
       <h3>Total</h3>
@@ -90,19 +91,33 @@
       <a href="/catalog/receipt/<%= receipts[i]._id %>">More</a>
       <% } %>
     </div>
-    <% var jan_total = 0; %>
-
-    <% let total_receipt = 0; %> <% for(let i = 0; i < receipts.length; i++) {
-    %> <% total_receipt += receipts[i].total; %> <% } %> <% function
-    round(value, decimals) { %> <% return Number(Math.round(value +'e'+
-    decimals) +'e-'+ decimals).toFixed(decimals); %> <% } %>
+    <% var monthRecTotals = [0,0,0,0,0,0,0,0,0,0,0,0] %>
+    <% var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
+    <% var total_receipt = 0; %> 
+    <% var categories = ["Food","Entertainment","House","Car","Work","Clothing","Pet","Self-Care"]%>
+    <% var catTotals = [0,0,0,0,0,0,0,0] %>
+    <% for(let i = 0; i < receipts.length; i++) { %> 
+      <% total_receipt += receipts[i].total; %> 
+      <% } %>
+     <% function round(value, decimals) { %> 
+      <% return Number(Math.round(value +'e'+ decimals) +'e-'+ decimals).toFixed(decimals); %> 
+      <% } %>
 
     <% for(let i=0; i< receipts.length; i++) { %>
-    <%    if(receipts[i].date_month == "June"){ %>
-    <%      jan_total += receipts[i].total; %>
-    <%    } %>
-    <% } %>
+         <% for(let x=0; x< months.length; x++){ %>
+           <% if(receipts[i].date_month == months[x]) { %>
+              <% monthRecTotals[x] += receipts[i].total; %>
+            <% } %>
+           <% } %>
+       <% } %>
 
+    <% for(let i=0; i< receipts.length; i++) { %>
+        <% for(let x=0; x< categories.length; x++){ %>
+          <% if(receipts[i].category == categories[x]) { %>
+             <% catTotals[x] += 1; %>
+           <% } %>
+          <% } %>
+      <% } %>
     
     <h2 class="summary_receiptTotal">
       Receipt Totals: $<%=round(total_receipt, 2);%>
@@ -125,7 +140,7 @@
 
     expBtn.addEventListener("click", function() {
       expBtn.style.backgroundColor = "white";
-      incBtn.style.backgroundColor = "rgb(125, 125, 125)";
+      incBtn.style.backgroundColor = "#4edff991";
       chart1.style.display = "grid";
       chart2.style.display = "grid";
       chart3.style.display = "none";
@@ -134,13 +149,12 @@
     })
     incBtn.addEventListener("click", function() {
       incBtn.style.backgroundColor = "white"
-      expBtn.style.backgroundColor = "rgb(125, 125, 125)";
+      expBtn.style.backgroundColor = "#4edff991";
       chart1.style.display = "none";
       chart2.style.display = "none";
       chart3.style.display = "grid";
       chart4.style.display = "grid";
     })
-    
 
     var myChart = new Chart(ctx, {
     type: 'bar',
@@ -148,7 +162,7 @@
         labels: ["Jan", "Feb", "March","Apr","May","June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
         datasets: [{
             label: "Spending in Dollars",
-            data: [900, 500, 300, 1000, 400, "<%=jan_total%>", 412, 321, 823, 304, 458, 499],
+            data: ["<%=monthRecTotals[0]%>", "<%=monthRecTotals[1]%>", "<%=monthRecTotals[2]%>", "<%=monthRecTotals[3]%>", "<%=monthRecTotals[4]%>", "<%=monthRecTotals[5]%>","<%=monthRecTotals[6]%>", "<%=monthRecTotals[7]%>", "<%=monthRecTotals[8]%>", "<%=monthRecTotals[9]%>", "<%=monthRecTotals[10]%>", "<%=monthRecTotals[11]%>"],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -178,17 +192,20 @@
 var newChart = new Chart(gtx, {
     type: 'pie',
     data: {
-        labels: ["Gas", "Food", "Entertainment"],
+        labels: ["Food","Entertainment","House","Car","Work","Clothing","Pet","Self-Care"],
         datasets: [{
             label: "Major Expenses",
-            data: [6, 12, 23  ],
+            data: ["<%=catTotals[0] %>", "<%=catTotals[1] %>", "<%=catTotals[2] %>", "<%=catTotals[3] %>", "<%=catTotals[4] %>", "<%=catTotals[5] %>", "<%=catTotals[6] %>", "<%=catTotals[7] %>"],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(236, 255, 3, 0.2)',
+                'rgba(98, 79, 15, 0.2)'
+
             ],
             borderColor: [
                 'rgba(255,99,132,1)',
@@ -196,7 +213,9 @@ var newChart = new Chart(gtx, {
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
                 'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(255, 159, 64, 1)',
+                'rgba(236, 255, 3, 1)',
+                'rgba(98, 79, 15, 1)'
             ],
             borderWidth: 1
         }]
@@ -211,7 +230,7 @@ var myChart = new Chart(mtx, {
         labels: ["Jan", "Feb", "March","Apr","May","June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
         datasets: [{
             label: "Spending in Dollars",
-            data: [900, 500, 300, 1000, 400, "<%=jan_total%>", 412, 321, 823, 304, 458, 499],
+            data: [900, 500, 300, 1000, 400, 334, 412, 321, 823, 304, 458, 499],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

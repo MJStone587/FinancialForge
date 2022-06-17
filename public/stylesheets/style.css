@@ -511,21 +511,20 @@ html {
 .summary_charts #inc_btn {
   font-size: 20px;
   grid-area: btn2;
-  background-color: rgb(160, 160, 160);
+  background-color: #4edff991;
   border: none;
 }
 .summary_charts #exp_btn:hover {
   cursor: pointer;
-  color: #355ec4;
-  background-color: rgb(125, 125, 125);
+  border-top: 1px solid #3daec2;
+  border-right: 1px solid #3daec2;
+  border-left: 1px solid #3daec2;
 }
 .summary_charts #inc_btn:hover {
   cursor: pointer;
-  color: #355ec4;
-  background-color: rgb(125, 125, 125);
-}
-.summary_charts #exp_btn:active {
-  background-color: white;
+  border-top: 1px solid #3daec2;
+  border-right: 1px solid #3daec2;
+  border-left: 1px solid #3daec2;
 }
 .chartDisp1 {
   grid-area: chart1;

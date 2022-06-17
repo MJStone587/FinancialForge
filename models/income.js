@@ -6,7 +6,11 @@ const Schema = mongoose.Schema;
 let IncomeSchema = new Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
-  from: { type: String, required: true },
+  from: {
+    type: String,
+    enum: ["Job", "Gift", "Investment", "Savings", "Other"],
+    required: true,
+  },
   date: { type: Date, required: true },
   author: { type: Schema.Types.ObjectId, ref: "User" },
   amount: { type: Number, required: true },

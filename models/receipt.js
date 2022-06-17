@@ -21,7 +21,7 @@ let ReceiptSchema = new Schema({
       "Entertainment",
       "House",
       "Car",
-      "Job",
+      "Work",
       "Clothing",
       "Pet",
       "Self-Care",
