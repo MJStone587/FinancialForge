@@ -7,7 +7,7 @@
     rel="icon"
     type="image/x-icon"
     href="/images/favicon_io/favicon.ico"
-  />>
+  />
   </head>
   
   <% if(authCheck){ %> 
@@ -24,12 +24,15 @@
     <h3 id="det_label_2"> Description:</h3>
     <h3 id="det_label_3"> Credit Card:</h3>
     <h3 id="det_label_4"> Payment Type:</h3>
-    <h3 id="det_label_5"> Total:</h3>
+    <h3 id="det_label_5"> Category:</h3>
+    <h3 id="det_label_6"> Total:</h3>
+
     <p id="det_label_data_1"><%= results.date_formatted%></p>
     <p id="det_label_data_2"><%= results.description %></p>
     <p id="det_label_data_3"><%= results.ccName %></p>
     <p id="det_label_data_4"><%= results.paymentType %></p>
-    <p id="det_label_data_5"><%= "$" + results.total %> </p>
+    <p id="det_label_data_5"><%= results.category %></p>
+    <p id="det_label_data_6"><%= "$" + results.total %> </p>
     
   </br>
     <a id="delete_btn" href="/catalog/receipt/<%= results._id %>/delete"

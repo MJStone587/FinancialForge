@@ -1,7 +1,7 @@
 html {
   margin: 0;
   width: 100%;
-  background-color: #f6feff;
+  background-color: #2c2c2c;
 }
 
 /*NAVBAR Global STYLING*/
@@ -469,8 +469,8 @@ html {
   grid-template-columns: [col1] 50% [col2] 50%;
   grid-template-rows: [row1] 50% [row2] 20%;
   grid-template-areas:
-    "summHeaderTitle summHeaderImg"
-    "summHeaderP summHeaderImg";
+    "summHeaderTitle summHeaderRight"
+    "summHeaderP summHeaderRight";
   margin: 50px 75px 0px 75px;
 }
 .summary_header h1 {
@@ -484,11 +484,76 @@ html {
 .summary_header p {
   grid-area: summHeaderP;
   justify-self: center;
+  color: white;
 }
-.summary_header img {
-  grid-area: summHeaderImg;
-  height: 60vh;
-  width: 40vw;
+.summary_header_right {
+  grid-area: summHeaderRight;
+  display: grid;
+  grid-template-rows: [row1] 50% [row2] 50%;
+  grid-template-columns: [col1] 50% [col2] 50%;
+  grid-template-areas:
+    "headerRightTop headerRightTop"
+    "headerRightBot headerRightBot";
+  width: 75%;
+  height: 300px;
+  justify-self: center;
+  border-radius: 10px;
+}
+.summary_header_right_top {
+  grid-area: headerRightTop;
+  display: grid;
+  grid-template-rows: [row1] 100%;
+  grid-template-columns: [col1] 100%;
+  grid-template-areas: "date";
+  background-color: #355ec4;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.summary_header_right_top h1 {
+  grid-area: date;
+  align-self: center;
+  justify-self: center;
+  color: white;
+  -webkit-text-stroke: 1px white;
+}
+.summary_header_right_bot {
+  grid-area: headerRightBot;
+  display: grid;
+  grid-template-rows: [row1] 100%;
+  grid-template-columns: [col1] 10% [col2] 40% [col3] 10% [col4] 40%;
+  grid-column-gap: 8px;
+  grid-template-areas: "calendar date clock time";
+  background-color: #626261;
+  color: white;
+  justify-items: center;
+  align-items: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.fa-calendar {
+  grid-area: calendar;
+  justify-self: end;
+  font-size: 20px;
+}
+.fa-clock {
+  grid-area: clock;
+  justify-self: end;
+  font-size: 20px;
+}
+.summary_header_right_bot #summary_header_date {
+  font-size: 20px;
+  justify-self: start;
+  grid-area: date;
+}
+.summary_header_right_bot #summary_header_time {
+  font-size: 20px;
+  justify-self: start;
+  grid-area: time;
+}
+.summary_header_right_bot h2 {
+  font-size: 18px;
+  justify-self: center;
+  align-self: center;
 }
 .summary_charts {
   display: grid;
@@ -497,8 +562,9 @@ html {
   grid-template-areas:
     "btn1 btn2"
     "chart1 chart2";
-  background-color: white;
+  background-color: #626261;
   box-shadow: 2px 2px 7px rgb(151, 151, 250);
+  border-radius: 10px;
   margin: 50px 75px 0px 75px;
   height: 700px;
 }
@@ -507,12 +573,16 @@ html {
   background-color: white;
   border: none;
   font-size: 20px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 .summary_charts #inc_btn {
   font-size: 20px;
   grid-area: btn2;
   background-color: #4edff991;
   border: none;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 .summary_charts #exp_btn:hover {
   cursor: pointer;
@@ -588,6 +658,7 @@ html {
 .summary_body #addIncome:hover {
   cursor: pointer;
   color: black;
+  border: 1px solid black;
 }
 .summary_body #addExpense {
   grid-area: recTitle;
@@ -606,6 +677,7 @@ html {
 .summary_body #addExpense:hover {
   color: black;
   cursor: pointer;
+  border: 1px solid black;
 }
 .summary_incomeList {
   grid-area: summInc;
@@ -694,7 +766,7 @@ html {
 /*Global Details Page*/
 .det_body {
   display: grid;
-  grid-template-rows: [row1] 10% [row2] 10% [row3] 10% [row4] 10% [row5] 10% [row6] 10% [row7] 10%;
+  grid-template-rows: [row1] 10% [row2] 10% [row3] 10% [row4] 10% [row5] 10% [row6] 10% [row7] 10% [row8] 10%;
   grid-template-columns: [col1] 10% [col2] 10%;
   justify-content: center;
   grid-template-areas:
@@ -704,6 +776,7 @@ html {
     "label3 data3"
     "label4 data4"
     "label5 data5"
+    "label6 data6"
     "btn1 btn2";
   margin: 50px 75px 10px 75px;
 }
@@ -734,6 +807,9 @@ html {
 .det_body #det_label_5 {
   grid-area: label5;
 }
+.det_body #det_label_6 {
+  grid-area: label6;
+}
 .det_body #det_label_data_1 {
   grid-area: data1;
   justify-self: start;
@@ -749,6 +825,9 @@ html {
 }
 .det_body #det_label_data_5 {
   grid-area: data5;
+}
+.det_body #det_label_data_6 {
+  grid-area: data6;
 }
 .det_body #delete_btn {
   grid-area: btn1;

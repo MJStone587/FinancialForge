@@ -10,6 +10,9 @@
     type="image/x-icon"
     href="/images/favicon_io/favicon.ico"
   />
+  <script
+  src="https://kit.fontawesome.com/9b6b4f0fa1.js"
+  crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Summary</title>
@@ -25,8 +28,20 @@
   
   <div class="summary_header">
     <h1><%= authUser %>'s <%= title %></h1>
-    <p>View all income, expenses and spending habits</p>
-    <img src="/images/summary.png" alt="Summary Image" />
+      <p>View all income, expenses and spending habits</p>
+        <% const date = new Date(); %>
+    <div class="summary_header_right">
+      <div class="summary_header_right_top">
+        <% const weekday = ["Sunady", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] %>
+        <h1>Today is <%= weekday[date.getDay()] %></h1>
+      </div>
+      <div class="summary_header_right_bot">
+        <i class="fa-solid fa-calendar"></i>
+        <h2 id="summary_header_date"><%= date.toDateString(); %></h2>
+        <i class="fa-solid fa-clock"></i>
+        <h2 id="summary_header_time"><%= date.toLocaleTimeString(); %></h2>
+      </div>
+    </div>
   </div>
 
   <div class="summary_charts">
@@ -50,9 +65,19 @@
     </div>
   </div>
 
+  <% var monthRecTotals = [0,0,0,0,0,0,0,0,0,0,0,0] %>
+    <% var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
+    <% var total_receipt = 0; %> 
+    <% var categories = ["Food","Entertainment","House","Car","Work","Clothing","Pet","Self-Care"]%>
+    <% var catTotals = [0,0,0,0,0,0,0,0] %>
+    <% var incCategories = ["Job", "Gift", "Investment", "Savings", "Other"] %>
+    <% var incCatTotals = [0,0,0,0,0]; %>
+    <% monthlyIncTotals = [0,0,0,0,0,0,0,0,0,0,0,0]; %>
+
   <div class="summary_body">
     <!-- Summary Income List-->
-    <% let total_income = 0; %> <% let balance = 0 %>
+    <% var total_income = 0; %> 
+    <% var balance = 0 %>
     <h1 class="summary_incomeTitle">Income</h1>
     <a href="/catalog/income/create"id="addIncome">+</a>
     <div class="summary_incomeList">
@@ -76,6 +101,25 @@
       Income Total: $<%= round(total_income,2) %>
     </h2>
 
+    <% for(let i=0; i< incomes.length; i++) { %>
+      <% for(let x=0; x< months.length; x++){ %>
+        <% if(incomes[i].date_month == months[x]) { %>
+           <% monthlyIncTotals[x] += incomes[i].amount; %>
+         <% } %>
+        <% } %>
+    <% } %>
+
+
+    <% for(let i=0; i< incomes.length; i++) { %>
+      <% for(let x=0; x< incCategories.length; x++){ %>
+        <% if(incomes[i].from == incCategories[x]) { %>
+           <% incCatTotals[x] += 1; %>
+         <% } %>
+        <% } %>
+    <% } %>
+
+
+
     <!--       Summary Receipts                -->
     <h1 class="summary_receiptTitle">Expenses</h1>
     <a href="/catalog/receipt/create" id="addExpense">+</a>
@@ -91,11 +135,7 @@
       <a href="/catalog/receipt/<%= receipts[i]._id %>">More</a>
       <% } %>
     </div>
-    <% var monthRecTotals = [0,0,0,0,0,0,0,0,0,0,0,0] %>
-    <% var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
-    <% var total_receipt = 0; %> 
-    <% var categories = ["Food","Entertainment","House","Car","Work","Clothing","Pet","Self-Care"]%>
-    <% var catTotals = [0,0,0,0,0,0,0,0] %>
+
     <% for(let i = 0; i < receipts.length; i++) { %> 
       <% total_receipt += receipts[i].total; %> 
       <% } %>
@@ -139,8 +179,8 @@
     const chart4 = document.querySelector(".chartDisp4");
 
     expBtn.addEventListener("click", function() {
-      expBtn.style.backgroundColor = "white";
-      incBtn.style.backgroundColor = "#4edff991";
+      expBtn.style.backgroundColor = "#626261";
+      incBtn.style.backgroundColor = "#4edff9";
       chart1.style.display = "grid";
       chart2.style.display = "grid";
       chart3.style.display = "none";
@@ -148,8 +188,8 @@
 
     })
     incBtn.addEventListener("click", function() {
-      incBtn.style.backgroundColor = "white"
-      expBtn.style.backgroundColor = "#4edff991";
+      incBtn.style.backgroundColor = "#626261"
+      expBtn.style.backgroundColor = "#4edff9";
       chart1.style.display = "none";
       chart2.style.display = "none";
       chart3.style.display = "grid";
@@ -230,7 +270,7 @@ var myChart = new Chart(mtx, {
         labels: ["Jan", "Feb", "March","Apr","May","June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
         datasets: [{
             label: "Spending in Dollars",
-            data: [900, 500, 300, 1000, 400, 334, 412, 321, 823, 304, 458, 499],
+            data: ["<%= monthlyIncTotals[0] %>", "<%= monthlyIncTotals[1] %>","<%= monthlyIncTotals[2] %>", "<%= monthlyIncTotals[3] %>", "<%= monthlyIncTotals[4] %>", "<%= monthlyIncTotals[5] %>", "<%= monthlyIncTotals[6] %>", "<%= monthlyIncTotals[7] %>", "<%= monthlyIncTotals[8] %>", "<%= monthlyIncTotals[9] %>", "<%= monthlyIncTotals[10] %>", "<%= monthlyIncTotals[11] %>"],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -260,10 +300,10 @@ var myChart = new Chart(mtx, {
 var newChart = new Chart(btx, {
     type: 'pie',
     data: {
-        labels: ["Gas", "Food", "Entertainment"],
+        labels: ["Job", "Gift", "Investment", "Savings", "Other"],
         datasets: [{
-            label: "Major Expenses",
-            data: [6, 12, 23  ],
+            label: "Income Breakdown",
+            data: ["<%= incCatTotals[0] %>", "<%= incCatTotals[1] %>", "<%= incCatTotals[2] %>", "<%= incCatTotals[3] %>", "<%= incCatTotals[4] %>"],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
