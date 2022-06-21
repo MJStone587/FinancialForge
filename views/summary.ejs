@@ -25,6 +25,7 @@
    <% } %>
 
   <!-- Summary Header -->
+  <div class="summary_content">
   
   <div class="summary_header">
     <h1><%= authUser %>'s <%= title %></h1>
@@ -166,6 +167,8 @@
   <!--  Balance and Charts -->
   <% balance = total_income - total_receipt %>
   <h1 class="summary_balance">Balance = $<%= round(balance, 2); %></h1>
+</div>
+
   <script>
     const ctx = document.getElementById("monthlySpending");
     const gtx = document.getElementById("majorExpenses");
@@ -179,8 +182,10 @@
     const chart4 = document.querySelector(".chartDisp4");
 
     expBtn.addEventListener("click", function() {
-      expBtn.style.backgroundColor = "#626261";
+      expBtn.style.backgroundColor = "#30353d";
       incBtn.style.backgroundColor = "#4edff9";
+      expBtn.style.color = "white";
+      incBtn.style.color = "black";
       chart1.style.display = "grid";
       chart2.style.display = "grid";
       chart3.style.display = "none";
@@ -188,8 +193,10 @@
 
     })
     incBtn.addEventListener("click", function() {
-      incBtn.style.backgroundColor = "#626261"
+      incBtn.style.backgroundColor = "#30353d"
       expBtn.style.backgroundColor = "#4edff9";
+      incBtn.style.color = "white";
+      expBtn.style.color = "black";
       chart1.style.display = "none";
       chart2.style.display = "none";
       chart3.style.display = "grid";
@@ -204,30 +211,50 @@
             label: "Spending in Dollars",
             data: ["<%=monthRecTotals[0]%>", "<%=monthRecTotals[1]%>", "<%=monthRecTotals[2]%>", "<%=monthRecTotals[3]%>", "<%=monthRecTotals[4]%>", "<%=monthRecTotals[5]%>","<%=monthRecTotals[6]%>", "<%=monthRecTotals[7]%>", "<%=monthRecTotals[8]%>", "<%=monthRecTotals[9]%>", "<%=monthRecTotals[10]%>", "<%=monthRecTotals[11]%>"],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+              'rgba(78, 250, 255)'
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+              'rgba(78, 250, 255)'
             ],
             borderWidth: 1
         }]
     },
     options: {
         responsive: true,
-        yAxes: {
-                  beginAtZero:true
+        plugins: {
+            legend: {
+                labels: {
+                  color: "white",
+                    // This more specific font property overrides the global property
+                    font: {
+                        size: 15,
+                     }
+                   }
+                }
+             },
+        scales: {
+              y: {  
+                grid: { color: "black", borderColor: "black"},
+                ticks: {
+                  color: "white",
+                  font: {
+                    size: 15, 
+                  },
+                  beginAtZero: true
+                }
+              },
+              x: { 
+                grid: { color: "black", borderColor: "black"},
+                ticks: {
+                  color: "white", 
+                  font: {
+                    size: 14 
+                  },  
+                  beginAtZero: true
+                }
+              }
             }
-    }
+         }
 });
 var newChart = new Chart(gtx, {
     type: 'pie',
@@ -262,7 +289,18 @@ var newChart = new Chart(gtx, {
     },
     options: {
       responsive: true,
-    }
+      plugins: {
+            legend: {
+                labels: {
+                  color: "white",
+                    // This more specific font property overrides the global property
+                    font: {
+                        size: 14
+                     }
+                   }
+                }
+             }
+           }
 });
 var myChart = new Chart(mtx, {
     type: 'bar',
@@ -272,30 +310,50 @@ var myChart = new Chart(mtx, {
             label: "Spending in Dollars",
             data: ["<%= monthlyIncTotals[0] %>", "<%= monthlyIncTotals[1] %>","<%= monthlyIncTotals[2] %>", "<%= monthlyIncTotals[3] %>", "<%= monthlyIncTotals[4] %>", "<%= monthlyIncTotals[5] %>", "<%= monthlyIncTotals[6] %>", "<%= monthlyIncTotals[7] %>", "<%= monthlyIncTotals[8] %>", "<%= monthlyIncTotals[9] %>", "<%= monthlyIncTotals[10] %>", "<%= monthlyIncTotals[11] %>"],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(78, 250, 255)',
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(78, 250, 255)',
             ],
             borderWidth: 1
         }]
     },
     options: {
         responsive: true,
-        yAxes: {
-                  beginAtZero:true
+        plugins: {
+            legend: {
+                labels: {
+                  color: "white",
+                    // This more specific font property overrides the global property
+                    font: {
+                        size: 15,
+                     }
+                   }
+                }
+             },
+        scales: {
+              y: {  
+                grid: { color: "black", borderColor: "black"},
+                ticks: {
+                  color: "white",
+                  font: {
+                    size: 15, 
+                  },
+                  beginAtZero: true
+                }
+              },
+              x: { 
+                grid: { color: "black", borderColor: "black"},
+                ticks: {
+                  color: "white", 
+                  font: {
+                    size: 14 
+                  },  
+                  beginAtZero: true
+                }
+              }
             }
-    }
+         }
 });
 var newChart = new Chart(btx, {
     type: 'pie',
@@ -325,6 +383,17 @@ var newChart = new Chart(btx, {
     },
     options: {
       responsive: true,
+      plugins: {
+            legend: {
+                labels: {
+                  color: "white",
+                    // This more specific font property overrides the global property
+                    font: {
+                        size: 14
+                     }
+                   }
+                }
+             }
     }
 });
   </script>

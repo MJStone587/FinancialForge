@@ -1,36 +1,45 @@
 html {
   margin: 0;
   width: 100%;
-  background-color: #2c2c2c;
+  background-color: #15171a;
 }
 
 /*NAVBAR Global STYLING*/
 .navbar {
   display: grid;
-  grid-template-rows: [row1] 100%;
-  grid-template-columns: [navLogo] 5% [navtitle] 45% [link1] 50%;
-  grid-template-areas: "navLogo navtitle navLinks";
-  margin: 20px 75px 0px 75px;
-  height: 50px;
-  place-items: center;
+  position: fixed;
+  grid-template-columns: [col1] 20% [col2] 80%;
+  grid-template-rows: [navLogo] 5% [link1] 70%;
+  grid-template-areas:
+    "navLogo navTitle"
+    "navLinks navLinks";
+  height: 100vh;
+  background-color: #30353d;
+  width: 190px;
 }
 .myLinks {
-  width: 875px;
   grid-area: navLinks;
   display: grid;
-  grid-template-rows: [row1] 100%;
-  grid-template-columns: [link1] 12% [link2] 12% [link3] 12% [link4] 12% [link5] 12% [link6] 12%;
-  grid-template-areas: "link1 link2 link3 link4 link5 link6";
-  column-gap: 10px;
-  place-items: center;
-  justify-content: center;
+  grid-template-columns: [col1] 100%;
+  grid-template-rows: [link1] 12% [link2] 12% [link3] 12% [link4] 12% [link5] 12% [link6] 8%;
+  grid-template-areas:
+    "link1"
+    "link2"
+    "link3"
+    "link4"
+    "link5"
+    "link6";
+  row-gap: 30px;
 }
 .navbar #navLogo,
 #navLogoLI {
   grid-area: navLogo;
-  height: 50px;
-  width: 50px;
-  margin-left: 45px;
+  justify-self: start;
+  align-self: start;
+  margin-top: 13px;
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
 }
 /*.navLogoLI {
   grid-area: navLogo;
@@ -43,17 +52,18 @@ html {
 .myLinks a {
   text-decoration: none;
   font-size: 16px;
-  color: #16253d;
+  color: white;
 }
 .myLinks a:hover {
   color: #355ec4;
 }
 .navbar #navTitle {
-  align-self: center;
-  font-size: 30px;
-  grid-area: navtitle;
-  text-decoration: none;
   justify-self: start;
+  align-self: start;
+  margin-left: 15px;
+  font-size: 25px;
+  grid-area: navTitle;
+  text-decoration: none;
   color: #355ec4;
   -webkit-text-stroke: 1px #4edff9;
 }
@@ -64,39 +74,47 @@ html {
 .myLinks #linkHome {
   grid-area: link1;
   justify-self: start;
+  margin-left: 50px;
 }
 .myLinks #linkReceipt {
   grid-area: link2;
   justify-self: start;
+  margin-left: 50px;
 }
 .myLinks #linkIncome {
   grid-area: link3;
   justify-self: start;
+  margin-left: 50px;
 }
 .myLinks #linkSummary {
   grid-area: link4;
   justify-self: start;
+  margin-left: 50px;
 }
 .myLinks #signIn {
   grid-area: link5;
-  justify-self: center;
+  margin-left: 50px;
+  justify-self: start;
 }
 .myLinks #userIcon {
   grid-area: link5;
-  justify-self: center;
+  margin-left: 50px;
+  justify-self: start;
 }
 .myLinks #logout {
   grid-area: link6;
   color: #4edff9;
   border: 1px solid #4edff9;
   border-radius: 20px;
-  padding: 15px;
+  margin-left: 50px;
   justify-self: start;
+  padding: 10px;
 }
 .myLinks #logout:hover {
   border: 1px solid #355ec4;
 }
 .myLinks #signUp {
+  margin-left: 50px;
   grid-area: link6;
   color: #4edff9;
   border: 1px solid #4edff9;
@@ -464,6 +482,10 @@ html {
 }
 
 /*Summary Page*/
+.summary_content {
+  margin: 0px 0px 0px 150px;
+  color: white;
+}
 .summary_header {
   display: grid;
   grid-template-columns: [col1] 50% [col2] 50%;
@@ -471,7 +493,6 @@ html {
   grid-template-areas:
     "summHeaderTitle summHeaderRight"
     "summHeaderP summHeaderRight";
-  margin: 50px 75px 0px 75px;
 }
 .summary_header h1 {
   grid-area: summHeaderTitle;
@@ -523,7 +544,7 @@ html {
   grid-template-columns: [col1] 10% [col2] 40% [col3] 10% [col4] 40%;
   grid-column-gap: 8px;
   grid-template-areas: "calendar date clock time";
-  background-color: #626261;
+  background-color: #30353d;
   color: white;
   justify-items: center;
   align-items: center;
@@ -562,16 +583,16 @@ html {
   grid-template-areas:
     "btn1 btn2"
     "chart1 chart2";
-  background-color: #626261;
-  box-shadow: 2px 2px 7px rgb(151, 151, 250);
+  background-color: #30353d;
   border-radius: 10px;
   margin: 50px 75px 0px 75px;
   height: 700px;
 }
 .summary_charts #exp_btn {
   grid-area: btn1;
-  background-color: white;
+  background-color: #30353d;
   border: none;
+  color: white;
   font-size: 20px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
@@ -579,22 +600,18 @@ html {
 .summary_charts #inc_btn {
   font-size: 20px;
   grid-area: btn2;
-  background-color: #4edff991;
+  background-color: #4edff9;
   border: none;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
 .summary_charts #exp_btn:hover {
   cursor: pointer;
-  border-top: 1px solid #3daec2;
-  border-right: 1px solid #3daec2;
-  border-left: 1px solid #3daec2;
+  box-shadow: 1px 1px 10px black inset;
 }
 .summary_charts #inc_btn:hover {
   cursor: pointer;
-  border-top: 1px solid #3daec2;
-  border-right: 1px solid #3daec2;
-  border-left: 1px solid #3daec2;
+  box-shadow: 1px 1px 10px black inset;
 }
 .chartDisp1 {
   grid-area: chart1;
@@ -629,55 +646,51 @@ html {
     "summInc summRec"
     "summIncTotal summRecTotal"
     "summBal .";
-  margin: 50px 75px 0px 75px;
+  margin: 20px 75px 0px 90px;
   padding: 10px;
 }
 .summary_incomeTitle {
   color: #ffa603;
-  -webkit-text-stroke: 1px #ffec03;
   justify-self: start;
-  padding: 5px;
+  padding: 10px;
   grid-area: incomeTitle;
   margin: 50px 75px 0px 5px;
-  box-shadow: 1px 1px 8px black;
-  background-color: white;
+  background-color: #30353d;
   border-radius: 5px 5px 0px 0px;
 }
 .summary_body #addIncome {
   grid-area: incomeTitle;
-  margin: 45px 75px 0px 775px;
+  margin: 55px 75px 0px 700px;
   justify-self: start;
   padding: 10px;
   font-size: 25px;
   color: white;
+  text-decoration: none;
   border: none;
   background-color: #ffa603;
-  box-shadow: 1px 1px 5px rgb(70, 70, 70);
   border-radius: 5px 5px 0px 0px;
 }
 .summary_body #addIncome:hover {
   cursor: pointer;
   color: black;
-  border: 1px solid black;
 }
 .summary_body #addExpense {
   grid-area: recTitle;
-  margin: 45px 75px 0px 775px;
+  margin: 55px 75px 0px 700px;
   justify-self: start;
   padding: 10px;
   font-size: 25px;
   color: white;
   border: none;
+  text-decoration: none;
   color: white;
   border: none;
   background-color: #355ec4;
-  box-shadow: 1px 1px 5px rgb(70, 70, 70);
   border-radius: 5px 5px 0px 0px;
 }
 .summary_body #addExpense:hover {
   color: black;
   cursor: pointer;
-  border: 1px solid black;
 }
 .summary_incomeList {
   grid-area: summInc;
@@ -686,11 +699,10 @@ html {
   justify-content: center;
   align-content: start;
   max-height: 80vh;
-  max-width: 43vw;
+  max-width: 40vw;
   overflow: scroll;
-  box-shadow: 0.5px 0.5px 7px black;
   border-radius: 10px;
-  background-color: white;
+  background-color: #30353d;
 }
 .summary_incomeList h3 {
   text-decoration: underline;
@@ -699,19 +711,34 @@ html {
 .summary_incomeList p {
   place-self: center;
 }
-.summary_body a {
+.summary_incomeList a {
   place-self: center;
   font-size: 12px;
-  border: 1px solid #ffec03;
   padding: 8px;
   border-radius: 5px;
   text-decoration: none;
   background-color: #ffa603;
+  color: black;
+}
+.summary_receiptList a {
+  place-self: center;
+  font-size: 12px;
+  justify-self: center;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #355ec4;
   color: white;
 }
-.summary_body a:hover {
+.summary_incomeList a:hover {
   border: 1px solid black;
-  background-color: #ffa603;
+  background-color: #ffec03;
+  color: black;
+}
+.summary_receiptList a:hover {
+  border: 1px solid black;
+  background-color: #4edff9;
   color: black;
 }
 .summary_incomeList #summary_iName {
@@ -724,13 +751,11 @@ html {
   grid-area: recTitle;
   align-self: start;
   justify-self: start;
-  color: #355ec4;
-  padding: 5px;
+  color: #4edff9;
+  padding: 10px;
   border-radius: 5px 5px 0px 0px;
-  -webkit-text-stroke: 1px #4edff9;
-  box-shadow: 1px 1px 10px black;
   margin: 50px 75px 0px 5px;
-  background-color: white;
+  background-color: #30353d;
 }
 .summary_receiptList {
   grid-area: summRec;
@@ -740,11 +765,10 @@ html {
   justify-content: center;
   align-content: start;
   max-height: 80vh;
-  width: 43vw;
+  width: 40vw;
   overflow: scroll;
-  box-shadow: 0.5px 0.5px 7px black;
   border-radius: 5px;
-  background-color: white;
+  background-color: #30353d;
 }
 .summary_receiptList h3 {
   text-decoration: underline;
@@ -759,7 +783,7 @@ html {
 }
 .summary_balance {
   grid-area: summBal;
-  border-top: 1px solid black;
+  border-top: 1px solid white;
   margin: 50px 75px 10px 75px;
 }
 
