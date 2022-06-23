@@ -1,27 +1,43 @@
 html {
   margin: 0;
   width: 100%;
+  height: 100%;
   background-color: #15171a;
 }
 
 /*NAVBAR Global STYLING*/
+
 .navbar {
   display: grid;
   position: fixed;
-  grid-template-columns: [col1] 20% [col2] 80%;
-  grid-template-rows: [navLogo] 5% [link1] 70%;
+  grid-template-columns: [col1] 100%;
+  grid-template-rows: [navLogo] 20% [navLinks] 70%;
   grid-template-areas:
-    "navLogo navTitle"
-    "navLinks navLinks";
+    "navLogo"
+    "navLinks";
   height: 100vh;
+  margin: 0;
+  border: none;
   background-color: #30353d;
-  width: 190px;
+  width: 12%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  padding-top: 5px;
+  align-content: center;
+  justify-content: center;
+}
+.navbar #navLogo {
+  grid-area: navLogo;
+  height: 110px;
+  width: 110px;
+  margin-left: 60px;
 }
 .myLinks {
   grid-area: navLinks;
   display: grid;
   grid-template-columns: [col1] 100%;
-  grid-template-rows: [link1] 12% [link2] 12% [link3] 12% [link4] 12% [link5] 12% [link6] 8%;
+  grid-template-rows: [link1] 11% [link2] 11% [link3] 11% [link4] 11% [link5] 11% [link6] 11%;
   grid-template-areas:
     "link1"
     "link2"
@@ -29,98 +45,51 @@ html {
     "link4"
     "link5"
     "link6";
-  row-gap: 30px;
+  row-gap: 25px;
+  justify-items: center;
+  align-items: center;
 }
-.navbar #navLogo,
-#navLogoLI {
-  grid-area: navLogo;
-  justify-self: start;
-  align-self: start;
-  margin-top: 13px;
-  height: 40px;
-  width: 40px;
-  margin-left: 10px;
-}
-/*.navLogoLI {
-  grid-area: navLogo;
-  margin-left: 95px;
-  height: 50px;
-  width: 50px;
-  border-radius: 25px;
-} */
-
 .myLinks a {
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px;
   color: white;
 }
 .myLinks a:hover {
   color: #355ec4;
 }
-.navbar #navTitle {
-  justify-self: start;
-  align-self: start;
-  margin-left: 15px;
-  font-size: 25px;
-  grid-area: navTitle;
-  text-decoration: none;
-  color: #355ec4;
-  -webkit-text-stroke: 1px #4edff9;
-}
-.navbar #navTitle span {
-  color: #4edff9;
-}
-
 .myLinks #linkHome {
   grid-area: link1;
-  justify-self: start;
-  margin-left: 50px;
 }
 .myLinks #linkReceipt {
   grid-area: link2;
-  justify-self: start;
-  margin-left: 50px;
 }
 .myLinks #linkIncome {
   grid-area: link3;
-  justify-self: start;
-  margin-left: 50px;
 }
 .myLinks #linkSummary {
   grid-area: link4;
-  justify-self: start;
-  margin-left: 50px;
 }
 .myLinks #signIn {
   grid-area: link5;
-  margin-left: 50px;
-  justify-self: start;
 }
 .myLinks #userIcon {
   grid-area: link5;
-  margin-left: 50px;
-  justify-self: start;
 }
 .myLinks #logout {
   grid-area: link6;
   color: #4edff9;
-  border: 1px solid #4edff9;
   border-radius: 20px;
-  margin-left: 50px;
-  justify-self: start;
   padding: 10px;
 }
 .myLinks #logout:hover {
   border: 1px solid #355ec4;
 }
 .myLinks #signUp {
-  margin-left: 50px;
   grid-area: link6;
   color: #4edff9;
   border: 1px solid #4edff9;
   border-radius: 20px;
   padding: 15px;
-  justify-self: start;
 }
 .myLinks #signUp:hover {
   border: 1px solid #355ec4;
@@ -135,12 +104,13 @@ html {
   grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
   grid-template-rows: [row1] 100%;
   grid-template-areas: "fLogo fCol1 fCol2 fCol3";
-  margin: 60px 75px 0px 75px;
+  margin: 60px 75px 0px 175px;
+  color: white;
 }
 .footer_logo {
   grid-area: fLogo;
   align-self: center;
-  justify-self: start;
+  justify-self: center;
 }
 .footer_logo img {
   height: 200px;
@@ -157,13 +127,8 @@ html {
 }
 
 /* Index Page*/
-.index_body i {
-  font-size: 25px;
-  background-color: #4edff9;
-  color: #355ec4;
-  padding: 15px;
-  border-radius: 25px;
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+.index_content {
+  margin: 0px 50px 50px 200px;
 }
 .index_header {
   display: grid;
@@ -175,6 +140,7 @@ html {
     ".  headerCapt";
   margin: 20px 75px 0px 75px;
   max-height: 85vh;
+  color: #4edff9;
 }
 .index_header #headerImg {
   grid-area: headerImg;
@@ -226,49 +192,63 @@ html {
   margin: 30px 75px 0px 75px;
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+.index_body i {
+  font-size: 25px;
+  background-color: #4edff9;
+  color: #355ec4;
+  padding: 15px;
+  border-radius: 25px;
+  font-size: 30px;
+  place-self: center;
+}
 .index_bodyBox {
   display: grid;
-  grid-template-rows: [row1] 70% [row2] 30%;
-  grid-template-columns: [col1] 30% [col2] 70%;
-  grid-template-areas:
-    "elemI bodyBoxH1"
-    "elemI bodyBoxP";
+  grid-template-rows: [row1] 100%;
+  grid-template-columns: [col1] 30% [col2] 60%;
+  grid-template-areas: "elemI bodyBoxH1";
   row-gap: 0px;
+  justify-content: center;
+  align-content: center;
+  margin-top: 20px;
+  padding: 30px;
 }
 .bodyBox_h1 {
   grid-area: bodyBoxH1;
-  justify-self: start;
+  justify-self: center;
   font-size: 25px;
-  align-self: end;
+  align-self: start;
+  padding: 10px;
 }
 .index_body p {
-  grid-area: bodyBoxP;
-  padding: 0px 0px 40px 0px;
-  margin: 0px 0px 40px 0px;
-  justify-self: start;
-  align-self: start;
+  grid-area: bodyBoxH1;
+  margin-top: 10px;
+  justify-self: center;
+  align-self: end;
   font-size: 14px;
-}
-.elem_i {
-  grid-area: elemI;
-  place-self: center;
 }
 .box1 {
   grid-area: bodyBox1;
-  background-color: white;
+  background-color: #30353d;
+  color: white;
   border-right: 2px solid rgba(128, 128, 128, 0.479);
 }
 .box2 {
   grid-area: bodyBox2;
-  background-color: white;
+  background-color: #30353d;
+  color: white;
   border-right: 2px solid rgba(128, 128, 128, 0.479);
 }
 .box3 {
   grid-area: bodyBox3;
-  background-color: white;
+  background-color: #30353d;
+  color: white;
 }
+
 /*Receipt Page*/
-.receiptHeader {
+.expenses_content {
+  margin: 0px 50px 0px 250px;
+}
+.expensesHeader {
   display: grid;
   grid-template-rows: [row1] 50% [row2] 50%;
   grid-template-columns: [col1] 50% [col2] 50%;
@@ -279,12 +259,13 @@ html {
   max-height: 85vh;
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-.receiptBody_total {
-  margin: 20px 75px 20px 75px;
+.expensesBody_total {
+  margin: 20px 90px 20px 75px;
   padding-top: 10px;
-  border-top: 1px solid black;
+  color: white;
+  border-top: 1px solid white;
 }
-.receiptBody_create {
+.expensesBody_create {
   margin: 50px 75px 0px 75px;
   padding: 10px;
   border: 1px solid transparent;
@@ -293,39 +274,39 @@ html {
   color: white;
   border-radius: 20px;
 }
-.receiptBody_create:hover {
+.expensesBody_create:hover {
   color: black;
   background-color: #4edff9;
 }
-.receiptHeader_img {
+.expensesHeader_img {
   grid-area: rHeaderImg;
   height: 60vh;
   width: 40vw;
 }
-.receiptHeader_p {
+.expensesHeader_p {
   grid-area: rHeaderP;
   justify-self: center;
   align-self: start;
+  color: white;
   font-size: 17px;
 }
-.receiptHeader_h1 {
+.expensesHeader_h1 {
   grid-area: rHeaderH1;
   align-self: end;
   justify-self: center;
   font-size: 35px;
-  color: #355ec4;
-  -webkit-text-stroke: 1px #4edff9;
+  color: #4edff9;
 }
-.receiptBody {
+.expensesBody {
   display: grid;
   grid-template-columns: [col1] 33% [col2] 33% [col3] 33%;
   margin: 50px 75px 0px 75px;
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-.receiptBody a {
+.expensesBody a {
   text-decoration: none;
 }
-.receiptBody_list {
+.expensesBody_list {
   display: grid;
   grid-template-columns: [col1] 35% [col2] 65%;
   grid-template-rows: [row1] 33% [row2] 33% [row3] 33%;
@@ -335,15 +316,21 @@ html {
     "rBodyImg .";
   margin: 0px 5px 5px 0px;
   max-height: 60vh;
-  border: 1px solid gray;
+  border: 1px inset #4edff9;
   overflow: scroll;
-  background-color: white;
+  background-color: #30353d;
 }
-.receiptBody_list:hover {
-  background-color: #4edff910;
+.expensesBody_list p {
+  color: white;
+}
+.expensesBody_list:hover {
+  background-color: white;
   border: 1px solid #355ec4;
 }
-.receiptBody_list:hover h3 {
+.expensesBody_list:hover p {
+  color: black;
+}
+.expensesBody_list:hover h3 {
   color: #355ec4;
 }
 .fa-receipt {
@@ -355,18 +342,18 @@ html {
   padding: 15px;
   border-radius: 25px;
 }
-.receiptBody_title {
+.expensesBody_title {
   grid-area: rBodyTitle;
   font-size: 20px;
   font-weight: 500;
   color: #ffa603;
 }
-.receiptBody_amt {
+.expensesBody_amt {
   grid-area: rBodyAmt;
   font-size: 15px;
   color: black;
 }
-.receiptBody_date {
+.expensesBody_date {
   grid-area: rBodyAmt;
   font-size: 15px;
   color: black;
@@ -483,7 +470,7 @@ html {
 
 /*Summary Page*/
 .summary_content {
-  margin: 0px 0px 0px 150px;
+  margin: 0px 0px 0px 200px;
   color: white;
 }
 .summary_header {
@@ -499,8 +486,7 @@ html {
   justify-self: center;
   align-self: end;
   font-size: 35px;
-  color: #355ec4;
-  -webkit-text-stroke: 1px #4edff9;
+  color: #4edff9;
 }
 .summary_header p {
   grid-area: summHeaderP;
@@ -585,7 +571,7 @@ html {
     "chart1 chart2";
   background-color: #30353d;
   border-radius: 10px;
-  margin: 50px 75px 0px 75px;
+  margin: 50px 60px 0px 60px;
   height: 700px;
 }
 .summary_charts #exp_btn {
@@ -646,7 +632,7 @@ html {
     "summInc summRec"
     "summIncTotal summRecTotal"
     "summBal .";
-  margin: 20px 75px 0px 90px;
+  margin: 20px 75px 0px 75px;
   padding: 10px;
 }
 .summary_incomeTitle {
@@ -676,7 +662,7 @@ html {
 }
 .summary_body #addExpense {
   grid-area: recTitle;
-  margin: 55px 75px 0px 700px;
+  margin: 55px 75px 0px 725px;
   justify-self: start;
   padding: 10px;
   font-size: 25px;
@@ -698,11 +684,13 @@ html {
   grid-template-columns: [col1] 15% [col2] 15% [col3] 15% [col4] 15% [col5] 15%;
   justify-content: center;
   align-content: start;
+  min-height: 300px;
   max-height: 80vh;
   max-width: 40vw;
   overflow: scroll;
   border-radius: 10px;
   background-color: #30353d;
+  margin-right: 10px;
 }
 .summary_incomeList h3 {
   text-decoration: underline;
@@ -754,7 +742,7 @@ html {
   color: #4edff9;
   padding: 10px;
   border-radius: 5px 5px 0px 0px;
-  margin: 50px 75px 0px 5px;
+  margin: 50px 75px 0px 15px;
   background-color: #30353d;
 }
 .summary_receiptList {
@@ -764,6 +752,8 @@ html {
   grid-template-columns: [col1] 20% [col2] 15% [col3] 15% [col4] 15%;
   justify-content: center;
   align-content: start;
+  margin-left: 10px;
+  min-height: 300px;
   max-height: 80vh;
   width: 40vw;
   overflow: scroll;
@@ -775,16 +765,16 @@ html {
 }
 .summary_incomeTotal {
   grid-area: summIncTotal;
-  margin: 12px 0px 50px 5px;
+  margin: 12px 0px 50px 10px;
 }
 .summary_receiptTotal {
   grid-area: summRecTotal;
-  margin: 12px 150px 50px 5px;
+  margin: 12px 150px 50px 10px;
 }
 .summary_balance {
   grid-area: summBal;
   border-top: 1px solid white;
-  margin: 50px 75px 10px 75px;
+  margin: 50px 75px 100px 75px;
 }
 
 /*Global Details Page*/
@@ -878,14 +868,15 @@ html {
   padding: 20px;
   grid-template-rows: [row1] 10% [row2] 60% [row3] 10%;
   grid-template-columns: [col1] 100%;
-  margin: 50px 75px 10px 75px;
+  margin: 50px 50px 10px 250px;
   height: 80vh;
   box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
   grid-template-areas:
     "loginTitle"
     "loginForm"
     "loginSignUp";
-  background-color: white;
+  background-color: #30353d;
+  color: white;
 }
 .login_title {
   grid-area: loginTitle;
@@ -920,28 +911,48 @@ html {
 .login_form #login_submit {
   grid-area: loginSubmit;
   justify-self: start;
+  background-color: #355ec4;
+  border: 1px solid #355ec4;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px;
+}
+.login_form #login_submit:hover {
+  background-color: #4edff9;
+  border: 1px solid #4edff9;
+  color: black;
 }
 .login_SignUp {
   grid-area: loginSignUp;
   margin: 0px 0px 20px 150px;
 }
+.login_SignUp #login_signUp {
+  color: #4edff9;
+}
+.login_SignUp #login_signUp:hover {
+  color: #355ec4;
+}
+
 /*Signup Page*/
 .signup_body {
   display: grid;
-  padding: 20px;
-  grid-template-rows: [row1] 10% [row2] 80%;
-  grid-template-columns: [col1] 100%;
-  margin: 50px 75px 10px 75px;
-  height: 80vh;
+  grid-template-rows: [row1] 5% [row2] 70% [row3] 5%;
+  grid-template-columns: [col1] 99%;
+  margin: 25px 50px 25px 275px;
+  height: 96vh;
   box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
   grid-template-areas:
     "signupTitle"
-    "signupForm";
-  background-color: white;
+    "signupForm"
+    "signupSignin";
+  background-color: #30353d;
+  color: white;
 }
 .signup_title {
   grid-area: signupTitle;
-  margin: 50px 0px 0px 50px;
+  margin: 100px 0px 0px 50px;
 }
 .signup_form {
   grid-area: signupForm;
@@ -1027,7 +1038,16 @@ html {
   color: black;
 }
 .signup_signin {
-  margin: 0px 75px 10px 75px;
+  grid-area: signupSignin;
+  margin: 0px 0px 10px 100px;
+}
+.signup_signin a {
+  color: #4edff9;
+  font-size: 17px;
+  text-decoration: none;
+}
+.signup_signin a:hover {
+  color: #355ec4;
 }
 
 /* Styling for  mobile 1*/

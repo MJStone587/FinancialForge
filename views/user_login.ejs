@@ -11,12 +11,15 @@
 />
   <title>Sign In</title>
 </head>
+
 <% if(authCheck){ %> 
   <%- include("navbarLI") %> 
   <% } else { %> 
   <%-include("navbar") %> 
  <% } %>
+
 <div class="login_body">
+
   <h2 class="login_title"> <%= message %></h2>
     <form action="" method="POST" class="login_form">
       <label id="login_userLabel"for="userName">User Name: </label>
@@ -27,11 +30,11 @@
      </br>
       <input id="login_submit" type="submit" value="Submit"/>
     </form> 
+
     <div class="login_SignUp">
       <p id="login_notReg">Don't have a login? Create One...</p>
       <a id="login_signUp" href="/catalog/user/create">Sign Up</a>
     </div>
 
   </div>
-
 </html>
