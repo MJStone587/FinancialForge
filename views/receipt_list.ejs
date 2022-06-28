@@ -13,6 +13,7 @@
     crossorigin="anonymous"
   ></script>
   </head>
+
   <% if(authCheck){ %> 
     <%- include("navbarLI") %> 
     <% } else { %> 
@@ -20,21 +21,30 @@
    <% } %>
 
    <div class="expenses_content">
+
     <div class="expensesHeader">
-      <h1 class="expensesHeader_h1"><%= authUser %>'s <%= title %></h1>
-      <p class="expensesHeader_p">Here you can review, edit, delete, and add receipts</p>
-      <img class="expensesHeader_img" src="/images/receiptimage.png">
+      <h1 id="expensesHeader_h1"><%= authUser %>'s <%= title %></h1>
+      <p id="expensesHeader_p">Here you can review, edit, delete, and add receipts</p>
+      <img id="expensesHeader_img" src="/images/receiptimage.png">
     </div>
+
     <div class="expensesBody">
-      <% for(let i = 0; i < receipt_list.length; i++) { %>
-      <a href="/catalog/receipt/<%= receipt_list[i]._id %>"><div class="expensesBody_list">
-        <i class="fa-solid fa-receipt"></i>
-        <h3 class="expensesBody_title"><%= receipt_list[i].description %></h3>
-        <p class="expensesBody_amt"><%= "$" + receipt_list[i].total %> </p>
-        <p class="expensesBody_date"><%= receipt_list[i].date_formatted %></p>
-      </div></a>
-      <% } %>
+      <div class="expensesBody_headings">
+        <h1 id="title_heading">Title</h1>
+        <h1 id="amount_heading">Amount</h1>
+        <h1 id="date_heading">Date</h1>
+      </div>
+
+      <div class="expensesBody_data">
+        <% for(let i = 0; i < receipt_list.length; i++) { %>
+        <!--<a href="/catalog/receipt/<%= receipt_list[i]._id %>"></a>-->
+          <a href="/catalog/receipt/<%= receipt_list[i]._id %>" id="expensesBody_title"><%= receipt_list[i].description %></a>
+          <p id="expensesBody_amt"><%= "$" + receipt_list[i].total %> </p>
+          <p id="expensesBody_date"><%= receipt_list[i].date_formatted %></p>
+          <% } %>
+      </div>
     </div>
+
     <% let total = 0; %>
     <% for(let i = 0; i < receipt_list.length; i++) { %> 
      <% total += receipt_list[i].total; %> 
@@ -43,8 +53,8 @@
       <% return Number(Math.round(value +'e'+ decimals) +'e-'+ decimals).toFixed(decimals); %>
     <% } %>
     
-    <h2 class="expensesBody_total">Receipt Totals: $<%=round(total, 2);%></h2>
-    <a class="expensesBody_create" href="receipt/create">Add Receipt</a>
-  </div>
+    <h2 id="expensesBody_total">Receipt Totals: $<%=round(total, 2);%></h2>
+    <a id="expensesBody_create" href="receipt/create">+ Add Receipt</a>
+</div>
   <%- include("footer"); %>
 </html>

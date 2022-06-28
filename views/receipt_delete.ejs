@@ -12,12 +12,14 @@
   />
     <title>Receipt Deletion</title>
   </head>
+
   <% if(authCheck){ %> 
     <%- include("navbarLI") %> 
     <% } else { %> 
     <%-include("navbar") %> 
    <% } %>
-  <body>
+
+  <body class="receipt_delete">
     <h1>Confirm Receipt Deletion</h1>
     <form action="" method="POST">
       <input type="hidden" name="receiptid" value="<%= results._id %>" />

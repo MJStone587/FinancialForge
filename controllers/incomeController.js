@@ -26,7 +26,7 @@ exports.income_list = function (req, res) {
           return next(err);
         } else {
           res.render("income_list", {
-            title: "Expenses",
+            title: "Income",
             results: results,
             authorID: "62a21b717001a8755da33cf7",
             authUser: "Sample",

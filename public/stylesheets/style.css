@@ -26,6 +26,8 @@ html {
   padding-top: 5px;
   align-content: center;
   justify-content: center;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 .navbar #navLogo {
   grid-area: navLogo;
@@ -128,7 +130,7 @@ html {
 
 /* Index Page*/
 .index_content {
-  margin: 0px 50px 50px 200px;
+  margin: 0px 0px 0px 200px;
 }
 .index_header {
   display: grid;
@@ -166,6 +168,7 @@ html {
   justify-self: center;
   align-self: start;
   padding-right: 125px;
+  color: white;
 }
 .index_header #header_signupBtn {
   grid-area: headerSignup;
@@ -255,42 +258,23 @@ html {
   grid-template-areas:
     "rHeaderH1 rHeaderImg"
     "rHeaderP rHeaderImg";
-  margin: 20px 75px 0px 75px;
+  margin: 20px 75px 0px 0px;
   max-height: 85vh;
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-.expensesBody_total {
-  margin: 20px 90px 20px 75px;
-  padding-top: 10px;
-  color: white;
-  border-top: 1px solid white;
-}
-.expensesBody_create {
-  margin: 50px 75px 0px 75px;
-  padding: 10px;
-  border: 1px solid transparent;
-  text-decoration: none;
-  background-color: #ffa603;
-  color: white;
-  border-radius: 20px;
-}
-.expensesBody_create:hover {
-  color: black;
-  background-color: #4edff9;
-}
-.expensesHeader_img {
+.expensesHeader #expensesHeader_img {
   grid-area: rHeaderImg;
   height: 60vh;
   width: 40vw;
 }
-.expensesHeader_p {
+.expensesHeader #expensesHeader_p {
   grid-area: rHeaderP;
   justify-self: center;
   align-self: start;
   color: white;
   font-size: 17px;
 }
-.expensesHeader_h1 {
+.expensesHeader #expensesHeader_h1 {
   grid-area: rHeaderH1;
   align-self: end;
   justify-self: center;
@@ -299,68 +283,101 @@ html {
 }
 .expensesBody {
   display: grid;
-  grid-template-columns: [col1] 33% [col2] 33% [col3] 33%;
-  margin: 50px 75px 0px 75px;
+  grid-template-rows: [row1] 10% [row2] 90%;
+  grid-template-areas:
+    "expenseHead"
+    "expenseData";
+  width: 100%;
+  margin: 0px 100px 0px 0px;
+}
+.expensesBody_headings {
+  grid-area: expenseHead;
+  display: grid;
+  grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
+  grid-template-rows: [row1] 100%;
+  grid-template-areas: "titleHead amtHead dateHead createExp";
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #4edff9;
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: #30353d;
+  padding: 10px;
+}
+.expensesBody_headings #title_heading {
+  grid-area: titleHead;
+}
+.expensesBody_headings #amount_heading {
+  grid-area: amtHead;
+  justify-self: center;
+}
+.expensesBody_headings #date_heading {
+  grid-area: dateHead;
+  justify-self: center;
+}
+.expensesBody_headings #create_expense {
+  grid-area: createExp;
+  font-size: 50px;
+  font-weight: bold;
+  color: #4edff9;
+}
+.expensesBody_headings #create_expense:hover {
+  color: #355ec4;
+}
+.expensesBody_data {
+  grid-area: expenseData;
+  display: grid;
+  grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
+  background-color: #30353d;
+  max-height: 50vh;
+  width: 100%;
+  padding: 10px;
+  overflow: scroll;
 }
 .expensesBody a {
   text-decoration: none;
 }
-.expensesBody_list {
-  display: grid;
-  grid-template-columns: [col1] 35% [col2] 65%;
-  grid-template-rows: [row1] 33% [row2] 33% [row3] 33%;
-  grid-template-areas:
-    "rBodyImg rBodyTitle"
-    "rBodyImg rBodyAmt"
-    "rBodyImg .";
-  margin: 0px 5px 5px 0px;
-  max-height: 60vh;
-  border: 1px inset #4edff9;
-  overflow: scroll;
-  background-color: #30353d;
-}
-.expensesBody_list p {
-  color: white;
-}
-.expensesBody_list:hover {
-  background-color: white;
-  border: 1px solid #355ec4;
-}
-.expensesBody_list:hover p {
-  color: black;
-}
-.expensesBody_list:hover h3 {
-  color: #355ec4;
-}
-.fa-receipt {
-  grid-area: rBodyImg;
-  place-self: center;
-  font-size: 30px;
-  background-color: #4edff9;
-  color: #355ec4;
-  padding: 15px;
-  border-radius: 25px;
-}
-.expensesBody_title {
-  grid-area: rBodyTitle;
+
+.expensesBody_data #expensesBody_title {
   font-size: 20px;
   font-weight: 500;
   color: #ffa603;
 }
-.expensesBody_amt {
-  grid-area: rBodyAmt;
-  font-size: 15px;
-  color: black;
+.expensesBody_data #expensesBody_title:hover {
+  color: #ffec03;
 }
-.expensesBody_date {
-  grid-area: rBodyAmt;
+.expensesBody_data #expensesBody_amt {
   font-size: 15px;
-  color: black;
+  color: white;
   justify-self: center;
+}
+.expensesBody_data #expensesBody_date {
+  font-size: 15px;
+  color: white;
+  justify-self: center;
+}
+.expenses_content #expensesBody_total {
+  padding-top: 10px;
+  color: white;
+  border-top: 1px solid white;
+}
+.expenses_content #expensesBody_create {
+  padding: 10px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  background-color: #ffa603;
+  color: white;
+  border-radius: 20px;
+}
+.expenses_content #expensesBody_create:hover {
+  color: black;
+  background-color: #4edff9;
 }
 
 /*Income Page*/
+.income_list_content {
+  margin: 0px 0px 0px 225px;
+}
 .incomeHeader {
   display: grid;
   grid-template-rows: [row1] 50% [row2] 50%;
@@ -372,18 +389,19 @@ html {
   max-height: 85vh;
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-.incomeHeader_img {
+.incomeHeader #incomeHeader_img {
   grid-area: rHeaderImg;
   height: 60vh;
   width: 40vw;
 }
-.incomeHeader_p {
+.incomeHeader #incomeHeader_p {
   grid-area: rHeaderP;
   justify-self: center;
   align-self: start;
   font-size: 17px;
+  color: white;
 }
-.incomeHeader_h1 {
+.incomeHeader #incomeHeader_h1 {
   grid-area: rHeaderH1;
   align-self: end;
   justify-self: center;
@@ -393,56 +411,54 @@ html {
 }
 .income_body {
   display: grid;
-  grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
+  grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
+  grid-template-rows: [row1] 10% [row2] 90%;
+  grid-template-areas:
+    "descHead amtHead dateHead"
+    "incomeData incomeData incomeData";
   margin: 20px 75px 0px 75px;
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #30353d;
+  max-height: 50vh;
+  height: 300px;
+}
+.income_body #descHead {
+  grid-area: descHead;
+}
+.income_body #amtHead {
+  grid-area: amtHead;
+}
+.income_body #dateHead {
+  grid-area: dateHead;
+}
+.income_body_data {
+  grid-area: incomeData;
+  display: grid;
+  grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
+  grid-template-areas: "incomeDesc incomeAmt incomeDate";
 }
 .income_body a {
   text-decoration: none;
 }
-.incomeDisplay {
-  display: grid;
-  grid-template-columns: [col1] 25% [col2] 75%;
-  grid-template-rows: [row1] 50% [row2] 50;
-  grid-template-areas:
-    "incomeImg incomeDesc"
-    "incomeImg incomeAmt";
-  border: 1px solid rgba(128, 128, 128, 0.548);
-  margin: 2px;
-  background-color: white;
-}
-.incomeDisplay:hover {
-  border: 1px solid #ffa603;
-  background-color: #ffea0327;
-}
-.fa-money-bill {
-  grid-area: incomeImg;
-  font-size: 40px;
-  place-self: center;
-  color: #ffec03;
-  background-color: #ffa603;
-  padding: 10px;
-  border-radius: 20px;
-}
-.incomeDisp_desc {
+.income_body_data #incomeDisp_desc {
   grid-area: incomeDesc;
-  color: black;
-  justify-self: center;
-  align-self: center;
-  color: #355ec4;
+  color: blue;
   font-size: 17px;
 }
-.incomeDisp_amt {
+.income_body_data #incomeDisp_amt {
   grid-area: incomeAmt;
-  color: black;
-  place-self: center;
+  color: white;
 }
-.incomeBody_total {
-  margin: 20px 75px 10px 75px;
-  border-top: 1px solid black;
+.income_body_data #incomeDisp_date {
+  grid-area: incomeDate;
+}
+.income_list_content #incomeBody_total {
+  margin: 20px 75px 20px 75px;
+  border-top: 1px solid white;
   padding-top: 10px;
+  color: white;
 }
-.incomeBody_create {
+.income_list_content #incomeBody_create {
   margin: 50px 75px 0px 75px;
   padding: 10px;
   border: 1px solid transparent;
@@ -451,7 +467,7 @@ html {
   color: white;
   border-radius: 20px;
 }
-.incomeBody_create:hover {
+.income_list_content #incomeBody_create:hover {
   color: black;
   background-color: #4edff9;
 }
@@ -565,14 +581,15 @@ html {
 .summary_charts {
   display: grid;
   grid-template-columns: [col1] 50% [col2] 50%;
-  grid-template-rows: [row1] 8% [row2] 90%;
+  grid-template-rows: [row1] 10% [row2] 15% [row3] 75%;
   grid-template-areas:
     "btn1 btn2"
+    "chart1Title chart2Title"
     "chart1 chart2";
   background-color: #30353d;
   border-radius: 10px;
   margin: 50px 60px 0px 60px;
-  height: 700px;
+  height: 600px;
 }
 .summary_charts #exp_btn {
   grid-area: btn1;
@@ -599,29 +616,54 @@ html {
   cursor: pointer;
   box-shadow: 1px 1px 10px black inset;
 }
+.charts {
+  padding: 10px;
+}
 .chartDisp1 {
   grid-area: chart1;
-  margin: 50px 0px 0px 50px;
+  justify-self: center;
+  height: 500px;
+  width: 700px;
 }
-.chartDisp1 h1 {
-  margin-left: 250px;
+.summary_charts #monthlySpendingTitle {
+  visibility: visible;
+  place-self: center;
+  grid-area: chart1Title;
 }
 .chartDisp2 {
+  justify-self: center;
   grid-area: chart2;
-  place-self: center;
+  height: 250px;
+  width: 350px;
+}
+.summary_charts #majorExpensesTitle {
+  visibility: visible;
+  justify-self: center;
+  grid-area: chart2Title;
 }
 .chartDisp3 {
   grid-area: chart1;
-  margin: 50px 0px 0px 50px;
+  height: 500px;
+  width: 700px;
   display: none;
+  justify-self: center;
 }
-.chartDisp3 h1 {
-  margin-left: 250px;
+.summary_charts #monthlyIncomeTitle {
+  place-self: center;
+  visibility: hidden;
+  grid-area: chart1Title;
 }
 .chartDisp4 {
+  justify-self: center;
   grid-area: chart2;
-  place-self: center;
   display: none;
+  height: 250px;
+  width: 350px;
+}
+.summary_charts #incomeSourcesTitle {
+  visibility: hidden;
+  grid-area: chart2Title;
+  place-self: center;
 }
 .summary_body {
   display: grid;
@@ -640,7 +682,7 @@ html {
   justify-self: start;
   padding: 10px;
   grid-area: incomeTitle;
-  margin: 50px 75px 0px 5px;
+  margin: 50px 20px 0px 5px;
   background-color: #30353d;
   border-radius: 5px 5px 0px 0px;
 }
@@ -681,16 +723,16 @@ html {
 .summary_incomeList {
   grid-area: summInc;
   display: grid;
-  grid-template-columns: [col1] 15% [col2] 15% [col3] 15% [col4] 15% [col5] 15%;
+  grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
   justify-content: center;
   align-content: start;
-  min-height: 300px;
-  max-height: 80vh;
+  min-height: 350px;
+  max-height: 500px;
   max-width: 40vw;
   overflow: scroll;
   border-radius: 10px;
   background-color: #30353d;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 .summary_incomeList h3 {
   text-decoration: underline;
@@ -698,42 +740,18 @@ html {
 }
 .summary_incomeList p {
   place-self: center;
-}
-.summary_incomeList a {
-  place-self: center;
-  font-size: 12px;
-  padding: 8px;
-  border-radius: 5px;
-  text-decoration: none;
-  background-color: #ffa603;
-  color: black;
-}
-.summary_receiptList a {
-  place-self: center;
-  font-size: 12px;
   justify-self: center;
-  border: none;
-  padding: 8px;
-  border-radius: 5px;
+}
+.summary_incomeList #summary_iDet {
+  color: #ffa603;
+  place-self: center;
+  justify-self: center;
   text-decoration: none;
-  background-color: #355ec4;
-  color: white;
+  padding: 0;
+  margin: 0;
 }
-.summary_incomeList a:hover {
-  border: 1px solid black;
-  background-color: #ffec03;
-  color: black;
-}
-.summary_receiptList a:hover {
-  border: 1px solid black;
-  background-color: #4edff9;
-  color: black;
-}
-.summary_incomeList #summary_iName {
-  font-weight: bold;
-}
-.summary_receiptList #summary_recName {
-  font-weight: bold;
+.summary_incomeList #summary_iDet:hover {
+  color: #ffec03;
 }
 .summary_receiptTitle {
   grid-area: recTitle;
@@ -742,26 +760,38 @@ html {
   color: #4edff9;
   padding: 10px;
   border-radius: 5px 5px 0px 0px;
-  margin: 50px 75px 0px 15px;
+  margin: 50px 75px 0px 2px;
   background-color: #30353d;
 }
 .summary_receiptList {
   grid-area: summRec;
-  align-self: start;
   display: grid;
-  grid-template-columns: [col1] 20% [col2] 15% [col3] 15% [col4] 15%;
+  grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
   justify-content: center;
   align-content: start;
-  margin-left: 10px;
-  min-height: 300px;
-  max-height: 80vh;
+  min-height: 350px;
+  max-height: 500px;
   width: 40vw;
   overflow: scroll;
   border-radius: 5px;
   background-color: #30353d;
 }
+.summary_receiptList #summary_recName {
+  border: none;
+  text-decoration: none;
+  color: #4edff9;
+  justify-self: center;
+  align-self: center;
+}
+.summary_receiptList #summary_recName:hover {
+  color: #355ec4;
+}
 .summary_receiptList h3 {
   text-decoration: underline;
+  justify-self: center;
+}
+.summary_receiptList p {
+  justify-self: center;
 }
 .summary_incomeTotal {
   grid-area: summIncTotal;
@@ -775,6 +805,11 @@ html {
   grid-area: summBal;
   border-top: 1px solid white;
   margin: 50px 75px 100px 75px;
+}
+
+/*receipt delete*/
+.receipt_delete {
+  margin-left: 275px;
 }
 
 /*Global Details Page*/

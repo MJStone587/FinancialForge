@@ -8,7 +8,7 @@
     <link
     rel="icon"
     type="image/x-icon"
-    href="/images/favicon_io/favicon.ico"
+    href="/images/favicon_io/favicon-16x16.png"
   />
   <script
   src="https://kit.fontawesome.com/9b6b4f0fa1.js"
@@ -48,20 +48,20 @@
   <div class="summary_charts">
       <button id="exp_btn">Expenses</button>
       <button id="inc_btn">Income</button>
-    <div class="chartDisp1">
-      <h1>Monthly Spending</h1>
+      <h1 id="monthlySpendingTitle">Monthly Spending</h1>
+    <div class="chartDisp1 charts">
       <canvas id="monthlySpending"></canvas>
     </div>
-    <div class="chartDisp2">
-      <h1>Major Expenses</h1>
+    <h1 id="majorExpensesTitle">Major Expenses</h1>
+    <div class="chartDisp2 charts">
       <canvas id="majorExpenses"></canvas>
     </div>
-    <div class="chartDisp3">
-      <h1>Monthly Income</h1>
+    <h1 id="monthlyIncomeTitle">Monthly Income</h1>
+    <div class="chartDisp3 charts">
       <canvas id="monthlyIncome"></canvas>
     </div>
-    <div class="chartDisp4">
-      <h1>Income Sources</h1>
+    <h1 id="incomeSourcesTitle">Income Sources</h1>
+    <div class="chartDisp4 charts">
       <canvas id="incomeSources"></canvas>
     </div>
   </div>
@@ -82,24 +82,24 @@
     <h1 class="summary_incomeTitle">Income</h1>
     <a href="/catalog/income/create"id="addIncome">+</a>
     <div class="summary_incomeList">
-      <h3>Name</h3>
       <h3>Description</h3>
       <h3>Total</h3>
       <h3>Date</h3>
-      <h3>Details</h3>
-      <% for(let i = 0; i < incomes.length; i++){ %>
-      <p id="summary_iName"><%= incomes[i].name %></p>
-      <p id="summary_iDesc"><%= incomes[i].description %></p>
+      <h3>Category</h3>
+      <% for(let i = 0; i < incomes.length; i++){ %>  
+      <a id="summary_iDet" href="/catalog/income/<%= incomes[i]._id %>"><%= incomes[i].description %></a>
       <p id="summary_iAmt">$<%= incomes[i].amount %></p>
       <p id="summary_iDate"><%= incomes[i].date_month %></p>
-      <a id="summary_iDet" href="/catalog/income/<%= incomes[i]._id %>">More</a>
+      <p><%= incomes[i].from %></p> 
       <% total_income += incomes[i].amount %> <% } %> 
       <% function round(value,decimals) { %> 
       <% return Number(Math.round(value +'e'+decimals) +'e-'+ decimals).toFixed(decimals); %> 
       <% } %>
     </div>
+   
+
     <h2 class="summary_incomeTotal">
-      Income Total: $<%= round(total_income,2) %>
+      Total Income: $<%= round(total_income,2) %>
     </h2>
 
     <% for(let i=0; i< incomes.length; i++) { %>
@@ -125,15 +125,15 @@
     <h1 class="summary_receiptTitle">Expenses</h1>
     <a href="/catalog/receipt/create" id="addExpense">+</a>
     <div class="summary_receiptList">
-      <h3>Name</h3>
+      <h3>Description</h3>
       <h3>Total</h3>
       <h3>Date</h3>
-      <h3>Details</h3>
+      <h3>Category</h3>
       <% for(let i = 0; i < receipts.length; i++) { %>
-      <p id="summary_recName"><%= receipts[i].name %></p>
+      <a id="summary_recName" href="/catalog/receipt/<%= receipts[i]._id %>"><%= receipts[i].description %></a>
       <p><%= "$" + receipts[i].total %></p>
       <p><%= receipts[i].date_month %></p>
-      <a href="/catalog/receipt/<%= receipts[i]._id %>">More</a>
+      <p><%= receipts[i].category %></p>
       <% } %>
     </div>
 
@@ -161,7 +161,7 @@
       <% } %>
     
     <h2 class="summary_receiptTotal">
-      Receipt Totals: $<%=round(total_receipt, 2);%>
+      Total Expenses: $<%=round(total_receipt, 2);%>
     </h2>
   </div>
   <!--  Balance and Charts -->
@@ -180,6 +180,10 @@
     const chart2 = document.querySelector(".chartDisp2");
     const chart3 = document.querySelector(".chartDisp3");
     const chart4 = document.querySelector(".chartDisp4");
+    const chart1Text = document.getElementById("monthlySpendingTitle");
+    const chart2Text = document.getElementById("majorExpensesTitle");
+    const chart3Text = document.getElementById("monthlyIncomeTitle");
+    const chart4Text = document.getElementById("incomeSourcesTitle");
 
     expBtn.addEventListener("click", function() {
       expBtn.style.backgroundColor = "#30353d";
@@ -190,7 +194,10 @@
       chart2.style.display = "grid";
       chart3.style.display = "none";
       chart4.style.display = "none";
-
+      chart1Text.style.visibility = "visible";
+      chart2Text.style.visibility = "visible";
+      chart3Text.style.visibility = "hidden";
+      chart4Text.style.visibility = "hidden";
     })
     incBtn.addEventListener("click", function() {
       incBtn.style.backgroundColor = "#30353d"
@@ -201,10 +208,14 @@
       chart2.style.display = "none";
       chart3.style.display = "grid";
       chart4.style.display = "grid";
+      chart1Text.style.visibility = "hidden";
+      chart2Text.style.visibility = "hidden";
+      chart3Text.style.visibility = "visible";
+      chart4Text.style.visibility = "visible";
     })
 
     var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
         labels: ["Jan", "Feb", "March","Apr","May","June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
         datasets: [{
@@ -262,7 +273,7 @@ var newChart = new Chart(gtx, {
         labels: ["Food","Entertainment","House","Car","Work","Clothing","Pet","Self-Care"],
         datasets: [{
             label: "Major Expenses",
-            data: ["<%=catTotals[0] %>", "<%=catTotals[1] %>", "<%=catTotals[2] %>", "<%=catTotals[3] %>", "<%=catTotals[4] %>", "<%=catTotals[5] %>", "<%=catTotals[6] %>", "<%=catTotals[7] %>"],
+            data: ["<%= catTotals[0] %>", "<%=catTotals[1] %>", "<%=catTotals[2] %>", "<%=catTotals[3] %>", "<%=catTotals[4] %>", "<%=catTotals[5] %>", "<%=catTotals[6] %>", "<%=catTotals[7] %>"],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -307,7 +318,7 @@ var myChart = new Chart(mtx, {
     data: {
         labels: ["Jan", "Feb", "March","Apr","May","June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
         datasets: [{
-            label: "Spending in Dollars",
+            label: "Income in Dollars",
             data: ["<%= monthlyIncTotals[0] %>", "<%= monthlyIncTotals[1] %>","<%= monthlyIncTotals[2] %>", "<%= monthlyIncTotals[3] %>", "<%= monthlyIncTotals[4] %>", "<%= monthlyIncTotals[5] %>", "<%= monthlyIncTotals[6] %>", "<%= monthlyIncTotals[7] %>", "<%= monthlyIncTotals[8] %>", "<%= monthlyIncTotals[9] %>", "<%= monthlyIncTotals[10] %>", "<%= monthlyIncTotals[11] %>"],
             backgroundColor: [
                 'rgba(78, 250, 255)',

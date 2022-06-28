@@ -5,9 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <script
-    src="https://kit.fontawesome.com/9b6b4f0fa1.js"
-    crossorigin="anonymous"></script>
     <link
     rel="icon"
     type="image/x-icon"
@@ -15,27 +12,37 @@
   />
     <title><%= title %></title>
   </head>
+
   <% if(authCheck){ %> 
     <%- include("navbarLI") %> 
     <% } else { %> 
     <%-include("navbar") %> 
    <% } %>
+
+<div class="income_list_content">
+
   <div class="incomeHeader">
-    <h1 class="incomeHeader_h1"><%= authUser %>'s <%= title %></h1>
-    <p class="incomeHeader_p">
+    <h1 id="incomeHeader_h1"><%= authUser %>'s <%= title %></h1>
+    <p id="incomeHeader_p">
       Here you can review, edit, delete, and add income
     </p>
-    <img class="incomeHeader_img" src="/images/incomeImg.png" />
+    <img id="incomeHeader_img" src="/images/incomeImg.png" />
   </div>
  
   <div class="income_body">
-    <% for(let i = 0; i < results.length; i++) { %>
-      <a  href="/catalog/income/<%= results[i]._id %>"><div class="incomeDisplay">
-        <i class="fa-solid fa-money-bill"></i>
-        <p class="incomeDisp_desc"><%= results[i].description %></p>
-       <p class="incomeDisp_amt">$<%= results[i].amount %></p>
-    </div></a>
-    <% } %>
+    <h1 id="descHead">Description</h1>
+    <h1 id="amtHead">Amount</h1>
+    <h1 id="dateHead">Date</h1>
+
+    <div class="income_body_data">
+     <% for(let i = 0; i < results.length; i++) { %>
+      <a  href="/catalog/income/<%= results[i]._id %>" id="incomeDisp_desc"> <%= results[i].description %></a>
+       <p id="incomeDisp_amt">$<%= results[i].amount %></p>
+       <p id="incomeDisp_date"><%= results[i].date_month %></p>
+       <% } %>
+      </div>
+    </div>
+
   </div>
    
   <% let total = 0; %>
@@ -45,7 +52,9 @@
     <% function round(value, decimals) { %>
       <% return Number(Math.round(value +'e'+ decimals) +'e-'+ decimals).toFixed(decimals); %>
     <% } %>
-  <h1 class="incomeBody_total">Total: $<%= round(total,2); %></h1>
-  <a class="incomeBody_create" href="/catalog/income/create">Create New Income</a>
+
+  <h1 id="incomeBody_total">Total: $<%= round(total,2); %></h1>
+  <a id="incomeBody_create" href="/catalog/income/create">Create New Income</a>
+</div>
   <%- include("footer"); %>
 </html>
