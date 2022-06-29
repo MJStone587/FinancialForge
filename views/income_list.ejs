@@ -30,20 +30,21 @@
   </div>
  
   <div class="income_body">
-    <h1 id="descHead">Description</h1>
-    <h1 id="amtHead">Amount</h1>
-    <h1 id="dateHead">Date</h1>
+      <h1 id="descHead">Description</h1>
+      <h1 id="amtHead">Amount</h1>
+      <h1 id="dateHead">Date</h1>
+    
 
     <div class="income_body_data">
-     <% for(let i = 0; i < results.length; i++) { %>
-      <a  href="/catalog/income/<%= results[i]._id %>" id="incomeDisp_desc"> <%= results[i].description %></a>
-       <p id="incomeDisp_amt">$<%= results[i].amount %></p>
-       <p id="incomeDisp_date"><%= results[i].date_month %></p>
-       <% } %>
-      </div>
+      <% for(let i = 0; i < results.length; i++) { %>
+        <a href="/catalog/income/<%= results[i]._id %>" id="incomeDisp_desc"><%= results[i].description %></a>
+         <p id="incomeDisp_amt">$<%= results[i].amount %></p>
+         <p id="incomeDisp_date"><%= results[i].date_month %></p>
+        <% } %>
     </div>
-
+    
   </div>
+
    
   <% let total = 0; %>
     <% for(let i = 0; i < results.length; i++) { %> 

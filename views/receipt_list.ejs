@@ -8,10 +8,8 @@
   />
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <script
-    src="https://kit.fontawesome.com/9b6b4f0fa1.js"
-    crossorigin="anonymous"
-  ></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <% if(authCheck){ %> 
@@ -27,11 +25,24 @@
       <p id="expensesHeader_p">Here you can review, edit, delete, and add receipts</p>
       <img id="expensesHeader_img" src="/images/receiptimage.png">
     </div>
+    
+    <div class="chart_disp">
+      <h1>Spending Trend</h1>
+      <canvas id="expense_chart"></canvas>
+    </div>
+
+    <div class="expense_sort_options">
+      <h1 id="byDate">Sort By Date</h1>
+      <h1 id="byAmt"> Sort By Amount</h1>
+      <h1 id="byCat">Sort By Category</h1>
+      <h1 id="byDesc">Sort By Description</h1>
+    </div>
 
     <div class="expensesBody">
       <div class="expensesBody_headings">
         <h1 id="title_heading">Title</h1>
         <h1 id="amount_heading">Amount</h1>
+        <h1 id="cat_heading">Category</h1>
         <h1 id="date_heading">Date</h1>
       </div>
 
@@ -40,9 +51,11 @@
         <!--<a href="/catalog/receipt/<%= receipt_list[i]._id %>"></a>-->
           <a href="/catalog/receipt/<%= receipt_list[i]._id %>" id="expensesBody_title"><%= receipt_list[i].description %></a>
           <p id="expensesBody_amt"><%= "$" + receipt_list[i].total %> </p>
+          <p id="expensesBody_cat"><%= receipt_list[i].category %> </p>
           <p id="expensesBody_date"><%= receipt_list[i].date_formatted %></p>
           <% } %>
       </div>
+
     </div>
 
     <% let total = 0; %>
@@ -56,5 +69,76 @@
     <h2 id="expensesBody_total">Receipt Totals: $<%=round(total, 2);%></h2>
     <a id="expensesBody_create" href="receipt/create">+ Add Receipt</a>
 </div>
+  
+<script>
+  const expChart = document.getElementById("expense_chart");
+  const byDate = document.getElementById('byDate');
+  const byAmt = document.getElementById('byAmt');
+  const byCat = document.getElementById('byCat');
+  const byDesc = document.getElementById('byDesc');
+  const expOpt = document.querySelector(".expense_sort_options")
+
+  function changeUnderline(e) {
+    const target = e.target;
+    console.log(target);
+  } 
+
+  expOpt.addEventListener("click", changeUnderline, false);
+
+
+  var myChart = new Chart(expChart, {
+    type: 'line',
+    data: {
+        labels: ["Jan", "Feb", "March","Apr","May","June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
+        datasets: [{
+            label: "Spending in Dollars",
+            data: [445, 30, 613, 1239, 345, 240, 123, 329, 885, 543, 1023, 748],
+            backgroundColor: [
+              'rgba(78, 250, 255)'
+            ],
+            borderColor: [
+              'rgba(78, 250, 255)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                labels: {
+                  color: "white",
+                    // This more specific font property overrides the global property
+                    font: {
+                        size: 15,
+                     }
+                   }
+                }
+             },
+        scales: {
+              y: {  
+                grid: { color: "black", borderColor: "black"},
+                ticks: {
+                  color: "white",
+                  font: {
+                    size: 15, 
+                  },
+                  beginAtZero: true
+                }
+              },
+              x: { 
+                grid: { color: "black", borderColor: "black"},
+                ticks: {
+                  color: "white", 
+                  font: {
+                    size: 14 
+                  },  
+                  beginAtZero: true
+                }
+              }
+            }
+         }
+});
+  </script>
   <%- include("footer"); %>
 </html>
