@@ -304,25 +304,26 @@ html {
   grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
   color: white;
   justify-items: center;
-  font-size: 12px;
+  font-size: 22px;
+  margin-bottom: 10px;
 }
 .expense_sort_options #byDate {
-  padding: 2px;
+  padding: 5px;
   border-bottom: 1px solid white;
 }
 .expense_sort_options #byAmt {
-  padding: 2px;
+  padding: 5px;
   border-bottom: none;
 }
 .expense_sort_options #byCat {
-  padding: 2px;
+  padding: 5px;
   border-bottom: none;
 }
 .expense_sort_options #byDesc {
-  padding: 2px;
+  padding: 5px;
   border-bottom: none;
 }
-.expense_sort_options h1:hover {
+.expense_sort_options a:hover {
   cursor: pointer;
 }
 .expensesBody {

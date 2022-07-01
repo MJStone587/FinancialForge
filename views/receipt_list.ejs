@@ -31,11 +31,14 @@
       <canvas id="expense_chart"></canvas>
     </div>
 
+<!-- Got to be a better more efficient way to sort KEEP AT IT -->
     <div class="expense_sort_options">
-      <h1 id="byDate">Sort By Date</h1>
-      <h1 id="byAmt"> Sort By Amount</h1>
-      <h1 id="byCat">Sort By Category</h1>
-      <h1 id="byDesc">Sort By Description</h1>
+        <form action="" method="POST">
+          <input type="button" id="byDate" name="sortBy" value="date"/>
+          <input type="button" id="byAmt"  name="sortBy" value="total"/>
+          <input type="button" id="byCat"  name="sortBy" value="category"/>
+          <input type="button" id="byDesc" name="sortBy" value="description"/>
+        </form>
     </div>
 
     <div class="expensesBody">
@@ -65,24 +68,46 @@
     <% function round(value, decimals) { %>
       <% return Number(Math.round(value +'e'+ decimals) +'e-'+ decimals).toFixed(decimals); %>
     <% } %>
-    
+
     <h2 id="expensesBody_total">Receipt Totals: $<%=round(total, 2);%></h2>
     <a id="expensesBody_create" href="receipt/create">+ Add Receipt</a>
 </div>
   
 <script>
-  const expChart = document.getElementById("expense_chart");
+  const expChart = document.getElementById('expense_chart');
   const byDate = document.getElementById('byDate');
   const byAmt = document.getElementById('byAmt');
   const byCat = document.getElementById('byCat');
   const byDesc = document.getElementById('byDesc');
-  const expOpt = document.querySelector(".expense_sort_options")
+  const expOpt = document.querySelector('.expense_sort_options')
 
   function changeUnderline(e) {
     const target = e.target;
-    console.log(target);
+    if(target !== expOpt)
+    {
+      if(target == byAmt) {
+      target.style.borderBottom = "1px solid white";
+      byDate.style.borderBottom = "none";
+      byCat.style.borderBottom = "none";
+      byDesc.style.borderBottom = "none";
+      } else if(target == byCat) {
+      target.style.borderBottom = "1px solid white";
+      byDate.style.borderBottom = "none";
+      byAmt.style.borderBottom = "none";
+      byDesc.style.borderBottom = "none";
+      } else if(target == byDesc) {
+      target.style.borderBottom = "1px solid white";
+      byDate.style.borderBottom = "none";
+      byAmt.style.borderBottom = "none";
+      byCat.style.borderBottom = "none";
+      } else if(target == byDate) {
+      target.style.borderBottom = "1px solid white";
+      byCat.style.borderBottom = "none";
+      byAmt.style.borderBottom = "none";
+      byDesc.style.borderBottom = "none";
+      }
+    }
   } 
-
   expOpt.addEventListener("click", changeUnderline, false);
 
 

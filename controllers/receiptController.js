@@ -12,9 +12,10 @@ exports.index = function (req, res) {
 };
 
 exports.receipt_list = function (req, res, next) {
+  console.log(req.body.sortBy);
   if (req.session.isAuth) {
     Receipt.find({ author: req.session.authUserID })
-      .sort([["title", "descending"]])
+      .sort([[req.body.sortBy, "descending"]])
       .exec(function (err, list_receipt) {
         if (err) {
           return next(err);
@@ -30,7 +31,7 @@ exports.receipt_list = function (req, res, next) {
       });
   } else {
     Receipt.find({ author: "62a21b717001a8755da33cf7" })
-      .sort([["title", "descending"]])
+      .sort([[req.body.sortBy, "ascending"]])
       .exec(function (err, list_receipt) {
         if (err) {
           return next(err);
@@ -69,9 +70,9 @@ exports.receipt_create_get = function (req, res, next) {
 exports.receipt_create_post = [
   // Validate and sanitize the name field.
   body("name", "Receipt Name Required").trim().isLength({ min: 1 }).escape(),
-
   // Process request after validation and sanitization.
   (req, res, next) => {
+    console.log(req.body.sortBy);
     // Extract the validation errors from a request.
     const errors = validationResult(req);
 
