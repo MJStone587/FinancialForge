@@ -307,6 +307,12 @@ html {
   font-size: 22px;
   margin-bottom: 10px;
 }
+.expense_sort_options input {
+  text-transform: capitalize;
+  background-color: #30353d;
+  border: none;
+  color: white;
+}
 .expense_sort_options #byDate {
   padding: 5px;
   border-bottom: 1px solid white;

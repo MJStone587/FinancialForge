@@ -11,11 +11,10 @@ exports.index = function (req, res) {
   });
 };
 
-exports.receipt_list = function (req, res, next) {
-  console.log(req.body.sortBy);
+exports.receipt_list = async function (req, res, next) {
   if (req.session.isAuth) {
     Receipt.find({ author: req.session.authUserID })
-      .sort([[req.body.sortBy, "descending"]])
+      .sort([[req.query.sortBy, "ascending"]])
       .exec(function (err, list_receipt) {
         if (err) {
           return next(err);
@@ -31,7 +30,7 @@ exports.receipt_list = function (req, res, next) {
       });
   } else {
     Receipt.find({ author: "62a21b717001a8755da33cf7" })
-      .sort([[req.body.sortBy, "ascending"]])
+      .sort([[req.query.sortBy, "descending"]])
       .exec(function (err, list_receipt) {
         if (err) {
           return next(err);
