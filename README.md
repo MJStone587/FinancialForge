@@ -17,3 +17,4 @@ Creating modular, easy to modify code, is much harder when I am less familiar wi
 I continually strive to improve my code and make it easier to read / modify, yet I feel like I am never quite where I want to be in this regard. More practice is necessary.
 
 To view the current live version of the site: https://hidden-peak-86387.herokuapp.com/catalog
+THIS SITE IS A WIP
