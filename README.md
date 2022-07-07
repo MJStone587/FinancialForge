@@ -10,6 +10,8 @@ What I've Learned So Far:
 
 I am realizing it is best to create small / lightweight apps that have more concise and simple functionality to practice specific frameworks. 
  I find many of these frameworkst have a lot of methods etc that make my life easier, unfortunately they require a bit of digging in the documentation and practice to use them efficiently. It will come in time with practice. 
+ 
+With a full stack application I have learned just how import asyncronous javascript is. I also realize how much more practice implementing it I need. 
 
 Creating modular, easy to modify code, is much harder when I am less familiar with the frameworks and the code I am working with. 
 I continually strive to improve my code and make it easier to read / modify, yet I feel like I am never quite where I want to be in this regard. More practice is necessary.
