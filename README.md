@@ -1,10 +1,20 @@
 # Framework
-This is a practice website / app 
-More specifically I am using node.js / express / mongoose /
-The goal of this site is to create a financial organizer. The ability to create multiple users and stores financial information to help organize and track financial spending / saving.
-I myself am not the most organized person when it comes to financial records etc so this was a site to help make my life easier. 
-It was also an opportunity to learn more about the MERN stack and begin to commit everything I have read and learned to memory.
+What is this?  
 
+This is a practice website / app. 
+I am using node.js / express / mongoose...
+The functionality of this site is a financial organizer with the ability to create multiple users and store financial information to help organize and track financial spending / saving.
+The goal of this project is to become more familiar using node / express / mongoose. Implementing basic CRUD using mongoDB, and user authentication.
 
-This is a work in progress. Currently working on user login / authentication and data tied to login.
+What I've Learned So Far: 
+
+I am realizing it is best to create small / lightweight apps that have more concise and simple functionality to practice specific frameworks. 
+ I find many of these frameworkst have a lot of methods etc that make my life easier, they require a bit of digging in the documentation and practice to use them efficiently but they are there. 
+ 
+With a full stack application I have learned just how import asyncronous javascript is. I also realize how much more practice implementing it I need.
+
+Creating modular, easy to modify code, is much harder when I am less familiar with the frameworks and the code I am working with. 
+I continually strive to improve my code and make it easier to read / modify, yet I feel like I am never quite where I want to be in this regard. More practice is necessary.
+
 To view the current live version of the site: https://hidden-peak-86387.herokuapp.com/catalog
+THIS SITE IS A WIP
