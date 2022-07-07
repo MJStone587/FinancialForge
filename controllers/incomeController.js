@@ -48,6 +48,7 @@ exports.income_create_get = function (req, res) {
   } else {
     res.render("user_login", {
       message: "You must login to create income additions",
+      authCheck: req.session.isAuth,
     });
   }
 };

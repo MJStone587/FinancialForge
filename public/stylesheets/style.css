@@ -259,13 +259,14 @@ html {
     "rHeaderH1 rHeaderImg"
     "rHeaderP rHeaderImg";
   margin: 20px 75px 0px 0px;
-  max-height: 85vh;
+  max-height: 55vh;
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .expensesHeader #expensesHeader_img {
+  justify-self: end;
   grid-area: rHeaderImg;
-  height: 60vh;
-  width: 40vw;
+  height: 50vh;
+  width: 30vw;
 }
 .expensesHeader #expensesHeader_p {
   grid-area: rHeaderP;
@@ -279,7 +280,7 @@ html {
   align-self: end;
   justify-self: center;
   font-size: 35px;
-  color: #4edff9;
+  color: #ffa603;
 }
 .chart_disp {
   display: grid;
@@ -293,14 +294,14 @@ html {
   border-radius: 10px;
   margin-bottom: 50px;
   padding: 10px;
-  width: 100%;
+  margin: 0px 0px 50px 0px;
 }
 .chart_disp #expense_chart {
   max-height: 350px;
-  max-width: 90%;
+  max-width: 85%;
 }
 .expense_sort_options {
-  display: grid;
+  display: none;
   grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
   color: white;
   justify-items: center;
@@ -433,12 +434,13 @@ html {
   grid-template-areas:
     "rHeaderH1 rHeaderImg"
     "rHeaderP rHeaderImg";
-  max-height: 85vh;
+  max-height: 60vh;
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .incomeHeader #incomeHeader_img {
+  justify-self: end;
   grid-area: rHeaderImg;
-  height: 60vh;
+  height: 50vh;
   width: 40vw;
 }
 .incomeHeader #incomeHeader_p {
@@ -453,24 +455,38 @@ html {
   align-self: end;
   justify-self: center;
   font-size: 35px;
-  color: #355ec4;
-  -webkit-text-stroke: 1px #4edff9;
+  color: #4edff9;
 }
 .income_body {
   display: grid;
   border-radius: 10px;
-  grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
-  grid-template-areas: "descHead amtHead dateHead";
+  grid-template-columns: [col1] 100%;
+  grid-template-rows: [row1] 10% [row2] 90%;
+  grid-template-areas:
+    "bodyHead"
+    "bodyData";
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #30353d;
-  max-height: 50vh;
+  max-height: 60vh;
   color: white;
   min-height: 200px;
   margin: 0px 25px 0px 25px;
 }
-
+.bodyHead {
+  grid-area: bodyHead;
+  display: grid;
+  grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+  width: 100%;
+  justify-items: start;
+  grid-template-areas: "descHead catHead amtHead dateHead";
+  text-decoration: underline;
+  margin: 0px 0px 0px 20px;
+}
 .income_body #descHead {
   grid-area: descHead;
+}
+.income_body #catHead {
+  grid-area: catHead;
 }
 .income_body #amtHead {
   grid-area: amtHead;
@@ -479,28 +495,22 @@ html {
   grid-area: dateHead;
 }
 .income_body_data {
+  grid-area: bodyData;
   display: grid;
   width: 100%;
-  max-height: 50vh;
+  max-height: 60vh;
   overflow: scroll;
-  grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
-  grid-template-areas: "incDesc incAmt incDate";
+  grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
   color: white;
   font-size: 15px;
-  justify-items: center;
+  justify-items: start;
+  margin: 0px 0px 0px 20px;
 }
 .income_body_data #incomeDisp_desc {
-  grid-area: incDesc;
   color: #4edff9;
   text-decoration: none;
-  justify-self: start;
 }
-.income_body_data #incomeDisp_amt {
-  grid-area: incAmt;
-}
-.income_body_data #incomeDisp_date {
-  grid-area: incDate;
-}
+
 #incomeBody_total {
   margin: 20px 25px 20px 25px;
   border-top: 1px solid white;
@@ -869,7 +879,7 @@ html {
   grid-template-columns: [col1] 10% [col2] 10%;
   justify-content: center;
   grid-template-areas:
-    "uniqTitle ."
+    "uniqTitle uniqTitle"
     "label1 data1"
     "label2 data2"
     "label3 data3"
@@ -877,14 +887,22 @@ html {
     "label5 data5"
     "label6 data6"
     "btn1 btn2";
-  margin: 50px 75px 10px 75px;
+  margin: 0px 50px 0px 230px;
+  background-color: #30353d;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: white;
 }
 
 .det_title {
   color: #355ec4;
   font-size: 30px;
+  padding: 5px;
   border-bottom: 1px solid #355ec4;
-  margin: 50px 75px 10px 75px;
+  margin: 200px 50px 0px 230px;
+  background-color: #30353d;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 .det_body #det_unique_title {
   grid-area: uniqTitle;
