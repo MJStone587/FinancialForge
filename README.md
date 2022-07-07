@@ -8,7 +8,8 @@ The goal of this project is to become more familiar using node / express / mongo
 
 What I've Learned So Far: 
 
-It is far too easy for the scope of projects like this to get out of hand. There are always new things to add to improve the app. I am realizing it is best to create small / lightweight apps that have more concise and simple functionality to practice specific frameworks. 
+I am realizing it is best to create small / lightweight apps that have more concise and simple functionality to practice specific frameworks. 
+ I find many of these frameworkst have a lot of methods etc that make my life easier, unfortunately they require a bit of digging in the documentation and practice to use them efficiently. It will come in time with practice. 
 
 Creating modular, easy to modify code, is much harder when I am less familiar with the frameworks and the code I am working with. 
 I continually strive to improve my code and make it easier to read / modify, yet I feel like I am never quite where I want to be in this regard. More practice is necessary.
