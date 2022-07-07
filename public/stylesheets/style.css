@@ -1158,35 +1158,28 @@ html {
   html {
     margin: 0;
     width: 100%;
-    background-color: #f6feff;
+    background-color: #15171a;
   }
   .navbar {
-    display: grid;
-    grid-template-rows: [row1] 100%;
-    grid-template-columns: [col1] 10% [col2] 75% [col3] 10%;
-    grid-template-areas: "navLogo navTitle navLinks";
-    width: 100vw;
-    margin: 1px;
-    height: 75px;
-    border-radius: 10px;
-  }
-  .navbar img {
-    grid-area: navLogo;
+    display: none;
+    grid-template-columns: [col1] 100%;
+    grid-template-rows: [row1] 15% [row2] 10% [row2] 75%;
+    grid-template-areas:
+      "navHamburger"
+      "navLogo"
+      "navLinks";
+    width: 15%;
+    height: 100vh;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin: 0;
+    z-index: 10;
   }
   .navbar #navLogo {
+    margin: 0;
     grid-area: navLogo;
-  }
-  .navbar #navTitle {
-    grid-area: navTitle;
-    justify-self: start;
-    margin-left: 10px;
-    padding: 0px;
-  }
-  .myLinks i {
-    display: grid;
-    grid-area: navLinks;
-    font-size: 23px;
-    color: black;
+    height: 60px;
+    width: 60px;
   }
   .myLinks {
     display: none;
@@ -1200,15 +1193,12 @@ html {
       "link5"
       "link6";
     row-gap: 8px;
-    background-color: #8bf0ff;
-    height: 200px;
-    width: 75px;
-    margin-left: 650px;
-    padding: 25px;
-    z-index: 10;
+    color: #8bf0ff;
+    padding: 10px;
   }
   .myLinks a {
-    color: black;
+    display: none;
+    color: white;
     text-decoration: none;
     font-size: 15px;
   }
@@ -1240,66 +1230,1059 @@ html {
   .myLinks a:hover {
     color: #355ec4;
   }
+  /* Footer Global*/
+  .site_footer {
+    display: grid;
+    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
+    grid-template-rows: [row1] 100%;
+    grid-template-areas: "fLogo fCol1 fCol2 fCol3";
+    color: white;
+  }
+  .footer_logo {
+    grid-area: fLogo;
+    align-self: center;
+    justify-self: center;
+  }
+  .footer_logo img {
+    height: 200px;
+    width: 245px;
+  }
+  .footer_col1 {
+    grid-area: fCol1;
+  }
+  .footer_col2 {
+    grid-area: fCol2;
+  }
+  .footer_col3 {
+    grid-area: fCol3;
+  }
+
+  /* Index Page*/
+  .index_content {
+    margin: 0px 0px 0px 0px;
+  }
   .index_header {
     display: grid;
-    grid-template-rows: [row1] 70% [row2] 30%;
+    grid-template-rows: [row1] 50% [row2] 50%;
     grid-template-columns: [col1] 100%;
     grid-template-areas:
-      "title"
-      "btn";
-    width: 99vw;
-    height: 250px;
-    margin: auto;
-    justify-content: center;
-  }
-  .index_header #headerTitle {
-    grid-area: title;
-    align-self: end;
-    font-size: 24px;
-  }
-  .index_header #headerText {
-    grid-area: btn;
-    font-size: 13px;
-    align-self: center;
-    margin-left: 80px;
-  }
-  .index_header #header_signupBtn {
-    grid-area: btn;
-    font-size: 12px;
-    margin-right: 50px;
-    justify-self: end;
-    align-self: center;
-  }
-  .index_header #index_imgCaption {
-    display: none;
-    font-size: 7px;
+      "headerTitle"
+      "headerText";
+    width: 100%;
+    color: #4edff9;
+    height: 50vh;
+    margin: 0;
+    justify-items: center;
+    align-items: center;
   }
   .index_header #headerImg {
     display: none;
   }
+  .index_header #headerTitle {
+    margin: 0px;
+    grid-area: headerTitle;
+    font-size: 25px;
+  }
+  .index_header #index_signupBar {
+    margin: 0;
+    border: 1px solid black;
+  }
+  .index_header #index_imgCaption {
+    display: none;
+  }
+  .index_header #headerText {
+    grid-area: headerText;
+    font-size: 13px;
+    color: white;
+    margin: 20px 0px 0px 50px;
+  }
+  .index_header #header_signupBtn {
+    grid-area: headerText;
+    color: white;
+    margin: 0;
+    border: 1px solid #ffec03;
+    text-decoration: none;
+    justify-self: end;
+    background-color: #ffa603;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 25px;
+  }
+  .index_header #header_signupBtn:hover {
+    background-color: #ffec03;
+    color: black;
+    border: 1px solid #ffa603;
+  }
   .index_body {
+    margin: 0;
     display: grid;
-    grid-template-rows: [row1] 33% [row2] 33% [row3] 33%;
     grid-template-columns: [col1] 100%;
+    grid-template-rows: [row1] 30% [row2] 30% [row3] 30%;
     grid-template-areas:
-      "box1"
-      "box2"
-      "box3";
-    align-content: start;
+      "bodyBox1"
+      "bodyBox2"
+      "bodyBox3";
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  .index_body i {
+    font-size: 25px;
+    background-color: #4edff9;
+    color: #355ec4;
+    padding: 15px;
+    border-radius: 25px;
+    font-size: 20px;
+    place-self: center;
+  }
+  .index_bodyBox {
+    display: grid;
+    grid-template-rows: [row1] 100%;
+    grid-template-columns: [col1] 30% [col2] 60%;
+    grid-template-areas: "elemI bodyBoxH1";
+    row-gap: 0px;
+    justify-content: center;
+    align-content: center;
+    margin-top: 10px;
+    padding: 10px;
+  }
+  .bodyBox_h1 {
+    grid-area: bodyBoxH1;
+    justify-self: center;
+    font-size: 20px;
+    align-self: start;
+    padding: 10px;
+  }
+  .index_body p {
+    grid-area: bodyBoxH1;
+    margin-top: 10px;
+    justify-self: center;
+    align-self: end;
+    font-size: 10px;
   }
   .box1 {
-    grid-area: box1;
+    grid-area: bodyBox1;
+    background-color: #30353d;
+    color: white;
     border: none;
-    border-bottom: 1px solid gray;
   }
   .box2 {
-    grid-area: box2;
+    grid-area: bodyBox2;
+    background-color: #30353d;
+    color: white;
     border: none;
-    border-bottom: 1px solid gray;
   }
   .box3 {
-    grid-area: box3;
+    grid-area: bodyBox3;
+    background-color: #30353d;
+    color: white;
     border: none;
-    border-bottom: 1px solid gray;
+  }
+
+  /*Receipt Page*/
+  .expenses_content {
+    margin: 0px 50px 0px 250px;
+  }
+  .expensesHeader {
+    display: grid;
+    grid-template-rows: [row1] 50% [row2] 50%;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-areas:
+      "rHeaderH1 rHeaderImg"
+      "rHeaderP rHeaderImg";
+    margin: 20px 75px 0px 0px;
+    max-height: 55vh;
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  .expensesHeader #expensesHeader_img {
+    justify-self: end;
+    grid-area: rHeaderImg;
+    height: 50vh;
+    width: 30vw;
+  }
+  .expensesHeader #expensesHeader_p {
+    grid-area: rHeaderP;
+    justify-self: center;
+    align-self: start;
+    color: white;
+    font-size: 17px;
+  }
+  .expensesHeader #expensesHeader_h1 {
+    grid-area: rHeaderH1;
+    align-self: end;
+    justify-self: center;
+    font-size: 35px;
+    color: #ffa603;
+  }
+  .chart_disp {
+    display: grid;
+    grid-template-rows: [row1] 10% [row2] 90%;
+    grid-template-columns: [col1] 100%;
+    background-color: #30353d;
+    justify-items: center;
+    align-items: center;
+    color: white;
+    height: 450px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    padding: 10px;
+    margin: 0px 0px 50px 0px;
+  }
+  .chart_disp #expense_chart {
+    max-height: 350px;
+    max-width: 85%;
+  }
+  .expense_sort_options {
+    display: none;
+    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
+    color: white;
+    justify-items: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .expense_sort_options input {
+    text-transform: capitalize;
+    background-color: #30353d;
+    border: none;
+    color: white;
+  }
+  .expense_sort_options #byDate {
+    padding: 5px;
+    border-bottom: 1px solid white;
+  }
+  .expense_sort_options #byAmt {
+    padding: 5px;
+    border-bottom: none;
+  }
+  .expense_sort_options #byCat {
+    padding: 5px;
+    border-bottom: none;
+  }
+  .expense_sort_options #byDesc {
+    padding: 5px;
+    border-bottom: none;
+  }
+  .expense_sort_options a:hover {
+    cursor: pointer;
+  }
+  .expensesBody {
+    display: grid;
+    grid-template-rows: [row1] 10% [row2] 90%;
+    grid-template-areas:
+      "expenseHead"
+      "expenseData";
+    width: 100%;
+    border-radius: 10px;
+    background-color: #30353d;
+  }
+  .expensesBody_headings {
+    grid-area: expenseHead;
+    display: grid;
+    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+    grid-template-rows: [row1] 100%;
+    grid-template-areas: "titleHead amtHead catHead dateHead";
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: #4edff9;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 10px;
+    text-decoration: underline;
+  }
+  .expensesBody_headings #title_heading {
+    grid-area: titleHead;
+  }
+  .expensesBody_headings #amount_heading {
+    grid-area: amtHead;
+    justify-self: center;
+  }
+  .expensesBody_headings #cat_heading {
+    grid-area: catHead;
+    justify-self: center;
+  }
+  .expensesBody_headings #date_heading {
+    grid-area: dateHead;
+    justify-self: center;
+  }
+  .expensesBody_headings #create_expense {
+    grid-area: createExp;
+    font-size: 50px;
+    font-weight: bold;
+    color: #4edff9;
+  }
+  .expensesBody_headings #create_expense:hover {
+    color: #355ec4;
+  }
+  .expensesBody_data {
+    grid-area: expenseData;
+    display: grid;
+    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+    width: 100%;
+    overflow: scroll;
+    font-size: 15px;
+    justify-items: center;
+    padding-left: 10px;
+    color: white;
+  }
+  .expensesBody a {
+    text-decoration: none;
+  }
+
+  .expensesBody_data #expensesBody_title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffa603;
+    justify-self: start;
+  }
+  .expensesBody_data #expensesBody_title:hover {
+    color: #ffec03;
+  }
+  .expenses_content #expensesBody_total {
+    padding-top: 10px;
+    color: white;
+    border-top: 1px solid white;
+  }
+  .expenses_content #expensesBody_create {
+    padding: 10px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    background-color: #ffa603;
+    color: white;
+    border-radius: 20px;
+  }
+  .expenses_content #expensesBody_create:hover {
+    color: black;
+    background-color: #4edff9;
+  }
+
+  /*Income Page*/
+  .income_list_content {
+    margin: 0px 0px 0px 225px;
+  }
+  .incomeHeader {
+    display: grid;
+    grid-template-rows: [row1] 50% [row2] 50%;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-areas:
+      "rHeaderH1 rHeaderImg"
+      "rHeaderP rHeaderImg";
+    max-height: 60vh;
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  .incomeHeader #incomeHeader_img {
+    justify-self: end;
+    grid-area: rHeaderImg;
+    height: 50vh;
+    width: 40vw;
+  }
+  .incomeHeader #incomeHeader_p {
+    grid-area: rHeaderP;
+    justify-self: center;
+    align-self: start;
+    font-size: 17px;
+    color: white;
+  }
+  .incomeHeader #incomeHeader_h1 {
+    grid-area: rHeaderH1;
+    align-self: end;
+    justify-self: center;
+    font-size: 35px;
+    color: #4edff9;
+  }
+  .income_body {
+    display: grid;
+    border-radius: 10px;
+    grid-template-columns: [col1] 100%;
+    grid-template-rows: [row1] 10% [row2] 90%;
+    grid-template-areas:
+      "bodyHead"
+      "bodyData";
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #30353d;
+    max-height: 60vh;
+    color: white;
+    min-height: 200px;
+    margin: 0px 25px 0px 25px;
+  }
+  .bodyHead {
+    grid-area: bodyHead;
+    display: grid;
+    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+    width: 100%;
+    justify-items: start;
+    grid-template-areas: "descHead catHead amtHead dateHead";
+    text-decoration: underline;
+    margin: 0px 0px 0px 20px;
+  }
+  .income_body #descHead {
+    grid-area: descHead;
+  }
+  .income_body #catHead {
+    grid-area: catHead;
+  }
+  .income_body #amtHead {
+    grid-area: amtHead;
+  }
+  .income_body #dateHead {
+    grid-area: dateHead;
+  }
+  .income_body_data {
+    grid-area: bodyData;
+    display: grid;
+    width: 100%;
+    max-height: 60vh;
+    overflow: scroll;
+    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+    color: white;
+    font-size: 15px;
+    justify-items: start;
+    margin: 0px 0px 0px 20px;
+  }
+  .income_body_data #incomeDisp_desc {
+    color: #4edff9;
+    text-decoration: none;
+  }
+
+  #incomeBody_total {
+    margin: 20px 25px 20px 25px;
+    border-top: 1px solid white;
+    padding-top: 10px;
+    color: white;
+  }
+
+  #incomeBody_create {
+    margin: 50px 25px 0px 25px;
+    padding: 10px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    background-color: #ffa603;
+    color: white;
+    border-radius: 20px;
+  }
+  #incomeBody_create:hover {
+    color: black;
+    background-color: #4edff9;
+  }
+
+  /* User Details Page*/
+  .details_body {
+    margin: 50px 75px 10px 75px;
+  }
+  .details_display_card {
+    display: grid;
+    background-color: rgb(195, 195, 216);
+    box-shadow: 1px 1px 1px 1px black;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  /*Summary Page*/
+  .summary_content {
+    margin: 0px 0px 0px 200px;
+    color: white;
+  }
+  .summary_header {
+    display: grid;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-rows: [row1] 50% [row2] 20%;
+    grid-template-areas:
+      "summHeaderTitle summHeaderRight"
+      "summHeaderP summHeaderRight";
+  }
+  .summary_header h1 {
+    grid-area: summHeaderTitle;
+    justify-self: center;
+    align-self: end;
+    font-size: 35px;
+    color: #4edff9;
+  }
+  .summary_header p {
+    grid-area: summHeaderP;
+    justify-self: center;
+    color: white;
+  }
+  .summary_header_right {
+    grid-area: summHeaderRight;
+    display: grid;
+    grid-template-rows: [row1] 50% [row2] 50%;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-areas:
+      "headerRightTop headerRightTop"
+      "headerRightBot headerRightBot";
+    width: 75%;
+    height: 300px;
+    justify-self: center;
+    border-radius: 10px;
+  }
+  .summary_header_right_top {
+    grid-area: headerRightTop;
+    display: grid;
+    grid-template-rows: [row1] 100%;
+    grid-template-columns: [col1] 100%;
+    grid-template-areas: "date";
+    background-color: #355ec4;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .summary_header_right_top h1 {
+    grid-area: date;
+    align-self: center;
+    justify-self: center;
+    color: white;
+    -webkit-text-stroke: 1px white;
+  }
+  .summary_header_right_bot {
+    grid-area: headerRightBot;
+    display: grid;
+    grid-template-rows: [row1] 100%;
+    grid-template-columns: [col1] 10% [col2] 40% [col3] 10% [col4] 40%;
+    grid-column-gap: 8px;
+    grid-template-areas: "calendar date clock time";
+    background-color: #30353d;
+    color: white;
+    justify-items: center;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .fa-calendar {
+    grid-area: calendar;
+    justify-self: end;
+    font-size: 20px;
+  }
+  .fa-clock {
+    grid-area: clock;
+    justify-self: end;
+    font-size: 20px;
+  }
+  .summary_header_right_bot #summary_header_date {
+    font-size: 20px;
+    justify-self: start;
+    grid-area: date;
+  }
+  .summary_header_right_bot #summary_header_time {
+    font-size: 20px;
+    justify-self: start;
+    grid-area: time;
+  }
+  .summary_header_right_bot h2 {
+    font-size: 18px;
+    justify-self: center;
+    align-self: center;
+  }
+  .summary_charts {
+    display: grid;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-rows: [row1] 10% [row2] 15% [row3] 75%;
+    grid-template-areas:
+      "btn1 btn2"
+      "chart1Title chart2Title"
+      "chart1 chart2";
+    background-color: #30353d;
+    border-radius: 10px;
+    margin: 50px 60px 0px 60px;
+    height: 600px;
+  }
+  .summary_charts #exp_btn {
+    grid-area: btn1;
+    background-color: #30353d;
+    border: none;
+    color: white;
+    font-size: 20px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+  .summary_charts #inc_btn {
+    font-size: 20px;
+    grid-area: btn2;
+    background-color: #4edff9;
+    border: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+  .summary_charts #exp_btn:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 10px black inset;
+  }
+  .summary_charts #inc_btn:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 10px black inset;
+  }
+  .charts {
+    padding: 10px;
+  }
+  .chartDisp1 {
+    grid-area: chart1;
+    justify-self: center;
+    height: 500px;
+    width: 700px;
+  }
+  .summary_charts #monthlySpendingTitle {
+    visibility: visible;
+    place-self: center;
+    grid-area: chart1Title;
+  }
+  .chartDisp2 {
+    justify-self: center;
+    grid-area: chart2;
+    height: 250px;
+    width: 350px;
+  }
+  .summary_charts #majorExpensesTitle {
+    visibility: visible;
+    justify-self: center;
+    grid-area: chart2Title;
+  }
+  .chartDisp3 {
+    grid-area: chart1;
+    height: 500px;
+    width: 700px;
+    display: none;
+    justify-self: center;
+  }
+  .summary_charts #monthlyIncomeTitle {
+    place-self: center;
+    visibility: hidden;
+    grid-area: chart1Title;
+  }
+  .chartDisp4 {
+    justify-self: center;
+    grid-area: chart2;
+    display: none;
+    height: 250px;
+    width: 350px;
+  }
+  .summary_charts #incomeSourcesTitle {
+    visibility: hidden;
+    grid-area: chart2Title;
+    place-self: center;
+  }
+  .summary_body {
+    display: grid;
+    grid-template-rows: [row1] 30% [row2] 25% [row3] 10% [row4] 10%;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-areas:
+      "incomeTitle recTitle"
+      "summInc summRec"
+      "summIncTotal summRecTotal"
+      "summBal .";
+    margin: 20px 75px 0px 75px;
+    padding: 10px;
+  }
+  .summary_incomeTitle {
+    color: #ffa603;
+    justify-self: start;
+    padding: 10px;
+    grid-area: incomeTitle;
+    margin: 50px 20px 0px 5px;
+    background-color: #30353d;
+    border-radius: 5px 5px 0px 0px;
+  }
+  .summary_body #addIncome {
+    grid-area: incomeTitle;
+    margin: 55px 75px 0px 700px;
+    justify-self: start;
+    padding: 10px;
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    border: none;
+    background-color: #ffa603;
+    border-radius: 5px 5px 0px 0px;
+  }
+  .summary_body #addIncome:hover {
+    cursor: pointer;
+    color: black;
+  }
+  .summary_body #addExpense {
+    grid-area: recTitle;
+    margin: 55px 75px 0px 725px;
+    justify-self: start;
+    padding: 10px;
+    font-size: 25px;
+    color: white;
+    border: none;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: #355ec4;
+    border-radius: 5px 5px 0px 0px;
+  }
+  .summary_body #addExpense:hover {
+    color: black;
+    cursor: pointer;
+  }
+  .summary_incomeList {
+    grid-area: summInc;
+    display: grid;
+    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+    justify-content: center;
+    align-content: start;
+    min-height: 350px;
+    max-height: 500px;
+    max-width: 40vw;
+    overflow: scroll;
+    border-radius: 10px;
+    background-color: #30353d;
+    margin-right: 20px;
+  }
+  .summary_incomeList h3 {
+    text-decoration: underline;
+    place-self: center;
+  }
+  .summary_incomeList p {
+    place-self: center;
+    justify-self: center;
+  }
+  .summary_incomeList #summary_iDet {
+    color: #ffa603;
+    place-self: center;
+    justify-self: center;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+  }
+  .summary_incomeList #summary_iDet:hover {
+    color: #ffec03;
+  }
+  .summary_receiptTitle {
+    grid-area: recTitle;
+    align-self: start;
+    justify-self: start;
+    color: #4edff9;
+    padding: 10px;
+    border-radius: 5px 5px 0px 0px;
+    margin: 50px 75px 0px 2px;
+    background-color: #30353d;
+  }
+  .summary_receiptList {
+    grid-area: summRec;
+    display: grid;
+    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+    justify-content: center;
+    align-content: start;
+    min-height: 350px;
+    max-height: 500px;
+    width: 40vw;
+    overflow: scroll;
+    border-radius: 5px;
+    background-color: #30353d;
+  }
+  .summary_receiptList #summary_recName {
+    border: none;
+    text-decoration: none;
+    color: #4edff9;
+    justify-self: center;
+    align-self: center;
+  }
+  .summary_receiptList #summary_recName:hover {
+    color: #355ec4;
+  }
+  .summary_receiptList h3 {
+    text-decoration: underline;
+    justify-self: center;
+  }
+  .summary_receiptList p {
+    justify-self: center;
+  }
+  .summary_incomeTotal {
+    grid-area: summIncTotal;
+    margin: 12px 0px 50px 10px;
+  }
+  .summary_receiptTotal {
+    grid-area: summRecTotal;
+    margin: 12px 150px 50px 10px;
+  }
+  .summary_balance {
+    grid-area: summBal;
+    border-top: 1px solid white;
+    margin: 50px 75px 100px 75px;
+  }
+
+  /*receipt delete*/
+  .receipt_delete {
+    margin-left: 275px;
+  }
+
+  /*Global Details Page*/
+  .det_body {
+    display: grid;
+    grid-template-rows: [row1] 10% [row2] 10% [row3] 10% [row4] 10% [row5] 10% [row6] 10% [row7] 10% [row8] 10%;
+    grid-template-columns: [col1] 10% [col2] 10%;
+    justify-content: center;
+    grid-template-areas:
+      "uniqTitle uniqTitle"
+      "label1 data1"
+      "label2 data2"
+      "label3 data3"
+      "label4 data4"
+      "label5 data5"
+      "label6 data6"
+      "btn1 btn2";
+    margin: 0px 50px 0px 230px;
+    background-color: #30353d;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: white;
+  }
+
+  .det_title {
+    color: #355ec4;
+    font-size: 30px;
+    padding: 5px;
+    border-bottom: 1px solid #355ec4;
+    margin: 200px 50px 0px 230px;
+    background-color: #30353d;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+  .det_body #det_unique_title {
+    grid-area: uniqTitle;
+    justify-self: center;
+    text-decoration: underline;
+  }
+  .det_body #det_label_1 {
+    grid-area: label1;
+  }
+  .det_body #det_label_2 {
+    grid-area: label2;
+  }
+  .det_body #det_label_3 {
+    grid-area: label3;
+  }
+  .det_body #det_label_4 {
+    grid-area: label4;
+  }
+  .det_body #det_label_5 {
+    grid-area: label5;
+  }
+  .det_body #det_label_6 {
+    grid-area: label6;
+  }
+  .det_body #det_label_data_1 {
+    grid-area: data1;
+    justify-self: start;
+  }
+  .det_body #det_label_data_2 {
+    grid-area: data2;
+  }
+  .det_body #det_label_data_3 {
+    grid-area: data3;
+  }
+  .det_body #det_label_data_4 {
+    grid-area: data4;
+  }
+  .det_body #det_label_data_5 {
+    grid-area: data5;
+  }
+  .det_body #det_label_data_6 {
+    grid-area: data6;
+  }
+  .det_body #delete_btn {
+    grid-area: btn1;
+    margin: 10px;
+  }
+  .det_body #update_btn {
+    grid-area: btn2;
+    margin: 10px;
+  }
+
+  .det_body a {
+    padding: 10px;
+    background-color: #4edff9;
+    border: 1px solid #4edff9;
+    text-decoration: none;
+    border-radius: 15px;
+  }
+  .det_body a:hover {
+    color: white;
+    background-color: #355ec4;
+  }
+  .login_body {
+    display: grid;
+    padding: 20px;
+    grid-template-rows: [row1] 10% [row2] 60% [row3] 10%;
+    grid-template-columns: [col1] 100%;
+    margin: 50px 50px 10px 250px;
+    height: 80vh;
+    box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
+    grid-template-areas:
+      "loginTitle"
+      "loginForm"
+      "loginSignUp";
+    background-color: #30353d;
+    color: white;
+  }
+  .login_title {
+    grid-area: loginTitle;
+    margin: 50px 0px 0px 50px;
+  }
+  .login_form {
+    grid-area: loginForm;
+    display: grid;
+    grid-template-rows: [row1] 5% [row2] 10% [row3] 7%;
+    grid-template-columns: [col1] 40% [col2] 40%;
+    grid-row-gap: 10px;
+    grid-template-areas:
+      "userLabel passLabel"
+      "loginName loginPass"
+      "loginSubmit .";
+    grid-column-gap: 20px;
+    justify-content: center;
+    align-content: center;
+  }
+  .login_form #login_userName {
+    grid-area: loginName;
+  }
+  .login_form #login_pass {
+    grid-area: loginPass;
+  }
+  .login_form #login_userLabel {
+    grid-area: userLabel;
+  }
+  .login_form #login_passLabel {
+    grid-area: passLabel;
+  }
+  .login_form #login_submit {
+    grid-area: loginSubmit;
+    justify-self: start;
+    background-color: #355ec4;
+    border: 1px solid #355ec4;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  .login_form #login_submit:hover {
+    background-color: #4edff9;
+    border: 1px solid #4edff9;
+    color: black;
+  }
+  .login_SignUp {
+    grid-area: loginSignUp;
+    margin: 0px 0px 20px 150px;
+  }
+  .login_SignUp #login_signUp {
+    color: #4edff9;
+  }
+  .login_SignUp #login_signUp:hover {
+    color: #355ec4;
+  }
+
+  /*Signup Page*/
+  .signup_body {
+    display: grid;
+    grid-template-rows: [row1] 5% [row2] 70% [row3] 5%;
+    grid-template-columns: [col1] 99%;
+    margin: 25px 50px 25px 275px;
+    height: 96vh;
+    box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
+    grid-template-areas:
+      "signupTitle"
+      "signupForm"
+      "signupSignin";
+    background-color: #30353d;
+    color: white;
+  }
+  .signup_title {
+    grid-area: signupTitle;
+    margin: 100px 0px 0px 50px;
+  }
+  .signup_form {
+    grid-area: signupForm;
+    display: grid;
+    grid-template-rows: [row1] 3% [row2] 8% [row3] 3% [row4] 8% [row5] 3% [row6] 8% [row7] 5%;
+    grid-template-columns: [col1] 40% [col2] 40%;
+    grid-row-gap: 10px;
+    grid-column-gap: 20px;
+    grid-template-areas:
+      "signupUserNameLabel signupPassLabel"
+      "signupUserName signupPass"
+      "signupfNameLabel signuplNameLabel"
+      "signupfName signuplName"
+      "signupEmailLabel signupbDayLabel"
+      "signupEmail signupbDay"
+      " signupSubmit .";
+    justify-content: center;
+    align-content: center;
+  }
+  .signup_form #userName {
+    grid-area: signupUserName;
+    margin: 5px;
+  }
+  .signup_form #userNameLabel {
+    grid-area: signupUserNameLabel;
+    justify-self: start;
+  }
+  .signup_form #pass {
+    grid-area: signupPass;
+    margin: 5px;
+  }
+  .signup_form #passLabel {
+    grid-area: signupPassLabel;
+    justify-self: start;
+  }
+  .signup_form #fName {
+    grid-area: signupfName;
+    margin: 5px;
+  }
+  .signup_form #fNameLabel {
+    grid-area: signupfNameLabel;
+    justify-self: start;
+  }
+  .signup_form #lName {
+    grid-area: signuplName;
+    margin: 5px;
+  }
+  .signup_form #lNameLabel {
+    grid-area: signuplNameLabel;
+    justify-self: start;
+  }
+  .signup_form #email {
+    grid-area: signupEmail;
+    margin: 5px;
+  }
+  .signup_form #emailLabel {
+    grid-area: signupEmailLabel;
+    justify-self: start;
+  }
+  .signup_form #bDay {
+    grid-area: signupbDay;
+    margin: 5px;
+  }
+  .signup_form #bDayLabel {
+    grid-area: signupbDayLabel;
+    justify-self: start;
+  }
+  .signup_form #signupSubmit {
+    grid-area: signupSubmit;
+    background-color: #355ec4;
+    border: 1px solid #355ec4;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 5px;
+    justify-self: start;
+  }
+  .signup_form #signupSubmit:hover {
+    grid-area: signupSubmit;
+    background-color: #4edff9;
+    border: 1px solid #4edff9;
+    color: black;
+  }
+  .signup_signin {
+    grid-area: signupSignin;
+    margin: 0px 0px 10px 100px;
+  }
+  .signup_signin a {
+    color: #4edff9;
+    font-size: 17px;
+    text-decoration: none;
+  }
+  .signup_signin a:hover {
+    color: #355ec4;
   }
 }

@@ -154,17 +154,20 @@ exports.user_login_post = async function (req, res) {
     } else {
       const match = bcrypt.compareSync(userPass, results.userPass);
       if (!match) {
+        console.log(match);
         return res.render("user_login", {
           message: "Incorrect Password",
           authCheck: req.session.isAuth,
           authorID: results._id,
           authUser: results.userName,
         });
+      } else {
+        console.log(match);
+        req.session.isAuth = true;
+        req.session.authUser = results.userName;
+        req.session.authUserID = results._id;
+        res.redirect("/catalog/user/:id");
       }
-      req.session.isAuth = true;
-      req.session.authUser = results.userName;
-      req.session.authUserID = results._id;
-      res.redirect("/catalog/user/:id");
     }
   });
 };
