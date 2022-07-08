@@ -11,14 +11,16 @@
     ></script>
   </head>
 
+  <a
+    href="javascript:void(0)"
+    onclick="myFunction()"
+    class="fa-solid fa-bars"
+  ></a>
+
   <div class="navbar">
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa-solid fa-bars"></i>
-    </a>
-    <a href="/"
+    <a href="/" id="logo"
       ><img id="navLogo" src="/images/forge-ltblue.png" alt="Logo" />
     </a>
-
     <div class="myLinks">
       <a id="linkHome" href="/"> Home </a>
       <a id="linkReceipt" href="/catalog/receipts"> Expenses </a>
@@ -28,13 +30,20 @@
       <a id="signUp" href="/catalog/user/create"> Sign Up </a>
     </div>
   </div>
+
   <script>
     var x = document.querySelector(".myLinks");
+    var navbar = document.querySelector(".navbar");
     function myFunction() {
       if (x.style.display === "grid") {
         x.style.display = "none";
+        navbar.style.height = "50px";
+        navbar.style.backgroundColor = "#15171a";
       } else {
         x.style.display = "grid";
+        navbar.style.height = "100vh";
+        navbar.style.backgroundColor = "rgb(48,53,61, 0.98)";
+        x.style.marginTop = "60px";
       }
     }
   </script>

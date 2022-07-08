@@ -33,7 +33,10 @@ html {
   grid-area: navLogo;
   height: 110px;
   width: 110px;
-  margin-left: 60px;
+  margin-left: 50px;
+}
+.navbar .fa-bars {
+  display: none;
 }
 .myLinks {
   grid-area: navLinks;
@@ -1161,25 +1164,31 @@ html {
     background-color: #15171a;
   }
   .navbar {
-    display: none;
+    display: grid;
+    grid-template-rows: [row1] 10% [row2] 90%;
     grid-template-columns: [col1] 100%;
-    grid-template-rows: [row1] 15% [row2] 10% [row2] 75%;
-    grid-template-areas:
-      "navHamburger"
-      "navLogo"
-      "navLinks";
-    width: 15%;
-    height: 100vh;
+    width: 150px;
+    height: 20px;
+    background-color: #15171a;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     margin: 0;
     z-index: 10;
+    position: fixed;
   }
-  .navbar #navLogo {
-    margin: 0;
-    grid-area: navLogo;
-    height: 60px;
-    width: 60px;
+  .fa-bars {
+    position: absolute;
+    top: 10px;
+    right: 340px;
+    text-decoration: none;
+    margin-top: 15px;
+    font-size: 25px;
+    z-index: 11;
+    color: white;
+  }
+  .navbar #navLogo,
+  #logo {
+    display: none;
   }
   .myLinks {
     display: none;
@@ -1194,10 +1203,13 @@ html {
       "link6";
     row-gap: 8px;
     color: #8bf0ff;
+    position: sticky;
+    justify-content: center;
+    align-content: start;
     padding: 10px;
+    z-index: 11;
   }
   .myLinks a {
-    display: none;
     color: white;
     text-decoration: none;
     font-size: 15px;
@@ -1220,19 +1232,21 @@ html {
   .myLinks #signUp {
     grid-area: link6;
     border: none;
-    color: black;
+    color: #4edff9;
     padding: 0px;
     margin: 0px;
   }
   .myLinks #signUp:hover {
     border: none;
+    color: #355ec4;
   }
   .myLinks a:hover {
     color: #355ec4;
   }
   /* Footer Global*/
   .site_footer {
-    display: grid;
+    display: none;
+    margin: 0;
     grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
     grid-template-rows: [row1] 100%;
     grid-template-areas: "fLogo fCol1 fCol2 fCol3";
@@ -1244,8 +1258,8 @@ html {
     justify-self: center;
   }
   .footer_logo img {
-    height: 200px;
-    width: 245px;
+    height: 100px;
+    width: 145px;
   }
   .footer_col1 {
     grid-area: fCol1;
@@ -1259,7 +1273,8 @@ html {
 
   /* Index Page*/
   .index_content {
-    margin: 0px 0px 0px 0px;
+    height: 100vh;
+    margin: 0px;
   }
   .index_header {
     display: grid;
@@ -1270,8 +1285,8 @@ html {
       "headerText";
     width: 100%;
     color: #4edff9;
-    height: 50vh;
-    margin: 0;
+    height: 40vh;
+    margin: 0px;
     justify-items: center;
     align-items: center;
   }
@@ -1279,7 +1294,7 @@ html {
     display: none;
   }
   .index_header #headerTitle {
-    margin: 0px;
+    margin: 25px 0px 0px 0px;
     grid-area: headerTitle;
     font-size: 25px;
   }
@@ -1294,12 +1309,12 @@ html {
     grid-area: headerText;
     font-size: 13px;
     color: white;
-    margin: 20px 0px 0px 50px;
+    margin: 50px 0px 0px 65px;
   }
   .index_header #header_signupBtn {
     grid-area: headerText;
     color: white;
-    margin: 0;
+    margin: 40px 50px 0px 0px;
     border: 1px solid #ffec03;
     text-decoration: none;
     justify-self: end;
@@ -1314,7 +1329,7 @@ html {
     border: 1px solid #ffa603;
   }
   .index_body {
-    margin: 0;
+    margin: 0px;
     display: grid;
     grid-template-columns: [col1] 100%;
     grid-template-rows: [row1] 30% [row2] 30% [row3] 30%;
@@ -1324,6 +1339,7 @@ html {
       "bodyBox3";
     justify-content: center;
     align-content: center;
+    height: 400px;
     width: 100%;
     font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
   }
@@ -1359,7 +1375,7 @@ html {
     margin-top: 10px;
     justify-self: center;
     align-self: end;
-    font-size: 10px;
+    font-size: 12px;
   }
   .box1 {
     grid-area: bodyBox1;
@@ -1382,23 +1398,24 @@ html {
 
   /*Receipt Page*/
   .expenses_content {
-    margin: 0px 50px 0px 250px;
+    margin: 0px;
   }
   .expensesHeader {
     display: grid;
     grid-template-rows: [row1] 50% [row2] 50%;
-    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-columns: [col1] 100%;
     grid-template-areas:
-      "rHeaderH1 rHeaderImg"
-      "rHeaderP rHeaderImg";
-    margin: 20px 75px 0px 0px;
-    max-height: 55vh;
+      "rHeaderH1"
+      "rHeaderP";
+    margin: 100px 20px 0px 20px;
+    max-height: 40vh;
     font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
   }
   .expensesHeader #expensesHeader_img {
+    display: none;
     justify-self: end;
     grid-area: rHeaderImg;
-    height: 50vh;
+    height: 15vh;
     width: 30vw;
   }
   .expensesHeader #expensesHeader_p {
@@ -1406,13 +1423,13 @@ html {
     justify-self: center;
     align-self: start;
     color: white;
-    font-size: 17px;
+    font-size: 15px;
   }
   .expensesHeader #expensesHeader_h1 {
     grid-area: rHeaderH1;
     align-self: end;
     justify-self: center;
-    font-size: 35px;
+    font-size: 25px;
     color: #ffa603;
   }
   .chart_disp {
@@ -1423,7 +1440,7 @@ html {
     justify-items: center;
     align-items: center;
     color: white;
-    height: 450px;
+    height: 300px;
     border-radius: 10px;
     margin-bottom: 50px;
     padding: 10px;
@@ -1433,6 +1450,7 @@ html {
     max-height: 350px;
     max-width: 85%;
   }
+  /* Removed for time, future addition if I come back to project*/
   .expense_sort_options {
     display: none;
     grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
@@ -1473,16 +1491,17 @@ html {
       "expenseHead"
       "expenseData";
     width: 100%;
+    max-height: 40vh;
     border-radius: 10px;
     background-color: #30353d;
   }
   .expensesBody_headings {
     grid-area: expenseHead;
     display: grid;
-    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+    grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     grid-template-rows: [row1] 100%;
-    grid-template-areas: "titleHead amtHead catHead dateHead";
-    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+    grid-template-areas: "titleHead amtHead dateHead";
+    font: 7px "Lucida Grande", Helvetica, Arial, sans-serif;
     color: #4edff9;
     width: 100%;
     border-top-right-radius: 10px;
@@ -1498,6 +1517,7 @@ html {
     justify-self: center;
   }
   .expensesBody_headings #cat_heading {
+    display: none;
     grid-area: catHead;
     justify-self: center;
   }
@@ -1517,10 +1537,10 @@ html {
   .expensesBody_data {
     grid-area: expenseData;
     display: grid;
-    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+    grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     width: 100%;
     overflow: scroll;
-    font-size: 15px;
+    font-size: 12px;
     justify-items: center;
     padding-left: 10px;
     color: white;
@@ -1528,9 +1548,11 @@ html {
   .expensesBody a {
     text-decoration: none;
   }
-
+  .expensesBody_data #expensesBody_cat {
+    display: none;
+  }
   .expensesBody_data #expensesBody_title {
-    font-size: 20px;
+    font-size: 12px;
     font-weight: 500;
     color: #ffa603;
     justify-self: start;
@@ -1539,16 +1561,19 @@ html {
     color: #ffec03;
   }
   .expenses_content #expensesBody_total {
+    font-size: 15px;
     padding-top: 10px;
     color: white;
     border-top: 1px solid white;
   }
   .expenses_content #expensesBody_create {
-    padding: 10px;
+    padding: 5px;
     border: 1px solid transparent;
     text-decoration: none;
     background-color: #ffa603;
     color: white;
+    margin-top: 10px;
+    font-size: 15px;
     border-radius: 20px;
   }
   .expenses_content #expensesBody_create:hover {
@@ -1558,19 +1583,21 @@ html {
 
   /*Income Page*/
   .income_list_content {
-    margin: 0px 0px 0px 225px;
+    margin: 0px;
   }
   .incomeHeader {
     display: grid;
     grid-template-rows: [row1] 50% [row2] 50%;
-    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-columns: [col1] 100%;
     grid-template-areas:
-      "rHeaderH1 rHeaderImg"
-      "rHeaderP rHeaderImg";
+      "rHeaderH1"
+      "rHeaderP";
+    margin: 100px 0px 0px 0px;
     max-height: 60vh;
     font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
   }
   .incomeHeader #incomeHeader_img {
+    display: none;
     justify-self: end;
     grid-area: rHeaderImg;
     height: 50vh;
@@ -1603,22 +1630,24 @@ html {
     max-height: 60vh;
     color: white;
     min-height: 200px;
-    margin: 0px 25px 0px 25px;
+    margin: 0px;
   }
   .bodyHead {
     grid-area: bodyHead;
     display: grid;
-    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+    grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     width: 100%;
     justify-items: start;
-    grid-template-areas: "descHead catHead amtHead dateHead";
+    grid-template-areas: "descHead amtHead dateHead";
     text-decoration: underline;
     margin: 0px 0px 0px 20px;
+    font-size: 10px;
   }
   .income_body #descHead {
     grid-area: descHead;
   }
   .income_body #catHead {
+    display: none;
     grid-area: catHead;
   }
   .income_body #amtHead {
@@ -1633,20 +1662,22 @@ html {
     width: 100%;
     max-height: 60vh;
     overflow: scroll;
-    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+    grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     color: white;
-    font-size: 15px;
+    font-size: 12px;
     justify-items: start;
-    margin: 0px 0px 0px 20px;
   }
   .income_body_data #incomeDisp_desc {
     color: #4edff9;
     text-decoration: none;
   }
-
+  .income_body_data #incomeDisp_cat {
+    display: none;
+  }
   #incomeBody_total {
     margin: 20px 25px 20px 25px;
     border-top: 1px solid white;
+    font-size: 18px;
     padding-top: 10px;
     color: white;
   }
@@ -1654,6 +1685,7 @@ html {
   #incomeBody_create {
     margin: 50px 25px 0px 25px;
     padding: 10px;
+    font-size: 15px;
     border: 1px solid transparent;
     text-decoration: none;
     background-color: #ffa603;
@@ -1679,10 +1711,11 @@ html {
 
   /*Summary Page*/
   .summary_content {
-    margin: 0px 0px 0px 200px;
     color: white;
+    margin: 0px;
   }
   .summary_header {
+    margin: 75px 10px 0px 10px;
     display: grid;
     grid-template-columns: [col1] 50% [col2] 50%;
     grid-template-rows: [row1] 50% [row2] 20%;
@@ -1694,7 +1727,7 @@ html {
     grid-area: summHeaderTitle;
     justify-self: center;
     align-self: end;
-    font-size: 35px;
+    font-size: 25px;
     color: #4edff9;
   }
   .summary_header p {
@@ -1711,7 +1744,7 @@ html {
       "headerRightTop headerRightTop"
       "headerRightBot headerRightBot";
     width: 75%;
-    height: 300px;
+    height: 250px;
     justify-self: center;
     border-radius: 10px;
   }
@@ -1730,7 +1763,7 @@ html {
     align-self: center;
     justify-self: center;
     color: white;
-    -webkit-text-stroke: 1px white;
+    font-size: 15px;
   }
   .summary_header_right_bot {
     grid-area: headerRightBot;
@@ -1749,15 +1782,15 @@ html {
   .fa-calendar {
     grid-area: calendar;
     justify-self: end;
-    font-size: 20px;
+    font-size: 13px;
   }
   .fa-clock {
     grid-area: clock;
     justify-self: end;
-    font-size: 20px;
+    font-size: 13px;
   }
   .summary_header_right_bot #summary_header_date {
-    font-size: 20px;
+    font-size: 14px;
     justify-self: start;
     grid-area: date;
   }
