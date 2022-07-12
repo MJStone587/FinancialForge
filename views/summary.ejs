@@ -45,7 +45,6 @@
     </div>
   </header>
     
- <main class="summary_content">
 
   <div class="summary_charts">
       <button id="exp_btn">Expenses</button>
@@ -77,33 +76,31 @@
     <% var incCatTotals = [0,0,0,0,0]; %>
     <% monthlyIncTotals = [0,0,0,0,0,0,0,0,0,0,0,0]; %>
 
-  <div class="summary_income">
+<main class="summary_content">
     <!-- Summary Income List-->
     <% var total_income = 0; %> 
     <% var balance = 0 %>
-    <h1 class="summary_incomeTitle">Income</h1>
-    <a href="/catalog/income/create"id="addIncome">+</a>
+    <h1 id="summary_incomeTitle">Income</h1>
+    <a href="/catalog/income/create"id="addIncome">+Income</a>
     <div class="summary_incomeList">
-      <h3>Description</h3>
-      <h3>Total</h3>
-      <h3>Date</h3>
-      <h3>Category</h3>
+      <h3 id="iDescTitle">Description</h3>
+      <h3 id="iTotalTitle">Total</h3>
+      <h3 id="iDateTitle">Date</h3>
+      <h3 id="iCatTitle">Category</h3>
       <% for(let i = 0; i < incomes.length; i++){ %>  
       <a id="summary_iDet" href="/catalog/income/<%= incomes[i]._id %>"><%= incomes[i].description %></a>
       <p id="summary_iAmt">$<%= incomes[i].amount %></p>
       <p id="summary_iDate"><%= incomes[i].date_month %></p>
-      <p><%= incomes[i].from %></p> 
-      <% total_income += incomes[i].amount %> <% } %> 
+      <p id="summary_iFrom"><%= incomes[i].from %></p> 
+      <% total_income += incomes[i].amount %> <% } %>
+      <% function round(value,decimals) { %> 
+        <% return Number(Math.round(value +'e'+decimals) +'e-'+ decimals).toFixed(decimals); %> 
+      <% } %>
+     
+      <h2 id="summary_incomeTotal">
+        Total Income: $<%= round(total_income,2) %>
+      </h2> 
     </div>
-    <% function round(value,decimals) { %> 
-      <% return Number(Math.round(value +'e'+decimals) +'e-'+ decimals).toFixed(decimals); %> 
-  <% } %>
-   
-
-    <h2 id="summary_incomeTotal">
-      Total Income: $<%= round(total_income,2) %>
-    </h2>
-  </div>
 
     <% for(let i=0; i< incomes.length; i++) { %>
       <% for(let x=0; x< months.length; x++){ %>
@@ -125,9 +122,8 @@
 
 
     <!--       Summary Receipts                -->
-    <div class="summary_receipts">
-    <h1 class="summary_receiptTitle">Expenses</h1>
-    <a href="/catalog/receipt/create" id="addExpense">+</a>
+    <h1 id="summary_receiptTitle">Expenses</h1>
+    <a href="/catalog/receipt/create" id="addExpense">+Expense</a>
     <div class="summary_receiptList">
       <h3>Description</h3>
       <h3>Total</h3>
@@ -139,7 +135,7 @@
       <p><%= receipts[i].date_month %></p>
       <p><%= receipts[i].category %></p>
       <% } %>
-    </div>
+  
 
     <% for(let i = 0; i < receipts.length; i++) { %> 
       <% total_receipt += receipts[i].total; %> 
@@ -170,7 +166,7 @@
   </div>
   <!--  Balance and Charts -->
   <% balance = total_income - total_receipt %>
-  <h1 class="summary_balance">Balance = $<%= round(balance, 2); %></h1>
+  <h1 id="summary_balance">Balance = $<%= round(balance, 2); %></h1>
 </main>
 
   <script>
