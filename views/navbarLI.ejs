@@ -10,11 +10,17 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <div class="navbar">
-    <a href="#"
+
+  <a
+    href="javascript:void(0)"
+    onclick="myFunction()"
+    class="fa-solid fa-bars"
+  ></a>
+
+  <nav class="navbar">
+    <a href="/" id="logo"
       ><img id="navLogo" src="/images/forge-ltblue.png" alt="Logo" />
     </a>
-    <!-- <h1 id="navTitle">F<span>org</span>e</h1> -->
 
     <div class="myLinks">
       <a id="linkHome" href="/"> Home </a>
@@ -24,18 +30,21 @@
       <a id="userIcon" href="/catalog/user/<%= authorID %>"><%= authUser %></a>
       <a id="logout" href="/catalog/user/logout">Logout</a>
     </div>
+  </nav>
 
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa-solid fa-bars"></i>
-    </a>
-  </div>
   <script>
+    var x = document.querySelector(".myLinks");
+    var navbar = document.querySelector(".navbar");
     function myFunction() {
-      var x = document.querySelector(".myLinks");
       if (x.style.display === "grid") {
         x.style.display = "none";
+        navbar.style.height = "50px";
+        navbar.style.backgroundColor = "#15171a";
       } else {
         x.style.display = "grid";
+        navbar.style.height = "100vh";
+        navbar.style.backgroundColor = "rgb(48,53,61, 0.98)";
+        x.style.marginTop = "60px";
       }
     }
   </script>

@@ -15,9 +15,8 @@
     <% } else { %> 
     <%-include("navbar") %> 
    <% } %>
-
-  <h1 class="det_title"><%= title %></h1>
-  <div class="det_body">
+  <h1 id="det_title"><%= title %></h1>
+  <main class="det_body">
     <h2 id="det_unique_title"><%= results.name %></h2>
     
     <h3 id="det_label_1">Date:</h2>
@@ -41,5 +40,6 @@
     <a id="update_btn" href="/catalog/receipt/<%= results._id %>/update"
       >Update</a
     >
-    </div>
+    </main>
+    </body>bo
 </html>

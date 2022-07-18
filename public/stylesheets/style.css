@@ -530,6 +530,7 @@ html {
   color: white;
   border-radius: 20px;
 }
+
 #incomeBody_create:hover {
   color: black;
   background-color: #4edff9;
@@ -746,7 +747,9 @@ html {
 }
 .summary_content #summary_incomeTitle {
   margin-left: 15px;
+  margin-right: 15px;
   grid-area: incTitle;
+  border-bottom: 1px solid white;
 }
 .summary_content #addIncome {
   padding: 10px;
@@ -779,8 +782,13 @@ html {
   text-decoration: none;
   color: #ffa603;
 }
+.summary_incomeList #summary_incomeTotal {
+  margin: 0px;
+}
 .summary_content #summary_receiptTitle {
   margin-left: 15px;
+  margin-right: 15px;
+  border-bottom: 1px solid white;
   grid-area: recTitle;
 }
 .summary_content #addExpense {
@@ -805,6 +813,7 @@ html {
   grid-area: receiptList;
   grid-template-columns: [col1] 55% [col2] 15% [col3] 15% [col4] 15%;
   padding: 10px;
+  overflow: scroll;
 }
 .summary_receiptList h3 {
   text-decoration: underline;
@@ -812,6 +821,9 @@ html {
 .summary_receiptList #summary_recName {
   text-decoration: none;
   color: #4edff9;
+}
+.summary_receiptList #summary_receiptTotal {
+  margin: 0px;
 }
 .summary_content #summary_balance {
   border-top: 5px solid #15171a;
@@ -1113,7 +1125,7 @@ html {
   }
   .navbar {
     display: grid;
-    grid-template-rows: [row1] 10% [row2] 90%;
+    grid-template-rows: [row1] 5% [row2] 90%;
     grid-template-columns: [col1] 100%;
     width: 150px;
     height: 20px;
@@ -1156,6 +1168,7 @@ html {
     align-content: start;
     padding: 10px;
     z-index: 11;
+    margin: 0;
   }
   .myLinks a {
     color: white;
@@ -1221,7 +1234,6 @@ html {
 
   /* Index Page*/
   .index_content {
-    height: 100vh;
     margin: 0px;
   }
   .index_header {
@@ -1234,7 +1246,7 @@ html {
     width: 100%;
     color: #4edff9;
     height: 40vh;
-    margin: 0px;
+    margin: 100px 0px 0px 0px;
     justify-items: center;
     align-items: center;
   }
@@ -1492,6 +1504,8 @@ html {
     justify-items: center;
     padding-left: 10px;
     color: white;
+    max-height: 400px;
+    height: 250px;
   }
   .expensesBody a {
     text-decoration: none;
@@ -1500,7 +1514,7 @@ html {
     display: none;
   }
   .expensesBody_data #expensesBody_title {
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 500;
     color: #ffa603;
     justify-self: start;
@@ -1509,18 +1523,19 @@ html {
     color: #ffec03;
   }
   .expenses_content #expensesBody_total {
-    font-size: 15px;
+    font-size: 18px;
     padding-top: 10px;
+    margin: 20px 0px 25px 0px;
     color: white;
     border-top: 1px solid white;
   }
   .expenses_content #expensesBody_create {
-    padding: 5px;
+    padding: 12px;
     border: 1px solid transparent;
     text-decoration: none;
     background-color: #ffa603;
     color: white;
-    margin-top: 10px;
+    margin: 15px 0px 20px 0px;
     font-size: 15px;
     border-radius: 20px;
   }
@@ -1623,7 +1638,7 @@ html {
     display: none;
   }
   #incomeBody_total {
-    margin: 20px 25px 20px 25px;
+    margin: 20px 25px 20px 10px;
     border-top: 1px solid white;
     font-size: 18px;
     padding-top: 10px;
@@ -1631,7 +1646,7 @@ html {
   }
 
   #incomeBody_create {
-    margin: 50px 25px 0px 25px;
+    margin: 50px 25px 0px 10px;
     padding: 10px;
     font-size: 15px;
     border: 1px solid transparent;
@@ -1663,7 +1678,7 @@ html {
     margin: 0px;
   }
   .summary_header {
-    margin: 75px 10px 0px 10px;
+    margin: 75px 10px 20px 10px;
     display: grid;
     grid-template-columns: [col1] 100%;
     grid-template-rows: [row1] 25% [row2] 25% [row3] 25% [row4] 25%;
@@ -1764,11 +1779,10 @@ html {
       "chart1 chart1"
       "chart2Title chart2Title"
       "chart2 chart2";
-    background-color: #30353d;
     border-radius: 10px;
-    height: 750px;
+    height: 600px;
     width: 99%;
-    margin: 75px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
   }
   .summary_charts #exp_btn {
     grid-area: btn1;
@@ -1989,85 +2003,35 @@ html {
   .det_body {
     display: grid;
     grid-template-rows: [row1] 10% [row2] 10% [row3] 10% [row4] 10% [row5] 10% [row6] 10% [row7] 10% [row8] 10%;
-    grid-template-columns: [col1] 10% [col2] 10%;
-    justify-content: center;
-    grid-template-areas:
-      "uniqTitle uniqTitle"
-      "label1 data1"
-      "label2 data2"
-      "label3 data3"
-      "label4 data4"
-      "label5 data5"
-      "label6 data6"
-      "btn1 btn2";
-    margin: 0px 50px 0px 230px;
-    background-color: #30353d;
+    grid-template-columns: [col1] 35% [col2] 35%;
+    margin: 0px 0px 0px 0px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+    background-color: #30353d;
     color: white;
+    justify-content: center;
+    align-content: center;
+    font-size: 14px;
   }
 
-  .det_title {
+  #det_title {
     color: #355ec4;
     font-size: 30px;
-    padding: 5px;
-    border-bottom: 1px solid #355ec4;
-    margin: 200px 50px 0px 230px;
-    background-color: #30353d;
+    padding: 10px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    margin: 150px 0px 0px 0px;
+    background-color: #30353d;
   }
   .det_body #det_unique_title {
-    grid-area: uniqTitle;
-    justify-self: center;
     text-decoration: underline;
   }
-  .det_body #det_label_1 {
-    grid-area: label1;
-  }
-  .det_body #det_label_2 {
-    grid-area: label2;
-  }
-  .det_body #det_label_3 {
-    grid-area: label3;
-  }
-  .det_body #det_label_4 {
-    grid-area: label4;
-  }
-  .det_body #det_label_5 {
-    grid-area: label5;
-  }
-  .det_body #det_label_6 {
-    grid-area: label6;
-  }
-  .det_body #det_label_data_1 {
-    grid-area: data1;
-    justify-self: start;
-  }
-  .det_body #det_label_data_2 {
-    grid-area: data2;
-  }
-  .det_body #det_label_data_3 {
-    grid-area: data3;
-  }
-  .det_body #det_label_data_4 {
-    grid-area: data4;
-  }
-  .det_body #det_label_data_5 {
-    grid-area: data5;
-  }
-  .det_body #det_label_data_6 {
-    grid-area: data6;
-  }
   .det_body #delete_btn {
-    grid-area: btn1;
     margin: 10px;
   }
   .det_body #update_btn {
-    grid-area: btn2;
     margin: 10px;
   }
-
   .det_body a {
     padding: 10px;
     background-color: #4edff9;
@@ -2079,12 +2043,14 @@ html {
     color: white;
     background-color: #355ec4;
   }
+
+  /* login page */
   .login_body {
     display: grid;
     padding: 20px;
     grid-template-rows: [row1] 10% [row2] 60% [row3] 10%;
     grid-template-columns: [col1] 100%;
-    margin: 50px 50px 10px 250px;
+    margin: 125px 0px 10px 0px;
     height: 80vh;
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
     grid-template-areas:
@@ -2096,7 +2062,7 @@ html {
   }
   .login_title {
     grid-area: loginTitle;
-    margin: 50px 0px 0px 50px;
+    margin: 50px 0px 0px 0px;
   }
   .login_form {
     grid-area: loginForm;
@@ -2127,13 +2093,15 @@ html {
   .login_form #login_submit {
     grid-area: loginSubmit;
     justify-self: start;
+    align-self: center;
     background-color: #355ec4;
     border: 1px solid #355ec4;
+    margin-top: 5px;
     color: white;
-    font-size: 15px;
+    font-size: 17px;
     cursor: pointer;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
   }
   .login_form #login_submit:hover {
     background-color: #4edff9;
@@ -2142,7 +2110,7 @@ html {
   }
   .login_SignUp {
     grid-area: loginSignUp;
-    margin: 0px 0px 20px 150px;
+    margin: 0px 0px 20px 50px;
   }
   .login_SignUp #login_signUp {
     color: #4edff9;
@@ -2156,7 +2124,7 @@ html {
     display: grid;
     grid-template-rows: [row1] 5% [row2] 70% [row3] 5%;
     grid-template-columns: [col1] 99%;
-    margin: 25px 50px 25px 275px;
+    margin: 125px 0px 25px 0px;
     height: 96vh;
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
     grid-template-areas:
@@ -2244,8 +2212,10 @@ html {
     font-size: 15px;
     cursor: pointer;
     border-radius: 5px;
+    padding: 10px;
     margin-left: 5px;
     justify-self: start;
+    align-self: center;
   }
   .signup_form #signupSubmit:hover {
     grid-area: signupSubmit;
