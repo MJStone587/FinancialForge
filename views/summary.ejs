@@ -44,7 +44,8 @@
       </div>
     </div>
   </header>
-    
+
+<body>
 
   <div class="summary_charts">
       <button id="exp_btn">Expenses</button>
@@ -128,12 +129,12 @@
       <h3>Description</h3>
       <h3>Total</h3>
       <h3>Date</h3>
-      <h3>Category</h3>
+      <h3 id="rCatTitle">Category</h3>
       <% for(let i = 0; i < receipts.length; i++) { %>
       <a id="summary_recName" href="/catalog/receipt/<%= receipts[i]._id %>"><%= receipts[i].description %></a>
       <p><%= "$" + receipts[i].total %></p>
       <p><%= receipts[i].date_month %></p>
-      <p><%= receipts[i].category %></p>
+      <p id="summary_rCat"><%= receipts[i].category %></p>
       <% } %>
   
 
@@ -163,11 +164,12 @@
     <h2 id="summary_receiptTotal">
       Total Expenses: $<%=round(total_receipt, 2);%>
     </h2>
-  </div>
-  <!--  Balance and Charts -->
-  <% balance = total_income - total_receipt %>
-  <h1 id="summary_balance">Balance = $<%= round(balance, 2); %></h1>
-</main>
+    </div>
+    <!--  Balance and Charts -->
+    <% balance = total_income - total_receipt %>
+    <h1 id="summary_balance">Balance = $<%= round(balance, 2); %></h1>
+  </main>
+</body>
 
   <script>
     const ctx = document.getElementById("monthlySpending");

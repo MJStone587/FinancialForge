@@ -14,7 +14,7 @@
     <% } else { %> 
     <%-include("navbar") %> 
    <% } %>
-  <h1 class="det_title"><%= title %></h1>
+  <h1 id="det_title"><%= title %></h1>
 
   <div class="det_body">
     <h2 id="det_unique_title"><%= results.name %></h2>
@@ -33,5 +33,5 @@
     <a id="update_btn" href="/catalog/income/<%= results._id %>/update"
       >Update</a
     >
-    </div>
+  </div>
 </html>

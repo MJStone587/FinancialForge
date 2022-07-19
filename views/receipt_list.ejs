@@ -18,20 +18,20 @@
     <%-include("navbar") %> 
    <% } %>
 
-   <div class="expenses_content">
+   <body class="expenses_content">
 
-    <div class="expensesHeader">
+    <header class="expensesHeader">
       <h1 id="expensesHeader_h1"><%= authUser %>'s <%= title %></h1>
       <p id="expensesHeader_p">Here you can review, edit, delete, and add receipts</p>
       <img id="expensesHeader_img" src="/images/receiptimage.png">
-    </div>
+    </header>
     
     <div class="chart_disp">
       <h1>Spending Trend</h1>
       <canvas id="expense_chart"></canvas>
     </div>
 
-<!-- Got to be a better more efficient way to sort KEEP AT IT -->
+<!-- THIS IS ON HOLD FOR NOW Got to be a better, more efficient way to sort KEEP AT IT -->
     <div class="expense_sort_options">
         <form action="" method="GET">
           <input type="submit" id="byDate" name="sortBy" value="date"/>
@@ -41,7 +41,7 @@
         </form>
     </div>
 
-    <div class="expensesBody">
+    <main class="expensesBody">
       <div class="expensesBody_headings">
         <h1 id="title_heading">Title</h1>
         <h1 id="amount_heading">Amount</h1>
@@ -59,7 +59,7 @@
           <% } %>
       </div>
 
-    </div>
+    </main>
 
     <% let total = 0; %>
     <% for(let i = 0; i < receipt_list.length; i++) { %> 
@@ -71,7 +71,7 @@
 
     <h2 id="expensesBody_total">Receipt Totals: $<%=round(total, 2);%></h2>
     <a id="expensesBody_create" href="receipt/create">+ Add Receipt</a>
-</div>
+  </body>
   
 <script>
   const expChart = document.getElementById('expense_chart');
@@ -119,10 +119,10 @@
             label: "Spending in Dollars",
             data: [445, 30, 613, 1239, 345, 240, 123, 329, 885, 543, 1023, 748],
             backgroundColor: [
-              'rgba(78, 250, 255)'
+              'rgb(255,166,3)'
             ],
             borderColor: [
-              'rgba(78, 250, 255)'
+              'rgb(255,166,3)'
             ],
             borderWidth: 1
         }]

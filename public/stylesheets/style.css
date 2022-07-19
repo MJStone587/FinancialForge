@@ -1358,7 +1358,7 @@ html {
 
   /*Receipt Page*/
   .expenses_content {
-    margin: 0px;
+    margin: 10px;
   }
   .expensesHeader {
     display: grid;
@@ -1406,11 +1406,14 @@ html {
     padding: 10px;
     margin: 0px 0px 50px 0px;
   }
-  .chart_disp #expense_chart {
-    max-height: 350px;
-    max-width: 85%;
+  .chart_disp h1 {
+    font-size: 20px;
   }
-  /* Removed for time, future addition if I come back to project*/
+  .chart_disp #expense_chart {
+    max-height: 450px;
+    max-width: 95%;
+  }
+  /* Removed for the time, future addition if I come back to project
   .expense_sort_options {
     display: none;
     grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
@@ -1444,6 +1447,7 @@ html {
   .expense_sort_options a:hover {
     cursor: pointer;
   }
+  */
   .expensesBody {
     display: grid;
     grid-template-rows: [row1] 10% [row2] 90%;
@@ -1461,13 +1465,13 @@ html {
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     grid-template-rows: [row1] 100%;
     grid-template-areas: "titleHead amtHead dateHead";
-    font: 7px "Lucida Grande", Helvetica, Arial, sans-serif;
-    color: #4edff9;
+    font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: white;
     width: 100%;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     padding: 10px;
-    text-decoration: underline;
+    text-decoration: underline #ffa603;
   }
   .expensesBody_headings #title_heading {
     grid-area: titleHead;
@@ -1780,9 +1784,9 @@ html {
       "chart2Title chart2Title"
       "chart2 chart2";
     border-radius: 10px;
-    height: 600px;
+    height: 725px;
     width: 99%;
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px 50px 0px;
   }
   .summary_charts #exp_btn {
     grid-area: btn1;
@@ -1824,6 +1828,7 @@ html {
     align-self: start;
     margin-top: 20px;
     font-size: 13px;
+    color: white;
     visibility: visible;
     grid-area: chart1Title;
   }
@@ -1837,6 +1842,7 @@ html {
     align-self: start;
     margin-top: 20px;
     font-size: 13px;
+    color: white;
     visibility: visible;
     grid-area: chart2Title;
   }
@@ -1852,6 +1858,7 @@ html {
     margin-top: 10px;
     font-size: 13px;
     place-self: center;
+    color: white;
     visibility: hidden;
     grid-area: chart1Title;
   }
@@ -1867,131 +1874,123 @@ html {
     visibility: hidden;
     grid-area: chart2Title;
     place-self: center;
-  }
-  .summary_income {
-    display: grid;
-    grid-template-rows: [row1] 10% [row2] 30% [row3] 5%;
-    grid-template-columns: [col1] 80% [col2] 20%;
-    grid-template-areas:
-      "incomeTitle addInc"
-      "summInc summInc"
-      "summIncTotal .";
-    padding: 10px;
-    width: 99%;
-    margin: 0px;
-  }
-  .summary_incomeTitle {
-    color: #ffa603;
-    justify-self: start;
-    padding: 10px;
-    grid-area: incomeTitle;
-    background-color: #30353d;
-    border-radius: 5px 5px 0px 0px;
-  }
-  .summary_income #addIncome {
-    grid-area: addInc;
-    padding: 10px;
     color: white;
-    text-decoration: none;
-    border: none;
-    margin: 0px;
-    background-color: #ffa603;
-    border-radius: 5px 5px 0px 0px;
   }
-  .summary_income #addIncome:hover {
-    cursor: pointer;
+  .summary_content {
+    display: grid;
+    background-color: #30353d;
+    grid-template-rows: [row1] 10% [row2] 5% [row3] 35% [row4] 10% [row5] 10% [row6] 30% [row7] 5%;
+    grid-template-areas:
+      "incTitle"
+      "addInc"
+      "incomeList"
+      "recTitle"
+      "addExp"
+      "receiptList";
+    margin: 50px 0px 0px 0px;
+    border-radius: 10px;
+    font-size: 15px;
+  }
+  .summary_content #summary_incomeTitle {
+    margin-left: 15px;
+    margin-right: 15px;
+    grid-area: incTitle;
+    border-bottom: 1px solid white;
+  }
+  .summary_content #addIncome {
+    padding: 10px;
+    background-color: #ffa603;
+    width: 80px;
+    margin-left: 15px;
+    text-decoration: none;
     color: black;
+    grid-area: addInc;
+    border-radius: 10px;
+    border: 1px solid transparent;
+  }
+  .summary_content #addIncome:hover {
+    color: #ffa603;
+    background-color: #15171a;
+    border: 1px solid #ffa603;
   }
   .summary_incomeList {
-    grid-area: summInc;
+    display: grid;
+    grid-area: incomeList;
+    grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
+    border-bottom: 10px solid #15171a;
+    padding: 10px;
+    overflow: scroll;
+    font-size: 15px;
   }
   .summary_incomeList h3 {
-    margin: 0px;
     text-decoration: underline;
-    place-self: center;
   }
-  .summary_incomeList p {
-    margin: 0px;
-    place-self: center;
-    justify-self: center;
+  .summary_incomeList #iCatTitle {
+    display: none;
   }
   .summary_incomeList #summary_iDet {
-    color: #ffa603;
-    place-self: center;
-    justify-self: center;
     text-decoration: none;
-    padding: 0px;
-    margin: 0px;
+    color: #ffa603;
   }
-  .summary_incomeList #summary_iDet:hover {
-    color: #ffec03;
+  .summary_incomeList #summary_incomeTotal {
+    margin: 10px 0px 0px 0px;
+    font-size: 18px;
   }
-  .summary_incomeTotal {
-    font-size: 16px;
-    grid-area: summIncTotal;
+  .summary_incomeList #summary_iFrom {
+    display: none;
   }
-  .summary_receiptTitle {
+  .summary_content #summary_receiptTitle {
+    margin-left: 15px;
+    margin-right: 15px;
+    border-bottom: 1px solid white;
     grid-area: recTitle;
-    align-self: start;
-    justify-self: start;
-    color: #4edff9;
+  }
+  .summary_content #addExpense {
     padding: 10px;
-    border-radius: 5px 5px 0px 0px;
-    background-color: #30353d;
+    background-color: #4edff9;
+    width: 80px;
+    margin-left: 15px;
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    grid-area: addExp;
+  }
+  .summary_content #addExpense:hover {
+    color: #4edff9;
+    background-color: #15171a;
+    border: 1px solid #4edff9;
   }
   .summary_receiptList {
-    grid-area: summRec;
     display: grid;
-    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
-    justify-content: center;
-    align-content: start;
-    width: 100px;
-    overflow: scroll;
-    border-radius: 5px;
-    margin: 0px;
-    background-color: #30353d;
-  }
-  .summary_receipts #addExpense {
-    grid-area: addRec;
-    margin: 0px;
+    grid-area: receiptList;
+    grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
     padding: 10px;
-    color: white;
-    border: none;
-    text-decoration: none;
-    color: white;
-    border: none;
-    background-color: #355ec4;
-    border-radius: 5px 5px 0px 0px;
-  }
-  .summary_receipts #addExpense:hover {
-    color: black;
-    cursor: pointer;
-  }
-  .summary_receiptList #summary_recName {
-    border: none;
-    text-decoration: none;
-    color: #4edff9;
-    justify-self: center;
-    align-self: center;
-  }
-  .summary_receiptList #summary_recName:hover {
-    color: #355ec4;
+    overflow: scroll;
+    margin: 0px;
   }
   .summary_receiptList h3 {
     text-decoration: underline;
-    justify-self: center;
   }
-  .summary_receiptList p {
-    justify-self: center;
+  .summary_receiptList #rCatTitle {
+    display: none;
   }
-  .summary_receiptTotal {
-    font-size: 16px;
-    grid-area: summRecTotal;
+  .summary_receiptList #summary_recName {
+    text-decoration: none;
+    color: #4edff9;
   }
-  .summary_balance {
-    grid-area: summBal;
-    font-size: 16px;
-    border-top: 1px solid white;
+  .summary_receiptList #summary_receiptTotal {
+    font-size: 18px;
+    margin: 10px 0px 0px 0px;
+  }
+  .summary_receiptList #summary_rCat {
+    display: none;
+  }
+  .summary_content #summary_balance {
+    border-top: 5px solid #15171a;
+    margin: 0px 0px 20px 0px;
+    padding: 5px;
+    font-size: 20px;
   }
 
   /*receipt delete*/
