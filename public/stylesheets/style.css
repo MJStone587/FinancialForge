@@ -1,1123 +1,1124 @@
-html {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #15171a;
-}
+@media (min-width: 1900px) {
+  html {
+    margin: 0;
+    width: 100%;
+    background-color: #15171a;
+  }
 
-/*NAVBAR Global STYLING*/
+  /*NAVBAR Global STYLING*/
 
-.navbar {
-  display: grid;
-  position: fixed;
-  grid-template-columns: [col1] 100%;
-  grid-template-rows: [navLogo] 20% [navLinks] 70%;
-  grid-template-areas:
-    "navLogo"
-    "navLinks";
-  height: 100vh;
-  margin: 0;
-  border: none;
-  background-color: #30353d;
-  width: 12%;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  padding-top: 5px;
-  align-content: center;
-  justify-content: center;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-.navbar #navLogo {
-  grid-area: navLogo;
-  height: 60px;
-  width: 60px;
-  margin-left: 80px;
-}
-.navbar .fa-bars {
-  display: none;
-}
-.myLinks {
-  grid-area: navLinks;
-  display: grid;
-  grid-template-columns: [col1] 100%;
-  grid-template-rows: [link1] 11% [link2] 11% [link3] 11% [link4] 11% [link5] 11% [link6] 11%;
-  grid-template-areas:
-    "link1"
-    "link2"
-    "link3"
-    "link4"
-    "link5"
-    "link6";
-  row-gap: 25px;
-  justify-items: center;
-  align-items: center;
-}
-.myLinks a {
-  text-decoration: none;
-  font-size: 18px;
-  color: white;
-}
-.myLinks a:hover {
-  color: #355ec4;
-}
-.myLinks #linkHome {
-  grid-area: link1;
-}
-.myLinks #linkReceipt {
-  grid-area: link2;
-}
-.myLinks #linkIncome {
-  grid-area: link3;
-}
-.myLinks #linkSummary {
-  grid-area: link4;
-}
-.myLinks #signIn {
-  grid-area: link5;
-}
-.myLinks #userIcon {
-  grid-area: link5;
-}
-.myLinks #logout {
-  grid-area: link6;
-  color: #4edff9;
-  border-radius: 20px;
-  padding: 10px;
-}
-.myLinks #logout:hover {
-  border: 1px solid #355ec4;
-}
-.myLinks #signUp {
-  grid-area: link6;
-  color: #4edff9;
-  border: 1px solid #4edff9;
-  border-radius: 20px;
-  padding: 15px;
-}
-.myLinks #signUp:hover {
-  border: 1px solid #355ec4;
-}
-.navbar a.icon {
-  display: none;
-}
+  .navbar {
+    display: grid;
+    position: fixed;
+    grid-template-columns: [col1] 100%;
+    grid-template-rows: [navLogo] 20% [navLinks] 70%;
+    grid-template-areas:
+      "navLogo"
+      "navLinks";
+    height: 100vh;
+    margin: 0;
+    border: none;
+    background-color: #30353d;
+    width: 12%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding-top: 5px;
+    align-content: center;
+    justify-content: center;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  .navbar #navLogo {
+    grid-area: navLogo;
+    height: 60px;
+    width: 60px;
+    margin-left: 80px;
+  }
+  .fa-bars {
+    display: none;
+  }
+  .myLinks {
+    grid-area: navLinks;
+    display: grid;
+    grid-template-columns: [col1] 100%;
+    grid-template-rows: [link1] 11% [link2] 11% [link3] 11% [link4] 11% [link5] 11% [link6] 11%;
+    grid-template-areas:
+      "link1"
+      "link2"
+      "link3"
+      "link4"
+      "link5"
+      "link6";
+    row-gap: 25px;
+    justify-items: center;
+    align-items: center;
+  }
+  .myLinks a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+  }
+  .myLinks a:hover {
+    color: #355ec4;
+  }
+  .myLinks #linkHome {
+    grid-area: link1;
+  }
+  .myLinks #linkReceipt {
+    grid-area: link2;
+  }
+  .myLinks #linkIncome {
+    grid-area: link3;
+  }
+  .myLinks #linkSummary {
+    grid-area: link4;
+  }
+  .myLinks #signIn {
+    grid-area: link5;
+  }
+  .myLinks #userIcon {
+    grid-area: link5;
+  }
+  .myLinks #logout {
+    grid-area: link6;
+    color: #4edff9;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  .myLinks #logout:hover {
+    border: 1px solid #355ec4;
+  }
+  .myLinks #signUp {
+    grid-area: link6;
+    color: #4edff9;
+    border: 1px solid #4edff9;
+    border-radius: 20px;
+    padding: 15px;
+  }
+  .myLinks #signUp:hover {
+    border: 1px solid #355ec4;
+  }
+  .navbar a.icon {
+    display: none;
+  }
 
-/* Footer Global*/
-.site_footer {
-  display: grid;
-  grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
-  grid-template-rows: [row1] 100%;
-  grid-template-areas: "fLogo fCol1 fCol2 fCol3";
-  margin: 60px 75px 0px 175px;
-  color: white;
-}
-.footer_logo {
-  grid-area: fLogo;
-  align-self: center;
-  justify-self: center;
-}
-.footer_logo img {
-  height: 100px;
-  width: 100px;
-}
-.footer_col1 {
-  grid-area: fCol1;
-}
-.footer_col2 {
-  grid-area: fCol2;
-}
-.footer_col3 {
-  grid-area: fCol3;
-}
+  /* Footer Global*/
+  .site_footer {
+    display: grid;
+    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
+    grid-template-rows: [row1] 100%;
+    grid-template-areas: "fLogo fCol1 fCol2 fCol3";
+    margin: 60px 75px 0px 175px;
+    color: white;
+  }
+  .footer_logo {
+    grid-area: fLogo;
+    align-self: center;
+    justify-self: center;
+  }
+  .footer_logo img {
+    height: 100px;
+    width: 100px;
+  }
+  .footer_col1 {
+    grid-area: fCol1;
+  }
+  .footer_col2 {
+    grid-area: fCol2;
+  }
+  .footer_col3 {
+    grid-area: fCol3;
+  }
 
-/* Index Page*/
-.index_header {
-  display: grid;
-  grid-template-rows: [row1] 60% [row2] 30% [row3] 10%;
-  grid-template-columns: [col1] 50% [col2] 50%;
-  grid-template-areas:
-    "headerTitle  headerImg"
-    "headerSignup headerImg"
-    ".  headerCapt";
-  margin: 20px 75px 0px 200px;
-  max-height: 85vh;
-  color: #4edff9;
-}
-.index_content {
-  margin: 0px 0px 0px 200px;
-}
-.index_header #headerImg {
-  grid-area: headerImg;
-  max-width: 50vw;
-  max-height: 70vh;
-  justify-self: center;
-}
-.index_header #headerTitle {
-  grid-area: headerTitle;
-  align-self: end;
-  padding-left: 75px;
-}
-.index_header #index_signupBar {
-  border: 1px solid black;
-}
-.index_header #index_imgCaption {
-  grid-area: headerCapt;
-  place-self: center;
-}
-.index_header #headerText {
-  grid-area: headerSignup;
-  font-size: 18px;
-  justify-self: center;
-  align-self: start;
-  padding-right: 125px;
-  color: white;
-}
-.index_header #header_signupBtn {
-  grid-area: headerSignup;
-  color: white;
-  border: 1px solid #ffec03;
-  text-decoration: none;
-  background-color: #ffa603;
-  padding: 14px;
-  border-radius: 25px;
-  justify-self: center;
-  align-self: start;
-  margin-left: 275px;
-}
-.index_header #header_signupBtn:hover {
-  background-color: #ffec03;
-  color: black;
-  border: 1px solid #ffa603;
-}
-.index_body {
-  display: grid;
-  grid-template-rows: [row1] 100%;
-  grid-template-columns: [col1] 33.34% [col2] 33.34% [col3] 33.34%;
-  grid-template-areas: "bodyBox1 bodyBox2 bodyBox3";
-  margin: 30px 75px 0px 75px;
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-.index_body i {
-  font-size: 25px;
-  background-color: #4edff9;
-  color: #355ec4;
-  padding: 15px;
-  border-radius: 25px;
-  font-size: 30px;
-  place-self: center;
-}
-.index_bodyBox {
-  display: grid;
-  grid-template-rows: [row1] 100%;
-  grid-template-columns: [col1] 30% [col2] 60%;
-  grid-template-areas: "elemI bodyBoxH1";
-  row-gap: 0px;
-  justify-content: center;
-  align-content: center;
-  margin-top: 20px;
-  padding: 30px;
-}
-.bodyBox_h1 {
-  grid-area: bodyBoxH1;
-  justify-self: center;
-  font-size: 25px;
-  align-self: start;
-  padding: 10px;
-}
-.index_body p {
-  grid-area: bodyBoxH1;
-  margin-top: 10px;
-  justify-self: center;
-  align-self: end;
-  font-size: 14px;
-}
-.box1 {
-  grid-area: bodyBox1;
-  background-color: #30353d;
-  color: white;
-  border-right: 2px solid rgba(128, 128, 128, 0.479);
-}
-.box2 {
-  grid-area: bodyBox2;
-  background-color: #30353d;
-  color: white;
-  border-right: 2px solid rgba(128, 128, 128, 0.479);
-}
-.box3 {
-  grid-area: bodyBox3;
-  background-color: #30353d;
-  color: white;
-}
+  /* Index Page*/
+  .index_header {
+    display: grid;
+    grid-template-rows: [row1] 60% [row2] 30% [row3] 10%;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-areas:
+      "headerTitle  headerImg"
+      "headerSignup headerImg"
+      ".  headerCapt";
+    margin: 20px 75px 0px 200px;
+    max-height: 85vh;
+    color: #4edff9;
+  }
+  .index_content {
+    margin: 0px 0px 0px 200px;
+  }
+  .index_header #headerImg {
+    grid-area: headerImg;
+    max-width: 50vw;
+    max-height: 70vh;
+    justify-self: center;
+  }
+  .index_header #headerTitle {
+    grid-area: headerTitle;
+    align-self: end;
+    padding-left: 75px;
+  }
+  .index_header #index_signupBar {
+    border: 1px solid black;
+  }
+  .index_header #index_imgCaption {
+    grid-area: headerCapt;
+    place-self: center;
+  }
+  .index_header #headerText {
+    grid-area: headerSignup;
+    font-size: 18px;
+    justify-self: center;
+    align-self: start;
+    padding-right: 125px;
+    color: white;
+  }
+  .index_header #header_signupBtn {
+    grid-area: headerSignup;
+    color: white;
+    border: 1px solid #ffec03;
+    text-decoration: none;
+    background-color: #ffa603;
+    padding: 14px;
+    border-radius: 25px;
+    justify-self: center;
+    align-self: start;
+    margin-left: 275px;
+  }
+  .index_header #header_signupBtn:hover {
+    background-color: #ffec03;
+    color: black;
+    border: 1px solid #ffa603;
+  }
+  .index_body {
+    display: grid;
+    grid-template-rows: [row1] 100%;
+    grid-template-columns: [col1] 33.34% [col2] 33.34% [col3] 33.34%;
+    grid-template-areas: "bodyBox1 bodyBox2 bodyBox3";
+    margin: 30px 75px 0px 75px;
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  .index_body i {
+    font-size: 25px;
+    background-color: #4edff9;
+    color: #355ec4;
+    padding: 15px;
+    border-radius: 25px;
+    font-size: 30px;
+    place-self: center;
+  }
+  .index_bodyBox {
+    display: grid;
+    grid-template-rows: [row1] 100%;
+    grid-template-columns: [col1] 30% [col2] 60%;
+    grid-template-areas: "elemI bodyBoxH1";
+    row-gap: 0px;
+    justify-content: center;
+    align-content: center;
+    margin-top: 20px;
+    padding: 30px;
+  }
+  .bodyBox_h1 {
+    grid-area: bodyBoxH1;
+    justify-self: center;
+    font-size: 25px;
+    align-self: start;
+    padding: 10px;
+  }
+  .index_body p {
+    grid-area: bodyBoxH1;
+    margin-top: 10px;
+    justify-self: center;
+    align-self: end;
+    font-size: 14px;
+  }
+  .box1 {
+    grid-area: bodyBox1;
+    background-color: #30353d;
+    color: white;
+    border-right: 2px solid rgba(128, 128, 128, 0.479);
+  }
+  .box2 {
+    grid-area: bodyBox2;
+    background-color: #30353d;
+    color: white;
+    border-right: 2px solid rgba(128, 128, 128, 0.479);
+  }
+  .box3 {
+    grid-area: bodyBox3;
+    background-color: #30353d;
+    color: white;
+  }
 
-/*Receipt Page*/
-.expenses_content {
-  margin: 0px 50px 0px 250px;
-}
-.expensesHeader {
-  display: grid;
-  grid-template-rows: [row1] 50% [row2] 50%;
-  grid-template-columns: [col1] 50% [col2] 50%;
-  grid-template-areas:
-    "rHeaderH1 rHeaderImg"
-    "rHeaderP rHeaderImg";
-  margin: 20px 75px 0px 0px;
-  max-height: 55vh;
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-.expensesHeader #expensesHeader_img {
-  justify-self: end;
-  grid-area: rHeaderImg;
-  height: 50vh;
-  width: 30vw;
-}
-.expensesHeader #expensesHeader_p {
-  grid-area: rHeaderP;
-  justify-self: center;
-  align-self: start;
-  color: white;
-  font-size: 17px;
-}
-.expensesHeader #expensesHeader_h1 {
-  grid-area: rHeaderH1;
-  align-self: end;
-  justify-self: center;
-  font-size: 35px;
-  color: #ffa603;
-}
-.chart_disp {
-  display: grid;
-  grid-template-rows: [row1] 10% [row2] 90%;
-  grid-template-columns: [col1] 100%;
-  background-color: #30353d;
-  justify-items: center;
-  align-items: center;
-  color: white;
-  height: 450px;
-  border-radius: 10px;
-  margin-bottom: 50px;
-  padding: 10px;
-  margin: 0px 0px 50px 0px;
-}
-.chart_disp #expense_chart {
-  max-height: 350px;
-  max-width: 85%;
-}
-.expense_sort_options {
-  display: none;
-  grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
-  color: white;
-  justify-items: center;
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-.expense_sort_options input {
-  text-transform: capitalize;
-  background-color: #30353d;
-  border: none;
-  color: white;
-}
-.expense_sort_options #byDate {
-  padding: 5px;
-  border-bottom: 1px solid white;
-}
-.expense_sort_options #byAmt {
-  padding: 5px;
-  border-bottom: none;
-}
-.expense_sort_options #byCat {
-  padding: 5px;
-  border-bottom: none;
-}
-.expense_sort_options #byDesc {
-  padding: 5px;
-  border-bottom: none;
-}
-.expense_sort_options a:hover {
-  cursor: pointer;
-}
-.expensesBody {
-  display: grid;
-  grid-template-rows: [row1] 10% [row2] 90%;
-  grid-template-areas:
-    "expenseHead"
-    "expenseData";
-  width: 100%;
-  border-radius: 10px;
-  background-color: #30353d;
-}
-.expensesBody_headings {
-  grid-area: expenseHead;
-  display: grid;
-  grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
-  grid-template-rows: [row1] 100%;
-  grid-template-areas: "titleHead amtHead catHead dateHead";
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: #4edff9;
-  width: 100%;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  padding: 10px;
-  text-decoration: underline;
-}
-.expensesBody_headings #title_heading {
-  grid-area: titleHead;
-}
-.expensesBody_headings #amount_heading {
-  grid-area: amtHead;
-  justify-self: center;
-}
-.expensesBody_headings #cat_heading {
-  grid-area: catHead;
-  justify-self: center;
-}
-.expensesBody_headings #date_heading {
-  grid-area: dateHead;
-  justify-self: center;
-}
-.expensesBody_headings #create_expense {
-  grid-area: createExp;
-  font-size: 50px;
-  font-weight: bold;
-  color: #4edff9;
-}
-.expensesBody_headings #create_expense:hover {
-  color: #355ec4;
-}
-.expensesBody_data {
-  grid-area: expenseData;
-  display: grid;
-  grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
-  width: 100%;
-  overflow: scroll;
-  font-size: 15px;
-  justify-items: center;
-  padding-left: 10px;
-  color: white;
-}
-.expensesBody a {
-  text-decoration: none;
-}
+  /*Receipt Page*/
+  .expenses_content {
+    margin: 0px 50px 0px 250px;
+  }
+  .expensesHeader {
+    display: grid;
+    grid-template-rows: [row1] 50% [row2] 50%;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-areas:
+      "rHeaderH1 rHeaderImg"
+      "rHeaderP rHeaderImg";
+    margin: 20px 75px 0px 0px;
+    max-height: 55vh;
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  .expensesHeader #expensesHeader_img {
+    justify-self: end;
+    grid-area: rHeaderImg;
+    height: 50vh;
+    width: 30vw;
+  }
+  .expensesHeader #expensesHeader_p {
+    grid-area: rHeaderP;
+    justify-self: center;
+    align-self: start;
+    color: white;
+    font-size: 17px;
+  }
+  .expensesHeader #expensesHeader_h1 {
+    grid-area: rHeaderH1;
+    align-self: end;
+    justify-self: center;
+    font-size: 35px;
+    color: #ffa603;
+  }
+  .chart_disp {
+    display: grid;
+    grid-template-rows: [row1] 10% [row2] 90%;
+    grid-template-columns: [col1] 100%;
+    background-color: #30353d;
+    justify-items: center;
+    align-items: center;
+    color: white;
+    height: 450px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    padding: 10px;
+    margin: 0px 0px 50px 0px;
+  }
+  .chart_disp #expense_chart {
+    max-height: 350px;
+    max-width: 85%;
+  }
+  .expense_sort_options {
+    display: none;
+    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
+    color: white;
+    justify-items: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .expense_sort_options input {
+    text-transform: capitalize;
+    background-color: #30353d;
+    border: none;
+    color: white;
+  }
+  .expense_sort_options #byDate {
+    padding: 5px;
+    border-bottom: 1px solid white;
+  }
+  .expense_sort_options #byAmt {
+    padding: 5px;
+    border-bottom: none;
+  }
+  .expense_sort_options #byCat {
+    padding: 5px;
+    border-bottom: none;
+  }
+  .expense_sort_options #byDesc {
+    padding: 5px;
+    border-bottom: none;
+  }
+  .expense_sort_options a:hover {
+    cursor: pointer;
+  }
+  .expensesBody {
+    display: grid;
+    grid-template-rows: [row1] 10% [row2] 90%;
+    grid-template-areas:
+      "expenseHead"
+      "expenseData";
+    width: 100%;
+    border-radius: 10px;
+    background-color: #30353d;
+  }
+  .expensesBody_headings {
+    grid-area: expenseHead;
+    display: grid;
+    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+    grid-template-rows: [row1] 100%;
+    grid-template-areas: "titleHead amtHead catHead dateHead";
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: #4edff9;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 10px;
+    text-decoration: underline;
+  }
+  .expensesBody_headings #title_heading {
+    grid-area: titleHead;
+  }
+  .expensesBody_headings #amount_heading {
+    grid-area: amtHead;
+    justify-self: center;
+  }
+  .expensesBody_headings #cat_heading {
+    grid-area: catHead;
+    justify-self: center;
+  }
+  .expensesBody_headings #date_heading {
+    grid-area: dateHead;
+    justify-self: center;
+  }
+  .expensesBody_headings #create_expense {
+    grid-area: createExp;
+    font-size: 50px;
+    font-weight: bold;
+    color: #4edff9;
+  }
+  .expensesBody_headings #create_expense:hover {
+    color: #355ec4;
+  }
+  .expensesBody_data {
+    grid-area: expenseData;
+    display: grid;
+    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+    width: 100%;
+    overflow: scroll;
+    font-size: 15px;
+    justify-items: center;
+    padding-left: 10px;
+    color: white;
+  }
+  .expensesBody a {
+    text-decoration: none;
+  }
 
-.expensesBody_data #expensesBody_title {
-  font-size: 20px;
-  font-weight: 500;
-  color: #ffa603;
-  justify-self: start;
-}
-.expensesBody_data #expensesBody_title:hover {
-  color: #ffec03;
-}
-.expenses_content #expensesBody_total {
-  padding-top: 10px;
-  color: white;
-  border-top: 1px solid white;
-}
-.expenses_content #expensesBody_create {
-  padding: 10px;
-  border: 1px solid transparent;
-  text-decoration: none;
-  background-color: #ffa603;
-  color: white;
-  border-radius: 20px;
-}
-.expenses_content #expensesBody_create:hover {
-  color: black;
-  background-color: #4edff9;
-}
+  .expensesBody_data #expensesBody_title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffa603;
+    justify-self: start;
+  }
+  .expensesBody_data #expensesBody_title:hover {
+    color: #ffec03;
+  }
+  .expenses_content #expensesBody_total {
+    padding-top: 10px;
+    color: white;
+    border-top: 1px solid white;
+  }
+  .expenses_content #expensesBody_create {
+    padding: 10px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    background-color: #ffa603;
+    color: white;
+    border-radius: 20px;
+  }
+  .expenses_content #expensesBody_create:hover {
+    color: black;
+    background-color: #4edff9;
+  }
 
-/*Income Page*/
-.income_list_content {
-  margin: 0px 0px 0px 225px;
-}
-.incomeHeader {
-  display: grid;
-  grid-template-rows: [row1] 50% [row2] 50%;
-  grid-template-columns: [col1] 50% [col2] 50%;
-  grid-template-areas:
-    "rHeaderH1 rHeaderImg"
-    "rHeaderP rHeaderImg";
-  max-height: 60vh;
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-.incomeHeader #incomeHeader_img {
-  justify-self: end;
-  grid-area: rHeaderImg;
-  height: 50vh;
-  width: 40vw;
-}
-.incomeHeader #incomeHeader_p {
-  grid-area: rHeaderP;
-  justify-self: center;
-  align-self: start;
-  font-size: 17px;
-  color: white;
-}
-.incomeHeader #incomeHeader_h1 {
-  grid-area: rHeaderH1;
-  align-self: end;
-  justify-self: center;
-  font-size: 35px;
-  color: #4edff9;
-}
-.income_body {
-  display: grid;
-  border-radius: 10px;
-  grid-template-columns: [col1] 100%;
-  grid-template-rows: [row1] 10% [row2] 90%;
-  grid-template-areas:
-    "bodyHead"
-    "bodyData";
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #30353d;
-  max-height: 60vh;
-  color: white;
-  min-height: 200px;
-  margin: 0px 25px 0px 25px;
-}
-.bodyHead {
-  grid-area: bodyHead;
-  display: grid;
-  grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
-  width: 100%;
-  justify-items: start;
-  grid-template-areas: "descHead catHead amtHead dateHead";
-  text-decoration: underline;
-  margin: 0px 0px 0px 20px;
-}
-.income_body #descHead {
-  grid-area: descHead;
-}
-.income_body #catHead {
-  grid-area: catHead;
-}
-.income_body #amtHead {
-  grid-area: amtHead;
-}
-.income_body #dateHead {
-  grid-area: dateHead;
-}
-.income_body_data {
-  grid-area: bodyData;
-  display: grid;
-  width: 100%;
-  max-height: 60vh;
-  overflow: scroll;
-  grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
-  color: white;
-  font-size: 15px;
-  justify-items: start;
-  margin: 0px 0px 0px 20px;
-}
-.income_body_data #incomeDisp_desc {
-  color: #4edff9;
-  text-decoration: none;
-}
+  /*Income Page*/
+  .income_list_content {
+    margin: 0px 0px 0px 225px;
+  }
+  .incomeHeader {
+    display: grid;
+    grid-template-rows: [row1] 50% [row2] 50%;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-areas:
+      "rHeaderH1 rHeaderImg"
+      "rHeaderP rHeaderImg";
+    max-height: 60vh;
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  .incomeHeader #incomeHeader_img {
+    justify-self: end;
+    grid-area: rHeaderImg;
+    height: 50vh;
+    width: 40vw;
+  }
+  .incomeHeader #incomeHeader_p {
+    grid-area: rHeaderP;
+    justify-self: center;
+    align-self: start;
+    font-size: 17px;
+    color: white;
+  }
+  .incomeHeader #incomeHeader_h1 {
+    grid-area: rHeaderH1;
+    align-self: end;
+    justify-self: center;
+    font-size: 35px;
+    color: #4edff9;
+  }
+  .income_body {
+    display: grid;
+    border-radius: 10px;
+    grid-template-columns: [col1] 100%;
+    grid-template-rows: [row1] 10% [row2] 90%;
+    grid-template-areas:
+      "bodyHead"
+      "bodyData";
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #30353d;
+    max-height: 60vh;
+    color: white;
+    min-height: 200px;
+    margin: 0px 25px 0px 25px;
+  }
+  .bodyHead {
+    grid-area: bodyHead;
+    display: grid;
+    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+    width: 100%;
+    justify-items: start;
+    grid-template-areas: "descHead catHead amtHead dateHead";
+    text-decoration: underline;
+    margin: 0px 0px 0px 20px;
+  }
+  .income_body #descHead {
+    grid-area: descHead;
+  }
+  .income_body #catHead {
+    grid-area: catHead;
+  }
+  .income_body #amtHead {
+    grid-area: amtHead;
+  }
+  .income_body #dateHead {
+    grid-area: dateHead;
+  }
+  .income_body_data {
+    grid-area: bodyData;
+    display: grid;
+    width: 100%;
+    max-height: 60vh;
+    overflow: scroll;
+    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+    color: white;
+    font-size: 15px;
+    justify-items: start;
+    margin: 0px 0px 0px 20px;
+  }
+  .income_body_data #incomeDisp_desc {
+    color: #4edff9;
+    text-decoration: none;
+  }
 
-#incomeBody_total {
-  margin: 20px 25px 20px 25px;
-  border-top: 1px solid white;
-  padding-top: 10px;
-  color: white;
-}
+  #incomeBody_total {
+    margin: 20px 25px 20px 25px;
+    border-top: 1px solid white;
+    padding-top: 10px;
+    color: white;
+  }
 
-#incomeBody_create {
-  margin: 50px 25px 0px 25px;
-  padding: 10px;
-  border: 1px solid transparent;
-  text-decoration: none;
-  background-color: #ffa603;
-  color: white;
-  border-radius: 20px;
-}
+  #incomeBody_create {
+    margin: 50px 25px 0px 25px;
+    padding: 10px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    background-color: #ffa603;
+    color: white;
+    border-radius: 20px;
+  }
 
-#incomeBody_create:hover {
-  color: black;
-  background-color: #4edff9;
-}
+  #incomeBody_create:hover {
+    color: black;
+    background-color: #4edff9;
+  }
 
-/* User Details Page*/
-.details_body {
-  margin: 50px 75px 10px 75px;
-}
-.details_display_card {
-  display: grid;
-  background-color: rgb(195, 195, 216);
-  box-shadow: 1px 1px 1px 1px black;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
+  /* User Details Page*/
+  .details_body {
+    margin: 50px 75px 10px 75px;
+  }
+  .details_display_card {
+    display: grid;
+    background-color: rgb(195, 195, 216);
+    box-shadow: 1px 1px 1px 1px black;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
 
-/*Summary Page*/
-.summary_header {
-  display: grid;
-  grid-template-columns: [col1] 50% [col2] 50%;
-  grid-template-rows: [row1] 50% [row2] 20%;
-  grid-template-areas:
-    "summHeaderTitle summHeaderRight"
-    "summHeaderP summHeaderRight";
-  margin: 0px 0px 0px 200px;
-}
-.summary_content {
-  margin: 0px 0px 0px 200px;
-  color: white;
-}
-.summary_header h1 {
-  grid-area: summHeaderTitle;
-  justify-self: center;
-  align-self: end;
-  font-size: 35px;
-  color: #4edff9;
-}
-.summary_header p {
-  grid-area: summHeaderP;
-  justify-self: center;
-  color: white;
-}
-.summary_header_right {
-  grid-area: summHeaderRight;
-  display: grid;
-  grid-template-rows: [row1] 50% [row2] 50%;
-  grid-template-columns: [col1] 50% [col2] 50%;
-  grid-template-areas:
-    "headerRightTop headerRightTop"
-    "headerRightBot headerRightBot";
-  width: 75%;
-  height: 300px;
-  justify-self: center;
-  border-radius: 10px;
-}
-.summary_header_right_top {
-  grid-area: headerRightTop;
-  display: grid;
-  grid-template-rows: [row1] 100%;
-  grid-template-columns: [col1] 100%;
-  grid-template-areas: "date";
-  background-color: #355ec4;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-.summary_header_right_top h1 {
-  grid-area: date;
-  align-self: center;
-  justify-self: center;
-  color: white;
-  -webkit-text-stroke: 1px white;
-}
-.summary_header_right_bot {
-  grid-area: headerRightBot;
-  display: grid;
-  grid-template-rows: [row1] 100%;
-  grid-template-columns: [col1] 10% [col2] 40% [col3] 10% [col4] 40%;
-  grid-column-gap: 8px;
-  grid-template-areas: "calendar date clock time";
-  background-color: #30353d;
-  color: white;
-  justify-items: center;
-  align-items: center;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-.fa-calendar {
-  grid-area: calendar;
-  justify-self: end;
-  font-size: 20px;
-}
-.fa-clock {
-  grid-area: clock;
-  justify-self: end;
-  font-size: 20px;
-}
-.summary_header_right_bot #summary_header_date {
-  font-size: 20px;
-  justify-self: start;
-  grid-area: date;
-}
-.summary_header_right_bot #summary_header_time {
-  font-size: 20px;
-  justify-self: start;
-  grid-area: time;
-}
-.summary_header_right_bot h2 {
-  font-size: 18px;
-  justify-self: center;
-  align-self: center;
-}
-.summary_charts {
-  display: grid;
-  grid-template-columns: [col1] 50% [col2] 50%;
-  grid-template-rows: [row1] 10% [row2] 15% [row3] 75%;
-  grid-template-areas:
-    "btn1 btn2"
-    "chart1Title chart2Title"
-    "chart1 chart2";
-  background-color: #30353d;
-  border-radius: 10px;
-  margin: 50px 60px 0px 260px;
-  height: 600px;
-}
-.summary_charts #exp_btn {
-  grid-area: btn1;
-  background-color: #30353d;
-  border: none;
-  color: white;
-  font-size: 20px;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-}
-.summary_charts #inc_btn {
-  font-size: 20px;
-  grid-area: btn2;
-  background-color: #4edff9;
-  border: none;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-}
-.summary_charts #exp_btn:hover {
-  cursor: pointer;
-  box-shadow: 1px 1px 10px black inset;
-}
-.summary_charts #inc_btn:hover {
-  cursor: pointer;
-  box-shadow: 1px 1px 10px black inset;
-}
-.charts {
-  padding: 10px;
-}
-.chartDisp1 {
-  grid-area: chart1;
-  justify-self: center;
-  height: 500px;
-  width: 700px;
-}
-.summary_charts #monthlySpendingTitle {
-  visibility: visible;
-  place-self: center;
-  grid-area: chart1Title;
-}
-.chartDisp2 {
-  justify-self: center;
-  grid-area: chart2;
-  height: 250px;
-  width: 350px;
-}
-.summary_charts #majorExpensesTitle {
-  visibility: visible;
-  justify-self: center;
-  grid-area: chart2Title;
-}
-.chartDisp3 {
-  grid-area: chart1;
-  height: 500px;
-  width: 700px;
-  display: none;
-  justify-self: center;
-}
-.summary_charts #monthlyIncomeTitle {
-  place-self: center;
-  visibility: hidden;
-  grid-area: chart1Title;
-}
-.chartDisp4 {
-  justify-self: center;
-  grid-area: chart2;
-  display: none;
-  height: 250px;
-  width: 350px;
-}
-.summary_charts #incomeSourcesTitle {
-  visibility: hidden;
-  grid-area: chart2Title;
-  place-self: center;
-}
-.summary_content {
-  display: grid;
-  background-color: #30353d;
-  grid-template-rows: [row1] 10% [row2] 5% [row3] 35% [row4] 10% [row5] 10% [row6] 30% [row7] 5%;
-  grid-template-areas:
-    "incTitle"
-    "addInc"
-    "incomeList"
-    "recTitle"
-    "addExp"
-    "receiptList";
-  margin: 50px 60px 0px 260px;
-  max-width: 100vw;
-  border-radius: 10px;
-}
-.summary_content #summary_incomeTitle {
-  margin-left: 15px;
-  margin-right: 15px;
-  grid-area: incTitle;
-  border-bottom: 1px solid white;
-}
-.summary_content #addIncome {
-  padding: 10px;
-  background-color: #ffa603;
-  width: 80px;
-  margin-left: 15px;
-  text-decoration: none;
-  color: black;
-  grid-area: addInc;
-  border-radius: 10px;
-  border: 1px solid transparent;
-}
-.summary_content #addIncome:hover {
-  color: #ffa603;
-  background-color: #15171a;
-  border: 1px solid #ffa603;
-}
-.summary_incomeList {
-  display: grid;
-  grid-area: incomeList;
-  grid-template-columns: [col1] 55% [col2] 15% [col3] 15% [col4] 15%;
-  border-bottom: 10px solid #15171a;
-  padding: 10px;
-  overflow: scroll;
-}
-.summary_incomeList h3 {
-  text-decoration: underline;
-}
-.summary_incomeList #summary_iDet {
-  text-decoration: none;
-  color: #ffa603;
-}
-.summary_incomeList #summary_incomeTotal {
-  margin: 0px;
-}
-.summary_content #summary_receiptTitle {
-  margin-left: 15px;
-  margin-right: 15px;
-  border-bottom: 1px solid white;
-  grid-area: recTitle;
-}
-.summary_content #addExpense {
-  padding: 10px;
-  background-color: #4edff9;
-  width: 80px;
-  margin-left: 15px;
-  text-decoration: none;
-  color: black;
-  grid-area: addInc;
-  border-radius: 10px;
-  border: 1px solid transparent;
-  grid-area: addExp;
-}
-.summary_content #addExpense:hover {
-  color: #4edff9;
-  background-color: #15171a;
-  border: 1px solid #4edff9;
-}
-.summary_receiptList {
-  display: grid;
-  grid-area: receiptList;
-  grid-template-columns: [col1] 55% [col2] 15% [col3] 15% [col4] 15%;
-  padding: 10px;
-  overflow: scroll;
-}
-.summary_receiptList h3 {
-  text-decoration: underline;
-}
-.summary_receiptList #summary_recName {
-  text-decoration: none;
-  color: #4edff9;
-}
-.summary_receiptList #summary_receiptTotal {
-  margin: 0px;
-}
-.summary_content #summary_balance {
-  border-top: 5px solid #15171a;
-  margin: 50px 0px 20px 0px;
-  padding: 5px;
-}
-/*receipt delete*/
-.receipt_delete {
-  margin-left: 275px;
-}
+  /*Summary Page*/
+  .summary_header {
+    display: grid;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-rows: [row1] 50% [row2] 20%;
+    grid-template-areas:
+      "summHeaderTitle summHeaderRight"
+      "summHeaderP summHeaderRight";
+    margin: 0px 0px 0px 200px;
+  }
+  .summary_content {
+    margin: 0px 0px 0px 200px;
+    color: white;
+  }
+  .summary_header h1 {
+    grid-area: summHeaderTitle;
+    justify-self: center;
+    align-self: end;
+    font-size: 35px;
+    color: #4edff9;
+  }
+  .summary_header p {
+    grid-area: summHeaderP;
+    justify-self: center;
+    color: white;
+  }
+  .summary_header_right {
+    grid-area: summHeaderRight;
+    display: grid;
+    grid-template-rows: [row1] 50% [row2] 50%;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-areas:
+      "headerRightTop headerRightTop"
+      "headerRightBot headerRightBot";
+    width: 75%;
+    height: 300px;
+    justify-self: center;
+    border-radius: 10px;
+  }
+  .summary_header_right_top {
+    grid-area: headerRightTop;
+    display: grid;
+    grid-template-rows: [row1] 100%;
+    grid-template-columns: [col1] 100%;
+    grid-template-areas: "date";
+    background-color: #355ec4;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .summary_header_right_top h1 {
+    grid-area: date;
+    align-self: center;
+    justify-self: center;
+    color: white;
+    -webkit-text-stroke: 1px white;
+  }
+  .summary_header_right_bot {
+    grid-area: headerRightBot;
+    display: grid;
+    grid-template-rows: [row1] 100%;
+    grid-template-columns: [col1] 10% [col2] 40% [col3] 10% [col4] 40%;
+    grid-column-gap: 8px;
+    grid-template-areas: "calendar date clock time";
+    background-color: #30353d;
+    color: white;
+    justify-items: center;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .fa-calendar {
+    grid-area: calendar;
+    justify-self: end;
+    font-size: 20px;
+  }
+  .fa-clock {
+    grid-area: clock;
+    justify-self: end;
+    font-size: 20px;
+  }
+  .summary_header_right_bot #summary_header_date {
+    font-size: 20px;
+    justify-self: start;
+    grid-area: date;
+  }
+  .summary_header_right_bot #summary_header_time {
+    font-size: 20px;
+    justify-self: start;
+    grid-area: time;
+  }
+  .summary_header_right_bot h2 {
+    font-size: 18px;
+    justify-self: center;
+    align-self: center;
+  }
+  .summary_charts {
+    display: grid;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-rows: [row1] 10% [row2] 15% [row3] 75%;
+    grid-template-areas:
+      "btn1 btn2"
+      "chart1Title chart2Title"
+      "chart1 chart2";
+    background-color: #30353d;
+    border-radius: 10px;
+    margin: 50px 60px 0px 260px;
+    height: 600px;
+  }
+  .summary_charts #exp_btn {
+    grid-area: btn1;
+    background-color: #30353d;
+    border: none;
+    color: white;
+    font-size: 20px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+  .summary_charts #inc_btn {
+    font-size: 20px;
+    grid-area: btn2;
+    background-color: #4edff9;
+    border: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+  .summary_charts #exp_btn:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 10px black inset;
+  }
+  .summary_charts #inc_btn:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 10px black inset;
+  }
+  .charts {
+    padding: 10px;
+  }
+  .chartDisp1 {
+    grid-area: chart1;
+    justify-self: center;
+    height: 500px;
+    width: 700px;
+  }
+  .summary_charts #monthlySpendingTitle {
+    visibility: visible;
+    place-self: center;
+    grid-area: chart1Title;
+  }
+  .chartDisp2 {
+    justify-self: center;
+    grid-area: chart2;
+    height: 250px;
+    width: 350px;
+  }
+  .summary_charts #majorExpensesTitle {
+    visibility: visible;
+    justify-self: center;
+    grid-area: chart2Title;
+  }
+  .chartDisp3 {
+    grid-area: chart1;
+    height: 500px;
+    width: 700px;
+    display: none;
+    justify-self: center;
+  }
+  .summary_charts #monthlyIncomeTitle {
+    place-self: center;
+    visibility: hidden;
+    grid-area: chart1Title;
+  }
+  .chartDisp4 {
+    justify-self: center;
+    grid-area: chart2;
+    display: none;
+    height: 250px;
+    width: 350px;
+  }
+  .summary_charts #incomeSourcesTitle {
+    visibility: hidden;
+    grid-area: chart2Title;
+    place-self: center;
+  }
+  .summary_content {
+    display: grid;
+    background-color: #30353d;
+    grid-template-rows: [row1] 10% [row2] 5% [row3] 35% [row4] 10% [row5] 10% [row6] 30% [row7] 5%;
+    grid-template-areas:
+      "incTitle"
+      "addInc"
+      "incomeList"
+      "recTitle"
+      "addExp"
+      "receiptList";
+    margin: 50px 60px 0px 260px;
+    max-width: 100vw;
+    border-radius: 10px;
+  }
+  .summary_content #summary_incomeTitle {
+    margin-left: 15px;
+    margin-right: 15px;
+    grid-area: incTitle;
+    border-bottom: 1px solid white;
+  }
+  .summary_content #addIncome {
+    padding: 10px;
+    background-color: #ffa603;
+    width: 80px;
+    margin-left: 15px;
+    text-decoration: none;
+    color: black;
+    grid-area: addInc;
+    border-radius: 10px;
+    border: 1px solid transparent;
+  }
+  .summary_content #addIncome:hover {
+    color: #ffa603;
+    background-color: #15171a;
+    border: 1px solid #ffa603;
+  }
+  .summary_incomeList {
+    display: grid;
+    grid-area: incomeList;
+    grid-template-columns: [col1] 55% [col2] 15% [col3] 15% [col4] 15%;
+    border-bottom: 10px solid #15171a;
+    padding: 10px;
+    overflow: scroll;
+  }
+  .summary_incomeList h3 {
+    text-decoration: underline;
+  }
+  .summary_incomeList #summary_iDet {
+    text-decoration: none;
+    color: #ffa603;
+  }
+  .summary_incomeList #summary_incomeTotal {
+    margin: 0px;
+  }
+  .summary_content #summary_receiptTitle {
+    margin-left: 15px;
+    margin-right: 15px;
+    border-bottom: 1px solid white;
+    grid-area: recTitle;
+  }
+  .summary_content #addExpense {
+    padding: 10px;
+    background-color: #4edff9;
+    width: 80px;
+    margin-left: 15px;
+    text-decoration: none;
+    color: black;
+    grid-area: addInc;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    grid-area: addExp;
+  }
+  .summary_content #addExpense:hover {
+    color: #4edff9;
+    background-color: #15171a;
+    border: 1px solid #4edff9;
+  }
+  .summary_receiptList {
+    display: grid;
+    grid-area: receiptList;
+    grid-template-columns: [col1] 55% [col2] 15% [col3] 15% [col4] 15%;
+    padding: 10px;
+    overflow: scroll;
+  }
+  .summary_receiptList h3 {
+    text-decoration: underline;
+  }
+  .summary_receiptList #summary_recName {
+    text-decoration: none;
+    color: #4edff9;
+  }
+  .summary_receiptList #summary_receiptTotal {
+    margin: 0px;
+  }
+  .summary_content #summary_balance {
+    border-top: 5px solid #15171a;
+    margin: 50px 0px 20px 0px;
+    padding: 5px;
+  }
+  /*receipt delete*/
+  .receipt_delete {
+    margin-left: 275px;
+  }
 
-/*Global Details Page*/
-.det_body {
-  display: grid;
-  grid-template-rows: [row1] 10% [row2] 10% [row3] 10% [row4] 10% [row5] 10% [row6] 10% [row7] 10% [row8] 10%;
-  grid-template-columns: [col1] 10% [col2] 10%;
-  justify-content: center;
-  grid-template-areas:
-    "uniqTitle uniqTitle"
-    "label1 data1"
-    "label2 data2"
-    "label3 data3"
-    "label4 data4"
-    "label5 data5"
-    "label6 data6"
-    "btn1 btn2";
-  margin: 0px 50px 0px 230px;
-  background-color: #30353d;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  color: white;
-}
+  /*Global Details Page*/
+  .det_body {
+    display: grid;
+    grid-template-rows: [row1] 10% [row2] 10% [row3] 10% [row4] 10% [row5] 10% [row6] 10% [row7] 10% [row8] 10%;
+    grid-template-columns: [col1] 10% [col2] 10%;
+    justify-content: center;
+    grid-template-areas:
+      "uniqTitle uniqTitle"
+      "label1 data1"
+      "label2 data2"
+      "label3 data3"
+      "label4 data4"
+      "label5 data5"
+      "label6 data6"
+      "btn1 btn2";
+    margin: 0px 50px 0px 230px;
+    background-color: #30353d;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: white;
+  }
 
-.det_title {
-  color: #355ec4;
-  font-size: 30px;
-  padding: 5px;
-  border-bottom: 1px solid #355ec4;
-  margin: 200px 50px 0px 230px;
-  background-color: #30353d;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-}
-.det_body #det_unique_title {
-  grid-area: uniqTitle;
-  justify-self: center;
-  text-decoration: underline;
-}
-.det_body #det_label_1 {
-  grid-area: label1;
-}
-.det_body #det_label_2 {
-  grid-area: label2;
-}
-.det_body #det_label_3 {
-  grid-area: label3;
-}
-.det_body #det_label_4 {
-  grid-area: label4;
-}
-.det_body #det_label_5 {
-  grid-area: label5;
-}
-.det_body #det_label_6 {
-  grid-area: label6;
-}
-.det_body #det_label_data_1 {
-  grid-area: data1;
-  justify-self: start;
-}
-.det_body #det_label_data_2 {
-  grid-area: data2;
-}
-.det_body #det_label_data_3 {
-  grid-area: data3;
-}
-.det_body #det_label_data_4 {
-  grid-area: data4;
-}
-.det_body #det_label_data_5 {
-  grid-area: data5;
-}
-.det_body #det_label_data_6 {
-  grid-area: data6;
-}
-.det_body #delete_btn {
-  grid-area: btn1;
-  margin: 10px;
-}
-.det_body #update_btn {
-  grid-area: btn2;
-  margin: 10px;
-}
+  .det_title {
+    color: #355ec4;
+    font-size: 30px;
+    padding: 5px;
+    border-bottom: 1px solid #355ec4;
+    margin: 200px 50px 0px 230px;
+    background-color: #30353d;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+  .det_body #det_unique_title {
+    grid-area: uniqTitle;
+    justify-self: center;
+    text-decoration: underline;
+  }
+  .det_body #det_label_1 {
+    grid-area: label1;
+  }
+  .det_body #det_label_2 {
+    grid-area: label2;
+  }
+  .det_body #det_label_3 {
+    grid-area: label3;
+  }
+  .det_body #det_label_4 {
+    grid-area: label4;
+  }
+  .det_body #det_label_5 {
+    grid-area: label5;
+  }
+  .det_body #det_label_6 {
+    grid-area: label6;
+  }
+  .det_body #det_label_data_1 {
+    grid-area: data1;
+    justify-self: start;
+  }
+  .det_body #det_label_data_2 {
+    grid-area: data2;
+  }
+  .det_body #det_label_data_3 {
+    grid-area: data3;
+  }
+  .det_body #det_label_data_4 {
+    grid-area: data4;
+  }
+  .det_body #det_label_data_5 {
+    grid-area: data5;
+  }
+  .det_body #det_label_data_6 {
+    grid-area: data6;
+  }
+  .det_body #delete_btn {
+    grid-area: btn1;
+    margin: 10px;
+  }
+  .det_body #update_btn {
+    grid-area: btn2;
+    margin: 10px;
+  }
 
-.det_body a {
-  padding: 10px;
-  background-color: #4edff9;
-  border: 1px solid #4edff9;
-  text-decoration: none;
-  border-radius: 15px;
-}
-.det_body a:hover {
-  color: white;
-  background-color: #355ec4;
-}
-.login_body {
-  display: grid;
-  padding: 20px;
-  grid-template-rows: [row1] 10% [row2] 60% [row3] 10%;
-  grid-template-columns: [col1] 100%;
-  margin: 50px 50px 10px 250px;
-  height: 80vh;
-  box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
-  grid-template-areas:
-    "loginTitle"
-    "loginForm"
-    "loginSignUp";
-  background-color: #30353d;
-  color: white;
-}
-.login_title {
-  grid-area: loginTitle;
-  margin: 50px 0px 0px 50px;
-}
-.login_form {
-  grid-area: loginForm;
-  display: grid;
-  grid-template-rows: [row1] 5% [row2] 10% [row3] 7%;
-  grid-template-columns: [col1] 40% [col2] 40%;
-  grid-row-gap: 10px;
-  grid-template-areas:
-    "userLabel passLabel"
-    "loginName loginPass"
-    "loginSubmit .";
-  grid-column-gap: 20px;
-  justify-content: center;
-  align-content: center;
-}
-.login_form #login_userName {
-  grid-area: loginName;
-}
-.login_form #login_pass {
-  grid-area: loginPass;
-}
-.login_form #login_userLabel {
-  grid-area: userLabel;
-}
-.login_form #login_passLabel {
-  grid-area: passLabel;
-}
-.login_form #login_submit {
-  grid-area: loginSubmit;
-  justify-self: start;
-  background-color: #355ec4;
-  border: 1px solid #355ec4;
-  color: white;
-  font-size: 15px;
-  cursor: pointer;
-  border-radius: 5px;
-  padding: 5px;
-}
-.login_form #login_submit:hover {
-  background-color: #4edff9;
-  border: 1px solid #4edff9;
-  color: black;
-}
-.login_SignUp {
-  grid-area: loginSignUp;
-  margin: 0px 0px 20px 150px;
-}
-.login_SignUp #login_signUp {
-  color: #4edff9;
-}
-.login_SignUp #login_signUp:hover {
-  color: #355ec4;
-}
+  .det_body a {
+    padding: 10px;
+    background-color: #4edff9;
+    border: 1px solid #4edff9;
+    text-decoration: none;
+    border-radius: 15px;
+  }
+  .det_body a:hover {
+    color: white;
+    background-color: #355ec4;
+  }
+  .login_body {
+    display: grid;
+    padding: 20px;
+    grid-template-rows: [row1] 10% [row2] 60% [row3] 10%;
+    grid-template-columns: [col1] 100%;
+    margin: 50px 50px 10px 250px;
+    height: 80vh;
+    box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
+    grid-template-areas:
+      "loginTitle"
+      "loginForm"
+      "loginSignUp";
+    background-color: #30353d;
+    color: white;
+  }
+  .login_title {
+    grid-area: loginTitle;
+    margin: 50px 0px 0px 50px;
+  }
+  .login_form {
+    grid-area: loginForm;
+    display: grid;
+    grid-template-rows: [row1] 5% [row2] 10% [row3] 7%;
+    grid-template-columns: [col1] 40% [col2] 40%;
+    grid-row-gap: 10px;
+    grid-template-areas:
+      "userLabel passLabel"
+      "loginName loginPass"
+      "loginSubmit .";
+    grid-column-gap: 20px;
+    justify-content: center;
+    align-content: center;
+  }
+  .login_form #login_userName {
+    grid-area: loginName;
+  }
+  .login_form #login_pass {
+    grid-area: loginPass;
+  }
+  .login_form #login_userLabel {
+    grid-area: userLabel;
+  }
+  .login_form #login_passLabel {
+    grid-area: passLabel;
+  }
+  .login_form #login_submit {
+    grid-area: loginSubmit;
+    justify-self: start;
+    background-color: #355ec4;
+    border: 1px solid #355ec4;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  .login_form #login_submit:hover {
+    background-color: #4edff9;
+    border: 1px solid #4edff9;
+    color: black;
+  }
+  .login_SignUp {
+    grid-area: loginSignUp;
+    margin: 0px 0px 20px 150px;
+  }
+  .login_SignUp #login_signUp {
+    color: #4edff9;
+  }
+  .login_SignUp #login_signUp:hover {
+    color: #355ec4;
+  }
 
-/*Signup Page*/
-.signup_body {
-  display: grid;
-  grid-template-rows: [row1] 5% [row2] 70% [row3] 5%;
-  grid-template-columns: [col1] 99%;
-  margin: 25px 50px 25px 275px;
-  height: 96vh;
-  box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
-  grid-template-areas:
-    "signupTitle"
-    "signupForm"
-    "signupSignin";
-  background-color: #30353d;
-  color: white;
-}
-.signup_title {
-  grid-area: signupTitle;
-  margin: 100px 0px 0px 50px;
-}
-.signup_form {
-  grid-area: signupForm;
-  display: grid;
-  grid-template-rows: [row1] 3% [row2] 8% [row3] 3% [row4] 8% [row5] 3% [row6] 8% [row7] 5%;
-  grid-template-columns: [col1] 40% [col2] 40%;
-  grid-row-gap: 10px;
-  grid-column-gap: 20px;
-  grid-template-areas:
-    "signupUserNameLabel signupPassLabel"
-    "signupUserName signupPass"
-    "signupfNameLabel signuplNameLabel"
-    "signupfName signuplName"
-    "signupEmailLabel signupbDayLabel"
-    "signupEmail signupbDay"
-    " signupSubmit .";
-  justify-content: center;
-  align-content: center;
-}
-.signup_form #userName {
-  grid-area: signupUserName;
-  margin: 5px;
-}
-.signup_form #userNameLabel {
-  grid-area: signupUserNameLabel;
-  justify-self: start;
-}
-.signup_form #pass {
-  grid-area: signupPass;
-  margin: 5px;
-}
-.signup_form #passLabel {
-  grid-area: signupPassLabel;
-  justify-self: start;
-}
-.signup_form #fName {
-  grid-area: signupfName;
-  margin: 5px;
-}
-.signup_form #fNameLabel {
-  grid-area: signupfNameLabel;
-  justify-self: start;
-}
-.signup_form #lName {
-  grid-area: signuplName;
-  margin: 5px;
-}
-.signup_form #lNameLabel {
-  grid-area: signuplNameLabel;
-  justify-self: start;
-}
-.signup_form #email {
-  grid-area: signupEmail;
-  margin: 5px;
-}
-.signup_form #emailLabel {
-  grid-area: signupEmailLabel;
-  justify-self: start;
-}
-.signup_form #bDay {
-  grid-area: signupbDay;
-  margin: 5px;
-}
-.signup_form #bDayLabel {
-  grid-area: signupbDayLabel;
-  justify-self: start;
-}
-.signup_form #signupSubmit {
-  grid-area: signupSubmit;
-  background-color: #355ec4;
-  border: 1px solid #355ec4;
-  color: white;
-  font-size: 15px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-left: 5px;
-  justify-self: start;
-}
-.signup_form #signupSubmit:hover {
-  grid-area: signupSubmit;
-  background-color: #4edff9;
-  border: 1px solid #4edff9;
-  color: black;
-}
-.signup_signin {
-  grid-area: signupSignin;
-  margin: 0px 0px 10px 100px;
-}
-.signup_signin a {
-  color: #4edff9;
-  font-size: 17px;
-  text-decoration: none;
-}
-.signup_signin a:hover {
-  color: #355ec4;
+  /*Signup Page*/
+  .signup_body {
+    display: grid;
+    grid-template-rows: [row1] 5% [row2] 70% [row3] 5%;
+    grid-template-columns: [col1] 99%;
+    margin: 25px 50px 25px 275px;
+    height: 96vh;
+    box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
+    grid-template-areas:
+      "signupTitle"
+      "signupForm"
+      "signupSignin";
+    background-color: #30353d;
+    color: white;
+  }
+  .signup_title {
+    grid-area: signupTitle;
+    margin: 100px 0px 0px 50px;
+  }
+  .signup_form {
+    grid-area: signupForm;
+    display: grid;
+    grid-template-rows: [row1] 3% [row2] 8% [row3] 3% [row4] 8% [row5] 3% [row6] 8% [row7] 5%;
+    grid-template-columns: [col1] 40% [col2] 40%;
+    grid-row-gap: 10px;
+    grid-column-gap: 20px;
+    grid-template-areas:
+      "signupUserNameLabel signupPassLabel"
+      "signupUserName signupPass"
+      "signupfNameLabel signuplNameLabel"
+      "signupfName signuplName"
+      "signupEmailLabel signupbDayLabel"
+      "signupEmail signupbDay"
+      " signupSubmit .";
+    justify-content: center;
+    align-content: center;
+  }
+  .signup_form #userName {
+    grid-area: signupUserName;
+    margin: 5px;
+  }
+  .signup_form #userNameLabel {
+    grid-area: signupUserNameLabel;
+    justify-self: start;
+  }
+  .signup_form #pass {
+    grid-area: signupPass;
+    margin: 5px;
+  }
+  .signup_form #passLabel {
+    grid-area: signupPassLabel;
+    justify-self: start;
+  }
+  .signup_form #fName {
+    grid-area: signupfName;
+    margin: 5px;
+  }
+  .signup_form #fNameLabel {
+    grid-area: signupfNameLabel;
+    justify-self: start;
+  }
+  .signup_form #lName {
+    grid-area: signuplName;
+    margin: 5px;
+  }
+  .signup_form #lNameLabel {
+    grid-area: signuplNameLabel;
+    justify-self: start;
+  }
+  .signup_form #email {
+    grid-area: signupEmail;
+    margin: 5px;
+  }
+  .signup_form #emailLabel {
+    grid-area: signupEmailLabel;
+    justify-self: start;
+  }
+  .signup_form #bDay {
+    grid-area: signupbDay;
+    margin: 5px;
+  }
+  .signup_form #bDayLabel {
+    grid-area: signupbDayLabel;
+    justify-self: start;
+  }
+  .signup_form #signupSubmit {
+    grid-area: signupSubmit;
+    background-color: #355ec4;
+    border: 1px solid #355ec4;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 5px;
+    justify-self: start;
+  }
+  .signup_form #signupSubmit:hover {
+    grid-area: signupSubmit;
+    background-color: #4edff9;
+    border: 1px solid #4edff9;
+    color: black;
+  }
+  .signup_signin {
+    grid-area: signupSignin;
+    margin: 0px 0px 10px 100px;
+  }
+  .signup_signin a {
+    color: #4edff9;
+    font-size: 17px;
+    text-decoration: none;
+  }
+  .signup_signin a:hover {
+    color: #355ec4;
+  }
 }
 
 /* Styling for  mobile 1*/
-@media screen and (max-width: 428px) {
+@media (min-width: 428px) {
   html {
     margin: 0;
     width: 100%;
@@ -1128,7 +1129,7 @@ html {
     grid-template-rows: [row1] 5% [row2] 90%;
     grid-template-columns: [col1] 100%;
     width: 150px;
-    height: 20px;
+    height: 2px;
     background-color: #15171a;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -2125,6 +2126,1125 @@ html {
     grid-template-columns: [col1] 99%;
     margin: 125px 0px 25px 0px;
     height: 96vh;
+    box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
+    grid-template-areas:
+      "signupTitle"
+      "signupForm"
+      "signupSignin";
+    background-color: #30353d;
+    color: white;
+  }
+  .signup_title {
+    grid-area: signupTitle;
+    margin: 100px 0px 0px 50px;
+  }
+  .signup_form {
+    grid-area: signupForm;
+    display: grid;
+    grid-template-rows: [row1] 3% [row2] 8% [row3] 3% [row4] 8% [row5] 3% [row6] 8% [row7] 5%;
+    grid-template-columns: [col1] 40% [col2] 40%;
+    grid-row-gap: 10px;
+    grid-column-gap: 20px;
+    grid-template-areas:
+      "signupUserNameLabel signupPassLabel"
+      "signupUserName signupPass"
+      "signupfNameLabel signuplNameLabel"
+      "signupfName signuplName"
+      "signupEmailLabel signupbDayLabel"
+      "signupEmail signupbDay"
+      " signupSubmit .";
+    justify-content: center;
+    align-content: center;
+  }
+  .signup_form #userName {
+    grid-area: signupUserName;
+    margin: 5px;
+  }
+  .signup_form #userNameLabel {
+    grid-area: signupUserNameLabel;
+    justify-self: start;
+  }
+  .signup_form #pass {
+    grid-area: signupPass;
+    margin: 5px;
+  }
+  .signup_form #passLabel {
+    grid-area: signupPassLabel;
+    justify-self: start;
+  }
+  .signup_form #fName {
+    grid-area: signupfName;
+    margin: 5px;
+  }
+  .signup_form #fNameLabel {
+    grid-area: signupfNameLabel;
+    justify-self: start;
+  }
+  .signup_form #lName {
+    grid-area: signuplName;
+    margin: 5px;
+  }
+  .signup_form #lNameLabel {
+    grid-area: signuplNameLabel;
+    justify-self: start;
+  }
+  .signup_form #email {
+    grid-area: signupEmail;
+    margin: 5px;
+  }
+  .signup_form #emailLabel {
+    grid-area: signupEmailLabel;
+    justify-self: start;
+  }
+  .signup_form #bDay {
+    grid-area: signupbDay;
+    margin: 5px;
+  }
+  .signup_form #bDayLabel {
+    grid-area: signupbDayLabel;
+    justify-self: start;
+  }
+  .signup_form #signupSubmit {
+    grid-area: signupSubmit;
+    background-color: #355ec4;
+    border: 1px solid #355ec4;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 5px;
+    justify-self: start;
+    align-self: center;
+  }
+  .signup_form #signupSubmit:hover {
+    grid-area: signupSubmit;
+    background-color: #4edff9;
+    border: 1px solid #4edff9;
+    color: black;
+  }
+  .signup_signin {
+    grid-area: signupSignin;
+    margin: 0px 0px 10px 100px;
+  }
+  .signup_signin a {
+    color: #4edff9;
+    font-size: 17px;
+    text-decoration: none;
+  }
+  .signup_signin a:hover {
+    color: #355ec4;
+  }
+}
+@media (min-width: 810px) {
+  html {
+    margin: 5px;
+    width: 100%;
+    background-color: #15171a;
+  }
+  .navbar {
+    display: grid;
+    grid-template-rows: [row1] 5% [row2] 90%;
+    grid-template-columns: [col1] 100%;
+    width: 150px;
+    height: 2px;
+    background-color: #15171a;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin: 0;
+    z-index: 10;
+    position: fixed;
+  }
+  .fa-bars {
+    position: absolute;
+    top: 10px;
+    right: 725px;
+    text-decoration: none;
+    margin-top: 15px;
+    font-size: 25px;
+    z-index: 11;
+    color: white;
+  }
+  .navbar #navLogo,
+  #logo {
+    display: none;
+  }
+  .myLinks {
+    display: none;
+    grid-template-columns: [col1] 100%;
+    grid-template-rows: [row1] 13% [row2] 13% [row3] 13% [row4] 13% [row5] 13% [row6] 13%;
+    grid-template-areas:
+      "link1"
+      "link2"
+      "link3"
+      "link4"
+      "link5"
+      "link6";
+    row-gap: 8px;
+    color: #8bf0ff;
+    position: sticky;
+    justify-content: center;
+    align-content: start;
+    padding: 10px;
+    z-index: 11;
+    margin: 0;
+  }
+  .myLinks a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+  }
+  .myLinks #linkHome {
+    grid-area: link1;
+  }
+  .myLinks #linkReceipt {
+    grid-area: link2;
+  }
+  .myLinks #linkIncome {
+    grid-area: link3;
+  }
+  .myLinks #linkSummary {
+    grid-area: link4;
+  }
+  .myLinks #login {
+    grid-area: link5;
+  }
+  .myLinks #signUp {
+    grid-area: link6;
+    border: none;
+    color: #4edff9;
+    padding: 0px;
+    margin: 0px;
+  }
+  .myLinks #signUp:hover {
+    border: none;
+    color: #355ec4;
+  }
+  .myLinks a:hover {
+    color: #355ec4;
+  }
+  /* Footer Global*/
+  .site_footer {
+    display: none;
+    margin: 0;
+    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
+    grid-template-rows: [row1] 100%;
+    grid-template-areas: "fLogo fCol1 fCol2 fCol3";
+    color: white;
+  }
+  .footer_logo {
+    grid-area: fLogo;
+    align-self: center;
+    justify-self: center;
+  }
+  .footer_logo img {
+    height: 100px;
+    width: 145px;
+  }
+  .footer_col1 {
+    grid-area: fCol1;
+  }
+  .footer_col2 {
+    grid-area: fCol2;
+  }
+  .footer_col3 {
+    grid-area: fCol3;
+  }
+
+  /* Index Page*/
+  .index_content {
+    margin: 0px;
+  }
+  .index_header {
+    display: grid;
+    grid-template-rows: [row1] 50% [row2] 50%;
+    grid-template-columns: [col1] 100%;
+    grid-template-areas:
+      "headerTitle"
+      "headerText";
+    width: 100%;
+    color: #4edff9;
+    height: 40vh;
+    margin: 75px 0px 0px 0px;
+    justify-items: center;
+    align-items: center;
+  }
+  .index_header #headerImg {
+    display: none;
+  }
+  .index_header #headerTitle {
+    margin: 25px 0px 0px 0px;
+    grid-area: headerTitle;
+    font-size: 25px;
+  }
+  .index_header #index_signupBar {
+    margin: 0;
+    border: 1px solid black;
+  }
+  .index_header #index_imgCaption {
+    display: none;
+  }
+  .index_header #headerText {
+    grid-area: headerText;
+    font-size: 15px;
+    color: white;
+    margin: 50px 0px 0px 65px;
+  }
+  .index_header #header_signupBtn {
+    grid-area: headerText;
+    color: white;
+    margin: 40px 0px 0px 300px;
+    border: 1px solid #ffec03;
+    text-decoration: none;
+    justify-self: center;
+    background-color: #ffa603;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 25px;
+  }
+  .index_header #header_signupBtn:hover {
+    background-color: #ffec03;
+    color: black;
+    border: 1px solid #ffa603;
+  }
+  .index_body {
+    margin: 0px;
+    display: grid;
+    grid-template-columns: [col1] 100%;
+    grid-template-rows: [row1] 30% [row2] 30% [row3] 30%;
+    grid-template-areas:
+      "bodyBox1"
+      "bodyBox2"
+      "bodyBox3";
+    justify-content: center;
+    align-content: center;
+    height: 400px;
+    width: 100%;
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  .index_body i {
+    font-size: 25px;
+    background-color: #4edff9;
+    color: #355ec4;
+    padding: 15px;
+    border-radius: 25px;
+    font-size: 20px;
+    place-self: center;
+  }
+  .index_bodyBox {
+    display: grid;
+    grid-template-rows: [row1] 100%;
+    grid-template-columns: [col1] 30% [col2] 60%;
+    grid-template-areas: "elemI bodyBoxH1";
+    row-gap: 0px;
+    justify-content: center;
+    align-content: center;
+    margin-top: 10px;
+    padding: 10px;
+  }
+  .bodyBox_h1 {
+    grid-area: bodyBoxH1;
+    justify-self: center;
+    font-size: 20px;
+    align-self: start;
+    padding: 10px;
+  }
+  .index_body p {
+    grid-area: bodyBoxH1;
+    margin-top: 10px;
+    justify-self: center;
+    align-self: end;
+    font-size: 12px;
+  }
+  .box1 {
+    grid-area: bodyBox1;
+    background-color: #30353d;
+    color: white;
+    border: none;
+  }
+  .box2 {
+    grid-area: bodyBox2;
+    background-color: #30353d;
+    color: white;
+    border: none;
+  }
+  .box3 {
+    grid-area: bodyBox3;
+    background-color: #30353d;
+    color: white;
+    border: none;
+  }
+
+  /*Receipt Page*/
+  .expenses_content {
+    margin: 10px;
+  }
+  .expensesHeader {
+    display: grid;
+    grid-template-rows: [row1] 50% [row2] 50%;
+    grid-template-columns: [col1] 100%;
+    grid-template-areas:
+      "rHeaderH1"
+      "rHeaderP";
+    margin: 75px 20px 0px 20px;
+    max-height: 40vh;
+    height: 300px;
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  .expensesHeader img {
+    display: none;
+  }
+  .expensesHeader #expensesHeader_p {
+    grid-area: rHeaderP;
+    justify-self: center;
+    align-self: start;
+    color: white;
+    font-size: 15px;
+  }
+  .expensesHeader #expensesHeader_h1 {
+    grid-area: rHeaderH1;
+    align-self: end;
+    justify-self: center;
+    font-size: 25px;
+    color: #ffa603;
+  }
+  .chart_disp {
+    display: grid;
+    grid-template-rows: [row1] 10% [row2] 90%;
+    grid-template-columns: [col1] 100%;
+    background-color: #30353d;
+    justify-items: center;
+    align-items: center;
+    color: white;
+    height: 475px;
+    border-radius: 10px;
+
+    padding: 10px;
+    margin: 0px 0px 50px 0px;
+  }
+  .chart_disp h1 {
+    font-size: 20px;
+  }
+  .chart_disp #expense_chart {
+    max-height: 450px;
+    max-width: 95%;
+  }
+  /* Removed for the time, future addition if I come back to project
+  .expense_sort_options {
+    display: none;
+    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
+    color: white;
+    justify-items: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .expense_sort_options input {
+    text-transform: capitalize;
+    background-color: #30353d;
+    border: none;
+    color: white;
+  }
+  .expense_sort_options #byDate {
+    padding: 5px;
+    border-bottom: 1px solid white;
+  }
+  .expense_sort_options #byAmt {
+    padding: 5px;
+    border-bottom: none;
+  }
+  .expense_sort_options #byCat {
+    padding: 5px;
+    border-bottom: none;
+  }
+  .expense_sort_options #byDesc {
+    padding: 5px;
+    border-bottom: none;
+  }
+  .expense_sort_options a:hover {
+    cursor: pointer;
+  }
+  */
+  .expensesBody {
+    display: grid;
+    grid-template-rows: [row1] 10% [row2] 90%;
+    grid-template-areas:
+      "expenseHead"
+      "expenseData";
+    width: 100%;
+    max-height: 40vh;
+    border-radius: 10px;
+    background-color: #30353d;
+  }
+  .expensesBody_headings {
+    grid-area: expenseHead;
+    display: grid;
+    grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
+    grid-template-rows: [row1] 100%;
+    grid-template-areas: "titleHead amtHead dateHead";
+    font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: white;
+    width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 10px;
+    text-decoration: underline #ffa603;
+  }
+  .expensesBody_headings #title_heading {
+    grid-area: titleHead;
+  }
+  .expensesBody_headings #amount_heading {
+    grid-area: amtHead;
+    justify-self: center;
+  }
+  .expensesBody_headings #cat_heading {
+    display: none;
+    grid-area: catHead;
+    justify-self: center;
+  }
+  .expensesBody_headings #date_heading {
+    grid-area: dateHead;
+    justify-self: center;
+  }
+  .expensesBody_headings #create_expense {
+    grid-area: createExp;
+    font-size: 50px;
+    font-weight: bold;
+    color: #4edff9;
+  }
+  .expensesBody_headings #create_expense:hover {
+    color: #355ec4;
+  }
+  .expensesBody_data {
+    grid-area: expenseData;
+    display: grid;
+    grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
+    width: 100%;
+    overflow: scroll;
+    font-size: 12px;
+    justify-items: center;
+    padding-left: 10px;
+    color: white;
+    max-height: 400px;
+    height: 250px;
+  }
+  .expensesBody a {
+    text-decoration: none;
+  }
+  .expensesBody_data #expensesBody_cat {
+    display: none;
+  }
+  .expensesBody_data #expensesBody_title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffa603;
+    justify-self: start;
+  }
+  .expensesBody_data #expensesBody_title:hover {
+    color: #ffec03;
+  }
+  .expenses_content #expensesBody_total {
+    font-size: 18px;
+    padding-top: 10px;
+    margin: 20px 0px 25px 0px;
+    color: white;
+    border-top: 1px solid white;
+  }
+  .expenses_content #expensesBody_create {
+    padding: 12px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    background-color: #ffa603;
+    color: white;
+    margin: 15px 0px 20px 0px;
+    font-size: 15px;
+    border-radius: 20px;
+  }
+  .expenses_content #expensesBody_create:hover {
+    color: black;
+    background-color: #4edff9;
+  }
+
+  /*Income Page*/
+  .income_list_content {
+    margin: 0px;
+  }
+  .incomeHeader {
+    display: grid;
+    grid-template-rows: [row1] 50% [row2] 50%;
+    grid-template-columns: [col1] 100%;
+    grid-template-areas:
+      "rHeaderH1"
+      "rHeaderP";
+    margin: 100px 0px 0px 0px;
+    max-height: 60vh;
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  .incomeHeader #incomeHeader_img {
+    display: none;
+    justify-self: end;
+    grid-area: rHeaderImg;
+    height: 50vh;
+    width: 40vw;
+  }
+  .incomeHeader #incomeHeader_p {
+    grid-area: rHeaderP;
+    justify-self: center;
+    align-self: start;
+    font-size: 17px;
+    color: white;
+  }
+  .incomeHeader #incomeHeader_h1 {
+    grid-area: rHeaderH1;
+    align-self: end;
+    justify-self: center;
+    font-size: 35px;
+    color: #4edff9;
+  }
+  .income_body {
+    display: grid;
+    border-radius: 10px;
+    grid-template-columns: [col1] 100%;
+    grid-template-rows: [row1] 10% [row2] 90%;
+    grid-template-areas:
+      "bodyHead"
+      "bodyData";
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #30353d;
+    max-height: 60vh;
+    color: white;
+    min-height: 200px;
+    margin: 0px;
+  }
+  .bodyHead {
+    grid-area: bodyHead;
+    display: grid;
+    grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
+    width: 100%;
+    justify-items: start;
+    grid-template-areas: "descHead amtHead dateHead";
+    text-decoration: underline;
+    margin: 0px 0px 0px 20px;
+    font-size: 10px;
+  }
+  .income_body #descHead {
+    grid-area: descHead;
+  }
+  .income_body #catHead {
+    display: none;
+    grid-area: catHead;
+  }
+  .income_body #amtHead {
+    grid-area: amtHead;
+  }
+  .income_body #dateHead {
+    grid-area: dateHead;
+  }
+  .income_body_data {
+    grid-area: bodyData;
+    display: grid;
+    width: 100%;
+    max-height: 60vh;
+    overflow: scroll;
+    grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
+    color: white;
+    font-size: 12px;
+    justify-items: start;
+  }
+  .income_body_data #incomeDisp_desc {
+    color: #4edff9;
+    text-decoration: none;
+  }
+  .income_body_data #incomeDisp_cat {
+    display: none;
+  }
+  #incomeBody_total {
+    margin: 20px 25px 20px 10px;
+    border-top: 1px solid white;
+    font-size: 18px;
+    padding-top: 10px;
+    color: white;
+  }
+
+  #incomeBody_create {
+    margin: 50px 25px 0px 10px;
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    background-color: #ffa603;
+    color: white;
+    border-radius: 20px;
+  }
+  #incomeBody_create:hover {
+    color: black;
+    background-color: #4edff9;
+  }
+
+  /* User Details Page*/
+  .details_body {
+    margin: 50px 75px 10px 75px;
+  }
+  .details_display_card {
+    display: grid;
+    background-color: rgb(195, 195, 216);
+    box-shadow: 1px 1px 1px 1px black;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  /*Summary Page*/
+  .summary_content {
+    color: white;
+    margin: 0px;
+  }
+  .summary_header {
+    margin: 75px 10px 20px 10px;
+    display: grid;
+    grid-template-columns: [col1] 100%;
+    grid-template-rows: [row1] 25% [row2] 25% [row3] 25% [row4] 25%;
+    grid-template-areas:
+      "summHeaderTitle"
+      "summHeaderP"
+      "summHeaderRight"
+      "summHeaderRight";
+  }
+  .summary_header h1 {
+    grid-area: summHeaderTitle;
+    justify-self: center;
+    align-self: end;
+    font-size: 25px;
+    color: #4edff9;
+  }
+  .summary_header p {
+    grid-area: summHeaderP;
+    justify-self: center;
+    color: white;
+  }
+  .summary_header_right {
+    grid-area: summHeaderRight;
+    display: grid;
+    grid-template-rows: [row1] 50% [row2] 50%;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-areas:
+      "headerRightTop headerRightTop"
+      "headerRightBot headerRightBot";
+    width: 98%;
+    height: 200px;
+    justify-self: center;
+    border-radius: 10px;
+  }
+  .summary_header_right_top {
+    grid-area: headerRightTop;
+    display: grid;
+    grid-template-rows: [row1] 100%;
+    grid-template-columns: [col1] 100%;
+    grid-template-areas: "date";
+    background-color: #355ec4;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .summary_header_right_top h1 {
+    grid-area: date;
+    align-self: center;
+    justify-self: center;
+    color: white;
+    font-size: 20px;
+  }
+  .summary_header_right_bot {
+    grid-area: headerRightBot;
+    display: grid;
+    grid-template-rows: [row1] 100%;
+    grid-template-columns: [col1] 10% [col2] 40% [col3] 10% [col4] 40%;
+    grid-column-gap: 8px;
+    grid-template-areas: "calendar date clock time";
+    background-color: #30353d;
+    color: white;
+    justify-items: center;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .fa-calendar {
+    grid-area: calendar;
+    justify-self: end;
+    font-size: 18px;
+  }
+  .fa-clock {
+    grid-area: clock;
+    justify-self: end;
+    font-size: 18px;
+  }
+  .summary_header_right_bot #summary_header_date {
+    font-size: 18px;
+    justify-self: start;
+    grid-area: date;
+  }
+  .summary_header_right_bot #summary_header_time {
+    font-size: 18px;
+    justify-self: start;
+    grid-area: time;
+  }
+  .summary_header_right_bot h2 {
+    font-size: 14px;
+    justify-self: center;
+    align-self: center;
+  }
+  .summary_charts {
+    display: grid;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    grid-template-rows: [row1] 8% [row2] 5% [row3] 40% [row4] 5% [row5] 40%;
+    grid-template-areas:
+      "btn1 btn2"
+      "chart1Title chart1Title"
+      "chart1 chart1"
+      "chart2Title chart2Title"
+      "chart2 chart2";
+    border-radius: 10px;
+    height: 800px;
+    width: 99%;
+    margin: 50px 0px 50px 0px;
+  }
+  .summary_charts #exp_btn {
+    grid-area: btn1;
+    background-color: #30353d;
+    border: none;
+    color: white;
+    font-size: 17px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    margin: 0px;
+  }
+  .summary_charts #inc_btn {
+    font-size: 17px;
+    grid-area: btn2;
+    background-color: #4edff9;
+    border: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    margin: 0px;
+  }
+  .summary_charts #exp_btn:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 10px black inset;
+  }
+  .summary_charts #inc_btn:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 10px black inset;
+  }
+  .charts {
+    padding: 10px;
+  }
+  .chartDisp1 {
+    grid-area: chart1;
+    align-self: start;
+    max-height: 200px;
+    width: 550px;
+  }
+  .summary_charts #monthlySpendingTitle {
+    align-self: start;
+    margin: 20px 0px 20px 0px;
+    font-size: 18px;
+    color: white;
+    visibility: visible;
+    grid-area: chart1Title;
+  }
+  .chartDisp2 {
+    grid-area: chart2;
+    align-self: start;
+    height: 200px;
+    width: 300px;
+  }
+  .summary_charts #majorExpensesTitle {
+    align-self: start;
+    margin: 20px 0px 20px 0px;
+    font-size: 18px;
+    color: white;
+    visibility: visible;
+    grid-area: chart2Title;
+  }
+  .chartDisp3 {
+    grid-area: chart1;
+    align-self: start;
+    height: 200px;
+    width: 550px;
+    display: none;
+  }
+  .summary_charts #monthlyIncomeTitle {
+    align-self: start;
+    margin: 20px 0px 20px 0px;
+    font-size: 18px;
+    place-self: center;
+    color: white;
+    visibility: hidden;
+    grid-area: chart1Title;
+  }
+  .chartDisp4 {
+    justify-self: center;
+    grid-area: chart2;
+    display: none;
+    height: 200px;
+    width: 300px;
+  }
+  .summary_charts #incomeSourcesTitle {
+    font-size: 18px;
+    visibility: hidden;
+    margin: 20px 0px 20px 0px;
+    grid-area: chart2Title;
+    place-self: center;
+    color: white;
+  }
+  .summary_content {
+    display: grid;
+    background-color: #30353d;
+    grid-template-rows: [row1] 10% [row2] 5% [row3] 35% [row4] 10% [row5] 10% [row6] 30% [row7] 5%;
+    grid-template-areas:
+      "incTitle"
+      "addInc"
+      "incomeList"
+      "recTitle"
+      "addExp"
+      "receiptList";
+    margin: 50px 0px 0px 0px;
+    border-radius: 10px;
+    font-size: 15px;
+  }
+  .summary_content #summary_incomeTitle {
+    margin-left: 15px;
+    margin-right: 15px;
+    grid-area: incTitle;
+    border-bottom: 1px solid white;
+  }
+  .summary_content #addIncome {
+    padding: 10px;
+    background-color: #ffa603;
+    width: 80px;
+    margin-left: 15px;
+    text-decoration: none;
+    color: black;
+    grid-area: addInc;
+    border-radius: 10px;
+    border: 1px solid transparent;
+  }
+  .summary_content #addIncome:hover {
+    color: #ffa603;
+    background-color: #15171a;
+    border: 1px solid #ffa603;
+  }
+  .summary_incomeList {
+    display: grid;
+    grid-area: incomeList;
+    grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
+    border-bottom: 10px solid #15171a;
+    padding: 10px;
+    overflow: scroll;
+    font-size: 15px;
+  }
+  .summary_incomeList h3 {
+    text-decoration: underline;
+  }
+  .summary_incomeList #iCatTitle {
+    display: none;
+  }
+  .summary_incomeList #summary_iDet {
+    text-decoration: none;
+    color: #ffa603;
+  }
+  .summary_incomeList #summary_incomeTotal {
+    margin: 10px 0px 0px 0px;
+    font-size: 18px;
+  }
+  .summary_incomeList #summary_iFrom {
+    display: none;
+  }
+  .summary_content #summary_receiptTitle {
+    margin-left: 15px;
+    margin-right: 15px;
+    border-bottom: 1px solid white;
+    grid-area: recTitle;
+  }
+  .summary_content #addExpense {
+    padding: 10px;
+    background-color: #4edff9;
+    width: 80px;
+    margin-left: 15px;
+    text-decoration: none;
+    color: black;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    grid-area: addExp;
+  }
+  .summary_content #addExpense:hover {
+    color: #4edff9;
+    background-color: #15171a;
+    border: 1px solid #4edff9;
+  }
+  .summary_receiptList {
+    display: grid;
+    grid-area: receiptList;
+    grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
+    padding: 10px;
+    overflow: scroll;
+    margin: 0px;
+  }
+  .summary_receiptList h3 {
+    text-decoration: underline;
+  }
+  .summary_receiptList #rCatTitle {
+    display: none;
+  }
+  .summary_receiptList #summary_recName {
+    text-decoration: none;
+    color: #4edff9;
+  }
+  .summary_receiptList #summary_receiptTotal {
+    font-size: 18px;
+    margin: 10px 0px 0px 0px;
+  }
+  .summary_receiptList #summary_rCat {
+    display: none;
+  }
+  .summary_content #summary_balance {
+    border-top: 5px solid #15171a;
+    margin: 0px 0px 20px 0px;
+    padding: 5px;
+    font-size: 20px;
+  }
+
+  /*receipt delete*/
+  .receipt_delete {
+    margin-left: 275px;
+  }
+
+  /*Global Details Page*/
+  .det_body {
+    display: grid;
+    grid-template-rows: [row1] 10% [row2] 10% [row3] 10% [row4] 10% [row5] 10% [row6] 10% [row7] 10% [row8] 10%;
+    grid-template-columns: [col1] 25% [col2] 25%;
+    margin: 0px 10px 0px 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #30353d;
+    color: white;
+    justify-content: center;
+    align-content: center;
+    font-size: 14px;
+  }
+
+  #det_title {
+    color: #355ec4;
+    font-size: 30px;
+    padding: 15px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    margin: 300px 10px 0px 10px;
+    background-color: #30353d;
+  }
+  .det_body #det_unique_title {
+    padding: 5px;
+    text-decoration: underline;
+  }
+  .det_body #delete_btn {
+    margin: 0px 10px 15px 0px;
+  }
+  .det_body #update_btn {
+    margin: 0px 0px 15px 0px;
+  }
+  .det_body a {
+    padding: 10px 30px 10px 10px;
+    background-color: #4edff9;
+    border: 1px solid #4edff9;
+    text-decoration: none;
+    border-radius: 15px;
+    align-self: center;
+    justify-self: start;
+  }
+  .det_body a:hover {
+    color: white;
+    background-color: #355ec4;
+  }
+
+  /* login page */
+  .login_body {
+    display: grid;
+    padding: 20px;
+    grid-template-rows: [row1] 10% [row2] 60% [row3] 10%;
+    grid-template-columns: [col1] 100%;
+    margin: 200px 5px 10px 5px;
+    height: 50vh;
+    box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
+    grid-template-areas:
+      "loginTitle"
+      "loginForm"
+      "loginSignUp";
+    background-color: #30353d;
+    color: white;
+  }
+  .login_title {
+    grid-area: loginTitle;
+    margin: 50px 0px 0px 0px;
+  }
+  .login_form {
+    grid-area: loginForm;
+    display: grid;
+    grid-template-rows: [row1] 5% [row2] 10% [row3] 7%;
+    grid-template-columns: [col1] 40% [col2] 40%;
+    grid-row-gap: 10px;
+    grid-template-areas:
+      "userLabel passLabel"
+      "loginName loginPass"
+      "loginSubmit .";
+    grid-column-gap: 20px;
+    justify-content: center;
+    align-content: center;
+  }
+  .login_form #login_userName {
+    grid-area: loginName;
+  }
+  .login_form #login_pass {
+    grid-area: loginPass;
+  }
+  .login_form #login_userLabel {
+    grid-area: userLabel;
+  }
+  .login_form #login_passLabel {
+    grid-area: passLabel;
+  }
+  .login_form #login_submit {
+    grid-area: loginSubmit;
+    justify-self: start;
+    align-self: center;
+    background-color: #355ec4;
+    border: 1px solid #355ec4;
+    margin-top: 20px;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  .login_form #login_submit:hover {
+    background-color: #4edff9;
+    border: 1px solid #4edff9;
+    color: black;
+  }
+  .login_SignUp {
+    grid-area: loginSignUp;
+    margin: 0px 0px 20px 50px;
+  }
+  .login_SignUp #login_signUp {
+    color: #4edff9;
+  }
+  .login_SignUp #login_signUp:hover {
+    color: #355ec4;
+  }
+
+  /*Signup Page*/
+  .signup_body {
+    display: grid;
+    grid-template-rows: [row1] 5% [row2] 70% [row3] 5%;
+    grid-template-columns: [col1] 99%;
+    margin: 180px 10px 25px 10px;
+    height: 75vh;
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
     grid-template-areas:
       "signupTitle"

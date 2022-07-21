@@ -32,19 +32,40 @@
   </nav>
 
   <script>
+    var hamburger = document.querySelector(".fa-bars");
     var x = document.querySelector(".myLinks");
     var navbar = document.querySelector(".navbar");
+    var phoneSize = window.matchMedia("(min-width: 428px)");
+    var ipadSize = window.matchMedia("(min-width: 810px)");
+    var desktopMin = window.matchMedia("(min-width: 1280px");
+    var desktopMin = window.matchMedia("(min-width: 1920px");
+    var desktopMax = window.matchMedia("(min-width: 3840px)");
+
+    if (desktopMin.matches) {
+      hamburger.style.display = "none";
+    }
+
     function myFunction() {
-      if (x.style.display === "grid") {
+      if (
+        (x.style.display == "grid" && phoneSize.matches) ||
+        (x.style.display == "grid" && ipadSize.matches)
+      ) {
         x.style.display = "none";
-        navbar.style.height = "50px";
-        navbar.style.backgroundColor = "#15171a";
+        navbar.style.display = "none";
       } else {
         x.style.display = "grid";
         navbar.style.height = "100vh";
+        navbar.style.display = "grid";
         navbar.style.backgroundColor = "rgb(48,53,61, 0.98)";
         x.style.marginTop = "60px";
       }
     }
+
+    window.onclick = function (e) {
+      if (e.target != navbar && e.target != hamburger) {
+        x.style.display = "none";
+        navbar.style.display = "none";
+      }
+    };
   </script>
 </html>
