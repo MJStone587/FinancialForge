@@ -17,10 +17,10 @@ exports.user_create_post = [
   body("userPass", "This Password is Weak AF try again.")
     .trim()
     .isStrongPassword({
-      minLength: 8,
+      minLength: 5,
       minLowercase: 1,
       minUppercase: 1,
-      minNumbers: 1,
+      minNumbers: 0,
       minSymbols: 1,
       returnScore: false,
       pointsPerUnique: 1,
@@ -64,13 +64,14 @@ exports.user_create_post = [
         res.render("user_form", {
           title: "New User Form",
           user: user,
+          authCheck: req.session.isAuth,
           errors: errors.array(),
         });
         return;
       } else {
         // Data from form is valid.
         // Check if Receipt with same name already exists.
-        User.findOne({ userName: req.body.userName }).exec(function (
+        User.findOne({ email: req.body.email }).exec(function (
           err,
           found_user
         ) {
@@ -83,7 +84,8 @@ exports.user_create_post = [
             res.render("user_form", {
               title: "New User Form",
               user: user,
-              errors: "That Username is already in Use",
+              errors: "That email is already in Use",
+              authCheck: req.session.isAuth,
             });
           } else {
             user.save(function (err) {
@@ -91,9 +93,11 @@ exports.user_create_post = [
                 return next(err);
               }
               // Receipt saved. Redirect to genre detail page.
-              res.render("index", {
-                title:
+              res.render("success", {
+                message:
                   "Success " + req.body.userName + " Successfully registered",
+                authorID: req.session.authUserID,
+                authUser: req.session.authUser,
               });
             });
           }

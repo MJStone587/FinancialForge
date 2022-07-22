@@ -40,16 +40,14 @@
     var desktopMin = window.matchMedia("(min-width: 1280px");
     var desktopMin = window.matchMedia("(min-width: 1920px");
     var desktopMax = window.matchMedia("(min-width: 3840px)");
+    var width = window.innerWidth;
 
-    if (desktopMin.matches) {
+    if (width >= 1024) {
       hamburger.style.display = "none";
     }
 
     function myFunction() {
-      if (
-        (x.style.display == "grid" && phoneSize.matches) ||
-        (x.style.display == "grid" && ipadSize.matches)
-      ) {
+      if (x.style.display == "grid" && width <= 1024) {
         x.style.display = "none";
         navbar.style.display = "none";
       } else {
@@ -60,12 +58,13 @@
         x.style.marginTop = "60px";
       }
     }
-
-    window.onclick = function (e) {
-      if (e.target != navbar && e.target != hamburger) {
-        x.style.display = "none";
-        navbar.style.display = "none";
-      }
-    };
+    if (width <= 1024) {
+      window.onclick = function (e) {
+        if (e.target != navbar && e.target != hamburger) {
+          x.style.display = "none";
+          navbar.style.display = "none";
+        }
+      };
+    }
   </script>
 </html>
