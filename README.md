@@ -8,13 +8,12 @@ The goal of this project is to become more familiar using node / express / mongo
 
 What I've Learned So Far: 
 
+
 I am realizing it is best to create small / lightweight apps that have more concise and simple functionality to practice specific frameworks. 
- I find many of these frameworkst have a lot of methods etc that make my life easier, they require a bit of digging in the documentation and practice to use them efficiently but they are there. 
+ 
+It seems it is much easier to protect data on the backend which leads me to ask JUST HOW MUCH do I want on the backend. Obviously any sensitive data such as passwords, bank account information, or ss numbers should be protected as much as possible. But what about code that if tampered with could potentially put the user in a insecure position. More practice and experience required.
  
 With a full stack application I have learned just how import asyncronous javascript is. I also realize how much more practice implementing it I need.
-
-Creating modular, easy to modify code, is much harder when I am less familiar with the frameworks and the code I am working with. 
-I continually strive to improve my code and make it easier to read / modify, yet I feel like I am never quite where I want to be in this regard. More practice is necessary.
 
 To view the current live version of the site: https://hidden-peak-86387.herokuapp.com/catalog
 THIS SITE IS A WIP
