@@ -11,7 +11,7 @@ What I've Learned So Far:
 
 I am realizing it is best to create small / lightweight apps that have more concise and simple functionality to practice specific frameworks. 
  
-It seems it is much easier to protect data on the backend which leads me to ask JUST HOW MUCH do I want on the backend. Obviously any sensitive data such as passwords, bank account information, or ss numbers should be protected as much as possible. But what about code that if tampered with could potentially put the user in a insecure position. More practice and experience required.
+It seems clear that it is much easier to protect data on the backend which leads me to ask JUST HOW MUCH do I want on the backend. Obviously any sensitive data such as passwords, bank account information, or ss numbers should be protected as much as possible. But what about code that if tampered with could potentially put the user in a insecure position. More practice and experience required.
  
 With a full stack application I have learned just how import asyncronous javascript is. I also realize how much more practice implementing it I need.
 
