@@ -66,13 +66,12 @@ router.post("/user/create", user_controller.user_create_post);
 
 //GET requeest for user Sign in page
 router.get("/user/login", user_controller.user_login_get);
+
 //Post request for user sign in
 router.post("/user/login", user_controller.user_login_post);
 
 router.get("/user/:id", user_controller.user_detail_get);
 
-router.get("/user/logout", user_controller.user_logout_get);
-
-router.post("/user/logout", user_controller.user_logout_post);
+router.get("/logout", user_controller.user_logout);
 
 module.exports = router;

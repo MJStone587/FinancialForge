@@ -145,7 +145,9 @@ exports.user_login_get = function (req, res) {
 };
 
 exports.user_login_post = async function (req, res) {
-  const { userName, userPass } = req.body;
+  /*const { userName, userPass } = req.body;*/
+  var userName = req.body.userName;
+  var password = req.body.userPass;
 
   User.findOne({ userName }, function (err, results) {
     if (err) {
@@ -156,7 +158,7 @@ exports.user_login_post = async function (req, res) {
         authUser: results.userName,
       });
     } else {
-      const match = bcrypt.compareSync(userPass, results.userPass);
+      const match = bcrypt.compareSync(password, results.userPass);
       if (!match) {
         console.log(match);
         return res.render("user_login", {
@@ -166,7 +168,6 @@ exports.user_login_post = async function (req, res) {
           authUser: results.userName,
         });
       } else {
-        console.log(match);
         req.session.isAuth = true;
         req.session.authUser = results.userName;
         req.session.authUserID = results._id;
@@ -176,16 +177,11 @@ exports.user_login_post = async function (req, res) {
   });
 };
 
-exports.user_logout_get = function (req, res) {
-  res.render("logout");
-};
-
-exports.user_logout_post = function (req, res) {
+exports.user_logout = function (req, res) {
   req.session.isAuth = false;
-  res.render("index", {
-    title: "Home",
+  res.render("logout", {
     authCheck: req.session.isAuth,
-    authorID: "62a21b717001a8755da33cf7",
-    authUser: "Sample",
+    authorID: req.session.authUserID,
+    authUser: req.session.authUser,
   });
 };
