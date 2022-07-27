@@ -1141,6 +1141,10 @@ html {
   margin: 0px 0px 0px 275px;
   color: white;
 }
+.logout_message {
+  margin: 150px 0px 0px 750px;
+  color: white;
+}
 
 /* Styling for  mobile 1*/
 @media screen and (min-width: 412px) and (max-width: 629px) {
