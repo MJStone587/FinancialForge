@@ -67,5 +67,19 @@
         }
       };
     }
+    function escPress(e) {
+      if (e.key === Escape) {
+        if (x.style.display == "grid" && width <= 1024) {
+          x.style.display = "none";
+          navbar.style.display = "none";
+        } else {
+          x.style.display = "grid";
+          navbar.style.height = "100vh";
+          navbar.style.display = "grid";
+          navbar.style.backgroundColor = "rgb(48,53,61, 0.98)";
+          x.style.marginTop = "60px";
+        }
+      }
+    }
   </script>
 </html>

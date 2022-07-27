@@ -31,7 +31,7 @@
       <canvas id="expense_chart"></canvas>
     </div>
 
-<!-- THIS IS ON HOLD FOR NOW Got to be a better, more efficient way to sort KEEP AT IT -->
+<!-- THIS IS ON HOLD FOR NOW  eventually sort options -->
     <div class="expense_sort_options">
         <form action="" method="GET">
           <input type="submit" id="byDate" name="sortBy" value="date"/>
@@ -59,6 +59,10 @@
           <% } %>
       </div>
 
+      <% var monthRecTotals = [0,0,0,0,0,0,0,0,0,0,0,0] %>
+      <% var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
+      <% var total_receipt = 0; %> 
+      <% var categories = ["Food","Entertainment","House","Car","Work","Clothing","Pet","Self-Care"]%>
     </main>
 
     <% let total = 0; %>
@@ -69,6 +73,13 @@
       <% return Number(Math.round(value +'e'+ decimals) +'e-'+ decimals).toFixed(decimals); %>
     <% } %>
 
+    <% for(let i=0; i< receipt_list.length; i++) { %>
+      <% for(let x=0; x< months.length; x++){ %>
+        <% if(receipt_list[i].date_month == months[x]) { %>
+           <% monthRecTotals[x] += receipt_list[i].total; %>
+         <% } %>
+        <% } %>
+    <% } %>
     <h2 id="expensesBody_total">Receipt Totals: $<%=round(total, 2);%></h2>
     <a id="expensesBody_create" href="receipt/create">+ Add Receipt</a>
   </body>
@@ -117,12 +128,12 @@
         labels: ["Jan", "Feb", "March","Apr","May","June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
         datasets: [{
             label: "Spending in Dollars",
-            data: [445, 30, 613, 1239, 345, 240, 123, 329, 885, 543, 1023, 748],
+            data: ["<%=monthRecTotals[0]%>", "<%=monthRecTotals[1]%>", "<%=monthRecTotals[2]%>", "<%=monthRecTotals[3]%>", "<%=monthRecTotals[4]%>", "<%=monthRecTotals[5]%>","<%=monthRecTotals[6]%>", "<%=monthRecTotals[7]%>", "<%=monthRecTotals[8]%>", "<%=monthRecTotals[9]%>", "<%=monthRecTotals[10]%>", "<%=monthRecTotals[11]%>"],
             backgroundColor: [
-              'rgb(255,166,3)'
+              'rgba(78, 250, 255)'
             ],
             borderColor: [
-              'rgb(255,166,3)'
+              'rgba(78, 250, 255)'
             ],
             borderWidth: 1
         }]
@@ -135,7 +146,7 @@
                   color: "white",
                     // This more specific font property overrides the global property
                     font: {
-                        size: 15,
+                        size: 12,
                      }
                    }
                 }
