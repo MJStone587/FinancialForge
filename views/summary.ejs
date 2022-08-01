@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/reset.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link
     rel="icon"
@@ -45,131 +46,134 @@
     </div>
   </header>
 
-<body>
+  <body class="summary_body">
 
-  <div class="summary_charts">
-      <button id="exp_btn">Expenses</button>
-      <button id="inc_btn">Income</button>
-      <h1 id="monthlySpendingTitle">Monthly Spending</h1>
-    <div class="chartDisp1 charts">
-      <canvas id="monthlySpending"></canvas>
+    <div class="summary_charts">
+        <button id="exp_btn">Expenses</button>
+        <button id="inc_btn">Income</button>
+        <h1 id="monthlySpendingTitle">Monthly Spending</h1>
+      <div class="chartDisp1 charts">
+        <canvas id="monthlySpending"></canvas>
+      </div>
+      <h1 id="majorExpensesTitle">Major Expenses</h1>
+      <div class="chartDisp2 charts">
+        <canvas id="majorExpenses"></canvas>
+      </div>
+      <h1 id="monthlyIncomeTitle">Monthly Income</h1>
+      <div class="chartDisp3 charts">
+        <canvas id="monthlyIncome"></canvas>
+      </div>
+      <h1 id="incomeSourcesTitle">Income Sources</h1>
+      <div class="chartDisp4 charts">
+        <canvas id="incomeSources"></canvas>
+      </div>
     </div>
-    <h1 id="majorExpensesTitle">Major Expenses</h1>
-    <div class="chartDisp2 charts">
-      <canvas id="majorExpenses"></canvas>
-    </div>
-    <h1 id="monthlyIncomeTitle">Monthly Income</h1>
-    <div class="chartDisp3 charts">
-      <canvas id="monthlyIncome"></canvas>
-    </div>
-    <h1 id="incomeSourcesTitle">Income Sources</h1>
-    <div class="chartDisp4 charts">
-      <canvas id="incomeSources"></canvas>
-    </div>
-  </div>
 
-  <% var monthRecTotals = [0,0,0,0,0,0,0,0,0,0,0,0] %>
-    <% var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
-    <% var total_receipt = 0; %> 
-    <% var categories = ["Food","Entertainment","House","Car","Work","Clothing","Pet","Self-Care"]%>
-    <% var catTotals = [0,0,0,0,0,0,0,0] %>
-    <% var incCategories = ["Job", "Gift", "Investment", "Savings", "Other"] %>
-    <% var incCatTotals = [0,0,0,0,0]; %>
-    <% monthlyIncTotals = [0,0,0,0,0,0,0,0,0,0,0,0]; %>
+    <% var monthRecTotals = [0,0,0,0,0,0,0,0,0,0,0,0] %>
+      <% var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
+      <% var total_receipt = 0; %> 
+      <% var categories = ["Food","Entertainment","House","Car","Work","Clothing","Pet","Self-Care"]%>
+      <% var catTotals = [0,0,0,0,0,0,0,0] %>
+      <% var incCategories = ["Job", "Gift", "Investment", "Savings", "Other"] %>
+      <% var incCatTotals = [0,0,0,0,0]; %>
+      <% monthlyIncTotals = [0,0,0,0,0,0,0,0,0,0,0,0]; %>
 
-<main class="summary_content">
-    <!-- Summary Income List-->
-    <% var total_income = 0; %> 
-    <% var balance = 0 %>
-    <h1 id="summary_incomeTitle">Income</h1>
-    <a href="/catalog/income/create"id="addIncome">+Income</a>
-    <div class="summary_incomeList">
-      <h3 id="iDescTitle">Description</h3>
-      <h3 id="iTotalTitle">Total</h3>
-      <h3 id="iDateTitle">Date</h3>
-      <h3 id="iCatTitle">Category</h3>
-      <% for(let i = 0; i < incomes.length; i++){ %>  
-      <a id="summary_iDet" href="/catalog/income/<%= incomes[i]._id %>"><%= incomes[i].description %></a>
-      <p id="summary_iAmt">$<%= incomes[i].amount %></p>
-      <p id="summary_iDate"><%= incomes[i].date_month %></p>
-      <p id="summary_iFrom"><%= incomes[i].from %></p> 
-      <% total_income += incomes[i].amount %> <% } %>
-      <% function round(value,decimals) { %> 
-        <% return Number(Math.round(value +'e'+decimals) +'e-'+ decimals).toFixed(decimals); %> 
+  <main class="summary_content">
+      <!-- Summary Income List-->
+      <% var total_income = 0; %> 
+      <% var balance = 0 %>
+      <h1 id="summary_incomeTitle">Income</h1>
+      <a href="/catalog/income/create"id="addIncome">+Income</a>
+      <div class="summary_incomeList">
+        <h3 id="iDescTitle">Description</h3>
+        <h3 id="iTotalTitle">Total</h3>
+        <h3 id="iDateTitle">Date</h3>
+        <h3 id="iCatTitle">Category</h3>
+        <% for(let i = 0; i < incomes.length; i++){ %>  
+        <a id="summary_iDet" href="/catalog/income/<%= incomes[i]._id %>"><%= incomes[i].description %></a>
+        <p id="summary_iAmt">$<%= incomes[i].amount %></p>
+        <p id="summary_iDate"><%= incomes[i].date_month %></p>
+        <p id="summary_iFrom"><%= incomes[i].from %></p> 
+        <% total_income += incomes[i].amount %> <% } %>
+        <% function round(value,decimals) { %> 
+          <% return Number(Math.round(value +'e'+decimals) +'e-'+ decimals).toFixed(decimals); %> 
+        <% } %>
+      
+        <h2 id="summary_incomeTotal">
+          Total Income: $<%= round(total_income,2) %>
+        </h2> 
+      </div>
+
+      <% for(let i=0; i< incomes.length; i++) { %>
+        <% for(let x=0; x< months.length; x++){ %>
+          <% if(incomes[i].date_month == months[x]) { %>
+            <% monthlyIncTotals[x] += incomes[i].amount; %>
+          <% } %>
+          <% } %>
       <% } %>
-     
-      <h2 id="summary_incomeTotal">
-        Total Income: $<%= round(total_income,2) %>
-      </h2> 
-    </div>
-
-    <% for(let i=0; i< incomes.length; i++) { %>
-      <% for(let x=0; x< months.length; x++){ %>
-        <% if(incomes[i].date_month == months[x]) { %>
-           <% monthlyIncTotals[x] += incomes[i].amount; %>
-         <% } %>
-        <% } %>
-    <% } %>
 
 
-    <% for(let i=0; i< incomes.length; i++) { %>
-      <% for(let x=0; x< incCategories.length; x++){ %>
-        <% if(incomes[i].from == incCategories[x]) { %>
-           <% incCatTotals[x] += 1; %>
-         <% } %>
-        <% } %>
-    <% } %>
+      <% for(let i=0; i< incomes.length; i++) { %>
+        <% for(let x=0; x< incCategories.length; x++){ %>
+          <% if(incomes[i].from == incCategories[x]) { %>
+            <% incCatTotals[x] += 1; %>
+          <% } %>
+          <% } %>
+      <% } %>
 
 
 
     <!--       Summary Receipts                -->
-    <h1 id="summary_receiptTitle">Expenses</h1>
-    <a href="/catalog/receipt/create" id="addExpense">+Expense</a>
-    <div class="summary_receiptList">
-      <h3>Description</h3>
-      <h3>Total</h3>
-      <h3>Date</h3>
-      <h3 id="rCatTitle">Category</h3>
-      <% for(let i = 0; i < receipts.length; i++) { %>
-      <a id="summary_recName" href="/catalog/receipt/<%= receipts[i]._id %>"><%= receipts[i].description %></a>
-      <p><%= "$" + receipts[i].total %></p>
-      <p><%= receipts[i].date_month %></p>
-      <p id="summary_rCat"><%= receipts[i].category %></p>
-      <% } %>
-  
-
-    <% for(let i = 0; i < receipts.length; i++) { %> 
-      <% total_receipt += receipts[i].total; %> 
-      <% } %>
-     <% function round(value, decimals) { %> 
-      <% return Number(Math.round(value +'e'+ decimals) +'e-'+ decimals).toFixed(decimals); %> 
-      <% } %>
-
-    <% for(let i=0; i< receipts.length; i++) { %>
-         <% for(let x=0; x< months.length; x++){ %>
-           <% if(receipts[i].date_month == months[x]) { %>
-              <% monthRecTotals[x] += receipts[i].total; %>
-            <% } %>
-           <% } %>
-       <% } %>
-
-    <% for(let i=0; i< receipts.length; i++) { %>
-        <% for(let x=0; x< categories.length; x++){ %>
-          <% if(receipts[i].category == categories[x]) { %>
-             <% catTotals[x] += 1; %>
-           <% } %>
-          <% } %>
-      <% } %>
+      <h1 id="summary_receiptTitle">Expenses</h1>
+      <a href="/catalog/receipt/create" id="addExpense">+Expense</a>
+      <div class="summary_receiptList">
+        <h3>Description</h3>
+        <h3>Total</h3>
+        <h3>Date</h3>
+        <h3 id="rCatTitle">Category</h3>
+        <% for(let i = 0; i < receipts.length; i++) { %>
+        <a id="summary_recName" href="/catalog/receipt/<%= receipts[i]._id %>"><%= receipts[i].description %></a>
+        <p><%= "$" + receipts[i].total %></p>
+        <p><%= receipts[i].date_month %></p>
+        <p id="summary_rCat"><%= receipts[i].category %></p>
+        <% } %>
     
-    <h2 id="summary_receiptTotal">
-      Total Expenses: $<%=round(total_receipt, 2);%>
-    </h2>
-    </div>
-    <!--  Balance and Charts -->
-    <% balance = total_income - total_receipt %>
-    <h1 id="summary_balance">Balance = $<%= round(balance, 2); %></h1>
-  </main>
-</body>
+
+      <% for(let i = 0; i < receipts.length; i++) { %> 
+        <% total_receipt += receipts[i].total; %> 
+        <% } %>
+      <% function round(value, decimals) { %> 
+        <% return Number(Math.round(value +'e'+ decimals) +'e-'+ decimals).toFixed(decimals); %> 
+        <% } %>
+
+      <% for(let i=0; i< receipts.length; i++) { %>
+          <% for(let x=0; x< months.length; x++){ %>
+            <% if(receipts[i].date_month == months[x]) { %>
+                <% monthRecTotals[x] += receipts[i].total; %>
+              <% } %>
+            <% } %>
+        <% } %>
+
+      <% for(let i=0; i< receipts.length; i++) { %>
+          <% for(let x=0; x< categories.length; x++){ %>
+            <% if(receipts[i].category == categories[x]) { %>
+              <% catTotals[x] += 1; %>
+            <% } %>
+            <% } %>
+        <% } %>
+      
+      <h2 id="summary_receiptTotal">
+        Total Expenses: $<%=round(total_receipt, 2);%>
+      </h2>
+      </div>
+      <!--  Balance and Charts -->
+      <% balance = total_income - total_receipt %>
+      <h1 id="summary_balance">Balance = $<%= round(balance, 2); %></h1>
+    </main>
+
+  </body>
+  
+</html>
 
   <script>
     const ctx = document.getElementById("monthlySpending");
@@ -410,5 +414,3 @@ var newChart = new Chart(btx, {
     }
 });
   </script>
-  <%- include('footer') %>
-</html>

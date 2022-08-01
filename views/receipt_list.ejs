@@ -7,6 +7,7 @@
     href="/images/favicon_io/favicon.ico"
   />
     <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/reset.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -18,14 +19,15 @@
     <%-include("navbar") %> 
    <% } %>
 
-   <body class="expenses_content">
+ 
 
-    <header class="expensesHeader">
-      <h1 id="expensesHeader_h1"><%= authUser %>'s <%= title %></h1>
-      <p id="expensesHeader_p">Here you can review, edit, delete, and add receipts</p>
-      <img id="expensesHeader_img" src="/images/receiptimage.png">
-    </header>
-    
+  <header class="expensesHeader">
+    <h1 id="expensesHeader_h1"><%= authUser %>'s <%= title %></h1>
+    <p id="expensesHeader_p">Here you can review, edit, delete, and add receipts</p>
+    <img id="expensesHeader_img" src="/images/receiptimage.png">
+  </header>
+
+  <body class="expenses_content"> 
     <div class="chart_disp">
       <h1>Spending Trend</h1>
       <canvas id="expense_chart"></canvas>
@@ -41,15 +43,15 @@
         </form>
     </div>
 
-    <main class="expensesBody">
-      <div class="expensesBody_headings">
+    <main class="expensesMain">
+      <div class="expensesMain_headings">
         <h1 id="title_heading">Title</h1>
         <h1 id="amount_heading">Amount</h1>
         <h1 id="cat_heading">Category</h1>
         <h1 id="date_heading">Date</h1>
       </div>
 
-      <div class="expensesBody_data">
+      <div class="expensesMain_data">
         <% for(let i = 0; i < receipt_list.length; i++) { %>
         <!--<a href="/catalog/receipt/<%= receipt_list[i]._id %>"></a>-->
           <a href="/catalog/receipt/<%= receipt_list[i]._id %>" id="expensesBody_title"><%= receipt_list[i].description %></a>

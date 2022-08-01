@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/reset.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link
     rel="icon"
@@ -19,17 +20,20 @@
     <%-include("navbar") %> 
    <% } %>
 
-<div class="income_list_content">
 
-  <div class="incomeHeader">
+
+  <header class="incomeHeader">
     <h1 id="incomeHeader_h1"><%= authUser %>'s <%= title %></h1>
     <p id="incomeHeader_p">
       Here you can review, edit, delete, and add income
     </p>
     <img id="incomeHeader_img" src="/images/incomeImg.png" />
-  </div>
- 
-  <div class="income_body">
+  </header>
+
+ <body class="income_body">
+
+  <main class="income_main">
+
     <div class="bodyHead">
       <h1 id="descHead">Description</h1>
       <h1 id="amtHead">Amount</h1>
@@ -37,7 +41,7 @@
       <h1 id="dateHead">Date</h1>
     </div>
 
-    <div class="income_body_data">
+    <div class="income_main_data">
       <% for(let i = 0; i < results.length; i++) { %>
         <a href="/catalog/income/<%= results[i]._id %>" id="incomeDisp_desc"><%= results[i].description %></a>
          <p id="incomeDisp_cat"><%= results[i].from %></p>
@@ -46,7 +50,7 @@
         <% } %>
     </div>
     
-  </div>
+  </main>
 
    
   <% let total = 0; %>
@@ -59,6 +63,6 @@
 
   <h1 id="incomeBody_total">Total: $<%= round(total,2); %></h1>
   <a id="incomeBody_create" href="/catalog/income/create">+Create New Income</a>
-</div>
+</body>
   <%- include("footer"); %>
 </html>
