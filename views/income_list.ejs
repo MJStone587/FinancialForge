@@ -11,6 +11,8 @@
     type="image/x-icon"
     href="/images/favicon_io/favicon.ico"
   />
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title><%= title %></title>
   </head>
 
@@ -32,6 +34,11 @@
 
  <body class="income_body">
 
+  <div class="inc_chart_disp">
+    <h1>Monthly Income</h1>
+    <canvas id="income_chart"></canvas>
+  </div>
+
   <main class="income_main">
 
     <div class="bodyHead">
@@ -49,6 +56,8 @@
          <p id="incomeDisp_date"><%= results[i].date_month %></p>
         <% } %>
     </div>
+    <% var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
+    <% monthlyIncTotals = [0,0,0,0,0,0,0,0,0,0,0,0]; %>
     
   </main>
 
@@ -61,8 +70,75 @@
       <% return Number(Math.round(value +'e'+ decimals) +'e-'+ decimals).toFixed(decimals); %>
     <% } %>
 
+    <% for(let i=0; i< results.length; i++) { %>
+      <% for(let x=0; x< months.length; x++){ %>
+        <% if(results[i].date_month == months[x]) { %>
+          <% monthlyIncTotals[x] += results[i].amount; %>
+        <% } %>
+        <% } %>
+    <% } %>
+
+
   <h1 id="incomeBody_total">Total: $<%= round(total,2); %></h1>
   <a id="incomeBody_create" href="/catalog/income/create">+Create New Income</a>
 </body>
   <%- include("footer"); %>
+
+  <script>  
+    var incChart = document.getElementById("income_chart")
+
+    var myChart = new Chart(incChart, {
+    type: 'line',
+    data: {
+        labels: ["Jan", "Feb", "March","Apr","May","June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
+        datasets: [{
+            label: "Income in Dollars",
+            data: ["<%= monthlyIncTotals[0] %>", "<%= monthlyIncTotals[1] %>","<%= monthlyIncTotals[2] %>", "<%= monthlyIncTotals[3] %>", "<%= monthlyIncTotals[4] %>", "<%= monthlyIncTotals[5] %>", "<%= monthlyIncTotals[6] %>", "<%= monthlyIncTotals[7] %>", "<%= monthlyIncTotals[8] %>", "<%= monthlyIncTotals[9] %>", "<%= monthlyIncTotals[10] %>", "<%= monthlyIncTotals[11] %>"],
+            backgroundColor: [
+                'rgba(78, 250, 255)',
+            ],
+            borderColor: [
+                'rgba(78, 250, 255)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                labels: {
+                  color: "white",
+                    // This more specific font property overrides the global property
+                    font: {
+                        size: 15,
+                     }
+                   }
+                }
+             },
+        scales: {
+              y: {  
+                grid: { color: "black", borderColor: "black"},
+                ticks: {
+                  color: "white",
+                  font: {
+                    size: 15, 
+                  },
+                  beginAtZero: true
+                }
+              },
+              x: { 
+                grid: { color: "black", borderColor: "black"},
+                ticks: {
+                  color: "white", 
+                  font: {
+                    size: 14 
+                  },  
+                  beginAtZero: true
+                }
+              }
+            }
+         }
+});
+  </script>
 </html>

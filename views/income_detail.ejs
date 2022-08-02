@@ -5,29 +5,24 @@
     <link rel="stylesheet" href="/stylesheets/reset.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link
-    rel="icon"
-    type="image/x-icon"
-    href="/images/favicon_io/favicon.ico"
-  /> 
+      rel="icon"
+      type="image/x-icon"
+      href="/images/favicon_io/favicon.ico"
+    />
   </head>
-  <% if(authCheck){ %> 
-    <%- include("navbarLI") %> 
-    <% } else { %> 
-    <%-include("navbar") %> 
-   <% } %>
-  <h1 id="det_title"><%= title %></h1>
+  <% if(authCheck){ %> <%- include("navbarLI") %> <% } else { %>
+  <%-include("navbar") %> <% } %>
 
   <div class="det_body">
     <h2 id="det_unique_title"><%= results.name %></h2>
     <h3 id="det_label_1">Description:</h3>
-    <h3 id="det_label_2">From:</h3> 
+    <h3 id="det_label_2">From:</h3>
     <h3 id="det_label_3">Amount:</h3>
     <h3 id="det_label_4">Date:</h3>
     <p id="det_label_data_1"><%= results.description %></p>
     <p id="det_label_data_2"><%= results.from %></p>
     <p id="det_label_data_3"><%= "$" + results.amount %></p>
-    <p id="det_label_data_4"> <%= results.date_formatted  %> </p>
-  </br>
+    <p id="det_label_data_4"><%= results.date_formatted %></p>
     <a id="delete_btn" href="/catalog/income/<%= results._id %>/delete"
       >Delete</a
     >

@@ -153,6 +153,7 @@ html {
 }
 .index_header #headerTitle {
   font: 35px "Bree Serif", serif;
+  align-self: end;
   font-weight: medium;
   grid-area: headerTitle;
 }
@@ -192,10 +193,10 @@ html {
 .index_body {
   display: grid;
   grid-template-rows: [row1] 100%;
-  grid-template-columns: [col1] 30% [col2] 30% [col3] 30%;
+  grid-template-columns: [col1] 33% [col2] 33% [col3] 33%;
   grid-template-areas: "bodyBox1 bodyBox2 bodyBox3";
   font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-  margin: 25px 50px 0px 250px;
+  margin: 50px 50px 0px 250px;
 }
 .index_bodyBox {
   display: grid;
@@ -461,25 +462,45 @@ html {
   display: grid;
   border-radius: 10px;
   grid-template-columns: [col1] 100%;
-  grid-template-rows: [row1] 10% [row2] 90%;
+  grid-template-rows: [row1] 40% [row2] 10% [row3] 50%;
   grid-template-areas:
+    "chartDisp"
     "bodyHead"
     "bodyData";
-  background-color: #30353d;
-  max-height: 60vh;
   color: white;
-  height: 150px;
+  max-height: 80vh;
+  padding: 15px;
+  background-color: #30353d;
+}
+.inc_chart_disp {
+  grid-area: chartDisp;
+  display: grid;
+  grid-template-rows: [row1] 10% [row2] 90%;
+  grid-template-columns: [col1] 100%;
+  background-color: #30353d;
+  justify-items: center;
+  align-items: center;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0px 0px 30px 0px;
+}
+.inc_chart_disp h1 {
+  font-size: 20px;
+}
+.inc_chart_disp #income_chart {
+  max-height: 350px;
+  max-width: 95%;
 }
 .bodyHead {
   grid-area: bodyHead;
   display: grid;
   grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
-  width: 100%;
   font: 25px "Bree Serif", serif;
   justify-items: start;
   grid-template-areas: "descHead catHead amtHead dateHead";
   text-decoration: underline;
-  margin: 0px 0px 0px 20px;
+  margin: 0px 0px 0px 25px;
 }
 .income_main #descHead {
   grid-area: descHead;
@@ -496,25 +517,29 @@ html {
 .income_main_data {
   grid-area: bodyData;
   display: grid;
-  width: 100%;
-  max-height: 500px;
-  overflow: scroll;
+  overflow: auto;
   grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
   color: white;
   row-gap: 10px;
   font-size: 17px;
-  justify-items: start;
-  margin: 30px 0px 0px 20px;
+  align-content: start;
+  height: 200px;
+  max-height: 300px;
+  margin: 30px 0px 0px 25px;
 }
 .income_main_data #incomeDisp_desc {
   color: #4edff9;
   text-decoration: none;
 }
-
+.income_main_data #incomeDisp_desc:hover {
+  color: #adf3ff;
+  text-decoration: none;
+}
 #incomeBody_total {
   margin: 20px 25px 20px 25px;
   border-top: 1px solid white;
   padding-top: 10px;
+  font: 25px "Bree Serif", serif;
   color: white;
 }
 
@@ -533,10 +558,52 @@ html {
   background-color: #4edff9;
 }
 
+/* Income Form */
+
+.income_form_content {
+  display: grid;
+  margin: 350px 50px 0px 250px;
+  color: white;
+  background-color: #30353d;
+  height: 150px;
+  border-radius: 10px;
+  justify-content: center;
+  align-content: center;
+}
+.income_form_content h1 {
+  margin-bottom: 20px;
+}
+
+/* Expense Form */
+
+.expense_form_content {
+  display: grid;
+  margin: 350px 50px 0px 250px;
+  color: white;
+  background-color: #30353d;
+  height: 200px;
+  border-radius: 10px;
+  justify-content: center;
+  align-content: center;
+}
+.expense_form_content h1 {
+  margin: 10px 0px 10px 15px;
+}
+.expense_form_content form {
+  padding: 10px;
+}
+
 /* User Details Page*/
 .details_body {
   margin: 50px 75px 10px 275px;
   color: white;
+}
+.details_body h1 {
+  font: 30px "Bree Serif", serif;
+}
+.details_body h2 {
+  font: 23px "Bree Serif", serif;
+  text-decoration: underline;
 }
 .details_display_card_1 {
   display: grid;
@@ -757,8 +824,7 @@ html {
 }
 .summary_content {
   display: grid;
-  background-color: #30353d;
-  grid-template-rows: [row1] 10% [row2] 5% [row3] 35% [row4] 10% [row5] 10% [row6] 30% [row7] 5%;
+  grid-template-rows: [row1] 8% [row2] 5% [row3] 35% [row4] 8% [row5] 5% [row6] 30% [row7] 5%;
   grid-template-areas:
     "incTitle"
     "addInc"
@@ -769,11 +835,12 @@ html {
   margin: 50px 0px 50px 0px;
   max-width: 100vw;
   border-radius: 10px;
+  height: 80vh;
+  background-color: #30353d;
 }
 .summary_content #summary_incomeTitle {
   font: 35px "Bree Serif", serif;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin: 0px 15px 10px 15px;
   grid-area: incTitle;
   border-bottom: 1px solid white;
 }
@@ -781,7 +848,7 @@ html {
   padding: 10px;
   background-color: #ffa603;
   width: 80px;
-  margin-left: 15px;
+  margin: 0px 0px 0px 15px;
   text-decoration: none;
   color: black;
   grid-area: addInc;
@@ -811,23 +878,24 @@ html {
   color: #ffa603;
 }
 .summary_incomeList #summary_incomeTotal {
-  margin: 0px;
+  margin: 10px 0px 0px 0px;
+  text-decoration: overline;
+  font: 20px "Bree Serif", serif;
 }
 .summary_content #summary_receiptTitle {
   font: 35px "Bree Serif", serif;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin: 0px 15px 10px 15px;
   border-bottom: 1px solid white;
   grid-area: recTitle;
 }
 .summary_content #addExpense {
-  padding: 10px;
   background-color: #4edff9;
   width: 80px;
-  margin-left: 15px;
+  margin: 0px 0px 0px 15px;
+  padding: 10px;
   text-decoration: none;
   color: black;
-  grid-area: addInc;
+  grid-area: addExp;
   border-radius: 10px;
   border: 1px solid transparent;
   grid-area: addExp;
@@ -854,13 +922,16 @@ html {
   color: #4edff9;
 }
 .summary_receiptList #summary_receiptTotal {
+  margin: 10px 0px 0px 0px;
   text-decoration: overline;
   font: 20px "Bree Serif", serif;
 }
 .summary_content #summary_balance {
+  background-color: #30353d;
   border-top: 5px solid #15171a;
-  margin: 50px 0px 0px 0px;
-  padding: 10px;
+  margin: 10px 0px 0px 0px;
+  padding-left: 10px;
+  font: 30px "Bree Serif", serif;
 }
 /*receipt delete*/
 .receipt_delete {
@@ -871,8 +942,9 @@ html {
 .det_body {
   display: grid;
   grid-template-rows: [row1] 10% [row2] 10% [row3] 10% [row4] 10% [row5] 10% [row6] 10% [row7] 10% [row8] 10%;
-  grid-template-columns: [col1] 10% [col2] 10%;
+  grid-template-columns: [col1] 20% [col2] 20%;
   justify-content: center;
+  align-content: center;
   grid-template-areas:
     "uniqTitle uniqTitle"
     "label1 data1"
@@ -882,44 +954,44 @@ html {
     "label5 data5"
     "label6 data6"
     "btn1 btn2";
-  margin: 0px 50px 0px 230px;
+  margin: 100px 50px 0px 500px;
   background-color: #30353d;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  width: 50%;
+  height: 70vh;
+  border-radius: 10px;
+  padding: 10px;
   color: white;
 }
 
-.det_title {
-  color: #355ec4;
-  font-size: 30px;
-  padding: 5px;
-  border-bottom: 1px solid #355ec4;
-  margin: 200px 50px 0px 230px;
-  background-color: #30353d;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-}
 .det_body #det_unique_title {
+  font: 30px "Bree Serif", serif;
+  margin-right: 75px;
   grid-area: uniqTitle;
   justify-self: center;
   text-decoration: underline;
 }
 .det_body #det_label_1 {
+  text-decoration: underline;
   grid-area: label1;
 }
 .det_body #det_label_2 {
+  text-decoration: underline;
   grid-area: label2;
 }
 .det_body #det_label_3 {
+  text-decoration: underline;
   grid-area: label3;
 }
 .det_body #det_label_4 {
+  text-decoration: underline;
   grid-area: label4;
 }
 .det_body #det_label_5 {
+  text-decoration: underline;
   grid-area: label5;
 }
 .det_body #det_label_6 {
+  text-decoration: underline;
   grid-area: label6;
 }
 .det_body #det_label_data_1 {
@@ -1589,9 +1661,6 @@ html {
   }
 
   /*Income Page*/
-  .income_list_content {
-    margin: 0px;
-  }
   .incomeHeader {
     display: grid;
     grid-template-rows: [row1] 50% [row2] 50%;
@@ -1628,16 +1697,36 @@ html {
     display: grid;
     border-radius: 10px;
     grid-template-columns: [col1] 100%;
-    grid-template-rows: [row1] 10% [row2] 90%;
+    grid-template-rows: [row1] 40% [row2] 10% [row3] 50%;
     grid-template-areas:
+      "chartDisp"
       "bodyHead"
       "bodyData";
     font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background-color: #30353d;
-    max-height: 60vh;
+    max-height: 80vh;
     color: white;
-    min-height: 200px;
     margin: 0px;
+  }
+  .inc_chart_disp {
+    grid-area: chartDisp;
+    display: grid;
+    grid-template-rows: [row1] 10% [row2] 90%;
+    grid-template-columns: [col1] 100%;
+    background-color: #30353d;
+    justify-items: center;
+    align-items: center;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    padding: 10px;
+    margin: 0px 0px 50px 0px;
+  }
+  .inc_chart_disp h1 {
+    font-size: 20px;
+  }
+  .inc_chart_disp #income_chart {
+    max-height: 450px;
+    max-width: 95%;
   }
   .bodyHead {
     grid-area: bodyHead;

@@ -46,10 +46,7 @@ exports.income_create_get = function (req, res) {
       authUser: req.session.authUser,
     });
   } else {
-    res.render("user_login", {
-      message: "You must login to create income additions",
-      authCheck: req.session.isAuth,
-    });
+    res.redirect("/catalog/user/login");
   }
 };
 
@@ -84,7 +81,7 @@ exports.income_create_post = [
     } else {
       // Data from form is valid.
       // Check if Receipt with same name already exists.
-      Income.findOne({ description: req.body.description }).exec(function (
+      Income.findOne({ description: req.body.name }).exec(function (
         err,
         found_income
       ) {

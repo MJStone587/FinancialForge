@@ -151,6 +151,7 @@ exports.user_login_post = async function (req, res) {
 
   User.findOne({ userName }, function (err, results) {
     if (err) {
+      console.log(results._id);
       return res.render("user_login", {
         message: "That user does not exist",
         authCheck: req.session.isAuth,
@@ -161,6 +162,7 @@ exports.user_login_post = async function (req, res) {
       const match = bcrypt.compareSync(password, results.userPass);
       if (!match) {
         console.log(match);
+        console.log(results._id);
         return res.render("user_login", {
           message: "Incorrect Password",
           authCheck: req.session.isAuth,
@@ -168,9 +170,11 @@ exports.user_login_post = async function (req, res) {
           authUser: results.userName,
         });
       } else {
+        console.log(results._id);
         req.session.isAuth = true;
         req.session.authUser = results.userName;
         req.session.authUserID = results._id;
+        req.session.authorID = results._id;
         res.redirect("/catalog/user/:id");
       }
     }

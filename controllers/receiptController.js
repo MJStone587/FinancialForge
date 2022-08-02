@@ -56,12 +56,7 @@ exports.receipt_create_get = function (req, res, next) {
       authorID: req.session.authUserID,
     });
   } else {
-    res.render("user_login", {
-      message: "You must login to create additional expenses",
-      authCheck: req.session.isAuth,
-      authorID: req.session.authUserID,
-      authUser: req.session.authUser,
-    });
+    res.redirect("/catalog/user/login");
   }
 };
 

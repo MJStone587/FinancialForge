@@ -18,7 +18,7 @@
   <% if(authCheck){ %> 
     <%- include("navbarLI") %> 
     <% } else { %> 
-    <%-include("navbar") %> 
+    <%- include("navbar") %> 
    <% } %>
    
     <header class="index_header">
@@ -38,9 +38,7 @@
       >
     </header>
 
-    
-    <body class="index_body">
-
+    <main class="index_body">
       <div class="index_bodyBox box1">
         <i class="fa-solid fa-eye"></i>
         <h1 class="bodyBox_h1">Monitor</h1>
@@ -55,8 +53,6 @@
         <i class="fa-solid fa-chart-line"></i>
         <h1 class="bodyBox_h1">Track</h1>
         <p class="bodyBox_p">Track all your financial data!</p>
-      </div>
-      
-    </body>
-    
+      </div>  
+    </main>
 </html>
