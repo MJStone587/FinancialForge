@@ -85,10 +85,12 @@
       <h1 id="summary_incomeTitle">Income</h1>
       <a href="/catalog/income/create"id="addIncome">+Income</a>
       <div class="summary_incomeList">
-        <h3 id="iDescTitle">Description</h3>
-        <h3 id="iTotalTitle">Total</h3>
-        <h3 id="iDateTitle">Date</h3>
-        <h3 id="iCatTitle">Category</h3>
+        <div class="summary_incomeList_titles">
+          <h3 id="iDescTitle">Description</h3>
+          <h3 id="iTotalTitle">Total</h3>
+          <h3 id="iDateTitle">Date</h3>
+          <h3 id="iCatTitle">Category</h3>
+       </div>
         <% for(let i = 0; i < incomes.length; i++){ %>  
         <a id="summary_iDet" href="/catalog/income/<%= incomes[i]._id %>"><%= incomes[i].description %></a>
         <p id="summary_iAmt">$<%= incomes[i].amount %></p>
@@ -127,17 +129,20 @@
       <h1 id="summary_receiptTitle">Expenses</h1>
       <a href="/catalog/receipt/create" id="addExpense">+Expense</a>
       <div class="summary_receiptList">
-        <h3>Description</h3>
-        <h3>Total</h3>
-        <h3>Date</h3>
-        <h3 id="rCatTitle">Category</h3>
-        <% for(let i = 0; i < receipts.length; i++) { %>
-        <a id="summary_recName" href="/catalog/receipt/<%= receipts[i]._id %>"><%= receipts[i].description %></a>
-        <p><%= "$" + receipts[i].total %></p>
-        <p><%= receipts[i].date_month %></p>
-        <p id="summary_rCat"><%= receipts[i].category %></p>
-        <% } %>
-    
+        <div class="summary_receiptList_titles">
+          <h3>Description</h3>
+          <h3>Total</h3>
+          <h3>Date</h3>
+          <h3 id="rCatTitle">Category</h3>
+        </div>
+        <div class="summary_receiptList_data">
+          <% for(let i = 0; i < receipts.length; i++) { %>
+          <a id="summary_recName" href="/catalog/receipt/<%= receipts[i]._id %>"><%= receipts[i].description %></a>
+          <p><%= "$" + receipts[i].total %></p>
+          <p><%= receipts[i].date_month %></p>
+          <p id="summary_rCat"><%= receipts[i].category %></p>
+          <% } %>
+        </div>
 
       <% for(let i = 0; i < receipts.length; i++) { %> 
         <% total_receipt += receipts[i].total; %> 

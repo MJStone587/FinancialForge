@@ -1683,8 +1683,7 @@ html {
   .inc_chart_disp {
     display: grid;
     grid-template-rows: [row1] 10% [row2] 90%;
-    grid-template-columns: [col1] 99%;
-    width: 100%;
+    grid-template-columns: [col1] 98%;
     background-color: #30353d;
     justify-items: center;
     align-items: center;
@@ -1700,6 +1699,9 @@ html {
   .inc_chart_disp #income_chart {
     max-height: 450px;
     max-width: 95%;
+  }
+  .income_body {
+    margin: 100px 5px 50px 5px;
   }
   .income_main {
     display: grid;
@@ -1884,6 +1886,9 @@ html {
     justify-self: center;
     align-self: center;
   }
+  .summary_body {
+    margin: 0px 5px 0px 5px;
+  }
   .summary_charts {
     display: grid;
     grid-template-columns: [col1] 50% [col2] 50%;
@@ -1990,11 +1995,13 @@ html {
   .summary_content {
     display: grid;
     background-color: #30353d;
-    grid-template-rows: [row1] 10% [row2] 5% [row3] 35% [row4] 10% [row5] 10% [row6] 30% [row7] 5%;
+    grid-template-rows: [row1] 10% [row2] 5% [row3] 10% [row4] 25% [row5] 10% [row6] 10% [row7] 25% [row8] 5%;
     grid-template-areas:
       "incTitle"
       "addInc"
+      "incomeListTitles"
       "incomeList"
+      "recListTitles"
       "recTitle"
       "addExp"
       "receiptList";
@@ -2023,6 +2030,11 @@ html {
     color: #ffa603;
     background-color: #15171a;
     border: 1px solid #ffa603;
+  }
+  .summary_incomeList_titles {
+    grid-area: incomeListTitles;
+    display: grid;
+    grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
   }
   .summary_incomeList {
     display: grid;
@@ -2077,8 +2089,13 @@ html {
     grid-area: receiptList;
     grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
     padding: 10px;
-    overflow: scroll;
+    overflow: auto;
     margin: 0px;
+  }
+  .summary_receiptList_titles {
+    grid-area: receiptListTitles;
+    display: grid;
+    grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
   }
   .summary_receiptList h3 {
     text-decoration: underline;
