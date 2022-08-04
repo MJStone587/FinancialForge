@@ -358,47 +358,44 @@ html {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   padding: 10px;
+  justify-content: start;
   text-decoration: underline;
+  margin: 0px 0px 0px 15px;
 }
 .expensesMain_headings #title_heading {
   grid-area: titleHead;
 }
 .expensesMain_headings #amount_heading {
   grid-area: amtHead;
-  justify-self: center;
+  justify-self: start;
 }
 .expensesMain_headings #cat_heading {
   grid-area: catHead;
-  justify-self: center;
+  justify-self: start;
 }
 .expensesMain_headings #date_heading {
   grid-area: dateHead;
-  justify-self: center;
+  justify-self: start;
 }
 
 .expensesMain_data {
   grid-area: expenseData;
   display: grid;
+  overflow: auto;
   grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
-  row-gap: 10px;
-  max-height: 600px;
-  height: 100px;
-  overflow: scroll;
-  font-size: 17px;
-  justify-items: center;
-  padding-left: 10px;
   color: white;
-  margin: 10px 0px 20px 0px;
+  row-gap: 10px;
+  font-size: 17px;
+  align-content: start;
+  height: 200px;
+  width: 100%;
+  max-height: 300px;
+  margin: 15px 0px 0px 15px;
 }
-.expensesMain a {
+.expensesMain_data a {
   text-decoration: none;
-}
-
-.expensesMain_data #expensesBody_title {
-  font-size: 20px;
-  font-weight: 500;
   color: #ffa603;
-  justify-self: start;
+  font-size: 17px;
 }
 .expensesMain_data #expensesBody_title:hover {
   color: #ffec03;
@@ -525,7 +522,7 @@ html {
   align-content: start;
   height: 200px;
   max-height: 300px;
-  margin: 30px 0px 0px 25px;
+  margin: 15px 0px 0px 15px;
 }
 .income_main_data #incomeDisp_desc {
   color: #4edff9;
@@ -833,7 +830,6 @@ html {
     "addExp"
     "receiptList";
   margin: 50px 0px 50px 0px;
-  max-width: 100vw;
   border-radius: 10px;
   height: 80vh;
   background-color: #30353d;
@@ -868,6 +864,7 @@ html {
   row-gap: 10px;
   padding: 10px;
   overflow: scroll;
+  margin: 25px 0px 0px 0px;
 }
 .summary_incomeList h3 {
   text-decoration: underline;
@@ -912,6 +909,7 @@ html {
   row-gap: 10px;
   padding: 10px;
   overflow: scroll;
+  margin: 25px 0px 0px 0px;
 }
 .summary_receiptList h3 {
   font: 28px "Bree Serif", serif;
@@ -1231,7 +1229,7 @@ html {
 /* Styling for  mobile 1*/
 @media screen and (min-width: 412px) and (max-width: 629px) {
   html {
-    margin: 0;
+    margin: 0px;
     width: 100%;
     background-color: #15171a;
   }
@@ -1251,6 +1249,7 @@ html {
   .fa-bars {
     position: absolute;
     top: 10px;
+    display: grid;
     right: 325px;
     text-decoration: none;
     margin-top: 15px;
@@ -1285,7 +1284,7 @@ html {
   .myLinks a {
     color: white;
     text-decoration: none;
-    font-size: 15px;
+    font: 15px "Bree Serif", serif;
   }
   .myLinks #linkHome {
     grid-area: link1;
@@ -1344,10 +1343,7 @@ html {
     grid-area: fCol3;
   }
 
-  /* Index Page*/
-  .index_content {
-    margin: 0px;
-  }
+  /* Index Page Start*/
   .index_header {
     display: grid;
     grid-template-rows: [row1] 50% [row2] 50%;
@@ -1366,9 +1362,9 @@ html {
     display: none;
   }
   .index_header #headerTitle {
-    margin: 25px 0px 0px 0px;
+    margin: 25px 25px 0px 25px;
     grid-area: headerTitle;
-    font-size: 25px;
+    font: 25px "Bree Serif", serif;
   }
   .index_header #index_signupBar {
     margin: 0;
@@ -1381,12 +1377,12 @@ html {
     grid-area: headerText;
     font-size: 13px;
     color: white;
-    margin: 50px 0px 0px 65px;
+    margin: 20px 0px 0px 65px;
   }
   .index_header #header_signupBtn {
     grid-area: headerText;
     color: white;
-    margin: 40px 50px 0px 0px;
+    margin: 10px 50px 0px 0px;
     border: 1px solid #ffec03;
     text-decoration: none;
     justify-self: end;
@@ -1403,7 +1399,7 @@ html {
   .index_body {
     margin: 0px;
     display: grid;
-    grid-template-columns: [col1] 100%;
+    grid-template-columns: [col1] 98%;
     grid-template-rows: [row1] 30% [row2] 30% [row3] 30%;
     grid-template-areas:
       "bodyBox1"
@@ -1412,7 +1408,6 @@ html {
     justify-content: center;
     align-content: center;
     height: 400px;
-    width: 100%;
     font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
   }
   .index_body i {
@@ -1470,7 +1465,7 @@ html {
 
   /*Receipt Page*/
   .expenses_content {
-    margin: 10px;
+    margin: 10px 10px 50px 10px;
   }
   .expensesHeader {
     display: grid;
@@ -1479,7 +1474,7 @@ html {
     grid-template-areas:
       "rHeaderH1"
       "rHeaderP";
-    margin: 100px 20px 0px 20px;
+    margin: 100px 20px 50px 20px;
     max-height: 40vh;
     font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
   }
@@ -1560,82 +1555,76 @@ html {
     cursor: pointer;
   }
   */
-  .expensesBody {
+  .expensesMain {
     display: grid;
-    grid-template-rows: [row1] 10% [row2] 90%;
+    grid-template-rows: [row1] 10% [row2] 89%;
     grid-template-areas:
       "expenseHead"
       "expenseData";
-    width: 100%;
     max-height: 40vh;
     border-radius: 10px;
     background-color: #30353d;
   }
-  .expensesBody_headings {
+  .expensesMain_headings {
     grid-area: expenseHead;
     display: grid;
-    grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
-    grid-template-rows: [row1] 100%;
+    grid-template-columns: [col1] 39% [col2] 29% [col3] 29%;
+    grid-template-rows: [row1] 99%;
     grid-template-areas: "titleHead amtHead dateHead";
-    font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
     color: white;
-    width: 100%;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     padding: 10px;
+    font: 23px "Bree Serif", serif;
     text-decoration: underline #ffa603;
   }
-  .expensesBody_headings #title_heading {
+  .expensesMain_headings #title_heading {
     grid-area: titleHead;
   }
-  .expensesBody_headings #amount_heading {
+  .expensesMain_headings #amount_heading {
     grid-area: amtHead;
     justify-self: center;
   }
-  .expensesBody_headings #cat_heading {
+  .expensesMain_headings #cat_heading {
     display: none;
     grid-area: catHead;
     justify-self: center;
   }
-  .expensesBody_headings #date_heading {
+  .expensesMain_headings #date_heading {
     grid-area: dateHead;
     justify-self: center;
   }
-  .expensesBody_headings #create_expense {
+  .expensesMain_headings #create_expense {
     grid-area: createExp;
     font-size: 50px;
     font-weight: bold;
     color: #4edff9;
   }
-  .expensesBody_headings #create_expense:hover {
+  .expensesMain_headings #create_expense:hover {
     color: #355ec4;
   }
-  .expensesBody_data {
+  .expensesMain_data {
     grid-area: expenseData;
     display: grid;
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     width: 100%;
     overflow: scroll;
     font-size: 12px;
-    justify-items: center;
+    justify-items: start;
     padding-left: 10px;
     color: white;
     max-height: 400px;
-    height: 250px;
+    height: 200px;
   }
-  .expensesBody a {
+  .expensesMain a {
+    font-size: 14px;
+    color: #ffa603;
     text-decoration: none;
   }
-  .expensesBody_data #expensesBody_cat {
+  .expensesMain_data #expensesBody_cat {
     display: none;
   }
-  .expensesBody_data #expensesBody_title {
-    font-size: 15px;
-    font-weight: 500;
-    color: #ffa603;
-    justify-self: start;
-  }
-  .expensesBody_data #expensesBody_title:hover {
+  .expensesMain_data a:hover {
     color: #ffec03;
   }
   .expenses_content #expensesBody_total {
@@ -1664,20 +1653,15 @@ html {
   .incomeHeader {
     display: grid;
     grid-template-rows: [row1] 50% [row2] 50%;
-    grid-template-columns: [col1] 100%;
+    grid-template-columns: [col1] 99%;
     grid-template-areas:
       "rHeaderH1"
       "rHeaderP";
-    margin: 100px 0px 0px 0px;
-    max-height: 60vh;
+    margin: 0px 0px 0px 0px;
     font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
   }
   .incomeHeader #incomeHeader_img {
     display: none;
-    justify-self: end;
-    grid-area: rHeaderImg;
-    height: 50vh;
-    width: 40vw;
   }
   .incomeHeader #incomeHeader_p {
     grid-area: rHeaderP;
@@ -1690,36 +1674,25 @@ html {
     grid-area: rHeaderH1;
     align-self: end;
     justify-self: center;
-    font-size: 35px;
+    font: 25px "Bree Serif", serif;
     color: #4edff9;
   }
-  .income_body {
-    display: grid;
-    border-radius: 10px;
-    grid-template-columns: [col1] 100%;
-    grid-template-rows: [row1] 40% [row2] 10% [row3] 50%;
-    grid-template-areas:
-      "chartDisp"
-      "bodyHead"
-      "bodyData";
-    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-    max-height: 80vh;
-    color: white;
+  .income_main {
     margin: 0px;
   }
   .inc_chart_disp {
-    grid-area: chartDisp;
     display: grid;
     grid-template-rows: [row1] 10% [row2] 90%;
-    grid-template-columns: [col1] 100%;
+    grid-template-columns: [col1] 99%;
+    width: 100%;
     background-color: #30353d;
     justify-items: center;
     align-items: center;
     color: white;
     border-radius: 10px;
-    margin-bottom: 50px;
+    height: 250px;
     padding: 10px;
-    margin: 0px 0px 50px 0px;
+    margin: 20px 0px 50px 0px;
   }
   .inc_chart_disp h1 {
     font-size: 20px;
@@ -1728,46 +1701,55 @@ html {
     max-height: 450px;
     max-width: 95%;
   }
+  .income_main {
+    display: grid;
+    border-radius: 10px;
+    grid-template-columns: [col1] 99%;
+    grid-template-rows: [row1] 10% [row2] 90%;
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+    max-height: 80vh;
+    color: white;
+    margin: 0px 5px 50px 5px;
+  }
   .bodyHead {
     grid-area: bodyHead;
     display: grid;
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
-    width: 100%;
-    justify-items: start;
+    justify-content: start;
     grid-template-areas: "descHead amtHead dateHead";
     text-decoration: underline;
     margin: 0px 0px 0px 20px;
-    font-size: 10px;
+    font: 18px "Bree Serif", serif;
   }
-  .income_body #descHead {
+  .income_main #descHead {
     grid-area: descHead;
   }
-  .income_body #catHead {
+  .income_main #catHead {
     display: none;
     grid-area: catHead;
   }
-  .income_body #amtHead {
+  .income_main #amtHead {
     grid-area: amtHead;
   }
-  .income_body #dateHead {
+  .income_main #dateHead {
     grid-area: dateHead;
   }
-  .income_body_data {
+  .income_main_data {
     grid-area: bodyData;
     display: grid;
-    width: 100%;
     max-height: 60vh;
     overflow: scroll;
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     color: white;
     font-size: 12px;
-    justify-items: start;
+    justify-content: start;
+    align-content: start;
   }
-  .income_body_data #incomeDisp_desc {
+  .income_main_data #incomeDisp_desc {
     color: #4edff9;
     text-decoration: none;
   }
-  .income_body_data #incomeDisp_cat {
+  .income_main_data #incomeDisp_cat {
     display: none;
   }
   #incomeBody_total {
@@ -2834,19 +2816,7 @@ html {
     color: #4edff9;
   }
   .income_body {
-    display: grid;
-    border-radius: 10px;
-    grid-template-columns: [col1] 100%;
-    grid-template-rows: [row1] 10% [row2] 90%;
-    grid-template-areas:
-      "bodyHead"
-      "bodyData";
-    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background-color: #30353d;
-    max-height: 60vh;
-    color: white;
-    min-height: 200px;
-    margin: 0px;
+    margin: 0px 25px 0px 25px;
   }
   .bodyHead {
     grid-area: bodyHead;
