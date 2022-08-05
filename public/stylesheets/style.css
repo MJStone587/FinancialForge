@@ -2184,32 +2184,32 @@ html {
   }
   .summary_content {
     display: grid;
-    background-color: #30353d;
-    grid-template-rows: [row1] 10% [row2] 5% [row3] 10% [row4] 25% [row5] 10% [row6] 10% [row7] 25% [row8] 5%;
+    grid-template-rows: [row1] 7% [row2] 5% [row3] 33% [row4] 7% [row5] 5% [row6] 33% [row7] 8%;
     grid-template-areas:
       "incTitle"
       "addInc"
-      "incomeListTitles"
       "incomeList"
-      "recListTitles"
       "recTitle"
       "addExp"
-      "receiptList";
-    margin: 50px 0px 0px 0px;
+      "receiptList"
+      "summBal";
+    margin: 50px 0px 25px 0px;
     border-radius: 10px;
-    font-size: 15px;
+    height: 850px;
+    background-color: #30353d;
   }
   .summary_content #summary_incomeTitle {
-    margin-left: 15px;
-    margin-right: 15px;
+    font: 35px "Bree Serif", serif;
+    margin: 0px 15px 10px 15px;
     grid-area: incTitle;
     border-bottom: 1px solid white;
   }
+
   .summary_content #addIncome {
     padding: 10px;
     background-color: #ffa603;
     width: 80px;
-    margin-left: 15px;
+    margin: 0px 0px 0px 15px;
     text-decoration: none;
     color: black;
     grid-area: addInc;
@@ -2221,23 +2221,24 @@ html {
     background-color: #15171a;
     border: 1px solid #ffa603;
   }
+
   .summary_incomeList {
     display: grid;
     grid-area: incomeList;
     grid-template-columns: [col1] 100%;
-    grid-template-rows: [row1] 20% [row2] 70%;
+    grid-template-rows: [row1] 15% [row2] 70% [row3] 10%;
     grid-template-areas:
       "incomeListTitles"
-      "incomeListData";
-    border-bottom: 10px solid #15171a;
-    padding: 10px;
-    overflow: scroll;
+      "incomeListData"
+      "incomeTotal";
+    border-bottom: 5px solid #15171a;
+    padding: 0px 0px 0px 15px;
     font-size: 15px;
   }
   .summary_incomeList_titles {
     grid-area: incomeListTitles;
     display: grid;
-    grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
+    grid-template-columns: [col1] 49% [col2] 25% [col3] 25%;
     grid-template-rows: [row1] 100%;
     grid-template-areas: "iDescTitle iTotalTitle iDateTitle";
   }
@@ -2253,52 +2254,51 @@ html {
   .summary_incomeList_titles #iCatTitle {
     display: none;
   }
+  .summary_incomeList h3 {
+    text-decoration: underline;
+    font: 28px "Bree Serif", serif;
+  }
   .summary_incomeList_data {
     grid-area: incomeListData;
     display: grid;
-    grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
-    grid-template-areas: "iDet iAmt iDate";
-  }
-  .summary_incomeList h3 {
-    text-decoration: underline;
-  }
-  .summary_incomeList #iCatTitle {
-    display: none;
+    grid-template-columns: [col1] 49% [col2] 25% [col3] 25%;
+    align-content: start;
+    overflow: auto;
+    row-gap: 5px;
   }
   .summary_incomeList #summary_iDet {
-    grid-area: iDet;
+    font-size: 17px;
     text-decoration: none;
     color: #ffa603;
   }
-  .summary_incomeList #summary_iAmt {
-    grid-area: iAmt;
-  }
-  .summary_incomeList #summary_iDate {
-    grid-area: iDate;
+  .summary_incomeList #summary_iDet:hover {
+    color: #ffec03;
   }
   .summary_incomeList #summary_iFrom {
     display: none;
   }
   .summary_incomeList #summary_incomeTotal {
-    margin: 10px 0px 0px 0px;
-    font-size: 18px;
+    grid-area: incomeTotal;
+    margin: 5px 0px 10px 0px;
+    text-decoration: overline;
+    font: 20px "Bree Serif", serif;
   }
   .summary_content #summary_receiptTitle {
-    margin-left: 15px;
-    margin-right: 15px;
+    font: 35px "Bree Serif", serif;
+    margin: 0px 15px 10px 15px;
     border-bottom: 1px solid white;
     grid-area: recTitle;
   }
   .summary_content #addExpense {
-    padding: 10px;
     background-color: #4edff9;
     width: 80px;
-    margin-left: 15px;
+    margin: 0px 0px 0px 15px;
+    padding: 10px;
     text-decoration: none;
     color: black;
+    grid-area: addExp;
     border-radius: 10px;
     border: 1px solid transparent;
-    grid-area: addExp;
   }
   .summary_content #addExpense:hover {
     color: #4edff9;
@@ -2309,47 +2309,60 @@ html {
     display: grid;
     grid-area: receiptList;
     grid-template-columns: [col1] 100%;
-    grid-template-rows: [row1] 50% [row2] 50%;
+    grid-template-rows: [row1] 15% [row2] 70% [row3] 10%;
     grid-template-areas:
       "receiptTitles"
-      "receiptData";
-    padding: 10px;
-    overflow: auto;
+      "receiptData"
+      "receiptTotal";
+    padding: 5px 0px 10px 15px;
+    border-bottom: 5px solid #15171a;
     margin: 0px;
   }
   .summary_receiptList_titles {
     grid-area: receiptTitles;
     display: grid;
-    grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
-    grid-template-rows: [row1] 100%;
+    grid-template-columns: [col1] 49% [col2] 25% [col3] 25%;
+    align-content: start;
+  }
+  .summary_receiptList_titles #rCatTitle {
+    display: none;
   }
   .summary_receiptList_data {
     grid-area: receiptData;
     display: grid;
-    grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
+    grid-template-columns: [col1] 49% [col2] 25% [col3] 25%;
+    align-content: start;
+    overflow: auto;
+    row-gap: 5px;
   }
   .summary_receiptList h3 {
+    font: 28px "Bree Serif", serif;
     text-decoration: underline;
   }
-  .summary_receiptList #rCatTitle {
-    display: none;
-  }
-  .summary_receiptList #summary_recName {
+  .summary_receiptList_data #summary_recName {
+    font-size: 17px;
     text-decoration: none;
     color: #4edff9;
   }
-  .summary_receiptList #summary_receiptTotal {
-    font-size: 18px;
-    margin: 10px 0px 0px 0px;
-  }
-  .summary_receiptList #summary_rCat {
+  .summary_receiptList_data #summary_rCat {
     display: none;
   }
+  .summary_receiptList_data #summary_recName:hover {
+    color: #b8f4ff;
+  }
+  .summary_receiptList #summary_receiptTotal {
+    grid-area: receiptTotal;
+    margin: 5px 0px 10px 0px;
+    text-decoration: overline;
+    font: 20px "Bree Serif", serif;
+  }
   .summary_content #summary_balance {
-    border-top: 5px solid #15171a;
-    margin: 0px 0px 20px 0px;
-    padding: 5px;
-    font-size: 20px;
+    grid-area: summBal;
+    background-color: #30353d;
+    align-self: center;
+    margin: 10px 0px 0px 0px;
+    padding-left: 10px;
+    font: 30px "Bree Serif", serif;
   }
 
   /*receipt delete*/
