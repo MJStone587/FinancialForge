@@ -18,9 +18,9 @@
     <% } else { %> 
     <%-include("navbar") %> 
    <% } %>
-  <body>
+  <body class="income_update_body">
     <h1><%= title %></h1>
-    <form action="" method="POST">
+    <form action="" method="POST" class="income_update_form">
       <input type="text" name="name" value="<%= results.name %>" />
       <input
         type="text"
@@ -37,7 +37,7 @@
         value="<%= results.amount %>"
       />
       <input type="hidden" value="<%= results._id %>" />
-      <input type="submit" value="Update Income" />
+      <input id="submit_btn" type="submit" value="Update Income" />
     </form>
   </body>
 </html>

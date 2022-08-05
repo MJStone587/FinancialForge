@@ -14,11 +14,11 @@
     <title>Income Deletion</title>
   </head>
   <%- include("navbar") %>
-  <body>
+  <body class="income_delete">
     <h1>Confirm Income Deletion</h1>
     <form action="" method="POST">
       <input type="hidden" name="incomeid" value="<%= results._id %>" />
-      <button type="submit">Delete</button>
+      <button id="delete_submit" type="submit">Delete</button>
     </form>
   </body>
 </html>

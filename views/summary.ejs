@@ -91,6 +91,7 @@
           <h3 id="iDateTitle">Date</h3>
           <h3 id="iCatTitle">Category</h3>
        </div>
+       <div class="summary_incomeList_data">
         <% for(let i = 0; i < incomes.length; i++){ %>  
         <a id="summary_iDet" href="/catalog/income/<%= incomes[i]._id %>"><%= incomes[i].description %></a>
         <p id="summary_iAmt">$<%= incomes[i].amount %></p>
@@ -100,7 +101,7 @@
         <% function round(value,decimals) { %> 
           <% return Number(Math.round(value +'e'+decimals) +'e-'+ decimals).toFixed(decimals); %> 
         <% } %>
-      
+      </div>
         <h2 id="summary_incomeTotal">
           Total Income: $<%= round(total_income,2) %>
         </h2> 
@@ -175,7 +176,7 @@
       <% balance = total_income - total_receipt %>
       <h1 id="summary_balance">Balance = $<%= round(balance, 2); %></h1>
     </main>
-
+      
   </body>
   
 </html>

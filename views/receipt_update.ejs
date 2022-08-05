@@ -5,56 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-    rel="icon"
-    type="image/x-icon"
-    href="/images/favicon_io/favicon.ico"
-     />
+      rel="icon"
+      type="image/x-icon"
+      href="/images/favicon_io/favicon.ico"
+    />
     <link rel="stylesheet" href="/stylesheets/reset.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Receipt Update</title>
   </head>
-  <body>
-    <% if(authCheck){ %> 
-      <%- include("navbarLI") %> 
-      <% } else { %> 
-      <%-include("navbar") %> 
-     <% } %>
-     
+
+  <% if(authCheck){ %> <%- include("navbarLI") %> <% } else { %>
+  <%-include("navbar") %> <% } %>
+  <body class="receipt_update_body">
     <h1><%= title %></h1>
 
-    <form action="" method="POST">
+    <form action="" method="POST" class="receipt_update_form">
       <input type="text" name="name" value="<%= results.name %>" />
-      </br>
       <input type="text" value="<%= results.description%>" name="description" />
-      </br>
-      <input type="radio" id="debit" name="paymentType" value=" Debit"/>
-      <label for="debit">Debit</label>
-      <input type="radio" id="credit" name="paymentType" value="Credit"/>
-      <label for="credit">Credit</label>
-      <input type="radio" id="cash" name="paymentType" value=" Cash" />
-      <label for="cash">Cash</label>
-      <input type="radio" id="check" name="paymentType" value=" Check"/>
-      <label for="check">Check</label>
-      <input type="radio" id="giftcard" name="paymentType" value="Gift Card"/>
-      <label for="giftCard">Gift Card</label>
-      <input type="radio" id="banktransfer" name="paymentType" Value="Bank Transfer" />
-      <label for="banktransfer">Bank Transfer</label>
-    </br>
-    <select id="category" name="category">
-      <option value="Food">Food</option>
-      <option value="Entertainment">Entertainment</option>
-      <option value="House">House</option>
-      <option value="Car">Car</option>
-      <option value="Work">Work</option>
-      <option value="Clothing">Clothing</option>
-      <option value="Pet">Pet</option>
-      <option value="Self-Care">Self-Care</option>
-    </select>
-      <input type="text" name="ccName" value="<%= results.ccName %>"/></br>
-      <input type="date" name="date" value="<%= results.date_adjusted %>"/>
-  </br>
-  <input type="number" value="<%= results.total %>" name="total" step="0.01" required="true"/></br>
-      <input type="submit" value="Update"/>
+      <div class="receipt_update_radio">
+        <input type="radio" id="debit" name="paymentType" value=" Debit" />
+        <label for="debit">Debit</label>
+        <input type="radio" id="credit" name="paymentType" value="Credit" />
+        <label for="credit">Credit</label>
+        <input type="radio" id="cash" name="paymentType" value=" Cash" />
+        <label for="cash">Cash</label>
+        <input type="radio" id="check" name="paymentType" value=" Check" />
+        <label for="check">Check</label>
+        <input
+          type="radio"
+          id="giftcard"
+          name="paymentType"
+          value="Gift Card"
+        />
+        <label for="giftCard">Gift Card</label>
+        <input
+          type="radio"
+          id="banktransfer"
+          name="paymentType"
+          Value="Bank Transfer"
+        />
+        <label for="banktransfer">Bank Transfer</label>
+      </div>
+      <select id="category" name="category">
+        <option value="Food">Food</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="House">House</option>
+        <option value="Car">Car</option>
+        <option value="Work">Work</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Pet">Pet</option>
+        <option value="Self-Care">Self-Care</option>
+      </select>
+      <input type="text" name="ccName" value="<%= results.ccName %>" />
+      <input type="date" name="date" value="<%= results.date_adjusted %>" />
+
+      <input
+        type="number"
+        value="<%= results.total %>"
+        name="total"
+        step="0.01"
+        required="true"
+      />
+      <input id="submit_btn" type="submit" value="Update" />
     </form>
   </body>
 </html>
