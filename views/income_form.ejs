@@ -14,9 +14,10 @@
     <title>Document</title>
   </head>
   <%- include("navbarLI") %>
+
   <body class="income_form_content">
     <h1><%= title %></h1>
-    <form action="" method="POST">
+    <form class="iForm" action="" method="POST">
       <input type="text" name="name" placeholder="Unique Name" />
       <input type="text" placeholder="Description" name="description" />
       <select id="from" name="from">
@@ -27,9 +28,15 @@
         <option value="Other">Other</option>
       </select>
       <input type="date" name="date" />
-      <input type="number" name="amount" step="0.01" required="true" />
+      <input
+        type="number"
+        name="amount"
+        step="0.01"
+        required="true"
+        placeholder="Total"
+      />
       <input type="hidden" name="author" value="<%= authorID %>" />
-      <input type="submit" value="Submit Income" />
+      <input id="iForm_submit" type="submit" value="Submit Income" />
     </form>
   </body>
 </html>

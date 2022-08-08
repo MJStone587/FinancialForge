@@ -137,19 +137,23 @@ exports.receipt_detail = function (req, res) {
 };
 // Display Author delete form on GET.
 exports.receipt_delete_get = function (req, res, next) {
-  Receipt.findById(req.params.id, function (err, results) {
-    if (err) {
-      return next(err);
-    } else {
-      res.render("receipt_delete", {
-        title: "Receipt Deletion",
-        results: results,
-        authCheck: req.session.isAuth,
-        authUser: req.session.authUser,
-        authorID: req.session.authUserID,
-      });
-    }
-  });
+  if (req.session.isAuth) {
+    Receipt.findById(req.params.id, function (err, results) {
+      if (err) {
+        return next(err);
+      } else {
+        res.render("receipt_delete", {
+          title: "Receipt Deletion",
+          results: results,
+          authCheck: req.session.isAuth,
+          authUser: req.session.authUser,
+          authorID: req.session.authUserID,
+        });
+      }
+    });
+  } else {
+    res.redirect("/catalog/user/login");
+  }
 };
 
 exports.receipt_delete_post = function (req, res) {
@@ -162,19 +166,23 @@ exports.receipt_delete_post = function (req, res) {
 };
 
 exports.receipt_update_get = function (req, res, next) {
-  Receipt.findById(req.params.id, function (err, results) {
-    if (err) {
-      return next(err);
-    } else {
-      res.render("receipt_update", {
-        title: "Receipt Update",
-        results: results,
-        authCheck: req.session.isAuth,
-        authUser: req.session.authUser,
-        authorID: req.session.authUserID,
-      });
-    }
-  });
+  if (req.session.isAuth) {
+    Receipt.findById(req.params.id, function (err, results) {
+      if (err) {
+        return next(err);
+      } else {
+        res.render("receipt_update", {
+          title: "Receipt Update",
+          results: results,
+          authCheck: req.session.isAuth,
+          authUser: req.session.authUser,
+          authorID: req.session.authUserID,
+        });
+      }
+    });
+  } else {
+    res.redirect("/catalog/user/login");
+  }
 };
 
 exports.receipt_update_post = function (req, res, next) {

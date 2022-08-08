@@ -260,9 +260,9 @@ html {
   grid-template-areas:
     "rHeaderH1 rHeaderImg"
     "rHeaderP rHeaderImg";
-  margin: 20px 0px 0px 0px;
+  margin: 0px 0px 0px 50px;
   max-height: 55vh;
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 25px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .expensesHeader #expensesHeader_img {
   justify-self: end;
@@ -282,14 +282,14 @@ html {
   align-self: end;
   justify-self: center;
   font: 35px "Bree Serif", serif;
-  color: #ffa603;
+  color: #4edff9;
 }
 .chart_disp {
   display: grid;
   grid-template-rows: [row1] 10% [row2] 90%;
   grid-template-columns: [col1] 100%;
   background-color: #30353d;
-  justify-items: center;
+  justify-items: ce;
   align-items: center;
   color: white;
   height: 450px;
@@ -394,11 +394,11 @@ html {
 }
 .expensesMain_data a {
   text-decoration: none;
-  color: #ffa603;
+  color: #4edff9;
   font-size: 17px;
 }
 .expensesMain_data #expensesBody_title:hover {
-  color: #ffec03;
+  color: #b8f4ff;
 }
 .expenses_content #expensesBody_total {
   padding-top: 10px;
@@ -411,7 +411,7 @@ html {
   padding: 10px;
   border: 1px solid transparent;
   text-decoration: none;
-  background-color: #ffa603;
+  background-color: #355ec4;
   color: white;
   border-radius: 20px;
 }
@@ -430,7 +430,7 @@ html {
     "rHeaderP rHeaderImg";
   max-height: 60vh;
   font: 25px "Bree Serif", serif;
-  margin: 0px 0px 0px 250px;
+  margin: 0px 0px 0px 50px;
 }
 .incomeHeader #incomeHeader_img {
   justify-self: end;
@@ -450,7 +450,7 @@ html {
   align-self: end;
   justify-self: center;
   font-size: 35px;
-  color: #4edff9;
+  color: #ffa603;
 }
 .income_body {
   margin: 0px 25px 0px 250px;
@@ -525,11 +525,11 @@ html {
   margin: 15px 0px 0px 15px;
 }
 .income_main_data #incomeDisp_desc {
-  color: #4edff9;
+  color: #ffa603;
   text-decoration: none;
 }
 .income_main_data #incomeDisp_desc:hover {
-  color: #adf3ff;
+  color: #ffec03;
   text-decoration: none;
 }
 #incomeBody_total {
@@ -552,44 +552,95 @@ html {
 
 #incomeBody_create:hover {
   color: black;
-  background-color: #4edff9;
+  background-color: #ffec03;
 }
 
 /* Income Form */
 
 .income_form_content {
   display: grid;
-  margin: 350px 50px 0px 250px;
+  margin: 250px 50px 0px 250px;
   color: white;
   background-color: #30353d;
-  height: 150px;
+  height: 350px;
   border-radius: 10px;
   justify-content: center;
   align-content: center;
+  border: 1px solid white;
+}
+.iForm {
+  display: grid;
+  row-gap: 7px;
+}
+.iForm input {
+  padding: 5px;
+}
+.iForm select {
+  padding: 5px;
 }
 .income_form_content h1 {
   margin-bottom: 20px;
+  font: 35px "Bree Serif", serif;
+  color: #ffa603;
+}
+.iForm #iForm_submit {
+  border: none;
+  background-color: #ffa603;
+  color: white;
+  font-size: 15px;
+}
+.iForm #iForm_submit:hover {
+  cursor: pointer;
+  background-color: #ffec03;
+  color: black;
 }
 
 /* Expense Form */
 
 .expense_form_content {
   display: grid;
-  margin: 350px 50px 0px 250px;
+  margin: 225px 50px 0px 250px;
   color: white;
   background-color: #30353d;
-  height: 200px;
+  height: 550px;
+  row-gap: 10px;
   border-radius: 10px;
   justify-content: center;
   align-content: center;
+  border: 2px solid white;
+}
+.eForm {
+  height: 400px;
+  display: grid;
+  background-color: #30353d;
 }
 .expense_form_content h1 {
   margin: 10px 0px 10px 15px;
+  font: 35px "Bree Serif", serif;
 }
-.expense_form_content form {
-  padding: 10px;
+.expense_form_content input {
+  padding: 5px;
+  margin: 5px;
 }
-
+.eForm_radio {
+  font-size: 15px;
+}
+.expense_form_content select {
+  padding: 5px;
+  margin: 5px;
+}
+.eForm_sub #eForm_submit {
+  background-color: #4edff9;
+  color: black;
+  border-radius: 5px;
+  padding: 7px;
+  border: none;
+}
+.eForm_sub #eForm_submit:hover {
+  background-color: #355ec4;
+  color: white;
+  cursor: pointer;
+}
 /* Expense/Receipt Update Form */
 .receipt_update_body {
   background-color: #30353d;
@@ -963,6 +1014,7 @@ html {
 }
 .summary_content #summary_incomeTitle {
   font: 35px "Bree Serif", serif;
+  color: #ffa603;
   margin: 0px 15px 10px 15px;
   grid-area: incTitle;
   border-bottom: 1px solid white;
@@ -1049,6 +1101,7 @@ html {
 .summary_content #summary_receiptTitle {
   font: 35px "Bree Serif", serif;
   margin: 0px 15px 10px 15px;
+  color: #4edff9;
   border-bottom: 1px solid white;
   grid-area: recTitle;
 }
@@ -1412,8 +1465,12 @@ html {
   color: white;
 }
 .logout_message {
-  margin: 150px 0px 0px 750px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin: 350px 0px 0px 100px;
   color: white;
+  font: 35px "Bree Serif", serif;
 }
 
 /* Styling for  mobile 1*/
@@ -1687,7 +1744,6 @@ html {
     align-self: end;
     justify-self: center;
     font-size: 25px;
-    color: #ffa603;
   }
   .chart_disp {
     display: grid;
@@ -1784,15 +1840,6 @@ html {
     grid-area: dateHead;
     justify-self: center;
   }
-  .expensesMain_headings #create_expense {
-    grid-area: createExp;
-    font-size: 50px;
-    font-weight: bold;
-    color: #4edff9;
-  }
-  .expensesMain_headings #create_expense:hover {
-    color: #355ec4;
-  }
   .expensesMain_data {
     grid-area: expenseData;
     display: grid;
@@ -1808,14 +1855,10 @@ html {
   }
   .expensesMain a {
     font-size: 14px;
-    color: #ffa603;
     text-decoration: none;
   }
   .expensesMain_data #expensesBody_cat {
     display: none;
-  }
-  .expensesMain_data a:hover {
-    color: #ffec03;
   }
   .expenses_content #expensesBody_total {
     font-size: 18px;
@@ -1828,7 +1871,6 @@ html {
     padding: 12px;
     border: 1px solid transparent;
     text-decoration: none;
-    background-color: #ffa603;
     color: white;
     margin: 15px 0px 20px 0px;
     font-size: 15px;
@@ -1837,6 +1879,52 @@ html {
   .expenses_content #expensesBody_create:hover {
     color: black;
     background-color: #4edff9;
+  }
+  /* Expense / Receipt Form */
+  .expense_form_content {
+    display: grid;
+    margin: 150px 25px 0px 25px;
+    color: white;
+    background-color: #30353d;
+    height: 650px;
+    border-radius: 10px;
+    justify-content: center;
+    align-content: center;
+  }
+  .expense_form_content h1 {
+    margin: 10px 0px 10px 15px;
+    font: 25px "Bree Serif", serif;
+    text-decoration: underline;
+    color: #4edff9;
+  }
+  .expense_form_content form {
+    padding: 10px;
+  }
+
+  /* Income Form */
+  .income_form_content {
+    display: grid;
+    margin: 150px 25px 0px 25px;
+    color: white;
+    background-color: #30353d;
+    height: 500px;
+    border-radius: 10px;
+    justify-content: center;
+    align-content: center;
+  }
+  .income_form_content h1 {
+    color: #ffa603;
+  }
+  .iForm #iForm_submit {
+    border: none;
+    background-color: #ffa603;
+    color: white;
+    font-size: 15px;
+  }
+  .iForm #iForm_submit:hover {
+    cursor: pointer;
+    background-color: #ffec03;
+    color: black;
   }
 
   /*Income Page*/
@@ -1865,7 +1953,6 @@ html {
     align-self: end;
     justify-self: center;
     font: 25px "Bree Serif", serif;
-    color: #4edff9;
   }
   .income_main {
     margin: 0px;
@@ -1938,7 +2025,6 @@ html {
     align-content: start;
   }
   .income_main_data #incomeDisp_desc {
-    color: #4edff9;
     text-decoration: none;
   }
   .income_main_data #incomeDisp_cat {
@@ -1958,18 +2044,16 @@ html {
     font-size: 15px;
     border: 1px solid transparent;
     text-decoration: none;
-    background-color: #ffa603;
     color: white;
     border-radius: 20px;
   }
   #incomeBody_create:hover {
     color: black;
-    background-color: #4edff9;
   }
 
   /* User Details Page*/
   .details_body {
-    margin: 100px 0px 10px 0px;
+    margin: 100px 25px 10px 25px;
   }
   .details_display_card {
     display: grid;
@@ -1985,7 +2069,7 @@ html {
     margin: 0px;
   }
   .summary_header {
-    margin: 75px 10px 20px 10px;
+    margin: 100px 10px 20px 10px;
     display: grid;
     grid-template-columns: [col1] 100%;
     grid-template-rows: [row1] 25% [row2] 25% [row3] 25% [row4] 25%;
@@ -2005,7 +2089,9 @@ html {
   .summary_header p {
     grid-area: summHeaderP;
     justify-self: center;
+    font-size: 18px;
     color: white;
+    margin-bottom: 10px;
   }
   .summary_header_right {
     grid-area: summHeaderRight;
@@ -2374,12 +2460,14 @@ html {
   .det_body {
     display: grid;
     grid-template-rows: [row1] 10% [row2] 10% [row3] 10% [row4] 10% [row5] 10% [row6] 10% [row7] 10% [row8] 10%;
-    grid-template-columns: [col1] 35% [col2] 35%;
-    margin: 0px 0px 0px 0px;
+    grid-template-columns: [col1] 50% [col2] 50%;
+    margin: 150px 25px 0px 25px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     background-color: #30353d;
     color: white;
+    width: 85%;
+    max-height: 60vh;
     justify-content: center;
     align-content: center;
     font-size: 14px;
@@ -2387,6 +2475,7 @@ html {
 
   #det_title {
     color: #355ec4;
+    display: none;
     font-size: 30px;
     padding: 10px;
     border-top-right-radius: 10px;
@@ -2420,9 +2509,9 @@ html {
     display: grid;
     padding: 20px;
     grid-template-rows: [row1] 10% [row2] 60% [row3] 10%;
-    grid-template-columns: [col1] 100%;
-    margin: 125px 0px 10px 0px;
-    height: 80vh;
+    grid-template-columns: [col1] 95%;
+    margin: 150px 25px 10px 25px;
+    height: 60vh;
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
     grid-template-areas:
       "loginTitle"
@@ -2449,6 +2538,9 @@ html {
     justify-content: center;
     align-content: center;
   }
+  .login_form input {
+    padding: 5px;
+  }
   .login_form #login_userName {
     grid-area: loginName;
   }
@@ -2467,7 +2559,7 @@ html {
     align-self: center;
     background-color: #355ec4;
     border: 1px solid #355ec4;
-    margin-top: 5px;
+    margin-top: 20px;
     color: white;
     font-size: 17px;
     cursor: pointer;
@@ -2494,9 +2586,9 @@ html {
   .signup_body {
     display: grid;
     grid-template-rows: [row1] 5% [row2] 70% [row3] 5%;
-    grid-template-columns: [col1] 99%;
-    margin: 125px 0px 25px 0px;
-    height: 96vh;
+    grid-template-columns: [col1] 90%;
+    margin: 125px 20px 25px 20px;
+    height: 75vh;
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
     grid-template-areas:
       "signupTitle"
@@ -2504,6 +2596,8 @@ html {
       "signupSignin";
     background-color: #30353d;
     color: white;
+    justify-content: center;
+    align-content: center;
   }
   .signup_title {
     grid-area: signupTitle;

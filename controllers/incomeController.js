@@ -137,16 +137,20 @@ exports.income_detail = function (req, res) {
 };
 // Display Author delete form on GET.
 exports.income_delete_get = function (req, res, next) {
-  Income.findById(req.params.id, function (err, results) {
-    if (err) {
-      return next(err);
-    } else {
-      res.render("income_delete", {
-        title: "Income Deletion",
-        results: results,
-      });
-    }
-  });
+  if (req.session.isAuth) {
+    Income.findById(req.params.id, function (err, results) {
+      if (err) {
+        return next(err);
+      } else {
+        res.render("income_delete", {
+          title: "Income Deletion",
+          results: results,
+        });
+      }
+    });
+  } else {
+    res.redirect("/catalog/user/login");
+  }
 };
 
 exports.income_delete_post = function (req, res) {
@@ -159,19 +163,23 @@ exports.income_delete_post = function (req, res) {
 };
 
 exports.income_update_get = function (req, res, next) {
-  Income.findById(req.params.id, function (err, results) {
-    if (err) {
-      return next(err);
-    } else {
-      res.render("income_update", {
-        title: "Income Update",
-        results: results,
-        authCheck: req.session.isAuth,
-        authUserID: req.session.authUserID,
-        authUser: req.session.authUser,
-      });
-    }
-  });
+  if (req.session.isAuth) {
+    Income.findById(req.params.id, function (err, results) {
+      if (err) {
+        return next(err);
+      } else {
+        res.render("income_update", {
+          title: "Income Update",
+          results: results,
+          authCheck: req.session.isAuth,
+          authUserID: req.session.authUserID,
+          authUser: req.session.authUser,
+        });
+      }
+    });
+  } else {
+    res.redirect("/catalog/user/login");
+  }
 };
 
 exports.income_update_post = function (req, res, next) {

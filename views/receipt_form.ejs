@@ -14,31 +14,40 @@
     <title>Receipt Form</title>
   </head>
   <%- include("navbarLI") %>
+
+  <h1><%= title %></h1>
   <body class="expense_form_content">
-    <h1><%= title %></h1>
-    <form action="" method="POST">
+    <form class="eForm" action="" method="POST">
       <input type="text" placeholder="Name" name="name" />
       <input type="text" placeholder="Description" name="description" />
-      <input type="radio" id="debit" name="paymentType" value=" Debit" />
-      <label for="debit">Debit</label>
-      <input type="radio" id="credit" name="paymentType" value="Credit" />
-      <label for="credit">Credit</label>
-      <input type="radio" id="cash" name="paymentType" value=" Cash" />
-      <label for="cash">Cash</label>
-      <input type="radio" id="check" name="paymentType" value=" Check" />
-      <label for="check">Check</label>
-      <input type="radio" id="giftcard" name="paymentType" value="Gift Card" />
-      <label for="giftCard">Gift Card</label>
-      <input
-        type="radio"
-        id="banktransfer"
-        name="paymentType"
-        Value="Bank Transfer"
-      />
-      <label for="banktransfer">Bank Transfer</label>
+      <div class="eForm_radio">
+        <input type="radio" id="debit" name="paymentType" value=" Debit" />
+        <label for="debit">Debit</label>
+        <input type="radio" id="credit" name="paymentType" value="Credit" />
+        <label for="credit">Credit</label>
+        <input type="radio" id="cash" name="paymentType" value=" Cash" />
+        <label for="cash">Cash</label>
+        <input type="radio" id="check" name="paymentType" value=" Check" />
+        <label for="check">Check</label>
+        <input
+          type="radio"
+          id="giftcard"
+          name="paymentType"
+          value="Gift Card"
+        />
+        <label for="giftCard">Gift Card</label>
+        <input
+          type="radio"
+          id="banktransfer"
+          name="paymentType"
+          Value="Bank Transfer"
+        />
+        <label for="banktransfer">Bank Transfer</label>
+      </div>
+
       <input type="text" placeholder="Card Name" name="ccName" />
-      <label for="category">Category:</label>
       <select id="category" name="category">
+        <option value="Null">Category</option>
         <option value="Food">Food</option>
         <option value="Entertainment">Entertainment</option>
         <option value="House">House</option>
@@ -49,10 +58,15 @@
         <option value="Self-Care">Self-Care</option>
       </select>
       <input type="date" name="date" />
-      <label>Total:</label>
-      <input type="number" name="total" step="0.01" required="true" />
+      <input
+        type="number"
+        name="total"
+        step="0.01"
+        required="true"
+        placeholder="Total"
+      />
       <input type="hidden" name="author" value="<%= authorID %>" />
-      <input type="submit" value="Submit" />
+      <input id="eForm_submit" type="submit" value="Submit" />
     </form>
   </body>
 </html>
