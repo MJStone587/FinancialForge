@@ -172,7 +172,7 @@ exports.income_update_get = function (req, res, next) {
           title: "Income Update",
           results: results,
           authCheck: req.session.isAuth,
-          authUserID: req.session.authUserID,
+          authorID: req.session.authUserID,
           authUser: req.session.authUser,
         });
       }
