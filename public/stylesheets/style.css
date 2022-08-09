@@ -382,12 +382,13 @@ html {
 .expensesMain_data {
   grid-area: expenseData;
   display: grid;
-  overflow: auto;
   grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
   color: white;
   row-gap: 10px;
   font-size: 17px;
+  align-items: start;
   align-content: start;
+  overflow: auto;
   height: 200px;
   width: 100%;
   max-height: 300px;
