@@ -457,22 +457,7 @@ html {
 .income_body {
   margin: 0px 25px 0px 250px;
 }
-.income_main {
-  display: grid;
-  border-radius: 10px;
-  grid-template-columns: [col1] 100%;
-  grid-template-rows: [row1] 40% [row2] 10% [row3] 50%;
-  grid-template-areas:
-    "chartDisp"
-    "bodyHead"
-    "bodyData";
-  color: white;
-  max-height: 80vh;
-  padding: 15px;
-  background-color: #30353d;
-}
 .inc_chart_disp {
-  grid-area: chartDisp;
   display: grid;
   grid-template-rows: [row1] 10% [row2] 90%;
   grid-template-columns: [col1] 100%;
@@ -490,6 +475,19 @@ html {
 .inc_chart_disp #income_chart {
   max-height: 350px;
   max-width: 95%;
+}
+.income_main {
+  display: grid;
+  border-radius: 10px;
+  grid-template-columns: [col1] 100%;
+  grid-template-rows: [row1] 15% [row2] 80%;
+  grid-template-areas:
+    "bodyHead"
+    "bodyData";
+  color: white;
+  padding: 15px;
+  background-color: #30353d;
+  align-content: start;
 }
 .bodyHead {
   grid-area: bodyHead;
@@ -516,14 +514,15 @@ html {
 .income_main_data {
   grid-area: bodyData;
   display: grid;
-  overflow: auto;
   grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
   color: white;
   row-gap: 10px;
   font-size: 17px;
+  align-self: start;
   align-content: start;
   height: 200px;
   max-height: 300px;
+  overflow: auto;
   margin: 15px 0px 0px 15px;
 }
 .income_main_data #incomeDisp_desc {
@@ -4802,9 +4801,9 @@ html {
     margin: 0px;
   }
   .summary_header {
-    margin: 100px 10px 20px 10px;
+    margin: 100px 5px 75px 5px;
     display: grid;
-    grid-template-columns: [col1] 100%;
+    grid-template-columns: [col1] 98%;
     grid-template-rows: [row1] 25% [row2] 25% [row3] 25% [row4] 25%;
     grid-template-areas:
       "summHeaderTitle"
@@ -4873,20 +4872,20 @@ html {
   .fa-calendar {
     grid-area: calendar;
     justify-self: end;
-    font-size: 13px;
+    font-size: 15px;
   }
   .fa-clock {
     grid-area: clock;
     justify-self: end;
-    font-size: 13px;
+    font-size: 15px;
   }
   .summary_header_right_bot #summary_header_date {
-    font-size: 14px;
+    font-size: 17px;
     justify-self: start;
     grid-area: date;
   }
   .summary_header_right_bot #summary_header_time {
-    font-size: 14px;
+    font-size: 17px;
     justify-self: start;
     grid-area: time;
   }
@@ -4909,9 +4908,8 @@ html {
       "chart2Title chart2Title"
       "chart2 chart2";
     border-radius: 10px;
-    height: 725px;
-    width: 99%;
-    margin: 0px 0px 50px 0px;
+    height: 800px;
+    margin: 0px 5px 50px 5px;
   }
   .summary_charts #exp_btn {
     grid-area: btn1;
@@ -4946,8 +4944,8 @@ html {
   .chartDisp1 {
     grid-area: chart1;
     align-self: start;
-    height: 300px;
-    width: 400px;
+    height: 350px;
+    width: 350px;
   }
   .summary_charts #monthlySpendingTitle {
     align-self: start;
@@ -4975,7 +4973,7 @@ html {
     grid-area: chart1;
     align-self: start;
     height: 300px;
-    width: 400px;
+    width: 350px;
     display: none;
   }
   .summary_charts #monthlyIncomeTitle {
