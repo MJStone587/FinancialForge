@@ -1059,6 +1059,8 @@ html {
   grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
   grid-template-rows: [row1] 100%;
   grid-template-areas: "iDescTitle iTotalTitle iDateTitle iCatTitle";
+  align-self: start;
+  align-content: start;
 }
 .summary_incomeList_titles #iDescTitle {
   grid-area: iDescTitle;
