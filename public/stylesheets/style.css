@@ -2160,7 +2160,7 @@ html {
     margin: 0px;
   }
   .summary_header {
-    margin: 100px 10px 20px 10px;
+    margin: 100px 10px 100px 10px;
     display: grid;
     grid-template-columns: [col1] 100%;
     grid-template-rows: [row1] 25% [row2] 25% [row3] 25% [row4] 25%;
