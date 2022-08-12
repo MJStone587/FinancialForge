@@ -59,7 +59,7 @@
           <a href="/catalog/receipt/<%= receipt_list[i]._id %>" id="expensesBody_title"><%= receipt_list[i].description %></a>
           <p id="expensesBody_amt"><%= "$" + receipt_list[i].total %> </p>
           <p id="expensesBody_cat"><%= receipt_list[i].category %> </p>
-          <p id="expensesBody_date"><%= receipt_list[i].date_formatted %></p>
+          <p id="expensesBody_date"><%= receipt_list[i].date_month %></p>
           <% } %>
       </div>
 
@@ -84,7 +84,7 @@
          <% } %>
         <% } %>
     <% } %>
-    <h2 id="expensesBody_total">Receipt Totals: $<%=round(total, 2);%></h2>
+    <h2 id="expensesBody_total">Total: $<%=round(total, 2);%></h2>
     <a id="expensesBody_create" href="receipt/create">+Add Receipt</a>
   </body>
   

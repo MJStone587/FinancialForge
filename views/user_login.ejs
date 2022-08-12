@@ -20,9 +20,9 @@
   <%-include("navbar") %> 
  <% } %>
 
-<div class="login_body">
+<body class="login_body">
 
-  <h2 class="login_title"> <%= message %></h2>
+  <h2 id="login_title"> <%= message %></h2>
     <form action="" method="POST" class="login_form">
       <label id="login_userLabel"for="userName">User Name: </label>
       <label id="login_passLabel" for="userPass">Password: </label>
@@ -38,5 +38,5 @@
       <a id="login_signUp" href="/catalog/user/create">Sign Up</a>
     </div>
 
-  </div>
+  </body>
 </html>

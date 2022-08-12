@@ -2,6 +2,7 @@ const User = require("../models/users");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
+var errorArr = [];
 
 exports.user_create_get = function (req, res) {
   res.render("user_form", {
@@ -150,33 +151,33 @@ exports.user_login_post = async function (req, res) {
   var password = req.body.userPass;
 
   User.findOne({ userName }, function (err, results) {
+    // might require some improvements
     if (err) {
-      console.log(results._id);
-      return res.render("user_login", {
-        message: "That user does not exist",
-        authCheck: req.session.isAuth,
-        authorID: results._id,
-        authUser: results.userName,
-      });
-    } else {
+      console.log(err);
+    }
+    if (results) {
       const match = bcrypt.compareSync(password, results.userPass);
       if (!match) {
-        console.log(match);
-        console.log(results._id);
-        return res.render("user_login", {
+        res.render("user_login", {
           message: "Incorrect Password",
           authCheck: req.session.isAuth,
-          authorID: results._id,
-          authUser: results.userName,
+          authorID: req.session.authUserID,
+          authUser: req.session.authUser,
         });
-      } else {
-        console.log(results._id);
+      } else if (match) {
         req.session.isAuth = true;
         req.session.authUser = results.userName;
         req.session.authUserID = results._id;
         req.session.authorID = results._id;
         res.redirect("/catalog/user/:id");
       }
+    } else {
+      res.render("user_login", {
+        message: "That username does not exist (usernames are case sensitive)",
+        authCheck: req.session.isAuth,
+        authorID: req.session.authUserID,
+        authUser: req.session.authUser,
+      });
     }
   });
 };
