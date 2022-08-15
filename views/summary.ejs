@@ -82,9 +82,14 @@
       <!-- Summary Income List-->
       <% var total_income = 0; %> 
       <% var balance = 0 %>
-      <h1 id="summary_incomeTitle">Income</h1>
-      <a href="/catalog/income/create"id="addIncome">+Income</a>
+
       <div class="summary_incomeList">
+
+        <div class="summary_incomeHeader">
+          <h1 id="summary_incomeTitle">Income</h1>
+          <a href="/catalog/income/create"id="addIncome">+</a>
+        </div>
+       
         <div class="summary_incomeList_titles">
           <h3 id="iDescTitle">Description</h3>
           <h3 id="iTotalTitle">Total</h3>
@@ -127,9 +132,14 @@
 
 
     <!--       Summary Receipts                -->
-      <h1 id="summary_receiptTitle">Expenses</h1>
-      <a href="/catalog/receipt/create" id="addExpense">+Expense</a>
-      <div class="summary_receiptList">
+     
+      <div class="summary_receiptList"> 
+        
+        <div class="summary_receiptHeader">
+          <h1 id="summary_receiptTitle">Expenses</h1>
+          <a href="/catalog/receipt/create" id="addExpense">+</a>
+        </div>
+        
         <div class="summary_receiptList_titles">
           <h3>Description</h3>
           <h3>Total</h3>
