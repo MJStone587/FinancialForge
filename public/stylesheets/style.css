@@ -4016,7 +4016,7 @@ html {
     align-content: center;
   }
   .login_form input {
-    padding: 5px;
+    padding: 7px;
   }
   .login_form #login_userName {
     grid-area: loginName;
@@ -5104,7 +5104,7 @@ html {
   }
   .summary_incomeList #summary_incomeTitle {
     font: 35px "Bree Serif", serif;
-    color: #ffa603;
+    color: white;
     align-self: center;
   }
   .summary_incomeList #addIncome {
@@ -5156,7 +5156,7 @@ html {
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     align-content: start;
     overflow: auto;
-    font-size: 20px;
+    font-size: 18px;
     row-gap: 5px;
   }
   .summary_incomeList #summary_iDet {
@@ -5173,7 +5173,7 @@ html {
   .summary_incomeList #summary_incomeTotal {
     grid-area: incomeTotal;
     text-decoration: overline;
-    font: 22px "Bree Serif", serif;
+    font: 23px "Bree Serif", serif;
   }
   .summary_receiptList {
     display: grid;
@@ -5203,7 +5203,7 @@ html {
   .summary_receiptList #summary_receiptTitle {
     font: 35px "Bree Serif", serif;
     align-self: center;
-    color: #4edff9;
+    color: white;
   }
   .summary_receiptList #addExpense {
     background-color: #4edff9;
@@ -5237,7 +5237,7 @@ html {
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     align-content: start;
     overflow: auto;
-    font-size: 20px;
+    font-size: 18px;
     row-gap: 5px;
   }
   .summary_receiptList h3 {
@@ -5255,7 +5255,7 @@ html {
   .summary_receiptList #summary_receiptTotal {
     grid-area: receiptTotal;
     text-decoration: overline;
-    font: 22px "Bree Serif", serif;
+    font: 23px "Bree Serif", serif;
   }
   .summary_receiptList_data #summary_rCat {
     display: none;
@@ -5339,14 +5339,15 @@ html {
     background-color: #30353d;
     color: white;
   }
-  .login_title {
+  .login_body #login_title {
     grid-area: loginTitle;
     margin: 50px 0px 0px 0px;
+    font-size: 20px;
   }
   .login_form {
     grid-area: loginForm;
     display: grid;
-    grid-template-rows: [row1] 5% [row2] 10% [row3] 7%;
+    grid-template-rows: [row1] 5% [row2] 15% [row3] 10%;
     grid-template-columns: [col1] 40% [col2] 40%;
     grid-row-gap: 10px;
     grid-template-areas:
@@ -5358,7 +5359,14 @@ html {
     align-content: center;
   }
   .login_form input {
-    padding: 5px;
+    padding: 8px;
+    width: 100px;
+    height: 20px;
+  }
+  .login_form #login_submit {
+    padding: 3px;
+    height: 40px;
+    width: 80px;
   }
   .login_form #login_userName {
     grid-area: loginName;
@@ -5404,7 +5412,7 @@ html {
   /*Signup Page*/
   .signup_body {
     display: grid;
-    grid-template-rows: [row1] 5% [row2] 70% [row3] 5%;
+    grid-template-rows: [row1] 20% [row2] 70% [row3] 10%;
     grid-template-columns: [col1] 90%;
     margin: 125px 20px 25px 20px;
     height: 75vh;
@@ -5418,16 +5426,18 @@ html {
     justify-content: center;
     align-content: center;
   }
-  .signup_title {
+  .signup_body #signup_title {
     grid-area: signupTitle;
-    margin: 100px 0px 0px 50px;
+    margin: 100px 0px 0px 25px;
+    font-size: 20px;
+    align-self: start;
   }
   .signup_form {
     grid-area: signupForm;
     display: grid;
-    grid-template-rows: [row1] 3% [row2] 8% [row3] 3% [row4] 8% [row5] 3% [row6] 8% [row7] 5%;
-    grid-template-columns: [col1] 40% [col2] 40%;
-    grid-row-gap: 10px;
+    grid-template-rows: [row1] 5% [row2] 15% [row3] 5% [row4] 15% [row5] 5% [row6] 15% [row7] 15%;
+    grid-template-columns: [col1] 45% [col2] 45%;
+    grid-row-gap: 5px;
     grid-column-gap: 20px;
     grid-template-areas:
       "signupUserNameLabel signupPassLabel"
@@ -5439,6 +5449,12 @@ html {
       " signupSubmit .";
     justify-content: center;
     align-content: center;
+    font-size: 18px;
+  }
+  .signup_form input {
+    padding: 10px;
+    height: 20px;
+    width: 100px;
   }
   .signup_form #userName {
     grid-area: signupUserName;
@@ -5497,6 +5513,7 @@ html {
     cursor: pointer;
     border-radius: 5px;
     padding: 10px;
+    height: 35px;
     margin-left: 5px;
     justify-self: start;
     align-self: center;
