@@ -3775,7 +3775,7 @@ html {
     border-radius: 10px;
     align-self: center;
     justify-self: start;
-    margin-left: 100px;
+    margin-left: 75px;
     border: 1px solid transparent;
   }
   .summary_incomeList #addIncome:hover {
@@ -3871,7 +3871,7 @@ html {
     font-weight: bold;
     color: black;
     border-radius: 10px;
-    margin-left: 275px;
+    margin-left: 200px;
     align-self: center;
     justify-self: center;
     border: 1px solid transparent;
