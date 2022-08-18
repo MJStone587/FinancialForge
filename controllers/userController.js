@@ -5,7 +5,7 @@ const saltRounds = 10;
 var errorArr = [];
 
 exports.user_create_get = function (req, res) {
-  res.render("user_form", {
+  res.render("signup_form", {
     authCheck: req.session.isAuth,
     authorID: req.session.authUserID,
     authUser: req.session.authUser,
@@ -62,7 +62,7 @@ exports.user_create_post = [
       });
       if (!errors.isEmpty()) {
         // There are errors. Render the form again with sanitized values/error messages.
-        res.render("user_form", {
+        res.render("signup_form", {
           title: "New User Form",
           user: user,
           authCheck: req.session.isAuth,
@@ -82,7 +82,7 @@ exports.user_create_post = [
 
           if (found_user) {
             // Receipt exists, redirect to its detail page.
-            res.render("user_form", {
+            res.render("signup_form", {
               title: "New User Form",
               user: user,
               errors: "That email is already in Use",

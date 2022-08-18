@@ -490,7 +490,7 @@ html {
   display: grid;
   grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
   grid-template-rows: [row1] 100%;
-  grid-template-areas: "descHead catHead amtHead dateHead";
+  grid-template-areas: "titleHead catHead amtHead dateHead";
   font: 25px "Bree Serif", serif;
   color: white;
   border-top-right-radius: 10px;
@@ -500,8 +500,8 @@ html {
   text-decoration-color: #ffa603;
   margin: 10px 0px 0px 25px;
 }
-.income_main #descHead {
-  grid-area: descHead;
+.income_main #titleHead {
+  grid-area: titleHead;
 }
 .income_main #catHead {
   grid-area: catHead;
@@ -525,12 +525,12 @@ html {
   width: 100%;
   margin: 10px 0px 0px 25px;
 }
-.income_main_data #incomeDisp_desc {
+.income_main_data #incomeDisp_name {
   font-size: 19px;
   color: #ffa603;
   text-decoration: none;
 }
-.income_main_data #incomeDisp_desc:hover {
+.income_main_data #incomeDisp_name:hover {
   color: #ffec03;
   text-decoration: none;
 }
@@ -1010,7 +1010,7 @@ html {
     "summBal";
   margin: 50px 0px 25px 0px;
   border-radius: 10px;
-  height: 900px;
+  height: 950px;
 }
 
 .summary_incomeList {
@@ -1026,9 +1026,10 @@ html {
   padding: 0px 15px 2px 15px;
   font-size: 15px;
   align-content: start;
-  margin: 0px 0px 5px 0px;
+  margin: 0px 0px 40px 0px;
   border: 1px solid #ffa603;
   border-radius: 10px;
+  height: 400px;
   background-color: #30353d;
 }
 .summary_incomeHeader {
@@ -1066,11 +1067,11 @@ html {
   display: grid;
   grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
   grid-template-rows: [row1] 100%;
-  grid-template-areas: "iDescTitle iTotalTitle iDateTitle iCatTitle";
+  grid-template-areas: "iTitle iTotalTitle iDateTitle iCatTitle";
   align-content: start;
 }
-.summary_incomeList_titles #iDescTitle {
-  grid-area: iDescTitle;
+.summary_incomeList_titles #iTitle {
+  grid-area: iTitle;
 }
 .summary_incomeList_titles #iTotalTitle {
   grid-area: iTotalTitle;
@@ -1126,6 +1127,7 @@ html {
   background-color: #30353d;
   margin: 5px 0px 0px 0px;
   align-content: start;
+  height: 400px;
   border-radius: 10px;
   border: 1px solid #4edff9;
 }
@@ -1388,9 +1390,10 @@ html {
   background-color: #30353d;
   color: white;
 }
-.signup_title {
+.signup_body #signup_title {
   grid-area: signupTitle;
   margin: 100px 0px 0px 50px;
+  font: 25px "Bree Serif", serif;
 }
 .signup_form {
   grid-area: signupForm;
@@ -1790,41 +1793,6 @@ html {
     max-height: 450px;
     max-width: 95%;
   }
-  /* Removed for the time, future addition if I come back to project
-  .expense_sort_options {
-    display: none;
-    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
-    color: white;
-    justify-items: center;
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-  .expense_sort_options input {
-    text-transform: capitalize;
-    background-color: #30353d;
-    border: none;
-    color: white;
-  }
-  .expense_sort_options #byDate {
-    padding: 5px;
-    border-bottom: 1px solid white;
-  }
-  .expense_sort_options #byAmt {
-    padding: 5px;
-    border-bottom: none;
-  }
-  .expense_sort_options #byCat {
-    padding: 5px;
-    border-bottom: none;
-  }
-  .expense_sort_options #byDesc {
-    padding: 5px;
-    border-bottom: none;
-  }
-  .expense_sort_options a:hover {
-    cursor: pointer;
-  }
-  */
   .expensesMain {
     display: grid;
     grid-template-rows: [row1] 20% [row2] 79%;
@@ -1870,7 +1838,7 @@ html {
     display: grid;
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     width: 100%;
-    overflow: scroll;
+    overflow: auto;
     font-size: 12px;
     justify-items: start;
     padding-left: 10px;
@@ -2106,14 +2074,14 @@ html {
     display: grid;
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     justify-content: start;
-    grid-template-areas: "descHead amtHead dateHead";
+    grid-template-areas: "titleHead amtHead dateHead";
     text-decoration: underline;
     margin: 0px 0px 0px 20px;
     font: 18px "Bree Serif", serif;
     text-decoration-color: #ffa603;
   }
-  .income_main #descHead {
-    grid-area: descHead;
+  .income_main #titleHead {
+    grid-area: titleHead;
   }
   .income_main #catHead {
     display: none;
@@ -2130,14 +2098,14 @@ html {
     grid-area: bodyData;
     display: grid;
     max-height: 60vh;
-    overflow: scroll;
+    overflow: auto;
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     color: white;
     font-size: 12px;
     justify-content: start;
     align-content: start;
   }
-  .income_main_data #incomeDisp_desc {
+  .income_main_data #incomeDisp_name {
     text-decoration: none;
     font-size: 14px;
   }
@@ -2385,7 +2353,7 @@ html {
       "summBal";
     margin: 50px 0px 25px 0px;
     border-radius: 10px;
-    height: 800px;
+    height: 950px;
   }
 
   .summary_incomeList {
@@ -2442,12 +2410,12 @@ html {
     display: grid;
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     grid-template-rows: [row1] 100%;
-    grid-template-areas: "iDescTitle iTotalTitle iDateTitle";
+    grid-template-areas: "iTitle iTotalTitle iDateTitle";
     align-content: start;
     text-decoration: underline;
   }
-  .summary_incomeList_titles #iDescTitle {
-    grid-area: iDescTitle;
+  .summary_incomeList_titles #iTitle {
+    grid-area: iTitle;
     font: 23px "Bree Serif", serif;
   }
   .summary_incomeList_titles #iTotalTitle {
@@ -2837,7 +2805,7 @@ html {
   }
 }
 /* Styling for Ipad*/
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   html {
     margin: 0px;
     width: 100%;
@@ -3127,102 +3095,61 @@ html {
     max-height: 450px;
     max-width: 95%;
   }
-  /* Removed for the time, future addition if I come back to project
-  .expense_sort_options {
-    display: none;
-    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
-    color: white;
-    justify-items: center;
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-  .expense_sort_options input {
-    text-transform: capitalize;
-    background-color: #30353d;
-    border: none;
-    color: white;
-  }
-  .expense_sort_options #byDate {
-    padding: 5px;
-    border-bottom: 1px solid white;
-  }
-  .expense_sort_options #byAmt {
-    padding: 5px;
-    border-bottom: none;
-  }
-  .expense_sort_options #byCat {
-    padding: 5px;
-    border-bottom: none;
-  }
-  .expense_sort_options #byDesc {
-    padding: 5px;
-    border-bottom: none;
-  }
-  .expense_sort_options a:hover {
-    cursor: pointer;
-  }
-  */
   .expensesMain {
     display: grid;
-    grid-template-rows: [row1] 20% [row2] 80%;
-    grid-template-areas:
-      "expenseHead"
-      "expenseData";
-    max-height: 40vh;
     border-radius: 10px;
-    background-color: #30353d;
+    grid-template-columns: [col1] 99%;
+    grid-template-rows: [row1] 15% [row2] 85%;
+    font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+    max-height: 80vh;
+    color: white;
+    margin: 0px;
   }
   .expensesMain_headings {
     grid-area: expenseHead;
-    display: grid;
-    grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
-    grid-template-rows: [row1] 99%;
-    grid-template-areas: "titleHead amtHead dateHead";
-    color: white;
+    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
+    justify-content: start;
+    grid-template-areas: "titleHead catHead amtHead dateHead";
+    margin: 0px 0px 0px 20px;
     width: 100%;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    padding: 10px;
     font: 23px "Bree Serif", serif;
-    text-decoration: underline;
     text-decoration-color: #4edff9;
   }
   .expensesMain_headings #title_heading {
     grid-area: titleHead;
-    justify-self: start;
   }
   .expensesMain_headings #amount_heading {
     grid-area: amtHead;
-    justify-self: center;
   }
   .expensesMain_headings #cat_heading {
-    display: none;
+    display: grid;
     grid-area: catHead;
   }
   .expensesMain_headings #date_heading {
     grid-area: dateHead;
-    justify-self: center;
   }
   .expensesMain_data {
     grid-area: expenseData;
     display: grid;
-    grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
-    width: 100%;
+    max-height: 60vh;
     overflow: auto;
-    font-size: 16px;
-    justify-items: center;
-    padding-left: 10px;
+    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
     color: white;
-    max-height: 400px;
-    height: 200px;
+    font-size: 15px;
+    justify-content: start;
+    margin: 0px 0px 0px 20px;
+    align-content: start;
   }
-  .expensesMain a {
+  .expensesMain_data a {
     font-size: 18px;
     text-decoration: none;
     justify-self: start;
   }
+  .expensesMain_data #expensesBody_date {
+    margin-left: 20px;
+  }
   .expensesMain_data #expensesBody_cat {
-    display: none;
+    display: grid;
   }
   .expenses_content #expensesBody_total {
     font: 25px "Bree Serif", serif;
@@ -3313,7 +3240,6 @@ html {
     color: white;
     border: none;
   }
-  /* Income Update */
   /* Income Update Form */
   .income_update_body {
     background-color: #30353d;
@@ -3438,24 +3364,24 @@ html {
     font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
     max-height: 80vh;
     color: white;
-    margin: 0px 5px 25px 5px;
+    margin: 0px;
   }
   .bodyHead {
     grid-area: bodyHead;
     display: grid;
-    grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
+    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
     justify-content: start;
-    grid-template-areas: "descHead amtHead dateHead";
+    grid-template-areas: "titleHead catHead amtHead dateHead";
     text-decoration: underline #ffa603;
     margin: 0px 0px 0px 20px;
     width: 100%;
     font: 23px "Bree Serif", serif;
   }
-  .income_main #descHead {
-    grid-area: descHead;
+  .income_main_data #titleHead {
+    grid-area: titleHead;
   }
-  .income_main #catHead {
-    display: none;
+  .income_main_data #catHead {
+    display: grid;
     grid-area: catHead;
   }
   .income_main #amtHead {
@@ -3468,19 +3394,20 @@ html {
     grid-area: bodyData;
     display: grid;
     max-height: 60vh;
-    overflow: scroll;
-    grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
+    overflow: auto;
+    grid-template-columns: [col1] 40% [col2] 20% [col3] 20% [col4] 20%;
     color: white;
     font-size: 15px;
     justify-content: start;
     margin: 0px 0px 0px 20px;
     align-content: start;
   }
-  .income_main_data #incomeDisp_desc {
+  .income_main_data #incomeDisp_name {
     text-decoration: none;
+    font-size: 18px;
   }
   .income_main_data #incomeDisp_cat {
-    display: none;
+    display: grid;
   }
   #incomeBody_total {
     margin: 20px 25px 20px 10px;
@@ -3731,21 +3658,21 @@ html {
       "summBal";
     margin: 50px 0px 25px 0px;
     border-radius: 10px;
-    height: 800px;
+    height: 950px;
   }
 
   .summary_incomeList {
     display: grid;
     grid-area: incomeList;
     grid-template-columns: [col1] 100%;
-    grid-template-rows: [row1] 15% [row2] 15% [row3] 60% [row4] 10%;
+    grid-template-rows: [row1] 15% [row2] 12% [row3] 60% [row4] 10%;
     grid-template-areas:
       "incomeListHeader"
       "incomeListTitles"
       "incomeListData"
       "incomeTotal";
     padding: 0px 15px 2px 15px;
-    font-size: 15px;
+    font-size: 17px;
     align-content: start;
     margin: 0px 0px 5px 0px;
     border: 1px solid #ffa603;
@@ -3788,12 +3715,13 @@ html {
     display: grid;
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     grid-template-rows: [row1] 100%;
-    grid-template-areas: "iDescTitle iTotalTitle iDateTitle";
+    margin-left: 75px;
+    grid-template-areas: "iTitle iTotalTitle iDateTitle";
     align-content: start;
     text-decoration: underline;
   }
-  .summary_incomeList_titles #iDescTitle {
-    grid-area: iDescTitle;
+  .summary_incomeList_titles #iTitle {
+    grid-area: iTitle;
     font: 23px "Bree Serif", serif;
   }
   .summary_incomeList_titles #iTotalTitle {
@@ -3812,13 +3740,14 @@ html {
     grid-area: incomeListData;
     display: grid;
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
+    margin-left: 75px;
     align-content: start;
     overflow: auto;
     font-size: 20px;
     row-gap: 5px;
   }
   .summary_incomeList #summary_iDet {
-    font-size: 19px;
+    font-size: 23px;
     text-decoration: none;
     color: #ffa603;
   }
@@ -3837,7 +3766,7 @@ html {
     display: grid;
     grid-area: receiptList;
     grid-template-columns: [col1] 100%;
-    grid-template-rows: [row1] 15% [row2] 15% [row3] 60% [row4] 10%;
+    grid-template-rows: [row1] 15% [row2] 12% [row3] 60% [row4] 10%;
     grid-template-areas:
       "receiptHeader"
       "receiptTitles"
@@ -3888,6 +3817,7 @@ html {
     grid-area: receiptTitles;
     display: grid;
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
+    margin-left: 75px;
   }
   .summary_receiptList_data {
     grid-area: receiptData;
@@ -3897,13 +3827,14 @@ html {
     overflow: auto;
     font-size: 20px;
     row-gap: 5px;
+    margin-left: 75px;
   }
   .summary_receiptList h3 {
     font: 23px "Bree Serif", serif;
     text-decoration: underline;
   }
   .summary_receiptList_data #summary_recName {
-    font-size: 19px;
+    font-size: 23px;
     text-decoration: none;
     color: #4edff9;
   }
@@ -4464,60 +4395,25 @@ html {
     color: white;
     height: 300px;
     border-radius: 10px;
-    margin-bottom: 50px;
     padding: 10px;
-    margin: 0px 0px 50px 0px;
+    margin: 0px 0px 20px 0px;
   }
   .chart_disp h1 {
     font-size: 20px;
   }
   .chart_disp #expense_chart {
-    max-height: 450px;
+    max-height: 460px;
     max-width: 95%;
+    margin: 0;
   }
-  /* Removed for the time, future addition if I come back to project
-  .expense_sort_options {
-    display: none;
-    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
-    color: white;
-    justify-items: center;
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-  .expense_sort_options input {
-    text-transform: capitalize;
-    background-color: #30353d;
-    border: none;
-    color: white;
-  }
-  .expense_sort_options #byDate {
-    padding: 5px;
-    border-bottom: 1px solid white;
-  }
-  .expense_sort_options #byAmt {
-    padding: 5px;
-    border-bottom: none;
-  }
-  .expense_sort_options #byCat {
-    padding: 5px;
-    border-bottom: none;
-  }
-  .expense_sort_options #byDesc {
-    padding: 5px;
-    border-bottom: none;
-  }
-  .expense_sort_options a:hover {
-    cursor: pointer;
-  }
-  */
   .expensesMain {
     display: grid;
-    grid-template-rows: [row1] 10% [row2] 89%;
+    grid-template-rows: [row1] 15% [row2] 85%;
     grid-template-areas:
       "expenseHead"
       "expenseData";
-    max-height: 40vh;
-    row-gap: 15px;
+    max-height: 60vh;
+    row-gap: 10px;
     border-radius: 10px;
     background-color: #30353d;
   }
@@ -4530,7 +4426,7 @@ html {
     color: white;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
-    padding: 10px;
+    padding: 5px;
     font: 23px "Bree Serif", serif;
     text-decoration: underline;
     text-decoration-color: #4edff9;
@@ -4556,16 +4452,16 @@ html {
     display: grid;
     grid-template-columns: [col1] 39% [col2] 29% [col3] 29%;
     width: 100%;
-    overflow: scroll;
+    overflow: auto;
     font-size: 14px;
     justify-items: start;
-    padding-left: 10px;
+    padding: 5px;
     color: white;
     max-height: 400px;
     height: 300px;
   }
   .expensesMain a {
-    font-size: 14px;
+    font-size: 15px;
     text-decoration: none;
   }
   .expensesMain_data #expensesBody_cat {
@@ -4591,6 +4487,7 @@ html {
     color: black;
     background-color: #4edff9;
   }
+
   /* Expense / Receipt Form */
   .expense_form_content {
     display: grid;
@@ -4602,6 +4499,7 @@ html {
     justify-content: center;
     align-content: center;
   }
+
   .expense_form_content h1 {
     margin: 10px 0px 10px 15px;
     font: 25px "Bree Serif", serif;
@@ -4660,7 +4558,6 @@ html {
     color: white;
     border: none;
   }
-  /* Income Update */
   /* Income Update Form */
   .income_update_body {
     background-color: #30353d;
@@ -4767,7 +4664,7 @@ html {
     border-radius: 10px;
     height: 250px;
     padding: 10px;
-    margin: 20px 5px 50px 5px;
+    margin: 20px 5px 20px 5px;
   }
   .inc_chart_disp h1 {
     font-size: 20px;
@@ -4783,7 +4680,7 @@ html {
     display: grid;
     border-radius: 10px;
     grid-template-columns: [col1] 99%;
-    grid-template-rows: [row1] 10% [row2] 90%;
+    grid-template-rows: [row1] 15% [row2] 85%;
     font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
     max-height: 80vh;
     color: white;
@@ -4794,14 +4691,14 @@ html {
     display: grid;
     grid-template-columns: [col1] 39% [col2] 29% [col3] 29%;
     justify-content: start;
-    grid-template-areas: "descHead amtHead dateHead";
+    grid-template-areas: "titleHead amtHead dateHead";
+    padding: 5px;
     text-decoration: underline;
-    margin: 0px 0px 0px 20px;
     font: 18px "Bree Serif", serif;
     text-decoration-color: #ffa603;
   }
-  .income_main #descHead {
-    grid-area: descHead;
+  .income_main #titleHead {
+    grid-area: titleHead;
   }
   .income_main #catHead {
     display: none;
@@ -4818,16 +4715,17 @@ html {
     grid-area: bodyData;
     display: grid;
     max-height: 60vh;
-    overflow: scroll;
+    overflow: auto;
     grid-template-columns: [col1] 39% [col2] 29% [col3] 29%;
     color: white;
+    padding: 5px;
     font-size: 14px;
     justify-content: start;
     align-content: start;
   }
-  .income_main_data #incomeDisp_desc {
+  .income_main_data #incomeDisp_name {
     text-decoration: none;
-    font-size: 14px;
+    font-size: 15px;
   }
   .income_main_data #incomeDisp_cat {
     display: none;
@@ -5130,12 +5028,12 @@ html {
     display: grid;
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     grid-template-rows: [row1] 100%;
-    grid-template-areas: "iDescTitle iTotalTitle iDateTitle";
+    grid-template-areas: "iTitle iTotalTitle iDateTitle";
     align-content: start;
     text-decoration: underline;
   }
-  .summary_incomeList_titles #iDescTitle {
-    grid-area: iDescTitle;
+  .summary_incomeList_titles #iTitle {
+    grid-area: iTitle;
     font: 23px "Bree Serif", serif;
   }
   .summary_incomeList_titles #iTotalTitle {
@@ -5330,7 +5228,7 @@ html {
     grid-template-rows: [row1] 10% [row2] 60% [row3] 10%;
     grid-template-columns: [col1] 95%;
     margin: 150px 25px 10px 25px;
-    height: 60vh;
+    height: 65vh;
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
     grid-template-areas:
       "loginTitle"
@@ -5341,7 +5239,7 @@ html {
   }
   .login_body #login_title {
     grid-area: loginTitle;
-    margin: 50px 0px 0px 0px;
+    margin: 15px 0px 0px 0px;
     font-size: 20px;
   }
   .login_form {
@@ -5835,41 +5733,6 @@ html {
     max-height: 450px;
     max-width: 95%;
   }
-  /* Removed for the time, future addition if I come back to project
-  .expense_sort_options {
-    display: none;
-    grid-template-columns: [col1] 25% [col2] 25% [col3] 25% [col4] 25%;
-    color: white;
-    justify-items: center;
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-  .expense_sort_options input {
-    text-transform: capitalize;
-    background-color: #30353d;
-    border: none;
-    color: white;
-  }
-  .expense_sort_options #byDate {
-    padding: 5px;
-    border-bottom: 1px solid white;
-  }
-  .expense_sort_options #byAmt {
-    padding: 5px;
-    border-bottom: none;
-  }
-  .expense_sort_options #byCat {
-    padding: 5px;
-    border-bottom: none;
-  }
-  .expense_sort_options #byDesc {
-    padding: 5px;
-    border-bottom: none;
-  }
-  .expense_sort_options a:hover {
-    cursor: pointer;
-  }
-  */
   .expensesBody {
     display: grid;
     grid-template-rows: [row1] 10% [row2] 90%;
@@ -5925,7 +5788,7 @@ html {
     display: grid;
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     width: 100%;
-    overflow: scroll;
+    overflow: auto;
     font-size: 12px;
     justify-items: center;
     padding-left: 10px;
@@ -6027,13 +5890,13 @@ html {
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     width: 100%;
     justify-items: start;
-    grid-template-areas: "descHead amtHead dateHead";
+    grid-template-areas: "titleHead amtHead dateHead";
     text-decoration: underline;
     margin: 0px 0px 0px 20px;
     font-size: 10px;
   }
-  .income_body #descHead {
-    grid-area: descHead;
+  .income_body #titleHead {
+    grid-area: titleHead;
   }
   .income_body #catHead {
     display: none;
@@ -6050,13 +5913,13 @@ html {
     display: grid;
     width: 100%;
     max-height: 60vh;
-    overflow: scroll;
+    overflow: auto;
     grid-template-columns: [col1] 40% [col2] 30% [col3] 30%;
     color: white;
     font-size: 12px;
     justify-items: start;
   }
-  .income_body_data #incomeDisp_desc {
+  .income_body_data #incomeDisp_name {
     color: #4edff9;
     text-decoration: none;
   }
@@ -6342,7 +6205,7 @@ html {
     grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
     border-bottom: 10px solid #15171a;
     padding: 10px;
-    overflow: scroll;
+    overflow: auto;
     font-size: 15px;
   }
   .summary_incomeList h3 {
@@ -6389,7 +6252,7 @@ html {
     grid-area: receiptList;
     grid-template-columns: [col1] 50% [col2] 25% [col3] 25%;
     padding: 10px;
-    overflow: scroll;
+    overflow: auto;
     margin: 0px;
   }
   .summary_receiptList h3 {
@@ -6662,6 +6525,19 @@ html {
   }
   .logout_message {
     margin: 150px 0px 0px 50px;
+    color: white;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1025px) {
+  .fa-bars {
+    position: absolute;
+    top: 10px;
+    display: grid;
+    right: 930px;
+    text-decoration: none;
+    margin-top: 15px;
+    font-size: 25px;
+    z-index: 11;
     color: white;
   }
 }

@@ -91,7 +91,7 @@
         </div>
        
         <div class="summary_incomeList_titles">
-          <h3 id="iDescTitle">Description</h3>
+          <h3 id="iTitle">Title</h3>
           <h3 id="iTotalTitle">Total</h3>
           <h3 id="iDateTitle">Date</h3>
           <h3 id="iCatTitle">Category</h3>
@@ -99,7 +99,7 @@
        
        <div class="summary_incomeList_data">
         <% for(let i = 0; i < incomes.length; i++){ %>  
-        <a id="summary_iDet" href="/catalog/income/<%= incomes[i]._id %>"><%= incomes[i].description %></a>
+        <a id="summary_iDet" href="/catalog/income/<%= incomes[i]._id %>"><%= incomes[i].name %></a>
         <p id="summary_iAmt">$<%= incomes[i].amount %></p>
         <p id="summary_iDate"><%= incomes[i].date_month %></p>
         <p id="summary_iFrom"><%= incomes[i].from %></p> 
@@ -142,7 +142,7 @@
         </div>
         
         <div class="summary_receiptList_titles">
-          <h3>Description</h3>
+          <h3>Title</h3>
           <h3>Total</h3>
           <h3>Date</h3>
           <h3 id="rCatTitle">Category</h3>
@@ -150,7 +150,7 @@
         
         <div class="summary_receiptList_data">
           <% for(let i = 0; i < receipts.length; i++) { %>
-          <a id="summary_recName" href="/catalog/receipt/<%= receipts[i]._id %>"><%= receipts[i].description %></a>
+          <a id="summary_recName" href="/catalog/receipt/<%= receipts[i]._id %>"><%= receipts[i].name %></a>
           <p><%= "$" + receipts[i].total %></p>
           <p><%= receipts[i].date_month %></p>
           <p id="summary_rCat"><%= receipts[i].category %></p>

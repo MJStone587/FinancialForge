@@ -35,16 +35,6 @@
       <canvas id="expense_chart"></canvas>
     </div>
 
-<!-- THIS IS ON HOLD FOR NOW  eventually sort options -->
-    <div class="expense_sort_options">
-        <form action="" method="GET">
-          <input type="submit" id="byDate" name="sortBy" value="date"/>
-          <input type="submit" id="byAmt"  name="sortBy" value="total"/>
-          <input type="submit" id="byCat"  name="sortBy" value="category"/>
-          <input type="submit" id="byDesc" name="sortBy" value="title"/>
-        </form>
-    </div>
-
     <main class="expensesMain">
       <div class="expensesMain_headings">
         <h1 id="title_heading">Title</h1>
@@ -94,37 +84,6 @@
   const byAmt = document.getElementById('byAmt');
   const byCat = document.getElementById('byCat');
   const byDesc = document.getElementById('byDesc');
-  const expOpt = document.querySelector('.expense_sort_options')
-
-  function changeUnderline(e) {
-    const target = e.target;
-    if(target !== expOpt)
-    {
-      if(target == byAmt) {
-      target.style.borderBottom = "1px solid white";
-      byDate.style.borderBottom = "none";
-      byCat.style.borderBottom = "none";
-      byDesc.style.borderBottom = "none";
-      } else if(target == byCat) {
-      target.style.borderBottom = "1px solid white";
-      byDate.style.borderBottom = "none";
-      byAmt.style.borderBottom = "none";
-      byDesc.style.borderBottom = "none";
-      } else if(target == byDesc) {
-      target.style.borderBottom = "1px solid white";
-      byDate.style.borderBottom = "none";
-      byAmt.style.borderBottom = "none";
-      byCat.style.borderBottom = "none";
-      } else if(target == byDate) {
-      target.style.borderBottom = "1px solid white";
-      byCat.style.borderBottom = "none";
-      byAmt.style.borderBottom = "none";
-      byDesc.style.borderBottom = "none";
-      }
-    }
-  } 
-  expOpt.addEventListener("click", changeUnderline, false);
-
 
   var myChart = new Chart(expChart, {
     type: 'line',
