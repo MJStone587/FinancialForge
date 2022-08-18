@@ -44,12 +44,12 @@
     var desktopMax = window.matchMedia("(min-width: 3840px)");
     var width = window.innerWidth;
 
-    if (width >= 1024) {
+    if (width >= 1025) {
       hamburger.style.display = "none";
     }
 
     function myFunction() {
-      if (x.style.display == "grid" && width <= 1024) {
+      if (x.style.display == "grid" && width <= 1025) {
         x.style.display = "none";
         navbar.style.display = "none";
       } else {
@@ -60,7 +60,7 @@
         x.style.marginTop = "60px";
       }
     }
-    if (width <= 1024) {
+    if (width <= 1025) {
       window.onclick = function (e) {
         if (e.target != navbar && e.target != hamburger) {
           x.style.display = "none";
