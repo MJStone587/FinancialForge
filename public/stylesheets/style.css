@@ -394,10 +394,13 @@ html {
 .expensesMain_data a {
   text-decoration: none;
   color: #4edff9;
-  font-size: 19px;
+  font-size: 20px;
 }
 .expensesMain_data #expensesBody_title:hover {
   color: #b8f4ff;
+}
+.expensesMain_data #expensesBody_date {
+  margin: 0px 0px 0px 10px;
 }
 .expenses_content #expensesBody_total {
   margin: 20px 25px 20px 25px;
@@ -1491,8 +1494,11 @@ html {
   color: #355ec4;
 }
 .success_body {
-  margin: 0px 0px 0px 275px;
+  margin: 150px 0px 0px 400px;
   color: white;
+}
+.success_body h1 {
+  font: 35px "Bree Serif", serif;
 }
 .logout_message {
   display: grid;
@@ -2626,7 +2632,7 @@ html {
   .login_form {
     grid-area: loginForm;
     display: grid;
-    grid-template-rows: [row1] 5% [row2] 10% [row3] 7%;
+    grid-template-rows: [row1] 8% [row2] 20% [row3] 10%;
     grid-template-columns: [col1] 40% [col2] 40%;
     grid-row-gap: 10px;
     grid-template-areas:
@@ -2638,7 +2644,8 @@ html {
     align-content: center;
   }
   .login_form input {
-    padding: 5px;
+    padding: 6px;
+    height: 25px;
   }
   .login_form #login_userName {
     grid-area: loginName;
@@ -2660,6 +2667,7 @@ html {
     border: 1px solid #355ec4;
     margin-top: 20px;
     color: white;
+    height: 40px;
     font-size: 17px;
     cursor: pointer;
     border-radius: 5px;
@@ -2684,10 +2692,10 @@ html {
   /*Signup Page*/
   .signup_body {
     display: grid;
-    grid-template-rows: [row1] 5% [row2] 70% [row3] 5%;
+    grid-template-rows: [row1] 10% [row2] 70% [row3] 5%;
     grid-template-columns: [col1] 90%;
-    margin: 125px 20px 25px 20px;
-    height: 75vh;
+    margin: 150px 20px 25px 20px;
+    height: 60vh;
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
     grid-template-areas:
       "signupTitle"
@@ -2696,19 +2704,19 @@ html {
     background-color: #30353d;
     color: white;
     justify-content: center;
-    align-content: center;
   }
-  .signup_title {
+  .signup_body #signup_title {
     grid-area: signupTitle;
-    margin: 100px 0px 0px 50px;
+    margin: 25px 0px 0px 0px;
   }
   .signup_form {
     grid-area: signupForm;
     display: grid;
-    grid-template-rows: [row1] 3% [row2] 8% [row3] 3% [row4] 8% [row5] 3% [row6] 8% [row7] 5%;
-    grid-template-columns: [col1] 40% [col2] 40%;
+    grid-template-rows: [row1] 4% [row2] 14% [row3] 3% [row4] 14% [row5] 3% [row6] 14% [row7] 8%;
+    grid-template-columns: [col1] 45% [col2] 45%;
     grid-row-gap: 10px;
     grid-column-gap: 20px;
+    margin: 0px 0px 0px 0px;
     grid-template-areas:
       "signupUserNameLabel signupPassLabel"
       "signupUserName signupPass"
@@ -2789,7 +2797,7 @@ html {
   }
   .signup_signin {
     grid-area: signupSignin;
-    margin: 0px 0px 10px 100px;
+    margin: 0px 0px 10px 25px;
   }
   .signup_signin a {
     color: #4edff9;
@@ -3101,7 +3109,7 @@ html {
     grid-template-columns: [col1] 99%;
     grid-template-rows: [row1] 15% [row2] 85%;
     font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-    max-height: 80vh;
+    height: 300px;
     color: white;
     margin: 0px;
   }
@@ -3362,7 +3370,7 @@ html {
     grid-template-columns: [col1] 99%;
     grid-template-rows: [row1] 15% [row2] 85%;
     font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-    max-height: 80vh;
+    height: 300px;
     color: white;
     margin: 0px;
   }
@@ -4522,12 +4530,13 @@ html {
   /* Expense/Receipt Update Form */
   .receipt_update_body {
     background-color: #30353d;
-    margin: 200px 25px 0px 25px;
+    margin: 125px 25px 0px 25px;
     color: white;
     width: 85vw;
     height: 500px;
     border-radius: 10px;
     padding: 10px;
+    margin-bottom: 50px;
     align-content: center;
   }
   .receipt_update_body h1 {
@@ -4561,7 +4570,7 @@ html {
   /* Income Update Form */
   .income_update_body {
     background-color: #30353d;
-    margin: 250px 25px 0px 25px;
+    margin: 150px 25px 0px 25px;
     color: white;
     width: 82vw;
     border-radius: 10px;
@@ -4969,9 +4978,9 @@ html {
       "incomeList"
       "receiptList"
       "summBal";
-    margin: 50px 0px 25px 0px;
+    margin: 50px 5px 25px 5px;
     border-radius: 10px;
-    height: 800px;
+    height: 950px;
   }
 
   .summary_incomeList {
@@ -5176,15 +5185,15 @@ html {
   /*Global Details Page*/
   .det_body {
     display: grid;
-    grid-template-rows: [row1] 10% [row2] 10% [row3] 10% [row4] 10% [row5] 10% [row6] 10% [row7] 10% [row8] 10%;
-    grid-template-columns: [col1] 50% [col2] 50%;
-    margin: 150px 25px 0px 25px;
+    grid-template-rows: [row1] 12% [row2] 10% [row3] 10% [row4] 10% [row5] 10% [row6] 10% [row7] 10% [row8] 11%;
+    grid-template-columns: [col1] 49% [col2] 49%;
+    margin: 100px 0px 0px 15px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     background-color: #30353d;
     color: white;
-    width: 85%;
-    max-height: 60vh;
+    width: 87%;
+    height: 500px;
     justify-content: center;
     align-content: center;
     font-size: 14px;
@@ -5215,6 +5224,7 @@ html {
     border: 1px solid #4edff9;
     text-decoration: none;
     border-radius: 15px;
+    text-align: center;
   }
   .det_body a:hover {
     color: white;
@@ -5326,7 +5336,7 @@ html {
   }
   .signup_body #signup_title {
     grid-area: signupTitle;
-    margin: 100px 0px 0px 25px;
+    margin: 50px 0px 0px 25px;
     font-size: 20px;
     align-self: start;
   }

@@ -12,8 +12,11 @@
     <title>Receipt Update</title>
   </head>
 
-  <% if(authCheck){ %> <%- include("navbarLI") %> <% } else { %>
+  <% if(authCheck){ %> 
+    <%- include("navbarLI") %> 
+    <% } else { %>
   <%-include("navbar") %> <% } %>
+  
   <body class="receipt_update_body">
     <h1><%= title %></h1>
 

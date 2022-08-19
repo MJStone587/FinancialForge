@@ -6,3 +6,4 @@ user_login.ejs
 receipt_delete.ejs
 summary.ejs
 income_update.ejs
+receipt_update.ejs

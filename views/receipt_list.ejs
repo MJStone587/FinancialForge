@@ -46,7 +46,7 @@
       <div class="expensesMain_data">
         <% for(let i = 0; i < receipt_list.length; i++) { %>
         <!--<a href="/catalog/receipt/<%= receipt_list[i]._id %>"></a>-->
-          <a href="/catalog/receipt/<%= receipt_list[i]._id %>" id="expensesBody_title"><%= receipt_list[i].description %></a>
+          <a href="/catalog/receipt/<%= receipt_list[i]._id %>" id="expensesBody_title"><%= receipt_list[i].name %></a>
           <p id="expensesBody_amt"><%= "$" + receipt_list[i].total %> </p>
           <p id="expensesBody_cat"><%= receipt_list[i].category %> </p>
           <p id="expensesBody_date"><%= receipt_list[i].date_month %></p>
