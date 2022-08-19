@@ -5320,9 +5320,9 @@ html {
   /*Signup Page*/
   .signup_body {
     display: grid;
-    grid-template-rows: [row1] 20% [row2] 70% [row3] 10%;
+    grid-template-rows: [row1] 13% [row2] 70% [row3] 10%;
     grid-template-columns: [col1] 90%;
-    margin: 125px 20px 25px 20px;
+    margin: 100px 20px 0px 20px;
     height: 75vh;
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
     grid-template-areas:
@@ -5331,6 +5331,7 @@ html {
       "signupSignin";
     background-color: #30353d;
     color: white;
+    min-height: 75vh;
     justify-content: center;
     align-content: center;
   }
