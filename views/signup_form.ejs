@@ -21,6 +21,11 @@
 
   <div class="signup_body">
     <h1 id="signup_title">Create Login</h1>
+
+    <% if(typeof errors !== "undefined") { %>
+      <h1 id="error_report">ERROR: <%= errors %></h1>
+      <% }%>
+      
     <form class="signup_form" action="" method="POST">
       <label id="userNameLabel" for="userName">User Name: </label>
       <input
@@ -46,9 +51,6 @@
       <input type="date" id="bDay" name="birthDay" />
       <input id="signupSubmit" type="submit" value="Submit" />
     </form>
-    <% if(typeof errors !== "undefined") { %>
-    <h1 class="error_report">ERROR: <%= errors %></h1>
-    <% }%>
     <div class="signup_signin">
       <p>Already signed up?</p>
       <a href="/catalog/user/login">Login Here</a>

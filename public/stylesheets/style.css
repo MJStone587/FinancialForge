@@ -1381,17 +1381,19 @@ html {
 /*Signup Page*/
 .signup_body {
   display: grid;
-  grid-template-rows: [row1] 5% [row2] 70% [row3] 5%;
+  grid-template-rows: [row1] 5% [row2] 10% [row3] 70% [row4] 8%;
   grid-template-columns: [col1] 99%;
   margin: 25px 50px 25px 275px;
   height: 96vh;
   box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
   grid-template-areas:
     "signupTitle"
+    "errorRep"
     "signupForm"
     "signupSignin";
   background-color: #30353d;
   color: white;
+  min-height: 96vh;
 }
 .signup_body #signup_title {
   grid-area: signupTitle;
@@ -1480,6 +1482,11 @@ html {
   background-color: #4edff9;
   border: 1px solid #4edff9;
   color: black;
+}
+.signup_body #error_report {
+  grid-area: errorRep;
+  margin: 10px 50px 0px 50px;
+  font-size: 20px;
 }
 .signup_signin {
   grid-area: signupSignin;
@@ -2694,19 +2701,20 @@ html {
   /*Signup Page*/
   .signup_body {
     display: grid;
-    grid-template-rows: [row1] 10% [row2] 70% [row3] 10%;
+    grid-template-rows: [row1] 10% [row2] 10% [row3] 70% [row4] 10%;
     grid-template-columns: [col1] 90%;
     margin: 125px 20px 25px 20px;
     height: 60vh;
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
     grid-template-areas:
       "signupTitle"
+      "errorRep"
       "signupForm"
       "signupSignin";
     background-color: #30353d;
     color: white;
     justify-content: center;
-    min-height: 480px;
+    min-height: 650px;
   }
   .signup_body #signup_title {
     grid-area: signupTitle;
@@ -2715,11 +2723,11 @@ html {
   .signup_form {
     grid-area: signupForm;
     display: grid;
-    grid-template-rows: [row1] 4% [row2] 14% [row3] 3% [row4] 14% [row5] 3% [row6] 14% [row7] 8%;
+    grid-template-rows: [row1] 4% [row2] 14% [row3] 3% [row4] 14% [row5] 3% [row6] 14% [row7] 10%;
     grid-template-columns: [col1] 45% [col2] 45%;
     grid-row-gap: 10px;
     grid-column-gap: 20px;
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px 20px 0px;
     grid-template-areas:
       "signupUserNameLabel signupPassLabel"
       "signupUserName signupPass"
@@ -4005,19 +4013,21 @@ html {
   /*Signup Page*/
   .signup_body {
     display: grid;
-    grid-template-rows: [row1] 5% [row2] 70% [row3] 5%;
+    grid-template-rows: [row1] 10% [row2] 10% [row3] 70% [row4] 10%;
     grid-template-columns: [col1] 90%;
     margin: 125px 20px 25px 20px;
     height: 75vh;
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
     grid-template-areas:
       "signupTitle"
+      "errorRep"
       "signupForm"
       "signupSignin";
     background-color: #30353d;
     color: white;
     justify-content: center;
     align-content: center;
+    min-height: 75vh;
   }
   .signup_title {
     grid-area: signupTitle;
