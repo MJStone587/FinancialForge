@@ -2727,6 +2727,7 @@ html {
       " signupSubmit .";
     justify-content: center;
     align-content: center;
+    min-height: 375px;
   }
   .signup_form #userName {
     grid-area: signupUserName;
