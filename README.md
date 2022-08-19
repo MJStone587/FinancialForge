@@ -15,7 +15,9 @@ It seems clear that it is much easier to protect data on the backend which leads
 
 I spent a lot of time with Grid this project. Which has tremendously improved my understanding and use of grid. Overally my css skills have improved a lot this project. Near the end of this project I have started to really understand inheritance and how better to approach responsive design. I could have typed so much less, but that will be something I can use for the next project. 
 
-How to use the DOM more effectively to help my code and quickly find problems is another thing I really improved upon. 
+How to use the DOM more effectively to help my code and quickly find problems is another thing I really improved upon.
+
+Min-Height on Mobile to prevent squish on keyboard activation.
 
 It surprises me how much I learn everytime I think I've come a long way, large projects like this push me even further. Looking forward to the next one so that I could put these skills into use.
  
