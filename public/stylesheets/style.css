@@ -2624,6 +2624,7 @@ html {
       "loginSignUp";
     background-color: #30353d;
     color: white;
+    min-height: 480px;
   }
   .login_title {
     grid-area: loginTitle;
@@ -2705,6 +2706,7 @@ html {
     background-color: #30353d;
     color: white;
     justify-content: center;
+    min-height: 480px;
   }
   .signup_body #signup_title {
     grid-area: signupTitle;
