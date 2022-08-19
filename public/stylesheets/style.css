@@ -5359,6 +5359,7 @@ html {
     justify-content: center;
     align-content: center;
     font-size: 18px;
+    min-height: 350px;
   }
   .signup_form input {
     padding: 10px;
