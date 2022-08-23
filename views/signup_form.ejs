@@ -23,7 +23,7 @@
     <h1 id="signup_title">Create Login</h1>
 
     <% if(typeof errors !== "undefined") { %>
-      <h1 id="error_report">ERROR: <%= errors %></h1>
+      <h1 id="error_report"><strong>ERROR:</strong> <%= errors %></h1>
       <% }%>
       
     <form class="signup_form" action="" method="POST">
@@ -56,4 +56,15 @@
       <a href="/catalog/user/login">Login Here</a>
     </div>
   </div>
+  <script>
+    const errRep = document.getElementById("error_report");
+    const body = document.querySelector(".signup_body");
+
+    if(!errRep){
+      body.classList.remove("signup_bodyWithErr");
+    } else {
+      body.classList.add("signup_bodyWithErr");
+    }
+
+  </script>
 </html>

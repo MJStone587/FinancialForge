@@ -2,7 +2,6 @@ const User = require("../models/users");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
-var errorArr = [];
 
 exports.user_create_get = function (req, res) {
   res.render("signup_form", {
@@ -14,34 +13,40 @@ exports.user_create_get = function (req, res) {
 
 exports.user_create_post = [
   // Validate and sanitize the name field.
-  body("userName", "User Name Required").trim().isLength({ min: 1 }).escape(),
-  body("userPass", "This Password is Weak AF try again.")
+  body("userName", "Username must be filled in")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+  body(
+    "userPass",
+    " Password must be a minimum of 5 characters with atleast one number and capital"
+  )
     .trim()
     .isStrongPassword({
       minLength: 5,
       minLowercase: 1,
       minUppercase: 1,
-      minNumbers: 0,
-      minSymbols: 1,
-      returnScore: false,
-      pointsPerUnique: 1,
-      pointsPerRepeat: 0.5,
-      pointsForContainingLower: 10,
-      pointsForContainingUpper: 10,
-      pointsForContainingNumber: 10,
-      pointsForContainingSymbol: 10,
+      minNumbers: 1,
+      minSymbols: 0,
     })
     .escape(),
-  body("email", "Not a valid email address, try again")
+  body("email", " Not a valid email address").trim().isEmail().escape(),
+  body("lastName", " Last name should be more than one character long ")
     .trim()
-    .isEmail()
+    .isLength({ min: 1 })
+    .escape(),
+  body("firstName")
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage(" Name field cannot be empty")
+    .isAlpha()
+    .withMessage(" Name must use alphabetical letters")
     .escape(),
 
   // Process request after validation and sanitization.
   (req, res, next) => {
     // Extract the validation errors from a request.
     const errorFormatter = ({ msg }) => {
-      // Build your resulting errors however you want! String, object, whatever - it works!
       return `${msg}`;
     };
     const errors = validationResult(req).formatWith(errorFormatter);
@@ -51,6 +56,7 @@ exports.user_create_post = [
         return next(err);
       } else {
         var hashedPass = hash;
+        var email = req.body.email;
       }
       let user = new User({
         userName: req.body.userName,
@@ -58,21 +64,19 @@ exports.user_create_post = [
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         birthDay: req.body.birthDay,
-        email: req.body.email,
+        email: email.toLowerCase(),
       });
       if (!errors.isEmpty()) {
         // There are errors. Render the form again with sanitized values/error messages.
         res.render("signup_form", {
-          title: "New User Form",
-          user: user,
-          authCheck: req.session.isAuth,
+          title: "Create Login",
           errors: errors.array(),
+          authCheck: req.session.isAuth,
         });
-        return;
       } else {
         // Data from form is valid.
-        // Check if Receipt with same name already exists.
-        User.findOne({ email: req.body.email }).exec(function (
+        // Check if user with same email already exists.
+        User.findOne({ email: email.toLowerCase() }).exec(function (
           err,
           found_user
         ) {
@@ -85,7 +89,7 @@ exports.user_create_post = [
             res.render("signup_form", {
               title: "New User Form",
               user: user,
-              errors: "That email is already in Use",
+              errors: "That email is already in use",
               authCheck: req.session.isAuth,
             });
           } else {
@@ -93,10 +97,11 @@ exports.user_create_post = [
               if (err) {
                 return next(err);
               }
-              // Receipt saved. Redirect to genre detail page.
               res.render("success", {
                 message:
-                  "Success " + req.body.userName + " Successfully registered",
+                  "Success! " +
+                  req.body.userName +
+                  " was successfully registered",
                 authorID: req.session.authUserID,
                 authUser: req.session.authUser,
               });
