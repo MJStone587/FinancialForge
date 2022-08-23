@@ -5326,6 +5326,7 @@ html {
     grid-template-columns: [col1] 95%;
     margin: 150px 25px 10px 25px;
     height: 65vh;
+    min-height: 65vh;
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
     grid-template-areas:
       "loginTitle"
@@ -5469,8 +5470,9 @@ html {
       " signupSubmit .";
     justify-content: center;
     align-content: center;
+    height: 50vh;
     font-size: 18px;
-    min-height: 350px;
+    min-height: 50vh;
   }
   .signup_form input {
     padding: 10px;
