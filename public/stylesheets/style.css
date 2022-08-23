@@ -5423,11 +5423,14 @@ html {
     min-height: 75vh;
     justify-content: center;
     align-content: center;
+    min-width: 90vw;
+    overflow: auto;
   }
   .signup_bodyWithErr {
     display: grid;
     grid-template-rows: [row1] 20% [row2] 3% [row3] 65% [row4] 5%;
     grid-template-columns: [col1] 95%;
+    min-width: 90vw;
     margin: 95px 20px 0px 20px;
     height: 90vh;
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
@@ -5441,6 +5444,7 @@ html {
     min-height: 90vh;
     justify-content: center;
     align-content: center;
+    overflow: auto;
   }
   .signup_body #signup_title {
     grid-area: signupTitle;
@@ -5473,6 +5477,7 @@ html {
     height: 50vh;
     font-size: 18px;
     min-height: 50vh;
+    overflow: auto;
   }
   .signup_form input {
     padding: 10px;
