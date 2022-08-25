@@ -1421,7 +1421,7 @@ html {
 .signup_form {
   grid-area: signupForm;
   display: grid;
-  grid-template-rows: [row1] 3% [row2] 8% [row3] 3% [row4] 8% [row5] 3% [row6] 8% [row7] 5%;
+  grid-template-rows: [row1] 2rem [row2] 5rem [row3] 2rem [row4] 5rem [row5] 2rem [row6] 5rem [row7] 5rem;
   grid-template-columns: [col1] 40% [col2] 40%;
   grid-row-gap: 10px;
   grid-column-gap: 20px;
@@ -5411,7 +5411,7 @@ html {
     grid-template-rows: [row1] 3% [row2] 10% [row3] 65% [row4] 10%;
     grid-template-columns: [col1] 90%;
     margin: 100px 20px 0px 20px;
-    height: 75vh;
+    height: 80vh;
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.685);
     grid-template-areas:
       "signupErr"
@@ -5420,15 +5420,14 @@ html {
       "signupSignin";
     background-color: #30353d;
     color: white;
-    min-height: 75vh;
+    min-height: 80vh;
     justify-content: center;
     align-content: center;
-    min-width: 90vw;
     overflow: auto;
   }
   .signup_bodyWithErr {
     display: grid;
-    grid-template-rows: [row1] 20% [row2] 3% [row3] 65% [row4] 5%;
+    grid-template-rows: [row1] 20% [row2] 10% [row3] 60% [row4] 10%;
     grid-template-columns: [col1] 95%;
     min-width: 90vw;
     margin: 95px 20px 0px 20px;
@@ -5448,19 +5447,20 @@ html {
   }
   .signup_body #signup_title {
     grid-area: signupTitle;
-    margin: 0px 0px 0px 25px;
+    margin: 0px 0px 5px 25px;
     font-size: 20px;
     align-self: start;
   }
   .signup_body #error_report {
-    margin: 5px;
+    margin: 15px 5px 0px 10px;
     grid-area: signupErr;
     font-size: 17px;
   }
   .signup_form {
     grid-area: signupForm;
     display: grid;
-    grid-template-rows: [row1] 5% [row2] 15% [row3] 5% [row4] 15% [row5] 5% [row6] 15% [row7] 15%;
+    /*grid-template-rows: [row1] 5% [row2] 15% [row3] 5% [row4] 15% [row5] 5% [row6] 15% [row7] 15%;*/
+    grid-template-rows: [row1] 0.5fr [row2] 2fr [row3] 0.5fr [row4] 2fr[row5] 0.5fr [row6] 2fr [row7] 2fr;
     grid-template-columns: [col1] 45% [col2] 45%;
     grid-row-gap: 5px;
     grid-column-gap: 20px;

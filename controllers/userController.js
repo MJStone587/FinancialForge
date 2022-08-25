@@ -19,7 +19,7 @@ exports.user_create_post = [
     .escape(),
   body(
     "userPass",
-    " Password must be a minimum of 5 characters with atleast one number and capital"
+    " Password must be 5 characters with atleast one number and capital"
   )
     .trim()
     .isStrongPassword({
@@ -31,7 +31,7 @@ exports.user_create_post = [
     })
     .escape(),
   body("email", " Not a valid email address").trim().isEmail().escape(),
-  body("lastName", " Last name should be more than one character long ")
+  body("lastName", " Must fill in Last Name")
     .trim()
     .isLength({ min: 1 })
     .escape(),
