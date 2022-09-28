@@ -1,4 +1,7 @@
 # Framework
+To view the current live version of the site: https://hidden-peak-86387.herokuapp.com/catalog
+THIS SITE IS A WIP
+
 What is this?  
 
 This is a practice website / app. 
@@ -23,6 +26,4 @@ It surprises me how much I learn everytime I think I've come a long way, large p
  
 With a full stack application I have learned just how import asyncronous javascript is. I also realize how much more practice implementing it I need.
 
-To view the current live version of the site: https://hidden-peak-86387.herokuapp.com/catalog
-THIS SITE IS A WIP
 
