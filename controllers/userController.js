@@ -51,6 +51,7 @@ exports.user_create_post = [
     };
     const errors = validationResult(req).formatWith(errorFormatter);
 
+    // encrypt the password from input field
     bcrypt.hash(req.body.userPass, saltRounds, function (err, hash) {
       if (err) {
         return next(err);
@@ -58,6 +59,7 @@ exports.user_create_post = [
         var hashedPass = hash;
         var email = req.body.email;
       }
+      // if no error fill model data with data from fields and encrypted password
       let user = new User({
         userName: req.body.userName,
         userPass: hashedPass,
