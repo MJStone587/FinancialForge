@@ -8,5 +8,5 @@ I am using node.js / express / mongoose...
 The functionality of this site is a financial organizer with the ability to create multiple users and store financial information to help organize and track financial spending / saving.
 The goal of this project is to become more familiar using node / express / mongoose. Implementing basic CRUD using mongoDB, and user authentication.
 
-EDIT: Project has some seriously load time issues that I am working on to improve.
+EDIT: Project has some serious load time issues that I am working on to improve.
 
