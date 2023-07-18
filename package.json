@@ -22,7 +22,7 @@
     "http-errors": "~1.6.3",
     "install": "^0.13.0",
     "luxon": "^2.3.2",
-    "mongoose": "^6.3.1",
+    "mongoose": "^6.11.3",
     "morgan": "~1.9.1",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
